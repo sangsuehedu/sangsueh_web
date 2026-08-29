@@ -1421,14 +1421,22 @@
     .social-app-icon {
       width: 28px !important;
       height: 28px !important;
-      border-radius: 7px !important;
-      object-fit: cover !important;
+      max-width: 28px !important;
+      max-height: 28px !important;
+      object-fit: contain !important;
+      display: block !important;
       flex-shrink: 0 !important;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
       transition: transform 0.2s ease !important;
     }
     .social-clean-item:hover .social-app-icon {
-      transform: scale(1.1) !important;
+      width: 28px !important;
+      height: 28px !important;
+      max-width: 28px !important;
+      max-height: 28px !important;
+      object-fit: contain !important;
+      display: block !important;
+      flex-shrink: 0 !important;
+      transition: transform 0.2s ease !important;
     }
     .social-clean-text {
       display: flex !important;
@@ -1489,6 +1497,166 @@
       .social-links-clean-grid {
         grid-template-columns: 1fr !important;
       }
+    }
+
+
+    /* ========================================================
+       全螢幕全尺寸自適應響應式佈局系統 (Universal Responsive Design)
+       ======================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+    }
+    
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    /* 頂部導覽列自適應：<= 1180px 自動收合為純淨品牌 Logo + 專題目錄抽屜按鈕 */
+    @media (max-width: 1180px) {
+      .desktop-nav {
+        display: none !important;
+      }
+      .mobile-header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      .header-container {
+        padding: 8px 16px !important;
+      }
+    }
+    @media (min-width: 1181px) {
+      .mobile-header-actions {
+        display: none !important;
+      }
+      .desktop-nav {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+      }
+    }
+
+    /* 首頁視覺自適應 (Hero Section) */
+    .hero {
+      padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 40px) !important;
+      max-width: 1240px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+    .hero-grid {
+      display: grid !important;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(300px, 1fr) !important;
+      gap: clamp(24px, 4vw, 56px) !important;
+      align-items: center !important;
+    }
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+    }
+
+    /* 全專題章節流體響應式排版 (Fluid Adaptive Chapters) */
+    .chapter {
+      padding: clamp(48px, 6vw, 90px) clamp(16px, 4vw, 40px) !important;
+      overflow: hidden !important;
+      width: 100% !important;
+    }
+    .chapter-layout {
+      display: grid !important;
+      grid-template-columns: minmax(280px, 1fr) minmax(300px, 1.1fr) !important;
+      align-items: start !important;
+      gap: clamp(24px, 4vw, 56px) !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+    .chapter-layout.reverse {
+      grid-template-columns: minmax(300px, 1.1fr) minmax(280px, 1fr) !important;
+    }
+    .chapter-layout.reverse .chapter-story {
+      order: 2 !important;
+    }
+    .chapter-showcase {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: clamp(12px, 2vw, 18px) !important;
+      width: 100% !important;
+    }
+    .chapter-showcase .showcase-card img {
+      width: 100% !important;
+      height: 230px !important;
+      aspect-ratio: 4 / 3 !important;
+      object-fit: cover !important;
+      object-position: center 25% !important;
+      border-radius: 12px !important;
+    }
+
+    /* 平板、iPad、Mac 分割視窗半屏 (<= 1060px) 自動轉為流暢堆疊單欄 */
+    @media (max-width: 1060px) {
+      .chapter-layout, .chapter-layout.reverse {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        max-width: 720px !important;
+      }
+      .chapter-layout.reverse .chapter-story {
+        order: initial !important;
+      }
+      .chapter-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+      }
+      .chapter-showcase .showcase-card img {
+        height: 260px !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .chapter-showcase {
+        grid-template-columns: 1fr !important;
+      }
+      .chapter-showcase .showcase-card img {
+        height: 220px !important;
+      }
+    }
+
+    /* 八月份專題卡片自適應 (Chapter 5-8 Card Responsive) */
+    .expo-showcase, .toys-showcase, .museum-showcase, .sdgs-showcase {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 16px !important;
+      justify-content: center !important;
+      width: 100% !important;
+    }
+    .expo-card, .toys-card, .museum-card, .sdgs-card {
+      flex: 1 1 260px !important;
+      max-width: 420px !important;
+      min-width: 220px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 孩子金句牆自適應 (Quotes Wall Grid) */
+    .quotes-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: clamp(14px, 2.5vw, 22px) !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+
+    /* 照片牆自適應 (Moments Responsive Masonry) */
+    .moments-grid {
+      column-gap: 14px !important;
+      max-width: 1240px !important;
+      margin: auto !important;
+    }
+    @media (min-width: 1200px) {
+      .moments-grid { columns: 4 240px !important; }
+    }
+    @media (max-width: 1199px) and (min-width: 800px) {
+      .moments-grid { columns: 3 220px !important; }
+    }
+    @media (max-width: 799px) {
+      .moments-grid { columns: 2 140px !important; }
     }
 
   </style>
@@ -2297,8 +2465,8 @@
           <div class="footer-brand-col">
             <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v9" alt="尚學文教 Logo"/>
             <div class="footer-mission">
-              <strong class="brand-slogan-main">讓孩子開心學習・快樂成長</strong>
-              <p class="brand-slogan-sub">#陪伴每位學員今日超越昨日，自信迎接美好明天💪</p>
+              <strong class="brand-slogan-main">開心學習・快樂成長</strong>
+              <p class="brand-slogan-sub">#讓孩子今天比昨天成長以期望更好的明天💪</p>
             </div>
             <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
           </div>
