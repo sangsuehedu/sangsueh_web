@@ -405,30 +405,7 @@
       }
     }
   
-    /* ========================================================
-       現代化極簡響應式固定導覽系統 (Fixed Top Navigation System)
-       ======================================================== */
-    .site-header {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      width: 100% !important;
-      z-index: 10000 !important;
-      background: rgba(247, 242, 232, 0.96) !important;
-      backdrop-filter: blur(14px) !important;
-      -webkit-backdrop-filter: blur(14px) !important;
-      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
-      padding: 0 clamp(16px, 4vw, 40px) !important;
-      height: 60px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      box-sizing: border-box !important;
-    }
-    body, main {
-      padding-top: 60px !important;
-    }
+    
     .site-header-brand {
       display: flex !important;
       align-items: center !important;
@@ -1664,6 +1641,188 @@
     }
     @media (max-width: 799px) {
       .moments-grid { columns: 2 140px !important; }
+    }
+
+
+    /* ========================================================
+       頂級品牌固定導覽系統 (Fixed Top Navigation System)
+       ======================================================== */
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 10000 !important;
+      background: rgba(247, 242, 232, 0.96) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
+      padding: 0 clamp(16px, 3.5vw, 40px) !important;
+      height: 60px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+    }
+    
+    body, main {
+      padding-top: 0 !important;
+      margin: 0 !important;
+    }
+
+    .site-header-brand {
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .brand-logo {
+      height: 34px !important;
+      max-height: 34px !important;
+      width: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+
+    /* 電腦版導覽列：置中、無灰色框框、純淨文字連結 */
+    .desktop-nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: clamp(8px, 1.2vw, 18px) !important;
+      flex: 1 !important;
+      margin: 0 16px !important;
+    }
+    .desktop-nav a {
+      padding: 6px 4px !important;
+      color: #4A5753 !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      font-size: clamp(13px, 1.1vw, 14.5px) !important;
+      font-weight: 750 !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease !important;
+      white-space: nowrap !important;
+      box-shadow: none !important;
+    }
+    .desktop-nav a:hover {
+      background: transparent !important;
+      color: #C96D45 !important;
+    }
+
+    /* 只有「現場互動」保留醒目的品牌橘色膠囊按鈕 */
+    .desktop-nav a.nav-highlight {
+      background: #C96D45 !important;
+      color: #FFFFFF !important;
+      font-weight: 850 !important;
+      padding: 7px 16px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
+      margin-left: 6px !important;
+      transition: transform 0.15s ease, background 0.2s ease !important;
+    }
+    .desktop-nav a.nav-highlight:hover {
+      background: #B35830 !important;
+      color: #FFFFFF !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* 手機 / 平板 / 分割視窗端膠囊按鈕 (Mobile Header Actions) */
+    .mobile-header-actions {
+      display: none !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-shrink: 0 !important;
+    }
+    .mobile-cta-btn {
+      background: #C96D45 !important;
+      color: #FFFFFF !important;
+      border-radius: 999px !important;
+      padding: 7px 14px !important;
+      font-size: 13px !important;
+      font-weight: 850 !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
+      border: none !important;
+      white-space: nowrap !important;
+      transition: transform 0.15s ease !important;
+    }
+    .mobile-cta-btn:active {
+      transform: scale(0.96) !important;
+    }
+    .mobile-menu-btn {
+      background: #24312E !important;
+      color: #FFFFFF !important;
+      border-radius: 999px !important;
+      padding: 7px 14px !important;
+      font-size: 13px !important;
+      font-weight: 850 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      border: none !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      box-shadow: 0 4px 12px rgba(36, 49, 46, 0.2) !important;
+      transition: transform 0.15s ease !important;
+    }
+    .mobile-menu-btn:active {
+      transform: scale(0.96) !important;
+    }
+
+    /* 頂部導覽自適應斷點 */
+    @media (max-width: 1180px) {
+      .desktop-nav {
+        display: none !important;
+      }
+      .mobile-header-actions {
+        display: flex !important;
+      }
+    }
+    @media (min-width: 1181px) {
+      .mobile-header-actions {
+        display: none !important;
+      }
+      .desktop-nav {
+        display: flex !important;
+      }
+    }
+
+    /* ========================================================
+       首頁滿版全螢幕展示系統 (Full-width Edge-to-Edge Hero)
+       ======================================================== */
+    .hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: clamp(90px, 9vw, 130px) clamp(20px, 6vw, 80px) clamp(50px, 6vw, 90px) !important;
+      background: radial-gradient(circle at 7% 20%, #e8c96859 0 3px, transparent 4px), linear-gradient(115deg, var(--cream, #fffaf1) 0 55%, #e6eddf 55%) !important;
+      min-height: 100vh !important;
+      box-sizing: border-box !important;
+      display: grid !important;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(300px, 1fr) !important;
+      align-items: center !important;
+      gap: clamp(24px, 4vw, 56px) !important;
+      position: relative !important;
+    }
+    .hero-copy {
+      max-width: 620px !important;
+    }
+    .hero-collage {
+      min-height: 540px !important;
+      position: relative !important;
+      width: 100% !important;
+    }
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr !important;
+        padding-top: 80px !important;
+        gap: 36px !important;
+      }
     }
 
   </style>
