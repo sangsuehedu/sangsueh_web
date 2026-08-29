@@ -9,6 +9,10 @@
   <link rel="icon" href="./favicon.png?v=20260829_v7" type="image/png"/>
   <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260829_v7"/>
 
+    <!-- Google Fonts: Rounded Modern Fonts for Stats & Numbers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@800;900&family=Quicksand:wght@700;800&display=swap" rel="stylesheet">
   <!-- Local Official Stylesheet -->
   <link rel="stylesheet" href="./index.css"/>
   
@@ -436,35 +440,44 @@
       object-fit: contain !important;
     }
 
-    /* 電腦版導覽列 (Desktop Nav) */
+        /* 電腦版導覽列：置中、無灰色框框、純淨文字連結 */
     .desktop-nav {
       display: flex !important;
       align-items: center !important;
-      gap: 8px !important;
-      font-size: 13.5px !important;
-      font-weight: 750 !important;
+      justify-content: center !important;
+      gap: clamp(10px, 1.3vw, 22px) !important;
+      flex: 1 !important;
+      margin: 0 auto !important;
     }
     .desktop-nav a {
-      padding: 6px 12px !important;
-      border-radius: 999px !important;
-      color: #24312E !important;
-      background: rgba(36, 49, 46, 0.04) !important;
+      padding: 6px 4px !important;
+      border-radius: 0 !important;
+      color: #3F4D49 !important;
+      background: transparent !important;
+      border: none !important;
       text-decoration: none !important;
-      transition: all 0.2s ease !important;
+      transition: color 0.2s ease !important;
       flex-shrink: 0 !important;
+      font-size: clamp(13px, 1.1vw, 14.5px) !important;
+      font-weight: 750 !important;
+      box-shadow: none !important;
     }
     .desktop-nav a:hover {
-      background: rgba(36, 49, 46, 0.12) !important;
-      color: #1A2B25 !important;
+      background: transparent !important;
+      color: #C96D45 !important;
     }
     .desktop-nav a.nav-highlight {
       background: #C96D45 !important;
       color: #FFFFFF !important;
-      font-weight: 900 !important;
-      box-shadow: 0 2px 6px rgba(201, 109, 69, 0.25) !important;
+      font-weight: 850 !important;
+      padding: 7px 16px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
+      margin-left: 8px !important;
     }
     .desktop-nav a.nav-highlight:hover {
       background: #B35830 !important;
+      color: #FFFFFF !important;
     }
 
     /* 手機版導覽按鈕區 (Mobile Actions) */
@@ -1293,539 +1306,130 @@
 
 
     /* ========================================================
-       尚學文教官方品牌旗艦頁尾 (SangSueh Brand Official Footer)
+       【精修 Part 1】首頁拍立得相片卡文字與印章防跑位系統
        ======================================================== */
-    .site-footer {
-      background: #14201C !important;
-      color: #E2ECE6 !important;
-      padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px) 36px !important;
+    .hero-collage {
+      min-height: 520px !important;
+      position: relative !important;
       width: 100% !important;
+    }
+    .photo-card.hero-main {
+      inset: 4% 14% 6% 4% !important;
+      padding: 12px 12px 14px 12px !important;
+      box-shadow: 0 16px 45px rgba(36, 49, 46, 0.15) !important;
+      position: absolute !important;
+      transform: rotate(-2deg) !important;
+      background: #FFFFFF !important;
+      display: flex !important;
+      flex-direction: column !important;
       box-sizing: border-box !important;
-      border-top: 3px solid #C96D45 !important;
     }
-    .footer-container {
-      max-width: 1240px !important;
-      margin: 0 auto !important;
+    .photo-card.hero-main img {
       width: 100% !important;
-    }
-    .footer-top-grid {
-      display: grid !important;
-      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr) !important;
-      gap: clamp(36px, 6vw, 70px) !important;
-      align-items: start !important;
-    }
-    
-    /* 左側品牌資訊（嚴格靠左對齊，消除多餘置中） */
-    .footer-brand-col {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      text-align: left !important;
-      gap: 16px !important;
-    }
-    .footer-logo-clean {
-      height: 48px !important;
-      max-height: 48px !important;
-      width: auto !important;
-      object-fit: contain !important;
+      flex: 1 1 auto !important;
+      height: 380px !important;
+      max-height: calc(100% - 36px) !important;
+      min-height: 0 !important;
+      object-fit: cover !important;
+      border-radius: 4px !important;
       display: block !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      align-self: flex-start !important;
     }
-    .footer-mission {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 6px !important;
-      margin: 0 !important;
-      text-align: left !important;
-      align-items: flex-start !important;
-    }
-    .brand-slogan-main {
-      font-size: 16px !important;
-      font-weight: 850 !important;
-      color: #FFF !important;
-      letter-spacing: 0.03em !important;
-    }
-    .brand-slogan-sub {
-      color: #A3B8AF !important;
-      font-size: 13.5px !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
-    }
-    .footer-badge {
-      display: inline-block !important;
-      background: rgba(232, 201, 104, 0.12) !important;
-      color: #E8C968 !important;
-      border: 1px solid rgba(232, 201, 104, 0.3) !important;
-      padding: 7px 16px !important;
-      border-radius: 999px !important;
-      font-size: 12px !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.05em !important;
-      width: fit-content !important;
-      margin-top: 4px !important;
-    }
-
-    /* 右側社群導航（無框、無呼吸燈、真實 App 圖示） */
-    .footer-social-col {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 18px !important;
-      text-align: left !important;
-      align-items: flex-start !important;
-    }
-    .social-hub-title {
-      font-size: 15px !important;
-      font-weight: 850 !important;
-      color: #FFF !important;
-      letter-spacing: 0.05em !important;
-      margin: 0 !important;
-    }
-    .social-links-clean-grid {
-      display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 14px 24px !important;
-      width: 100% !important;
-    }
-    .social-clean-item {
+    .photo-card.hero-main figcaption {
+      height: 32px !important;
       display: flex !important;
       align-items: center !important;
-      gap: 12px !important;
-      padding: 6px 0 !important;
-      color: #E2ECE6 !important;
-      text-decoration: none !important;
-      background: transparent !important;
-      border: none !important;
-      transition: transform 0.2s ease !important;
-    }
-    .social-clean-item:hover {
-      transform: translateX(4px) !important;
-    }
-    .social-app-icon {
-      width: 28px !important;
-      height: 28px !important;
-      max-width: 28px !important;
-      max-height: 28px !important;
-      object-fit: contain !important;
-      display: block !important;
-      flex-shrink: 0 !important;
-      transition: transform 0.2s ease !important;
-    }
-    .social-clean-item:hover .social-app-icon {
-      width: 28px !important;
-      height: 28px !important;
-      max-width: 28px !important;
-      max-height: 28px !important;
-      object-fit: contain !important;
-      display: block !important;
-      flex-shrink: 0 !important;
-      transition: transform 0.2s ease !important;
-    }
-    .social-clean-text {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 2px !important;
-      min-width: 0 !important;
-    }
-    .social-clean-text strong {
-      font-size: 14px !important;
-      font-weight: 800 !important;
-      color: #FFF !important;
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: clamp(12.5px, 1.2vw, 14.5px) !important;
+      font-weight: 750 !important;
+      color: #24312E !important;
+      letter-spacing: 0.04em !important;
+      margin: 8px 0 0 0 !important;
+      padding: 0 4px !important;
+      position: static !important;
       white-space: nowrap !important;
       overflow: hidden !important;
       text-overflow: ellipsis !important;
-      transition: color 0.2s ease !important;
+      line-height: 1.4 !important;
+      background: #FFFFFF !important;
     }
-    .social-clean-text small {
+    .stamp {
+      width: 80px !important;
+      height: 80px !important;
+      border: 2.5px solid #C96D45 !important;
+      color: #C96D45 !important;
+      background: rgba(255, 250, 241, 0.96) !important;
+      backdrop-filter: blur(6px) !important;
+      -webkit-backdrop-filter: blur(6px) !important;
+      border-radius: 50% !important;
+      display: grid !important;
+      place-items: center !important;
+      font-family: 'Comfortaa', 'Nunito', 'Quicksand', system-ui, sans-serif !important;
+      font-weight: 900 !important;
       font-size: 11.5px !important;
-      color: #8BA297 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      transition: color 0.2s ease !important;
-    }
-    .social-clean-item:hover .social-clean-text strong {
-      color: #E8C968 !important;
-    }
-    .social-clean-item:hover .social-clean-text small {
-      color: #D4B962 !important;
+      line-height: 1.35 !important;
+      text-align: center !important;
+      position: absolute !important;
+      bottom: 0% !important;
+      right: 12% !important;
+      z-index: 10 !important;
+      transform: rotate(-10deg) !important;
+      box-shadow: 0 6px 16px rgba(201, 109, 69, 0.22) !important;
     }
 
-    /* Bottom Bar */
-    .footer-bottom-bar {
-      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-      margin-top: clamp(36px, 5vw, 50px) !important;
-      padding-top: 22px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      font-size: 12.5px !important;
-      color: #83978E !important;
-    }
-    .footer-bottom-bar p {
-      margin: 0 !important;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .footer-top-grid {
-        grid-template-columns: 1fr !important;
-        gap: 32px !important;
+    /* 手機與平板端印章與相片排版防擠壓 */
+    @media (max-width: 768px) {
+      .hero-collage {
+        min-height: 440px !important;
       }
-      .social-links-clean-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+      .photo-card.hero-main {
+        inset: 2% 8% 4% 2% !important;
+      }
+      .photo-card.hero-main img {
+        height: 300px !important;
+      }
+      .stamp {
+        width: 68px !important;
+        height: 68px !important;
+        font-size: 10px !important;
+        right: 6% !important;
+        bottom: -5px !important;
       }
     }
-    @media (max-width: 520px) {
-      .social-links-clean-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
 
     /* ========================================================
-       全螢幕全尺寸自適應響應式佈局系統 (Universal Responsive Design)
+       【精修 Part 2】序章數據統計數字圓潤字體系統 (Rounded Numbers)
        ======================================================== */
-    *, *::before, *::after {
-      box-sizing: border-box !important;
-    }
-    
-    html, body {
-      max-width: 100% !important;
-      overflow-x: clip !important;
-    }
-
-    /* 頂部導覽列自適應：<= 1180px 自動收合為純淨品牌 Logo + 專題目錄抽屜按鈕 */
-    @media (max-width: 1180px) {
-      .desktop-nav {
-        display: none !important;
-      }
-      .mobile-header-actions {
-        display: flex !important;
-        align-items: center !important;
-        gap: 8px !important;
-      }
-      .header-container {
-        padding: 8px 16px !important;
-      }
-    }
-    @media (min-width: 1181px) {
-      .mobile-header-actions {
-        display: none !important;
-      }
-      .desktop-nav {
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-      }
-    }
-
-    /* 首頁視覺自適應 (Hero Section) */
-    .hero {
-      padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 40px) !important;
-      max-width: 1240px !important;
-      margin: 0 auto !important;
-      width: 100% !important;
-    }
-    .hero-grid {
-      display: grid !important;
-      grid-template-columns: minmax(320px, 1.1fr) minmax(300px, 1fr) !important;
-      gap: clamp(24px, 4vw, 56px) !important;
-      align-items: center !important;
-    }
-    @media (max-width: 960px) {
-      .hero-grid {
-        grid-template-columns: 1fr !important;
-        gap: 32px !important;
-      }
-    }
-
-    /* 全專題章節流體響應式排版 (Fluid Adaptive Chapters) */
-    .chapter {
-      padding: clamp(48px, 6vw, 90px) clamp(16px, 4vw, 40px) !important;
-      overflow: hidden !important;
-      width: 100% !important;
-    }
-    .chapter-layout {
-      display: grid !important;
-      grid-template-columns: minmax(280px, 1fr) minmax(300px, 1.1fr) !important;
-      align-items: start !important;
-      gap: clamp(24px, 4vw, 56px) !important;
-      max-width: 1200px !important;
-      margin: 0 auto !important;
-      width: 100% !important;
-    }
-    .chapter-layout.reverse {
-      grid-template-columns: minmax(300px, 1.1fr) minmax(280px, 1fr) !important;
-    }
-    .chapter-layout.reverse .chapter-story {
-      order: 2 !important;
-    }
-    .chapter-showcase {
-      display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: clamp(12px, 2vw, 18px) !important;
-      width: 100% !important;
-    }
-    .chapter-showcase .showcase-card img {
-      width: 100% !important;
-      height: 230px !important;
-      aspect-ratio: 4 / 3 !important;
-      object-fit: cover !important;
-      object-position: center 25% !important;
-      border-radius: 12px !important;
-    }
-
-    /* 平板、iPad、Mac 分割視窗半屏 (<= 1060px) 自動轉為流暢堆疊單欄 */
-    @media (max-width: 1060px) {
-      .chapter-layout, .chapter-layout.reverse {
-        grid-template-columns: 1fr !important;
-        gap: 28px !important;
-        max-width: 720px !important;
-      }
-      .chapter-layout.reverse .chapter-story {
-        order: initial !important;
-      }
-      .chapter-showcase {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-      }
-      .chapter-showcase .showcase-card img {
-        height: 260px !important;
-      }
-    }
-    @media (max-width: 580px) {
-      .chapter-showcase {
-        grid-template-columns: 1fr !important;
-      }
-      .chapter-showcase .showcase-card img {
-        height: 220px !important;
-      }
-    }
-
-    /* 八月份專題卡片自適應 (Chapter 5-8 Card Responsive) */
-    .expo-showcase, .toys-showcase, .museum-showcase, .sdgs-showcase {
+    .stats {
+      border-top: 1px solid rgba(36, 49, 46, 0.15) !important;
+      gap: clamp(24px, 4vw, 48px) !important;
+      margin-top: 36px !important;
+      padding-top: 24px !important;
       display: flex !important;
       flex-wrap: wrap !important;
-      gap: 16px !important;
-      justify-content: center !important;
-      width: 100% !important;
     }
-    .expo-card, .toys-card, .museum-card, .sdgs-card {
-      flex: 1 1 260px !important;
-      max-width: 420px !important;
-      min-width: 220px !important;
-      box-sizing: border-box !important;
-    }
-
-    /* 孩子金句牆自適應 (Quotes Wall Grid) */
-    .quotes-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-      gap: clamp(14px, 2.5vw, 22px) !important;
-      max-width: 1200px !important;
-      margin: 0 auto !important;
-    }
-
-    /* 照片牆自適應 (Moments Responsive Masonry) */
-    .moments-grid {
-      column-gap: 14px !important;
-      max-width: 1240px !important;
-      margin: auto !important;
-    }
-    @media (min-width: 1200px) {
-      .moments-grid { columns: 4 240px !important; }
-    }
-    @media (max-width: 1199px) and (min-width: 800px) {
-      .moments-grid { columns: 3 220px !important; }
-    }
-    @media (max-width: 799px) {
-      .moments-grid { columns: 2 140px !important; }
-    }
-
-
-    /* ========================================================
-       頂級品牌固定導覽系統 (Fixed Top Navigation System)
-       ======================================================== */
-    .site-header {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      width: 100% !important;
-      z-index: 10000 !important;
-      background: rgba(247, 242, 232, 0.96) !important;
-      backdrop-filter: blur(14px) !important;
-      -webkit-backdrop-filter: blur(14px) !important;
-      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
-      padding: 0 clamp(16px, 3.5vw, 40px) !important;
-      height: 60px !important;
+    .stats div {
       display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      box-sizing: border-box !important;
-    }
-    
-    body, main {
-      padding-top: 0 !important;
-      margin: 0 !important;
-    }
-
-    .site-header-brand {
-      flex-shrink: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-    .brand-logo {
-      height: 34px !important;
-      max-height: 34px !important;
-      width: auto !important;
-      object-fit: contain !important;
-      display: block !important;
-    }
-
-    /* 電腦版導覽列：置中、無灰色框框、純淨文字連結 */
-    .desktop-nav {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: clamp(8px, 1.2vw, 18px) !important;
-      flex: 1 !important;
-      margin: 0 16px !important;
-    }
-    .desktop-nav a {
-      padding: 6px 4px !important;
-      color: #4A5753 !important;
-      background: transparent !important;
-      border: none !important;
-      border-radius: 0 !important;
-      font-size: clamp(13px, 1.1vw, 14.5px) !important;
-      font-weight: 750 !important;
-      text-decoration: none !important;
-      transition: color 0.2s ease !important;
-      white-space: nowrap !important;
-      box-shadow: none !important;
-    }
-    .desktop-nav a:hover {
-      background: transparent !important;
-      color: #C96D45 !important;
-    }
-
-    /* 只有「現場互動」保留醒目的品牌橘色膠囊按鈕 */
-    .desktop-nav a.nav-highlight {
-      background: #C96D45 !important;
-      color: #FFFFFF !important;
-      font-weight: 850 !important;
-      padding: 7px 16px !important;
-      border-radius: 999px !important;
-      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
-      margin-left: 6px !important;
-      transition: transform 0.15s ease, background 0.2s ease !important;
-    }
-    .desktop-nav a.nav-highlight:hover {
-      background: #B35830 !important;
-      color: #FFFFFF !important;
-      transform: translateY(-1px) !important;
-    }
-
-    /* 手機 / 平板 / 分割視窗端膠囊按鈕 (Mobile Header Actions) */
-    .mobile-header-actions {
-      display: none !important;
-      align-items: center !important;
-      gap: 10px !important;
-      flex-shrink: 0 !important;
-    }
-    .mobile-cta-btn {
-      background: #C96D45 !important;
-      color: #FFFFFF !important;
-      border-radius: 999px !important;
-      padding: 7px 14px !important;
-      font-size: 13px !important;
-      font-weight: 850 !important;
-      text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
+      flex-direction: column !important;
       gap: 4px !important;
-      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
-      border: none !important;
-      white-space: nowrap !important;
-      transition: transform 0.15s ease !important;
     }
-    .mobile-cta-btn:active {
-      transform: scale(0.96) !important;
-    }
-    .mobile-menu-btn {
-      background: #24312E !important;
-      color: #FFFFFF !important;
-      border-radius: 999px !important;
-      padding: 7px 14px !important;
-      font-size: 13px !important;
-      font-weight: 850 !important;
+    .stats strong {
+      font-family: 'Comfortaa', 'Nunito', 'Quicksand', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif !important;
+      font-weight: 900 !important;
+      font-size: clamp(34px, 4vw, 46px) !important;
+      color: #386B56 !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.1 !important;
       display: inline-flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      border: none !important;
-      cursor: pointer !important;
-      white-space: nowrap !important;
-      box-shadow: 0 4px 12px rgba(36, 49, 46, 0.2) !important;
-      transition: transform 0.15s ease !important;
+      align-items: baseline !important;
+      gap: 2px !important;
     }
-    .mobile-menu-btn:active {
-      transform: scale(0.96) !important;
+    .stats span {
+      color: #6A7873 !important;
+      font-size: 12.5px !important;
+      font-weight: 750 !important;
+      letter-spacing: 0.05em !important;
     }
-
-    /* 頂部導覽自適應斷點 */
-    @media (max-width: 1180px) {
-      .desktop-nav {
-        display: none !important;
-      }
-      .mobile-header-actions {
-        display: flex !important;
-      }
-    }
-    @media (min-width: 1181px) {
-      .mobile-header-actions {
-        display: none !important;
-      }
-      .desktop-nav {
-        display: flex !important;
-      }
-    }
-
-    /* ========================================================
-       首頁滿版全螢幕展示系統 (Full-width Edge-to-Edge Hero)
-       ======================================================== */
-    .hero {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 !important;
-      padding: clamp(90px, 9vw, 130px) clamp(20px, 6vw, 80px) clamp(50px, 6vw, 90px) !important;
-      background: radial-gradient(circle at 7% 20%, #e8c96859 0 3px, transparent 4px), linear-gradient(115deg, var(--cream, #fffaf1) 0 55%, #e6eddf 55%) !important;
-      min-height: 100vh !important;
-      box-sizing: border-box !important;
-      display: grid !important;
-      grid-template-columns: minmax(320px, 1.1fr) minmax(300px, 1fr) !important;
-      align-items: center !important;
-      gap: clamp(24px, 4vw, 56px) !important;
-      position: relative !important;
-    }
-    .hero-copy {
-      max-width: 620px !important;
-    }
-    .hero-collage {
-      min-height: 540px !important;
-      position: relative !important;
-      width: 100% !important;
-    }
-    @media (max-width: 960px) {
-      .hero {
-        grid-template-columns: 1fr !important;
-        padding-top: 80px !important;
-        gap: 36px !important;
-      }
-    }
-
-  </style>
+</style>
 </head>
 
 <body class="__variable_geist_0tvmz3h __variable_geist_mono_1diim1n antialiased">
