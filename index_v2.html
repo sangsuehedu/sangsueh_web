@@ -407,7 +407,7 @@
   
     
     /* ========================================================
-       簡約高端無框官方品牌頁尾系統 (Clean Borderless Official Footer)
+       尚學文教官方品牌旗艦頁尾系統 (SangSueh Brand Official Footer)
        ======================================================== */
     .site-footer {
       background: #14201C !important;
@@ -424,13 +424,17 @@
     }
     .footer-top-grid {
       display: grid !important;
-      grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.45fr) !important;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr) !important;
       gap: clamp(36px, 6vw, 70px) !important;
       align-items: start !important;
     }
+    
+    /* 左側品牌資訊（嚴格靠左對齊） */
     .footer-brand-col {
       display: flex !important;
       flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
       gap: 16px !important;
     }
     .footer-logo-clean {
@@ -439,35 +443,51 @@
       width: auto !important;
       object-fit: contain !important;
       display: block !important;
-      background: transparent !important;
-      border: none !important;
-      padding: 0 !important;
       margin: 0 !important;
+      padding: 0 !important;
+      align-self: flex-start !important;
     }
     .footer-mission {
-      color: #A9BDB4 !important;
-      font-size: 14.5px !important;
-      line-height: 1.8 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      margin: 0 !important;
+      text-align: left !important;
+      align-items: flex-start !important;
+    }
+    .brand-slogan-main {
+      font-size: 16px !important;
+      font-weight: 850 !important;
+      color: #FFF !important;
+      letter-spacing: 0.03em !important;
+    }
+    .brand-slogan-sub {
+      color: #A3B8AF !important;
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
       margin: 0 !important;
     }
     .footer-badge {
       display: inline-block !important;
       background: rgba(232, 201, 104, 0.12) !important;
       color: #E8C968 !important;
-      border: 1px solid rgba(232, 201, 104, 0.25) !important;
-      padding: 6px 14px !important;
+      border: 1px solid rgba(232, 201, 104, 0.3) !important;
+      padding: 7px 16px !important;
       border-radius: 999px !important;
       font-size: 12px !important;
       font-weight: 800 !important;
       letter-spacing: 0.05em !important;
       width: fit-content !important;
+      margin-top: 4px !important;
     }
 
-    /* Social Hub Column (No Box Borders) */
+    /* 右側社群導航（無框、無呼吸燈、真實 App 圖示） */
     .footer-social-col {
       display: flex !important;
       flex-direction: column !important;
       gap: 18px !important;
+      text-align: left !important;
+      align-items: flex-start !important;
     }
     .social-hub-title {
       font-size: 15px !important;
@@ -475,22 +495,11 @@
       color: #FFF !important;
       letter-spacing: 0.05em !important;
       margin: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 8px !important;
-    }
-    .hub-dot {
-      width: 8px !important;
-      height: 8px !important;
-      background: #C96D45 !important;
-      border-radius: 50% !important;
-      display: inline-block !important;
-      box-shadow: 0 0 8px #C96D45 !important;
     }
     .social-links-clean-grid {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 14px 20px !important;
+      gap: 14px 24px !important;
       width: 100% !important;
     }
     .social-clean-item {
@@ -502,28 +511,22 @@
       text-decoration: none !important;
       background: transparent !important;
       border: none !important;
-      box-shadow: none !important;
-      border-radius: 8px !important;
-      transition: transform 0.2s ease, opacity 0.2s ease !important;
+      transition: transform 0.2s ease !important;
     }
     .social-clean-item:hover {
       transform: translateX(4px) !important;
     }
-    .social-brand-svg {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 32px !important;
-      height: 32px !important;
+    .social-app-icon {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 7px !important;
+      object-fit: cover !important;
       flex-shrink: 0 !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-radius: 8px !important;
-      padding: 4px !important;
-      transition: background 0.2s ease, transform 0.2s ease !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+      transition: transform 0.2s ease !important;
     }
-    .social-clean-item:hover .social-brand-svg {
-      background: rgba(255, 255, 255, 0.16) !important;
-      transform: scale(1.08) !important;
+    .social-clean-item:hover .social-app-icon {
+      transform: scale(1.1) !important;
     }
     .social-clean-text {
       display: flex !important;
@@ -599,6 +602,11 @@
       .social-links-clean-grid {
         grid-template-columns: 1fr !important;
       }
+      .footer-bottom-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+    }
       .footer-bottom-bar {
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -1702,29 +1710,27 @@
     </section>
 
     <!-- Footer -->
-            <!-- Footer (Clean & Elegant Official Brand Showcase) -->
+                <!-- Footer (Official Brand Showcase) -->
     <footer class="site-footer">
       <div class="footer-container">
         <!-- Top Section: Brand Info & Social Media Hub -->
         <div class="footer-top-grid">
-          <!-- Brand Info (No frosted wrap) -->
+          <!-- Brand Info (Strictly Left Aligned) -->
           <div class="footer-brand-col">
-            <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v7" alt="尚學文教 Logo"/>
-            <p class="footer-mission">讓孩子開心學習，快樂成長<br/>把好奇種進日常，陪伴每一次探索與自信發光。</p>
-            <div class="footer-badge">2026 暑期頂尖計劃 · 雙月全成果展完結誌</div>
+            <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v8" alt="尚學文教 Logo"/>
+            <div class="footer-mission">
+              <strong class="brand-slogan-main">讓孩子開心學習・快樂成長</strong>
+              <p class="brand-slogan-sub">#讓孩子今天比昨天成長，以期望更好的明天💪</p>
+            </div>
+            <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
           </div>
 
-          <!-- Social Media & Maps (No box borders, Official Brand SVGs) -->
+          <!-- Social Media & Maps (Real App Icons, No Breathing Dot) -->
           <div class="footer-social-col">
-            <h3 class="social-hub-title">
-              <span class="hub-dot"></span>
-              關注尚學文教社群 · 探索更多活動花絮與即時動態
-            </h3>
+            <h3 class="social-hub-title">關注尚學文教社群 · 探索更多活動花絮與即時動態</h3>
             <div class="social-links-clean-grid">
               <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook 粉絲專頁">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </span>
+                <img src="./photos/icons/icon_facebook.png" alt="Facebook" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>FB 粉絲專頁</strong>
                   <small>尚學文教旗艦主頁 ↗</small>
@@ -1732,9 +1738,7 @@
               </a>
 
               <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </span>
+                <img src="./photos/icons/icon_facebook.png" alt="Facebook" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>FB 尚學文教</strong>
                   <small>日常學習與花絮 ↗</small>
@@ -1742,9 +1746,7 @@
               </a>
 
               <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Instagram">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="url(#ig-grad-clean)"/><path d="M12 7.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zm4.8-7.9a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zm3.2 2.7a5.7 5.7 0 0 0-.4-2.1 4.1 4.1 0 0 0-2.3-2.3 5.7 5.7 0 0 0-2.1-.4C14.3 4.8 13.9 4.8 12 4.8s-2.3 0-3.2.1a5.7 5.7 0 0 0-2.1.4 4.1 4.1 0 0 0-2.3 2.3 5.7 5.7 0 0 0-.4 2.1C3.9 10.6 3.9 11 3.9 12.9s0 2.3.1 3.2a5.7 5.7 0 0 0 .4 2.1 4.1 4.1 0 0 0 2.3 2.3 5.7 5.7 0 0 0 2.1.4c.9.1 1.3.1 3.2.1s2.3 0 3.2-.1a5.7 5.7 0 0 0 2.1-.4 4.1 4.1 0 0 0 2.3-2.3 5.7 5.7 0 0 0 .4-2.1c.1-.9.1-1.3.1-3.2s0-2.3-.1-3.2z" fill="#FFF"/><defs><linearGradient id="ig-grad-clean" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FED373"/><stop offset=".26" stop-color="#F15245"/><stop offset=".61" stop-color="#D92E7F"/><stop offset="1" stop-color="#9B36B7"/></linearGradient></defs></svg>
-                </span>
+                <img src="./photos/icons/icon_instagram.png" alt="Instagram" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Instagram</strong>
                   <small>@sangsueh_education ↗</small>
@@ -1752,9 +1754,7 @@
               </a>
 
               <a href="https://www.threads.com/@sangsueh_education?hl=zh-tw" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Threads">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12.186 24C5.454 24 0 18.618 0 12.003 0 5.39 5.454 0 12.186 0c6.643 0 11.968 5.228 11.968 11.83 0 6.644-5.26 12.17-11.968 12.17zm.156-2.18c5.443 0 9.79-4.42 9.79-9.82 0-5.393-4.347-9.65-9.79-9.65-5.498 0-9.98 4.257-9.98 9.65 0 5.4 4.482 9.82 9.98 9.82zm3.87-8.157c0-2.67-1.785-4.404-4.228-4.404-2.617 0-4.464 1.944-4.464 4.693 0 2.653 1.832 4.678 4.496 4.678 1.493 0 2.802-.628 3.51-1.68l-1.57-1.037c-.47.66-1.16 1.02-1.94 1.02-1.51 0-2.544-1.07-2.544-2.73 0-1.72 1.05-2.77 2.47-2.77 1.4 0 2.31.95 2.31 2.48 0 .4-.06.8-.18 1.2h-4.42c.07.69.58 1.25 1.34 1.25.61 0 1.09-.31 1.36-.83l1.85.94c-.65 1.13-1.8 1.74-3.21 1.74-2.4 0-3.92-1.7-3.92-3.9 0-2.22 1.6-4.04 3.96-4.04 2.29 0 3.82 1.67 3.82 3.84v.57z"/></svg>
-                </span>
+                <img src="./photos/icons/icon_threads.png" alt="Threads" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Threads</strong>
                   <small>即時交流與教學札記 ↗</small>
@@ -1762,9 +1762,7 @@
               </a>
 
               <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 YouTube">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </span>
+                <img src="./photos/icons/icon_youtube.png" alt="YouTube" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>YouTube 頻道</strong>
                   <small>精選活動紀錄影音 ↗</small>
@@ -1772,9 +1770,7 @@
               </a>
 
               <a href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Google 地圖導航">
-                <span class="social-brand-svg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7.13 11.45 7.43 11.71.33.28.81.28 1.14 0C12.87 21.45 20 15.25 20 10c0-4.42-3.58-8-8-8zm0 11.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 6.5 12 6.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="#EA4335"/><circle cx="12" cy="10" r="3.5" fill="#FFF"/></svg>
-                </span>
+                <img src="./photos/icons/icon_googlemaps.png" alt="Google Maps" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Google 地圖導航</strong>
                   <small>高雄楠梓旗艦教室 ↗</small>
