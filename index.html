@@ -405,14 +405,916 @@
       }
     }
   
-    
     /* ========================================================
-       尚學文教官方品牌旗艦頁尾系統 (SangSueh Brand Official Footer)
+       現代化極簡響應式導覽系統 (Modern Clean Navigation System)
+       ======================================================== */
+    .site-header {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      background: rgba(247, 242, 232, 0.96) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
+      padding: 0 4vw !important;
+      height: 60px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    .site-header-brand {
+      display: flex !important;
+      align-items: center !important;
+    }
+    .brand-logo {
+      height: 34px !important;
+      max-height: 34px !important;
+      width: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    .hero-logo {
+      height: 56px !important;
+      max-height: 56px !important;
+      width: auto !important;
+      object-fit: contain !important;
+    }
+    .footer-logo {
+      height: 46px !important;
+      max-height: 46px !important;
+      width: auto !important;
+      object-fit: contain !important;
+    }
+    .cert-rect-logo {
+      height: 60px !important;
+      max-height: 60px !important;
+      width: auto !important;
+      object-fit: contain !important;
+    }
+
+    /* 電腦版導覽列 (Desktop Nav) */
+    .desktop-nav {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 13.5px !important;
+      font-weight: 750 !important;
+    }
+    .desktop-nav a {
+      padding: 6px 12px !important;
+      border-radius: 999px !important;
+      color: #24312E !important;
+      background: rgba(36, 49, 46, 0.04) !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+      flex-shrink: 0 !important;
+    }
+    .desktop-nav a:hover {
+      background: rgba(36, 49, 46, 0.12) !important;
+      color: #1A2B25 !important;
+    }
+    .desktop-nav a.nav-highlight {
+      background: #C96D45 !important;
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      box-shadow: 0 2px 6px rgba(201, 109, 69, 0.25) !important;
+    }
+    .desktop-nav a.nav-highlight:hover {
+      background: #B35830 !important;
+    }
+
+    /* 手機版導覽按鈕區 (Mobile Actions) */
+    .mobile-header-actions {
+      display: none !important;
+    }
+
+    /* 手機版抽屜選單模組 (Bulletproof Drawer Sheet) */
+    .mobile-drawer-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.6) !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease, visibility 0.25s ease !important;
+    }
+    .mobile-drawer-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    .mobile-drawer {
+      width: 100% !important;
+      background: #FFFDF8 !important;
+      border-radius: 24px 24px 0 0 !important;
+      max-height: 82vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transform: translateY(100%) !important;
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1) !important;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
+    }
+    .mobile-drawer-overlay.active .mobile-drawer {
+      transform: translateY(0) !important;
+    }
+    .drawer-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 16px 20px !important;
+      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
+      background: #FFFDF8 !important;
+      border-radius: 24px 24px 0 0 !important;
+    }
+    .drawer-title {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      font-family: Noto Serif TC, serif !important;
+      font-weight: 800 !important;
+      font-size: 16px !important;
+      color: #24312E !important;
+    }
+    .drawer-close {
+      background: rgba(36, 49, 46, 0.08) !important;
+      border: 0 !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      font-size: 16px !important;
+      font-weight: 800 !important;
+      color: #24312E !important;
+      cursor: pointer !important;
+      display: grid !important;
+      place-items: center !important;
+    }
+    .drawer-content {
+      padding: 16px 20px 32px !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 18px !important;
+    }
+    .drawer-group-title {
+      font-size: 12px !important;
+      font-weight: 900 !important;
+      color: #C96D45 !important;
+      letter-spacing: 0.1em !important;
+      margin-bottom: 8px !important;
+    }
+    .drawer-link {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 11px 14px !important;
+      background: #F7F2E8 !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      color: #24312E !important;
+      font-size: 14px !important;
+      font-weight: 750 !important;
+      margin-bottom: 6px !important;
+      transition: background 0.15s ease !important;
+    }
+    .drawer-link:active {
+      background: #EAE3D2 !important;
+    }
+    .drawer-link .d-num {
+      background: #24312E !important;
+      color: #FFF !important;
+      font-size: 11px !important;
+      font-weight: 900 !important;
+      border-radius: 6px !important;
+      padding: 2px 6px !important;
+      min-width: 22px !important;
+      text-align: center !important;
+    }
+    .drawer-link.drawer-highlight {
+      background: #C96D45 !important;
+      color: #FFF !important;
+      font-weight: 900 !important;
+      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
+    }
+    .drawer-link.drawer-highlight .d-num {
+      background: #FFF !important;
+      color: #C96D45 !important;
+    }
+
+    /* 手機版純淨版面 (Mobile Media Queries) */
+    @media (max-width: 900px) {
+      .site-header {
+        height: 52px !important;
+        padding: 0 14px !important;
+      }
+      .desktop-nav {
+        display: none !important;
+      }
+      .mobile-header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      .brand-logo {
+        height: 28px !important;
+        max-height: 28px !important;
+        width: auto !important;
+      }
+      .mobile-cta-btn {
+        background: #C96D45 !important;
+        color: #FFF !important;
+        text-decoration: none !important;
+        font-size: 12px !important;
+        font-weight: 850 !important;
+        padding: 6px 12px !important;
+        border-radius: 999px !important;
+        box-shadow: 0 2px 6px rgba(201, 109, 69, 0.3) !important;
+      }
+      .mobile-menu-btn {
+        background: #24312E !important;
+        color: #FFF !important;
+        border: 0 !important;
+        font-size: 12px !important;
+        font-weight: 850 !important;
+        padding: 6px 12px !important;
+        border-radius: 999px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        cursor: pointer !important;
+      }
+      /* 手機版首頁徹底隱藏重複的小 Logo 與重疊星星，保持純淨高級感 */
+      .hero .hero-logo {
+        display: none !important;
+      }
+      .scribble {
+        display: none !important;
+      }
+      .hero {
+        padding-top: 32px !important;
+      }
+      .hero h1 {
+        font-size: clamp(32px, 8.5vw, 44px) !important;
+        line-height: 1.25 !important;
+        margin: 14px 0 16px !important;
+      }
+      .hero-intro {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+      }
+    }
+
+    /* 防止圖片懶載入造成頁面跳動 (Zero-CLS Aspect Ratio) */
+    .moment-photo {
+      background: #FFFFFF;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      text-align: left;
+    }
+    .moment-photo img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center 15%;
+      aspect-ratio: 4 / 3;
+      background-color: #E2E8F0;
+      display: block;
+    }
+
+    /* August Chapter Themes */
+    .chapter-purple { background: #F3E8FF; }
+    .chapter-teal { background: #E6FFFA; }
+    .chapter-amber { background: #FEF3C7; }
+    .chapter-indigo { background: #EEF2FF; }
+    .chapter-emerald { background: #ECFDF5; }
+    .chapter-rose { background: #FFE4E6; }
+    
+    .august-divider {
+      background: linear-gradient(135deg, #1A2B25 0%, #2D5A46 100%);
+      color: #FFF;
+      padding: 80px 8vw;
+      text-align: center;
+      position: relative;
+    }
+    .august-divider p.issue {
+      color: #E8C968;
+      letter-spacing: 0.2em;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .august-divider h2 {
+      font-family: Noto Serif TC, Songti TC, serif;
+      font-size: clamp(32px, 4vw, 52px);
+      margin: 0 0 16px;
+      color: #FFF;
+    }
+    .august-divider p.sub {
+      font-size: 17px;
+      color: #D1E7DD;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+
+    /* Modern Robust Magazine Chapter Layout (Zero Overlap, Zero CLS) */
+    .chapter {
+      padding: 90px 7vw 100px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+    .chapter-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      align-items: center !important;
+      gap: 5vw !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+    .chapter-layout.reverse {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .chapter-layout.reverse .chapter-story {
+      order: 2 !important;
+    }
+    .chapter-layout.reverse .chapter-showcase {
+      order: 1 !important;
+    }
+    .chapter-story {
+      max-width: 520px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .chapter-story p.lead {
+      font-size: 19px !important;
+      line-height: 1.8 !important;
+      color: #24312E !important;
+      font-weight: 700 !important;
+      margin-bottom: 18px !important;
+      font-family: Noto Serif TC, Songti TC, serif !important;
+    }
+    .chapter-story blockquote {
+      border-left: 3px solid #C96D45 !important;
+      padding-left: 16px !important;
+      margin: 18px 0 !important;
+      color: #59615E !important;
+      font-size: 15px !important;
+      font-style: italic !important;
+      line-height: 1.7 !important;
+    }
+    .chapter-story ul {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 10px !important;
+      padding: 0 !important;
+      list-style: none !important;
+      margin-top: 20px !important;
+    }
+    .chapter-story li {
+      background: rgba(255,255,255,0.85) !important;
+      border: 1px solid rgba(0,0,0,0.12) !important;
+      border-radius: 999px !important;
+      padding: 8px 16px !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      color: #24312E !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+    }
+    
+    .chapter-showcase {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 16px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .chapter-showcase .showcase-card {
+      background: #FFFFFF !important;
+      padding: 10px 10px 14px !important;
+      border-radius: 16px !important;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08) !important;
+      border: 1px solid rgba(0,0,0,0.06) !important;
+      text-align: center !important;
+      transition: transform 0.25s ease !important;
+    }
+    .chapter-showcase .showcase-card:hover {
+      transform: translateY(-3px) !important;
+    }
+    .chapter-showcase .showcase-card img {
+      width: 100% !important;
+      height: 230px !important;
+      object-fit: cover !important;
+      object-position: center 25% !important;
+      border-radius: 10px !important;
+      display: block !important;
+      background: #E2E8F0 !important;
+    }
+    .chapter-showcase .showcase-card figcaption {
+      margin-top: 8px !important;
+      font-size: 12px !important;
+      color: #59615E !important;
+      font-weight: 800 !important;
+      line-height: 1.4 !important;
+    }
+
+    /* Chapter Colors */
+    .chapter-green { background: #EEF5F0 !important; }
+    .chapter-blue { background: #EEF4F8 !important; }
+    .chapter-orange { background: #FFF6EE !important; }
+    .chapter-yellow { background: #FEF9E7 !important; }
+    .chapter-purple { background: #F6EEFD !important; }
+    .chapter-teal { background: #EAF8F5 !important; }
+    .chapter-amber { background: #FFF9E6 !important; }
+    .chapter-indigo { background: #EEF2FC !important; }
+
+    .august-divider {
+      background: linear-gradient(135deg, #1A2B25 0%, #2D5A46 100%) !important;
+      color: #FFF !important;
+      padding: 70px 8vw !important;
+      text-align: center !important;
+      position: relative !important;
+    }
+    .august-divider p.issue {
+      color: #E8C968 !important;
+      letter-spacing: 0.2em !important;
+      font-weight: 900 !important;
+      font-size: 13px !important;
+      margin-bottom: 10px !important;
+    }
+    .august-divider h2 {
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: clamp(30px, 4vw, 48px) !important;
+      margin: 0 0 14px !important;
+      color: #FFF !important;
+    }
+    .august-divider p.sub {
+      font-size: 16px !important;
+      color: #D1E7DD !important;
+      max-width: 650px !important;
+      margin: 0 auto !important;
+      line-height: 1.8 !important;
+    }
+
+    @media (max-width: 900px) {
+      .chapter-layout, .chapter-layout.reverse {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+      .chapter-layout.reverse .chapter-story {
+        order: 1 !important;
+      }
+      .chapter-layout.reverse .chapter-showcase {
+        order: 2 !important;
+      }
+      .chapter-showcase {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .chapter-showcase .showcase-card img {
+        height: 180px !important;
+      }
+    }
+
+
+    /* Teacher Observation Box & Core Question */
+    .core-question {
+      font-size: 13px !important;
+      color: #C96D45 !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 8px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .teacher-note {
+      background: rgba(255, 255, 255, 0.75) !important;
+      border-left: 3px solid #2D5A46 !important;
+      padding: 12px 16px !important;
+      border-radius: 0 12px 12px 0 !important;
+      margin: 16px 0 !important;
+      font-size: 14px !important;
+      color: #24312E !important;
+      line-height: 1.7 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+    }
+    .teacher-note strong {
+      color: #2D5A46 !important;
+      display: block !important;
+      font-size: 12px !important;
+      margin-bottom: 4px !important;
+    }
+
+    /* Student Quote Wall */
+    .quotes-section {
+      background: #FBF8F3 !important;
+      padding: 90px 7vw 100px !important;
+      position: relative !important;
+    }
+    .quotes-head {
+      text-align: center !important;
+      max-width: 680px !important;
+      margin: 0 auto 50px !important;
+    }
+    .quotes-head .issue {
+      color: #C96D45 !important;
+      font-size: 13px !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.15em !important;
+      margin-bottom: 8px !important;
+    }
+    .quotes-head h2 {
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: clamp(28px, 3.8vw, 44px) !important;
+      color: #1A2B25 !important;
+      margin: 0 0 12px !important;
+    }
+    .quotes-head p {
+      color: #59615E !important;
+      font-size: 16px !important;
+      line-height: 1.8 !important;
+    }
+    .quotes-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+      gap: 24px !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+    .quote-card {
+      background: #FFFFFF !important;
+      border-radius: 18px !important;
+      padding: 26px 24px 22px !important;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.05) !important;
+      border: 1px solid rgba(0,0,0,0.05) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      position: relative !important;
+      transition: transform 0.25s ease !important;
+    }
+    .quote-card:hover {
+      transform: translateY(-4px) !important;
+    }
+    .quote-card::before {
+      content: "“" !important;
+      position: absolute !important;
+      top: 10px !important;
+      right: 18px !important;
+      font-family: Georgia, serif !important;
+      font-size: 54px !important;
+      color: #E8C968 !important;
+      opacity: 0.45 !important;
+      line-height: 1 !important;
+    }
+    .quote-card p.quote-text {
+      font-size: 15px !important;
+      color: #24312E !important;
+      line-height: 1.8 !important;
+      margin: 0 0 18px !important;
+      font-weight: 500 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .quote-card .quote-author {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      border-top: 1px solid rgba(0,0,0,0.06) !important;
+      padding-top: 14px !important;
+    }
+    .quote-card .author-tag {
+      background: #EEF5F0 !important;
+      color: #2D5A46 !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      padding: 4px 10px !important;
+      border-radius: 999px !important;
+    }
+    .quote-card .author-name {
+      font-size: 13px !important;
+      color: #59615E !important;
+      font-weight: 700 !important;
+    }
+
+    /* Dual-Month Learning Roadmap */
+    .roadmap-section {
+      background: linear-gradient(180deg, #1A2B25 0%, #233D30 100%) !important;
+      color: #FFF !important;
+      padding: 90px 7vw 100px !important;
+      position: relative !important;
+    }
+    .roadmap-head {
+      text-align: center !important;
+      max-width: 680px !important;
+      margin: 0 auto 50px !important;
+    }
+    .roadmap-head .issue {
+      color: #E8C968 !important;
+      font-size: 13px !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.18em !important;
+      margin-bottom: 8px !important;
+    }
+    .roadmap-head h2 {
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: clamp(28px, 3.8vw, 44px) !important;
+      color: #FFF !important;
+      margin: 0 0 14px !important;
+    }
+    .roadmap-head p {
+      color: #D1E7DD !important;
+      font-size: 16px !important;
+      line-height: 1.8 !important;
+    }
+    .roadmap-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 24px !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+    .roadmap-card {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      border-radius: 18px !important;
+      padding: 28px 24px !important;
+      backdrop-filter: blur(8px) !important;
+    }
+    .roadmap-card .phase-badge {
+      display: inline-block !important;
+      background: #E8C968 !important;
+      color: #1A2B25 !important;
+      font-size: 12px !important;
+      font-weight: 900 !important;
+      padding: 4px 12px !important;
+      border-radius: 999px !important;
+      margin-bottom: 14px !important;
+    }
+    .roadmap-card h3 {
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: 20px !important;
+      color: #FFF !important;
+      margin: 0 0 12px !important;
+    }
+    .roadmap-card p {
+      font-size: 14px !important;
+      color: #D1E7DD !important;
+      line-height: 1.7 !important;
+      margin: 0 0 16px !important;
+    }
+    .roadmap-card ul {
+      padding-left: 20px !important;
+      margin: 0 !important;
+      color: #E8C968 !important;
+      font-size: 13px !important;
+      line-height: 1.8 !important;
+    }
+    .roadmap-card ul li span {
+      color: #FFF !important;
+    }
+
+
+    /* 1. Stamp Grid (5 大展區專用版面) */
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .stamp-item.stamp-featured {
+      border-color: #8C52FF80;
+      background: #FAF6FF;
+    }
+    .stamp-item.stamp-featured.active {
+      background: #EAE0FF;
+      border-color: #7B3FE4;
+    }
+    @media (max-width: 900px) {
+      .stamp-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .stamp-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stamp-item:nth-child(5) {
+        grid-column: span 2;
+      }
+    }
+
+    /* Certificate Result Modal (手機/電腦極致自適應 + 支援長按儲存與原生分享) */
+    .cert-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 10000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px 16px 50px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cert-modal.show {
+      display: flex;
+    }
+    .cert-modal-container {
+      text-align: center;
+      max-width: 580px;
+      width: 100%;
+      position: relative;
+      margin: auto 0;
+    }
+    .cert-preview-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      background: #FAF6ED;
+      margin-bottom: 18px;
+    }
+    .cert-preview-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: auto !important;
+      -webkit-user-select: auto !important;
+      -webkit-touch-callout: default !important;
+    }
+    .cert-actions-hub {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+    }
+    .btn-cert-primary {
+      background: #C96D45;
+      color: #FFF;
+      border: 2px solid #24312E;
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 15.5px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 4px 4px 0 #24312E;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-cert-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 #24312E;
+    }
+    .btn-cert-primary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #24312E;
+    }
+    .btn-cert-secondary {
+      background: #FFFDF8;
+      color: #24312E;
+      border: 2px solid #24312E;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13.5px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 3px 3px 0 #24312E;
+      transition: all 0.2s ease;
+    }
+    .btn-cert-secondary:hover {
+      background: #EFE9DD;
+    }
+    .cert-mobile-hint {
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 10px 16px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cert-mobile-hint p {
+      color: #FFFDF8;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+  
+    
+    /* 章節標題與數字容器完美防切版 (Zero-Overlap Chapter Heading & Number System) */
+    .chapter-head {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 18px !important;
+      border-bottom: 1px solid rgba(36, 49, 46, 0.18) !important;
+      max-width: 1250px !important;
+      margin: 0 auto 50px !important;
+      padding-bottom: 20px !important;
+      position: relative !important;
+    }
+    .chapter-number {
+      opacity: 0.45 !important;
+      font-family: Georgia, Cambria, 'Times New Roman', serif !important;
+      font-style: italic !important;
+      font-size: 52px !important;
+      line-height: 1 !important;
+      flex-shrink: 0 !important;
+      min-width: 72px !important;
+      text-align: left !important;
+    }
+    .chapter-head > div:nth-child(2) {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+    .chapter-head h2 {
+      margin: 0 !important;
+      font-family: Noto Serif TC, Songti TC, serif !important;
+      font-size: clamp(34px, 4.5vw, 64px) !important;
+      line-height: 1.15 !important;
+      word-break: break-word !important;
+    }
+    .chapter-head p {
+      letter-spacing: 0.12em !important;
+      margin: 0 0 6px !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      color: #55605C !important;
+    }
+    .chapter-day {
+      margin-left: auto !important;
+      flex-shrink: 0 !important;
+      letter-spacing: 0.18em !important;
+      font-size: 11px !important;
+      color: #717A76 !important;
+    }
+
+    @media (max-width: 900px) {
+      .chapter-head {
+        gap: 14px !important;
+        margin-bottom: 30px !important;
+        padding-bottom: 16px !important;
+      }
+      .chapter-number {
+        font-size: 42px !important;
+        min-width: 60px !important;
+      }
+      .chapter-head h2 {
+        font-size: 30px !important;
+      }
+      .chapter-day {
+        display: none !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .chapter-head {
+        gap: 12px !important;
+        margin-bottom: 24px !important;
+        padding-bottom: 14px !important;
+      }
+      .chapter-number {
+        font-size: 36px !important;
+        min-width: 54px !important;
+        padding-right: 2px !important;
+      }
+      .chapter-head h2 {
+        font-size: 26px !important;
+        line-height: 1.2 !important;
+      }
+      .chapter-head p {
+        font-size: 11.5px !important;
+        line-height: 1.4 !important;
+      }
+    }
+
+
+    /* ========================================================
+       尚學文教官方品牌旗艦頁尾 (SangSueh Brand Official Footer)
        ======================================================== */
     .site-footer {
       background: #14201C !important;
       color: #E2ECE6 !important;
-      padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px) 32px !important;
+      padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px) 36px !important;
       width: 100% !important;
       box-sizing: border-box !important;
       border-top: 3px solid #C96D45 !important;
@@ -429,7 +1331,7 @@
       align-items: start !important;
     }
     
-    /* 左側品牌資訊（嚴格靠左對齊） */
+    /* 左側品牌資訊（嚴格靠左對齊，消除多餘置中） */
     .footer-brand-col {
       display: flex !important;
       flex-direction: column !important;
@@ -565,27 +1467,12 @@
       padding-top: 22px !important;
       display: flex !important;
       align-items: center !important;
-      justify-content: space-between !important;
-      flex-wrap: wrap !important;
-      gap: 14px !important;
+      justify-content: flex-start !important;
       font-size: 12.5px !important;
       color: #83978E !important;
     }
     .footer-bottom-bar p {
       margin: 0 !important;
-    }
-    .footer-back-to-top {
-      color: #E8C968 !important;
-      text-decoration: none !important;
-      font-weight: 800 !important;
-      padding: 5px 12px !important;
-      background: rgba(232, 201, 104, 0.1) !important;
-      border-radius: 999px !important;
-      transition: all 0.2s ease !important;
-    }
-    .footer-back-to-top:hover {
-      background: #E8C968 !important;
-      color: #14201C !important;
     }
 
     /* Responsive */
@@ -602,314 +1489,6 @@
       .social-links-clean-grid {
         grid-template-columns: 1fr !important;
       }
-      .footer-bottom-bar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-    }
-      .footer-bottom-bar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-    }
-      .footer-bottom-bar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-    }
-
-  
-    /* ========================================================
-       彈窗與遮罩系統 (Modals & Overlays)
-       ======================================================== */
-    .lightbox-modal {
-      position: fixed !important;
-      inset: 0 !important;
-      background: rgba(0, 0, 0, 0.85) !important;
-      z-index: 999999 !important;
-      display: none !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 20px !important;
-    }
-    .lightbox-modal.show {
-      display: flex !important;
-    }
-    .lightbox-content {
-      position: relative !important;
-      max-width: 900px !important;
-      width: 100% !important;
-      background: #FFF !important;
-      border-radius: 20px !important;
-      padding: 20px !important;
-      text-align: center !important;
-    }
-    .lightbox-content img {
-      max-height: 75vh !important;
-      width: auto !important;
-      max-width: 100% !important;
-      border-radius: 12px !important;
-      object-fit: contain !important;
-    }
-    .lightbox-close {
-      position: absolute !important;
-      top: -14px !important;
-      right: -14px !important;
-      background: #24312E !important;
-      color: #FFF !important;
-      border: 2px solid #FFF !important;
-      width: 36px !important;
-      height: 36px !important;
-      border-radius: 50% !important;
-      font-size: 16px !important;
-      font-weight: 900 !important;
-      cursor: pointer !important;
-      display: grid !important;
-      place-items: center !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-    }
-
-    .cert-modal {
-      position: fixed !important;
-      inset: 0 !important;
-      background: rgba(0, 0, 0, 0.75) !important;
-      backdrop-filter: blur(8px) !important;
-      -webkit-backdrop-filter: blur(8px) !important;
-      z-index: 999999 !important;
-      display: none !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 20px !important;
-    }
-    .cert-modal.show {
-      display: flex !important;
-    }
-    .cert-modal-container {
-      position: relative !important;
-      background: #FFFDF8 !important;
-      border-radius: 24px !important;
-      padding: clamp(20px, 4vw, 32px) !important;
-      max-width: 780px !important;
-      width: 100% !important;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 16px !important;
-    }
-    .cert-preview-wrapper {
-      width: 100% !important;
-      border-radius: 16px !important;
-      overflow: hidden !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-    }
-    .cert-preview-wrapper img {
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-    }
-    .cert-actions-hub {
-      display: flex !important;
-      gap: 12px !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      width: 100% !important;
-    }
-    .btn-cert-primary {
-      background: #C96D45 !important;
-      color: #FFF !important;
-      border: none !important;
-      padding: 12px 24px !important;
-      border-radius: 999px !important;
-      font-size: 14px !important;
-      font-weight: 850 !important;
-      cursor: pointer !important;
-      box-shadow: 0 4px 14px rgba(201, 109, 69, 0.3) !important;
-    }
-    .btn-cert-secondary {
-      background: #24312E !important;
-      color: #FFF !important;
-      border: none !important;
-      padding: 12px 24px !important;
-      border-radius: 999px !important;
-      font-size: 14px !important;
-      font-weight: 850 !important;
-      cursor: pointer !important;
-    }
-    .cert-mobile-hint {
-      font-size: 12px !important;
-      color: #6A7873 !important;
-      text-align: center !important;
-      max-width: 90% !important;
-      line-height: 1.5 !important;
-    }
-
-    .custom-modal-overlay {
-      position: fixed !important;
-      inset: 0 !important;
-      background: rgba(0, 0, 0, 0.6) !important;
-      z-index: 999999 !important;
-      display: none !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 20px !important;
-    }
-    .custom-modal-overlay.show {
-      display: flex !important;
-    }
-    .custom-modal-card {
-      background: #FFFDF8 !important;
-      border-radius: 24px !important;
-      padding: 28px !important;
-      max-width: 440px !important;
-      width: 100% !important;
-      text-align: center !important;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
-    }
-    .custom-modal-icon {
-      font-size: 44px !important;
-      margin-bottom: 12px !important;
-    }
-    .custom-modal-title {
-      font-size: 18px !important;
-      font-weight: 900 !important;
-      color: #24312E !important;
-      margin-bottom: 8px !important;
-    }
-    .custom-modal-body {
-      font-size: 14px !important;
-      color: #55625E !important;
-      line-height: 1.6 !important;
-      margin-bottom: 20px !important;
-    }
-    .btn-custom-modal-close {
-      background: #C96D45 !important;
-      color: #FFF !important;
-      border: none !important;
-      padding: 10px 24px !important;
-      border-radius: 999px !important;
-      font-size: 14px !important;
-      font-weight: 850 !important;
-      cursor: pointer !important;
-    }
-
-  
-    /* Mobile Drawer Overlay */
-    #drawer-overlay, .mobile-drawer-overlay {
-      position: fixed !important;
-      inset: 0 !important;
-      background: rgba(0, 0, 0, 0.6) !important;
-      z-index: 999999 !important;
-      display: none !important;
-      flex-direction: column !important;
-      justify-content: flex-end !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      transition: opacity 0.25s ease, visibility 0.25s ease !important;
-    }
-    #drawer-overlay.active, .mobile-drawer-overlay.active {
-      display: flex !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-    }
-    .mobile-drawer {
-      width: 100% !important;
-      background: #FFFDF8 !important;
-      border-radius: 24px 24px 0 0 !important;
-      max-height: 82vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      transform: translateY(100%) !important;
-      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1) !important;
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
-    }
-    #drawer-overlay.active .mobile-drawer, .mobile-drawer-overlay.active .mobile-drawer {
-      transform: translateY(0) !important;
-    }
-    .drawer-header {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      padding: 16px 20px !important;
-      border-bottom: 1px solid rgba(36, 49, 46, 0.1) !important;
-      background: #FFFDF8 !important;
-      border-radius: 24px 24px 0 0 !important;
-    }
-    .drawer-title {
-      display: flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      font-family: Noto Serif TC, serif !important;
-      font-weight: 800 !important;
-      font-size: 16px !important;
-      color: #24312E !important;
-    }
-    .drawer-close {
-      background: rgba(36, 49, 46, 0.08) !important;
-      border: 0 !important;
-      width: 32px !important;
-      height: 32px !important;
-      border-radius: 50% !important;
-      font-size: 16px !important;
-      font-weight: 800 !important;
-      color: #24312E !important;
-      cursor: pointer !important;
-      display: grid !important;
-      place-items: center !important;
-    }
-    .drawer-content {
-      padding: 16px 20px 32px !important;
-      overflow-y: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 18px !important;
-    }
-    .drawer-group-title {
-      font-size: 12px !important;
-      font-weight: 900 !important;
-      color: #C96D45 !important;
-      letter-spacing: 0.1em !important;
-      margin-bottom: 8px !important;
-    }
-    .drawer-link {
-      display: flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      padding: 11px 14px !important;
-      background: #F7F2E8 !important;
-      border-radius: 12px !important;
-      text-decoration: none !important;
-      color: #24312E !important;
-      font-size: 14px !important;
-      font-weight: 750 !important;
-      margin-bottom: 6px !important;
-      transition: background 0.15s ease !important;
-    }
-    .drawer-link:active {
-      background: #EAE3D2 !important;
-    }
-    .drawer-link .d-num {
-      background: #24312E !important;
-      color: #FFF !important;
-      font-size: 11px !important;
-      font-weight: 900 !important;
-      border-radius: 6px !important;
-      padding: 2px 6px !important;
-      min-width: 22px !important;
-      text-align: center !important;
-    }
-    .drawer-link.drawer-highlight {
-      background: #C96D45 !important;
-      color: #FFF !important;
-      font-weight: 900 !important;
-      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25) !important;
-    }
-    .drawer-link.drawer-highlight .d-num {
-      background: #FFF !important;
-      color: #C96D45 !important;
     }
 
   </style>
@@ -1709,28 +2288,27 @@
       <a href="#top">回到本期封面 ↑</a>
     </section>
 
-    <!-- Footer -->
-                <!-- Footer (Official Brand Showcase) -->
+        <!-- Footer (Official SangSueh Brand Showcase) -->
     <footer class="site-footer">
       <div class="footer-container">
         <!-- Top Section: Brand Info & Social Media Hub -->
         <div class="footer-top-grid">
           <!-- Brand Info (Strictly Left Aligned) -->
           <div class="footer-brand-col">
-            <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v8" alt="尚學文教 Logo"/>
+            <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v9" alt="尚學文教 Logo"/>
             <div class="footer-mission">
               <strong class="brand-slogan-main">讓孩子開心學習・快樂成長</strong>
-              <p class="brand-slogan-sub">#讓孩子今天比昨天成長，以期望更好的明天💪</p>
+              <p class="brand-slogan-sub">#陪伴每位學員今日超越昨日，自信迎接美好明天💪</p>
             </div>
             <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
           </div>
 
-          <!-- Social Media & Maps (Real App Icons, No Breathing Dot) -->
+          <!-- Social Media & Maps (Real Official App Icons, Clean Borderless) -->
           <div class="footer-social-col">
             <h3 class="social-hub-title">關注尚學文教社群 · 探索更多活動花絮與即時動態</h3>
             <div class="social-links-clean-grid">
               <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook 粉絲專頁">
-                <img src="./photos/icons/icon_facebook.png" alt="Facebook" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_facebook.png?v=20260829_v9" alt="Facebook" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>FB 粉絲專頁</strong>
                   <small>尚學文教旗艦主頁 ↗</small>
@@ -1738,7 +2316,7 @@
               </a>
 
               <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook">
-                <img src="./photos/icons/icon_facebook.png" alt="Facebook" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_facebook.png?v=20260829_v9" alt="Facebook" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>FB 尚學文教</strong>
                   <small>日常學習與花絮 ↗</small>
@@ -1746,7 +2324,7 @@
               </a>
 
               <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Instagram">
-                <img src="./photos/icons/icon_instagram.png" alt="Instagram" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_instagram.png?v=20260829_v9" alt="Instagram" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Instagram</strong>
                   <small>@sangsueh_education ↗</small>
@@ -1754,7 +2332,7 @@
               </a>
 
               <a href="https://www.threads.com/@sangsueh_education?hl=zh-tw" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Threads">
-                <img src="./photos/icons/icon_threads.png" alt="Threads" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_threads.png?v=20260829_v9" alt="Threads" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Threads</strong>
                   <small>即時交流與教學札記 ↗</small>
@@ -1762,7 +2340,7 @@
               </a>
 
               <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 YouTube">
-                <img src="./photos/icons/icon_youtube.png" alt="YouTube" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_youtube.png?v=20260829_v9" alt="YouTube" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>YouTube 頻道</strong>
                   <small>精選活動紀錄影音 ↗</small>
@@ -1770,7 +2348,7 @@
               </a>
 
               <a href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Google 地圖導航">
-                <img src="./photos/icons/icon_googlemaps.png" alt="Google Maps" class="social-app-icon" width="28" height="28"/>
+                <img src="./photos/icons/icon_googlemaps.png?v=20260829_v9" alt="Google Maps" class="social-app-icon" width="28" height="28"/>
                 <div class="social-clean-text">
                   <strong>Google 地圖導航</strong>
                   <small>高雄楠梓旗艦教室 ↗</small>
@@ -1780,10 +2358,9 @@
           </div>
         </div>
 
-        <!-- Bottom Section: Copyright & Back to top -->
+        <!-- Bottom Section: Copyright -->
         <div class="footer-bottom-bar">
           <p>© 2026 尚學文教 (SangSueh Education). All Rights Reserved.</p>
-          <a class="footer-back-to-top" href="#top">回到本期封面頂部 ↑</a>
         </div>
       </div>
     </footer>
@@ -1861,7 +2438,7 @@
     // ----------------------------------------------------
     // 資料持久化系統 (localStorage)
     // ----------------------------------------------------
-    const STORAGE_KEY = 'shangxue_2026_magazine_v3';
+    const STORAGE_KEY = 'shangxue_2026_magazine_data';
 
     function getStoredData() {
       try {
@@ -1907,10 +2484,10 @@
         return `
           <article class="comment-card" id="comment-card-${c.id}">
             <p>${c.msg}</p>
-            <div class="comment-meta">
-              <span class="comment-author">✦ ${c.author || '一位家長'}</span>
-              <span class="comment-time">${c.time}</span>
-            </div>
+            <footer>
+              <strong>${c.author}</strong>
+              <span>${c.time}</span>
+            </footer>
             <div class="comment-actions">
               <button class="btn-like-comment ${c.likedByMe ? 'liked' : ''}" onclick="toggleLikeComment('${c.id}')">
                 ❤️ 讚 <span>${c.likes || 0}</span>
