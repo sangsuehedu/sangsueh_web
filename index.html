@@ -1356,7 +1356,195 @@
       .stats span {
         font-size: 10px !important;
       }
-    }</style>
+    }
+/* ========================================================
+       尚學文教官方品牌旗艦頁尾 (SangSueh Brand Official Footer - Two Columns)
+       ======================================================== */
+    .site-footer {
+      background: #14201C !important;
+      color: #E2ECE6 !important;
+      padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px) 36px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      border-top: 3px solid #C96D45 !important;
+    }
+    .footer-container {
+      max-width: 1240px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+    .footer-top-grid {
+      display: grid !important;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr) !important;
+      gap: clamp(36px, 6vw, 70px) !important;
+      align-items: start !important;
+    }
+    
+    /* 左側品牌資訊（嚴格靠左對齊） */
+    .footer-brand-col {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      gap: 16px !important;
+    }
+    .footer-logo-clean {
+      height: 48px !important;
+      max-height: 48px !important;
+      width: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      align-self: flex-start !important;
+    }
+    .footer-mission {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      margin: 0 !important;
+      text-align: left !important;
+      align-items: flex-start !important;
+    }
+    .brand-slogan-main {
+      font-size: 16px !important;
+      font-weight: 850 !important;
+      color: #FFF !important;
+      letter-spacing: 0.03em !important;
+    }
+    .brand-slogan-sub {
+      color: #A3B8AF !important;
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+    .footer-badge {
+      display: inline-block !important;
+      background: rgba(232, 201, 104, 0.12) !important;
+      color: #E8C968 !important;
+      border: 1px solid rgba(232, 201, 104, 0.3) !important;
+      padding: 7px 16px !important;
+      border-radius: 999px !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      width: fit-content !important;
+      margin-top: 4px !important;
+    }
+
+    /* 右側社群導航（雙排格線、28px 真實官方 App 圖示） */
+    .footer-social-col {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 18px !important;
+      text-align: left !important;
+      align-items: flex-start !important;
+    }
+    .social-hub-title {
+      font-size: 15px !important;
+      font-weight: 850 !important;
+      color: #FFF !important;
+      letter-spacing: 0.05em !important;
+      margin: 0 !important;
+    }
+    .social-links-clean-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 14px 24px !important;
+      width: 100% !important;
+    }
+    .social-clean-item {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 6px 0 !important;
+      color: #E2ECE6 !important;
+      text-decoration: none !important;
+      background: transparent !important;
+      border: none !important;
+      transition: transform 0.2s ease !important;
+    }
+    .social-clean-item:hover {
+      transform: translateX(4px) !important;
+    }
+    .social-app-icon {
+      width: 28px !important;
+      height: 28px !important;
+      max-width: 28px !important;
+      max-height: 28px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      border-radius: 7px !important;
+      object-fit: contain !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+      transition: transform 0.2s ease !important;
+      display: block !important;
+    }
+    .social-clean-item:hover .social-app-icon {
+      transform: scale(1.1) !important;
+    }
+    .social-clean-text {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      min-width: 0 !important;
+    }
+    .social-clean-text strong {
+      font-size: 14px !important;
+      font-weight: 800 !important;
+      color: #FFF !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      transition: color 0.2s ease !important;
+    }
+    .social-clean-text small {
+      font-size: 11.5px !important;
+      color: #8BA297 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      transition: color 0.2s ease !important;
+    }
+    .social-clean-item:hover .social-clean-text strong {
+      color: #E8C968 !important;
+    }
+    .social-clean-item:hover .social-clean-text small {
+      color: #D4B962 !important;
+    }
+
+    /* Bottom Bar */
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      margin-top: clamp(36px, 5vw, 50px) !important;
+      padding-top: 22px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      font-size: 12.5px !important;
+      color: #83978E !important;
+    }
+    .footer-bottom-bar p {
+      margin: 0 !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      .social-links-clean-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+      }
+    }
+    @media (max-width: 520px) {
+      .social-links-clean-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 </head>
 
 <body class="__variable_geist_0tvmz3h __variable_geist_mono_1diim1n antialiased">
