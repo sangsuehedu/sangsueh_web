@@ -28,14 +28,14 @@
   <meta name="twitter:image" content="https://sangsuehedu.github.io/sangsueh_web/screenshot_check.png"/>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="./favicon.png?v=20260904_v1" type="image/png"/>
-  <link rel="icon" href="./favicon.png?v=20260904_v1" type="image/png"/>
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260904_v1"/>
+  <link rel="shortcut icon" href="./favicon.png?v=20260904_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260904_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260904_v2"/>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Noto Serif TC for elegant literary headlines, Noto Sans TC for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;800;900&family=Quicksand:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
   
   <!-- Base Tailwind & Global Styles -->
   <link rel="stylesheet" href="./index.css"/>
@@ -134,26 +134,35 @@
   </script>
 
   <style>
-    /* Custom Admissions Landing Styling */
+    /* =========================================================
+       日系 Mook 手作雜誌特刊風 (A+B Fusion Style)
+       融合：手帳剪貼簿(A) + 日系生活教育雜誌(B)
+       ========================================================= */
     :root {
-      --brand-terracotta: #C96D45;
-      --brand-terracotta-dark: #A8532F;
-      --brand-green: #477B65;
-      --brand-green-light: #EBF2EC;
-      --brand-yellow: #E8C968;
-      --brand-cream: #FFFDF8;
-      --brand-card-bg: #FFFFFF;
-      --brand-border: #E8DFD4;
-      --brand-ink: #24312E;
-      --brand-subtle: #5E6965;
+      --ink: #24312E;
+      --ink-soft: #4F5B57;
+      --paper: #F7F2E8;
+      --paper-warm: #FFFDF8;
+      --paper-cream: #FFF8EE;
+      --orange: #C96D45;
+      --orange-light: #FCEFE9;
+      --green: #477B65;
+      --green-light: #EBF2EC;
+      --yellow: #E8C968;
+      --yellow-light: #FAF2D2;
+      --blue: #3B7684;
+      --blue-light: #E4EFF1;
+      --border-ink: rgba(36, 49, 46, 0.16);
+      --border-dashed: rgba(36, 49, 46, 0.28);
     }
 
     body {
-      background-color: var(--brand-cream);
-      color: var(--brand-ink);
+      background-color: var(--paper);
+      color: var(--ink);
       font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
       overflow-x: hidden;
-      padding-bottom: 70px; /* Space for mobile sticky CTA */
+      margin: 0;
+      padding-bottom: 74px;
     }
 
     @media (min-width: 901px) {
@@ -162,882 +171,966 @@
       }
     }
 
-    /* Top Announcement Bar */
-    .top-announcement {
-      background: linear-gradient(90deg, #C96D45, #D97E56);
+    /* 頂部通知條：手作印章感 */
+    .top-mook-bar {
+      background: var(--ink);
       color: #FFF;
-      text-align: center;
-      padding: 10px 16px;
+      padding: 9px 16px;
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      text-align: center;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--yellow);
     }
-    .top-announcement a {
-      color: #FFF9E6;
+    .top-mook-bar a {
+      color: var(--yellow);
       text-decoration: underline;
       margin-left: 6px;
-      font-weight: 900;
+      font-weight: 800;
     }
 
-    /* Header adjustments */
-    .site-nav-links {
+    /* 導覽列：日系生活誌頂部 */
+    .mook-header {
+      background: rgba(247, 242, 232, 0.94);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-ink);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      padding: 0 5vw;
+      height: 72px;
       display: flex;
       align-items: center;
-      gap: 20px;
-      font-size: 14px;
-      font-weight: 700;
+      justify-content: space-between;
     }
-    .site-nav-links a {
-      color: var(--brand-ink);
+    .mook-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .mook-brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+    .mook-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .mook-nav a {
+      color: var(--ink);
+      position: relative;
       transition: color 0.2s;
     }
-    .site-nav-links a:hover {
-      color: var(--brand-terracotta);
+    .mook-nav a:hover {
+      color: var(--orange);
     }
-    .btn-header-cta {
-      background: var(--brand-terracotta);
-      color: #FFF !important;
-      padding: 8px 18px;
+    .btn-mook-summer {
+      background: var(--green-light);
+      color: var(--green) !important;
+      border: 1px dashed var(--green);
+      padding: 6px 14px;
       border-radius: 999px;
+      font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.25);
-      transition: transform 0.2s, background 0.2s;
+      transition: all 0.2s;
     }
-    .btn-header-cta:hover {
-      background: var(--brand-terracotta-dark);
-      transform: translateY(-1px);
+    .btn-mook-summer:hover {
+      background: var(--green);
+      color: #FFF !important;
+    }
+    .btn-mook-booking {
+      background: var(--orange);
+      color: #FFF !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      box-shadow: 3px 3px 0 var(--yellow);
+      font-weight: 900;
+      transition: transform 0.2s;
+    }
+    .btn-mook-booking:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--yellow);
     }
 
-    /* Hero Section */
-    .admission-hero {
-      background: radial-gradient(circle at 85% 15%, rgba(232, 201, 104, 0.25) 0%, transparent 40%),
-                  radial-gradient(circle at 10% 80%, rgba(71, 123, 101, 0.12) 0%, transparent 45%),
-                  #FFFDF8;
-      padding: 60px 6vw 80px;
+    /* 和紙膠帶裝飾元素 (Washi Tape) */
+    .washi-tape {
+      position: absolute;
+      height: 24px;
+      width: 80px;
+      background: rgba(232, 201, 104, 0.82);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      z-index: 5;
+      pointer-events: none;
+    }
+    .washi-tape-orange {
+      background: rgba(201, 109, 69, 0.72);
+    }
+    .washi-tape-green {
+      background: rgba(71, 123, 101, 0.72);
+    }
+    .washi-tape-blue {
+      background: rgba(59, 118, 132, 0.72);
+    }
+
+    /* 拍立得照片卡片 (Polaroid Photo Card) */
+    .polaroid-card {
+      background: #FFFFFF;
+      padding: 10px 10px 32px 10px;
+      border-radius: 3px;
+      box-shadow: 0 12px 28px rgba(36, 49, 46, 0.14);
+      border: 1px solid rgba(0,0,0,0.06);
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .polaroid-card:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      z-index: 10;
+    }
+    .polaroid-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+    .polaroid-caption {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      right: 10px;
+      text-align: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #3F4745;
+      letter-spacing: 0.04em;
+    }
+
+    /* 復古紅色橡皮郵戳章 (Vintage Stamp Seal) */
+    .vintage-stamp {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #B84734;
+      color: #B84734;
+      border-radius: 50%;
+      width: 78px;
+      height: 78px;
+      text-align: center;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 900;
+      font-size: 11px;
+      line-height: 1.3;
+      transform: rotate(-10deg);
+      background: rgba(255, 253, 248, 0.85);
+      box-shadow: 0 2px 8px rgba(184, 71, 52, 0.15);
+      user-select: none;
+    }
+    .vintage-stamp strong {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    /* 雜誌特輯小徽章 (Magazine Issue Badge) */
+    .mook-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ink);
+      color: #FFF;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 2px;
+      box-shadow: 3px 3px 0 var(--orange);
+      margin-bottom: 16px;
+    }
+    .mook-badge span.year {
+      color: var(--yellow);
+    }
+
+    /* 金屬迴紋針裝飾 (Paperclip) */
+    .paper-clip {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      font-size: 32px;
+      color: #8C9692;
+      z-index: 6;
+      transform: rotate(15deg);
+      user-select: none;
+    }
+
+    /* =========================================================
+       HERO 區塊：日系 Mook 封面特輯排版
+       ========================================================= */
+    .hero-mook {
+      padding: 60px 6vw 90px;
+      background: radial-gradient(circle at 90% 12%, rgba(232, 201, 104, 0.28) 0%, transparent 42%),
+                  radial-gradient(circle at 8% 85%, rgba(71, 123, 101, 0.15) 0%, transparent 45%),
+                  var(--paper);
+      border-bottom: 2px dashed var(--border-dashed);
       position: relative;
     }
-    .hero-container {
-      max-width: 1200px;
+    .hero-mook-grid {
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 50px;
       align-items: center;
     }
-    .hero-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #FCEFE9;
-      color: var(--brand-terracotta);
-      border: 1px solid #F5D3C4;
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .hero-title {
+    .hero-mook-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(34px, 4vw, 54px);
+      font-size: clamp(34px, 4.2vw, 56px);
       font-weight: 900;
       line-height: 1.25;
-      color: var(--brand-ink);
-      margin-bottom: 20px;
+      color: var(--ink);
+      margin: 12px 0 20px;
       letter-spacing: -0.02em;
     }
-    .hero-title .highlight {
-      color: var(--brand-terracotta);
-      position: relative;
-      display: inline-block;
+    .hero-mook-title span.highlight {
+      color: var(--orange);
+      background: linear-gradient(180deg, transparent 65%, var(--yellow-light) 65%);
+      display: inline;
     }
-    .hero-title .highlight::after {
-      content: "";
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: rgba(232, 201, 104, 0.45);
-      z-index: -1;
-      border-radius: 4px;
-    }
-    .hero-desc {
+    .hero-mook-desc {
       font-size: 17px;
-      line-height: 1.85;
-      color: var(--brand-subtle);
-      margin-bottom: 34px;
+      line-height: 1.9;
+      color: var(--ink-soft);
       max-width: 580px;
+      margin-bottom: 34px;
     }
-    .hero-cta-group {
+    .hero-mook-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
     }
-    .btn-main-pulse {
-      background: var(--brand-terracotta);
-      color: #FFF;
-      padding: 16px 30px;
-      border-radius: 12px;
-      font-size: 16px;
+    .btn-mook-primary {
+      background: var(--ink);
+      color: #FFF !important;
+      padding: 16px 32px;
       font-weight: 900;
+      font-size: 16px;
+      border-radius: 3px;
+      box-shadow: 5px 5px 0 var(--yellow);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 10px 24px rgba(201, 109, 69, 0.35);
-      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       text-decoration: none;
+      transition: all 0.2s;
     }
-    .btn-main-pulse:hover {
-      background: var(--brand-terracotta-dark);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 14px 28px rgba(201, 109, 69, 0.45);
+    .btn-mook-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 var(--yellow);
     }
-    .btn-secondary-link {
-      background: #FFF;
-      color: var(--brand-ink);
-      border: 2px solid var(--brand-border);
-      padding: 15px 24px;
-      border-radius: 12px;
-      font-size: 15px;
+    .btn-mook-secondary {
+      background: var(--paper-warm);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      padding: 15px 26px;
       font-weight: 800;
+      font-size: 15px;
+      border-radius: 3px;
+      box-shadow: 4px 4px 0 rgba(36, 49, 46, 0.12);
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
       transition: all 0.2s;
     }
-    .btn-secondary-link:hover {
-      border-color: var(--brand-green);
-      color: var(--brand-green);
-      background: var(--brand-green-light);
+    .btn-mook-secondary:hover {
+      background: var(--green-light);
+      border-color: var(--green);
+      color: var(--green);
     }
 
-    /* Trust indicators below Hero */
-    .hero-trust-bar {
+    /* Hero 下方手帳印章信任列 */
+    .hero-stamps-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 16px;
       padding-top: 24px;
-      border-top: 1px solid var(--brand-border);
+      border-top: 1px dashed var(--border-dashed);
     }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #4A5652;
+    .stamp-item-card {
+      background: rgba(255, 253, 248, 0.7);
+      border: 1px solid var(--border-ink);
+      padding: 12px 14px;
+      border-radius: 4px;
+      box-shadow: 3px 3px 0 rgba(71, 123, 101, 0.12);
     }
-    .trust-item span.icon {
-      font-size: 18px;
-      background: #FFF;
-      padding: 6px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-
-    /* Hero Collage Card */
-    .hero-photo-cluster {
-      position: relative;
-    }
-    .cluster-main-card {
-      background: #FFF;
-      padding: 14px 14px 24px;
-      border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(36, 49, 46, 0.12);
-      border: 1px solid var(--brand-border);
-      position: relative;
-    }
-    .cluster-main-card img {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: 14px;
-    }
-    .cluster-caption {
-      margin-top: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .cluster-caption strong {
+    .stamp-item-card strong {
       font-family: 'Noto Serif TC', serif;
-      font-size: 16px;
-      color: var(--brand-ink);
-    }
-    .cluster-caption span {
-      background: #EBF2EC;
-      color: var(--brand-green);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-    .floating-accent-badge {
-      position: absolute;
-      top: -20px;
-      right: -15px;
-      background: var(--brand-yellow);
-      color: var(--brand-ink);
-      font-weight: 900;
-      padding: 12px 18px;
-      border-radius: 50% 48% 52% 46%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       font-size: 14px;
-      transform: rotate(8deg);
-      border: 2px solid #FFF;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .stamp-item-card small {
+      font-size: 12px;
+      color: var(--ink-soft);
     }
 
-    /* Section Global Headers */
-    .section-head {
+    /* Hero 右側拍立得手作拼貼 (Polaroid Collage) */
+    .hero-collage-wrap {
+      position: relative;
+      min-height: 480px;
+    }
+    .hero-polaroid-main {
+      width: 78%;
+      height: 380px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: rotate(-3deg);
+    }
+    .hero-polaroid-sub {
+      width: 58%;
+      height: 280px;
+      position: absolute;
+      bottom: -20px;
+      right: 0;
+      transform: rotate(4deg);
+    }
+
+    /* =========================================================
+       家長痛點專區：活頁手帳打孔便箋紙 (Notebook Memo Sheets)
+       (直接重構您截圖指出的 4 張卡片區塊)
+       ========================================================= */
+    .pain-section-mook {
+      padding: 100px 6vw;
+      background: var(--paper-warm);
+      border-bottom: 2px dashed var(--border-dashed);
+      position: relative;
+    }
+    .mook-section-header {
       text-align: center;
-      max-width: 780px;
-      margin: 0 auto 54px;
+      max-width: 820px;
+      margin: 0 auto 60px;
+      position: relative;
     }
-    .section-eyebrow {
-      color: var(--brand-terracotta);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      display: inline-block;
+    .mook-header-seal {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-6deg);
     }
-    .section-title {
+    .mook-section-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(28px, 3.4vw, 44px);
+      font-size: clamp(28px, 3.6vw, 46px);
       font-weight: 900;
       line-height: 1.3;
-      margin-bottom: 16px;
-      color: var(--brand-ink);
+      color: var(--ink);
+      margin: 20px 0 16px;
+      letter-spacing: -0.01em;
     }
-    .section-subtitle {
+    .mook-section-subtitle {
       font-size: 16px;
-      color: var(--brand-subtle);
-      line-height: 1.8;
+      color: var(--ink-soft);
+      line-height: 1.85;
       margin: 0;
     }
 
-    /* Pain Points Section */
-    .pain-points-section {
-      padding: 90px 6vw;
-      background: #F7F3EB;
-    }
-    .pain-points-grid {
-      max-width: 1140px;
+    /* 4 張活頁手帳便箋網格 */
+    .notebook-sheets-grid {
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 36px 30px;
     }
-    .pain-card {
-      background: #FFF;
-      border-radius: 18px;
-      padding: 30px;
-      border: 1px solid #E5DCD2;
-      box-shadow: 0 10px 25px rgba(36, 49, 46, 0.05);
+    .notebook-sheet {
+      background: #FFFDF8;
+      border: 1px solid #DFD7CA;
+      border-radius: 4px;
+      padding: 34px 28px 28px 46px; /* 左側預留打孔間距 */
+      box-shadow: 6px 7px 0 rgba(36, 49, 46, 0.08);
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 150px;
+      gap: 20px;
+      align-items: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .notebook-sheet:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 10px 0 rgba(36, 49, 46, 0.12);
+    }
+
+    /* 活頁紙打孔 (Spiral Binder Holes) */
+    .binder-holes {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 14px;
+      width: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      pointer-events: none;
+    }
+    .binder-hole {
+      width: 12px;
+      height: 12px;
+      background: var(--paper);
+      border: 1.5px solid #C4BCAD;
+      border-radius: 50%;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.18);
+    }
+
+    /* 痛點卡片膠帶位置 */
+    .notebook-sheet .sheet-tape {
+      position: absolute;
+      top: -12px;
+      left: 60px;
+      width: 75px;
+      height: 22px;
+      transform: rotate(-2deg);
+    }
+
+    /* 便箋內容排版 */
+    .sheet-main-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s;
+      height: 100%;
     }
-    .pain-card:hover {
-      transform: translateY(-4px);
-    }
-    .pain-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .pain-icon {
-      font-size: 26px;
-      background: #FEEFEF;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .pain-title {
+    .sheet-title {
       font-family: 'Noto Serif TC', serif;
       font-size: 19px;
       font-weight: 800;
-      color: #9C3D32;
-      margin: 0 0 6px 0;
+      color: #9E3524;
+      margin: 0 0 10px;
+      line-height: 1.4;
     }
-    .pain-detail {
+    .sheet-problem-desc {
       font-size: 14px;
-      color: #6B726F;
-      line-height: 1.65;
-      margin: 0;
+      color: #636D69;
+      line-height: 1.7;
+      margin: 0 0 16px;
     }
-    .solution-box {
-      margin-top: 18px;
-      padding: 16px 18px;
-      background: #F2F8F4;
-      border-left: 4px solid var(--brand-green);
-      border-radius: 6px 12px 12px 6px;
+    
+    /* 尚學解法手作區 */
+    .sheet-solution-wrap {
+      position: relative;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(36, 49, 46, 0.2);
     }
-    .solution-label {
-      font-size: 12px;
-      font-weight: 900;
-      color: var(--brand-green);
+    .handwritten-arrow {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--green);
+      font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       margin-bottom: 6px;
     }
-    .solution-text {
-      font-size: 14px;
-      color: #354E43;
+    .sheet-solution-text {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.65;
       font-weight: 600;
-      line-height: 1.6;
       margin: 0;
     }
-
-    /* Core Programs Section */
-    .courses-section {
-      padding: 100px 6vw;
-      background: #FFFDF8;
+    .stamp-solution-seal {
+      display: inline-block;
+      border: 1.5px solid #C0392B;
+      color: #C0392B;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 3px;
+      transform: rotate(-3deg);
+      margin-bottom: 6px;
+      background: #FFF8F6;
     }
-    .courses-grid {
-      max-width: 1200px;
+
+    /* 便箋右側迷你拍立得相片 */
+    .sheet-polaroid {
+      width: 140px;
+      height: 155px;
+      position: relative;
+      transform: rotate(2deg);
+    }
+    .sheet-polaroid .paper-clip {
+      top: -12px;
+      right: 12px;
+      font-size: 24px;
+    }
+
+    /* =========================================================
+       四大核心課程模組：日系雜誌特輯專欄 (FEATURE 02)
+       ========================================================= */
+    .courses-mook-section {
+      padding: 100px 6vw;
+      background: var(--paper);
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+    .courses-mook-grid {
+      max-width: 1220px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 36px 30px;
     }
-    .course-card {
-      background: #FFF;
-      border-radius: 20px;
-      border: 2px solid #EFE8DE;
-      padding: 34px;
-      box-shadow: 0 12px 32px rgba(36, 49, 46, 0.06);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .course-card.featured {
-      border-color: var(--brand-terracotta);
-      background: linear-gradient(180deg, #FFFDFB 0%, #FFFFFF 100%);
-      box-shadow: 0 16px 40px rgba(201, 109, 69, 0.14);
-    }
-    .course-card:hover {
-      transform: translateY(-5px);
-    }
-    .card-top-tag {
-      position: absolute;
-      top: -14px;
-      left: 30px;
-      background: var(--brand-terracotta);
-      color: #FFF;
-      font-size: 12px;
-      font-weight: 900;
-      padding: 4px 14px;
-      border-radius: 999px;
-      letter-spacing: 0.05em;
-    }
-    .course-card.featured .card-top-tag {
-      background: #C96D45;
-    }
-    .course-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--brand-ink);
-      margin: 8px 0 10px;
-    }
-    .course-audience {
-      font-size: 13px;
-      color: var(--brand-terracotta);
-      font-weight: 800;
-      background: #FDF1EB;
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 16px;
-    }
-    .course-intro {
-      font-size: 15px;
-      color: var(--brand-subtle);
-      line-height: 1.75;
-      margin-bottom: 22px;
-    }
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 28px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: #3B4643;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-    .feature-list li::before {
-      content: "✓";
-      color: var(--brand-green);
-      font-weight: 900;
-      font-size: 16px;
-      background: #EBF2EC;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .btn-course-cta {
-      background: var(--brand-ink);
-      color: #FFF;
-      text-align: center;
-      padding: 13px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 14px;
-      text-decoration: none;
-      transition: background 0.2s;
-      display: block;
-    }
-    .btn-course-cta:hover {
-      background: var(--brand-terracotta);
-    }
-
-    /* Routine & Escort Section */
-    .routine-section {
-      padding: 90px 6vw;
-      background: #F5EFEB;
-    }
-    .routine-wrapper {
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-    .routine-timeline {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-      position: relative;
-    }
-    .routine-step {
-      background: #FFF;
-      border-radius: 16px;
-      padding: 24px 18px;
-      box-shadow: 0 8px 20px rgba(36, 49, 46, 0.05);
-      border: 1px solid #E4DDD4;
-      text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .routine-time {
-      font-family: 'Comfortaa', sans-serif;
-      font-weight: 700;
-      color: var(--brand-terracotta);
-      font-size: 14px;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .routine-step-icon {
-      font-size: 28px;
-      margin: 8px auto 12px;
-    }
-    .routine-step h4 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 17px;
-      font-weight: 800;
-      margin: 0 0 8px;
-      color: var(--brand-ink);
-    }
-    .routine-step p {
-      font-size: 12px;
-      color: var(--brand-subtle);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    /* Safety School Grid */
-    .school-escort-box {
-      margin-top: 40px;
-      background: #FFF;
-      border-radius: 18px;
-      padding: 30px;
-      border: 1px solid #E4DDD4;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 30px;
-      align-items: center;
-    }
-    .escort-badge h3 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 22px;
-      color: var(--brand-green);
-      margin: 0 0 10px;
-    }
-    .escort-badge p {
-      color: var(--brand-subtle);
-      font-size: 14px;
-      line-height: 1.65;
-      margin: 0;
-    }
-    .escort-school-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .school-tag {
-      background: #EBF2EC;
-      border: 1px solid #D1E2D5;
-      border-radius: 999px;
-      padding: 8px 18px;
-      font-size: 13px;
-      font-weight: 800;
-      color: #2F5948;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Summer Camp Showcase Link Section */
-    .summer-showcase-section {
-      padding: 100px 6vw;
+    .course-mook-card {
       background: #FFFDF8;
-    }
-    .showcase-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .showcase-thumb-card {
-      background: #FFF;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #E8DFD4;
-      box-shadow: 0 8px 24px rgba(36, 49, 46, 0.06);
+      border: 1px solid var(--border-ink);
+      border-radius: 4px;
+      padding: 28px;
+      box-shadow: 6px 7px 0 rgba(71, 123, 101, 0.15);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.25s;
     }
-    .showcase-thumb-card:hover {
-      transform: translateY(-5px);
+    .course-mook-card:hover {
+      transform: translateY(-4px);
     }
-    .showcase-thumb-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-    .thumb-content {
-      padding: 18px 16px;
-    }
-    .thumb-tag {
+    .course-ribbon-tag {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: var(--ink);
+      color: var(--yellow);
+      font-family: 'Comfortaa', sans-serif;
       font-size: 11px;
-      font-weight: 800;
-      color: var(--brand-terracotta);
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-      display: block;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      box-shadow: 2px 2px 0 var(--orange);
     }
-    .thumb-content h4 {
+    .course-card-top-row {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    .course-card-polaroid {
+      width: 135px;
+      height: 145px;
+      transform: rotate(-2deg);
+    }
+    .course-mook-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--brand-ink);
-      margin: 0 0 8px;
-      line-height: 1.4;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--ink);
+      margin: 10px 0 6px;
+      line-height: 1.35;
     }
-    .thumb-content p {
+    .course-target-badge {
       font-size: 12px;
-      color: var(--brand-subtle);
-      line-height: 1.6;
-      margin: 0;
+      color: var(--orange);
+      font-weight: 800;
+      background: var(--orange-light);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 10px;
     }
-    .showcase-link-box {
-      max-width: 900px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, #FFF6EE, #FCEEE3);
-      border: 2px dashed var(--brand-terracotta);
-      border-radius: 20px;
-      padding: 34px 40px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .showcase-link-box h3 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 24px;
-      color: var(--brand-terracotta);
-      margin: 0;
-    }
-    .showcase-link-box p {
-      font-size: 15px;
-      color: #59443B;
-      max-width: 650px;
+    .course-mook-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
       line-height: 1.7;
       margin: 0;
     }
-    .btn-summer-hub {
-      background: var(--brand-terracotta);
-      color: #FFF;
-      font-weight: 900;
-      font-size: 16px;
-      padding: 14px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(201, 109, 69, 0.3);
-      transition: all 0.2s;
+    .course-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px dashed rgba(36, 49, 46, 0.18);
+      padding-top: 16px;
     }
-    .btn-summer-hub:hover {
-      background: var(--brand-terracotta-dark);
-      transform: scale(1.03);
+    .course-features-list li {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .course-features-list li::before {
+      content: "🌱";
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .btn-course-reserve {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      padding: 12px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 3px;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--yellow);
+      transition: all 0.2s;
+      display: block;
+    }
+    .btn-course-reserve:hover {
+      background: var(--ink);
+      color: #FFF;
+      box-shadow: 4px 4px 0 var(--orange);
     }
 
-    /* Testimonials Section */
-    .testimonials-section {
-      padding: 90px 6vw;
-      background: #F8F4ED;
+    /* =========================================================
+       作息與安心接送：旅程手帳時間軸 (COLUMN 03)
+       ========================================================= */
+    .routine-mook-section {
+      padding: 100px 6vw;
+      background: var(--paper-warm);
+      border-bottom: 2px dashed var(--border-dashed);
     }
-    .testimonials-grid {
-      max-width: 1140px;
+    .routine-mook-grid {
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
     }
-    .testimonial-card {
-      background: #FFF;
-      border-radius: 18px;
-      padding: 28px;
-      border: 1px solid #E2D9CE;
-      box-shadow: 0 10px 24px rgba(36, 49, 46, 0.05);
+    .routine-mook-card {
+      background: #FFFDF8;
+      border: 1px solid var(--border-ink);
+      border-radius: 4px;
+      padding: 22px 14px;
+      text-align: center;
+      box-shadow: 4px 5px 0 rgba(36, 49, 46, 0.06);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .quote-mark {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 48px;
-      line-height: 1;
-      color: var(--brand-yellow);
-      margin-bottom: -10px;
+    .routine-stamp-time {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      color: var(--orange);
+      font-size: 13px;
+      background: var(--orange-light);
+      padding: 2px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 8px;
     }
-    .quote-text {
-      font-size: 14px;
-      color: #4A5652;
-      line-height: 1.75;
+    .routine-mook-icon {
+      font-size: 26px;
+      margin: 8px auto;
+    }
+    .routine-mook-card h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .routine-mook-card p {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 學區接送專用保護網卡片 */
+    .escort-mook-box {
+      max-width: 1200px;
+      margin: 36px auto 0;
+      background: #FFF;
+      border: 2px solid var(--green);
+      border-radius: 4px;
+      padding: 26px 30px;
+      box-shadow: 6px 6px 0 var(--green-light);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .escort-mook-box h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      color: var(--green);
+      margin: 0 0 6px;
+    }
+    .escort-mook-box p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .school-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .school-tag-pill {
+      background: var(--green-light);
+      border: 1px dashed var(--green);
+      color: var(--green);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 3px;
+    }
+
+    /* =========================================================
+       暑期成果誌精選櫥窗：日系特刊展覽區
+       ========================================================= */
+    .summer-mook-section {
+      padding: 100px 6vw;
+      background: var(--paper);
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+    .summer-polaroids-row {
+      max-width: 1220px;
+      margin: 0 auto 46px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .summer-polaroid-item {
+      height: 280px;
+    }
+    .summer-polaroid-item:nth-child(odd) {
+      transform: rotate(-2deg);
+    }
+    .summer-polaroid-item:nth-child(even) {
+      transform: rotate(2.5deg);
+    }
+    .summer-mook-callout {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #FFFDF8;
+      border: 2px dashed var(--orange);
+      border-radius: 4px;
+      padding: 36px 40px;
+      text-align: center;
+      box-shadow: 6px 6px 0 rgba(201, 109, 69, 0.15);
+      position: relative;
+    }
+    .summer-mook-callout h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 24px;
+      color: var(--orange);
+      margin: 0 0 10px;
+    }
+    .summer-mook-callout p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .btn-mook-read-summer {
+      background: var(--orange);
+      color: #FFF !important;
+      font-weight: 900;
+      font-size: 16px;
+      padding: 14px 34px;
+      border-radius: 3px;
+      box-shadow: 4px 4px 0 var(--ink);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-mook-read-summer:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    /* =========================================================
+       家長見證：日系專欄訪談引言 (VOICES)
+       ========================================================= */
+    .testimonials-mook-section {
+      padding: 90px 6vw;
+      background: var(--paper-warm);
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+    .testimonials-mook-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .testimonial-mook-card {
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 4px;
+      padding: 28px;
+      box-shadow: 5px 6px 0 rgba(36, 49, 46, 0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mook-quote-bracket {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 40px;
+      line-height: 1;
+      color: var(--yellow);
+      margin-bottom: -6px;
+    }
+    .mook-quote-content {
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.8;
       font-style: italic;
       margin-bottom: 20px;
     }
-    .quote-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-top: 1px solid #F0EAE2;
+    .mook-quote-footer {
+      border-top: 1px dashed rgba(36, 49, 46, 0.16);
       padding-top: 14px;
-    }
-    .author-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--brand-green-light);
-      color: var(--brand-green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 15px;
-    }
-    .author-info strong {
-      font-size: 14px;
-      display: block;
-      color: var(--brand-ink);
-    }
-    .author-info span {
-      font-size: 12px;
-      color: #8C9692;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      padding: 90px 6vw;
-      background: #FFFDF8;
-    }
-    .faq-container {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .faq-item {
-      background: #FFF;
-      border: 1px solid #E6DFD5;
-      border-radius: 14px;
-      padding: 22px 26px;
-      box-shadow: 0 4px 14px rgba(36, 49, 46, 0.04);
-    }
-    .faq-question {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--brand-ink);
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .faq-question .q-badge {
-      background: var(--brand-terracotta);
-      color: #FFF;
-      font-size: 13px;
-      font-weight: 900;
-      width: 24px;
-      height: 24px;
+    .mook-author-stamp {
+      width: 36px;
+      height: 36px;
+      background: var(--green-light);
+      border: 1px solid var(--green);
       border-radius: 50%;
-      display: inline-flex;
+      color: var(--green);
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      font-weight: 900;
+      font-size: 14px;
+      font-family: 'Noto Serif TC', serif;
     }
-    .faq-answer {
-      font-size: 15px;
-      color: var(--brand-subtle);
-      line-height: 1.75;
-      margin: 0;
-      padding-left: 36px;
+    .mook-author-info strong {
+      font-size: 14px;
+      color: var(--ink);
+      display: block;
+    }
+    .mook-author-info small {
+      font-size: 12px;
+      color: var(--ink-soft);
     }
 
-    /* Booking Offer & Form Section */
-    .booking-section {
+    /* =========================================================
+       預約到班：手作邀請函 (RESERVATION TICKET)
+       ========================================================= */
+    .booking-mook-section {
       padding: 100px 6vw;
-      background: linear-gradient(180deg, #FAF4ED 0%, #F5EBE1 100%);
+      background: var(--paper);
     }
-    .booking-card-main {
+    .booking-ticket-card {
       max-width: 960px;
       margin: 0 auto;
-      background: #FFF;
-      border-radius: 24px;
-      border: 2px solid #EAD8C7;
-      padding: 44px;
-      box-shadow: 0 25px 60px rgba(201, 109, 69, 0.12);
+      background: #FFFDF8;
+      border: 3px double var(--orange);
+      border-radius: 6px;
+      padding: 46px 40px;
+      box-shadow: 8px 10px 0 rgba(201, 109, 69, 0.2);
       text-align: center;
+      position: relative;
     }
-    .booking-gift-box {
-      background: #FFF9F0;
-      border: 1px solid #F7E0C8;
-      border-radius: 16px;
-      padding: 20px 24px;
-      margin: 24px auto 34px;
-      max-width: 700px;
+    .booking-gift-pill {
+      background: var(--yellow-light);
+      border: 1px dashed var(--orange);
+      border-radius: 4px;
+      padding: 18px 24px;
+      margin: 24px auto 32px;
+      max-width: 720px;
+      text-align: left;
       display: flex;
       align-items: center;
-      gap: 18px;
-      text-align: left;
+      gap: 16px;
     }
-    .gift-icon {
-      font-size: 38px;
+    .booking-gift-icon {
+      font-size: 34px;
       flex-shrink: 0;
     }
-    .gift-content strong {
-      color: var(--brand-terracotta);
-      font-size: 16px;
+    .booking-gift-text strong {
+      color: var(--orange);
+      font-size: 15px;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      font-family: 'Noto Serif TC', serif;
     }
-    .gift-content p {
-      font-size: 13px;
-      color: #6E5C50;
+    .booking-gift-text p {
+      font-size: 13.5px;
+      color: #594D3C;
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.55;
     }
-    .form-cta-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-    }
-    .btn-big-form {
-      background: var(--brand-terracotta);
+    .btn-mook-ticket {
+      background: var(--orange);
       color: #FFF !important;
       font-size: 19px;
       font-weight: 900;
       padding: 18px 46px;
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(201, 109, 69, 0.4);
+      border-radius: 4px;
+      box-shadow: 5px 5px 0 var(--ink);
       display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      transition: all 0.25s;
+      transition: all 0.2s;
     }
-    .btn-big-form:hover {
-      background: var(--brand-terracotta-dark);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 16px 36px rgba(201, 109, 69, 0.5);
+    .btn-mook-ticket:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 var(--ink);
     }
-    .form-time-note {
-      font-size: 13px;
-      color: #8C7B71;
-    }
-    .form-embed-toggle-btn {
+    .btn-toggle-embed {
       background: transparent;
-      border: 1px dashed var(--brand-terracotta);
-      color: var(--brand-terracotta);
+      border: 1px dashed var(--ink);
+      color: var(--ink);
       font-size: 13px;
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 999px;
+      font-weight: 800;
+      padding: 7px 18px;
+      border-radius: 3px;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 14px;
       transition: background 0.2s;
     }
-    .form-embed-toggle-btn:hover {
-      background: #FDF2EB;
+    .btn-toggle-embed:hover {
+      background: rgba(36, 49, 46, 0.05);
     }
-    .form-iframe-container {
+    .mook-embed-container {
       display: none;
       margin-top: 30px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #EAD8C7;
+      border: 1px solid var(--border-ink);
       background: #FFF;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-radius: 4px;
     }
-    .form-iframe-container.show {
+    .mook-embed-container.show {
       display: block;
     }
-    .form-iframe-container iframe {
+    .mook-embed-container iframe {
       width: 100%;
       height: 800px;
-      border: none;
+      border: 0;
     }
 
-    /* Contact & Location Section */
-    .contact-section {
-      padding: 90px 6vw;
-      background: #FFFDF8;
-      border-top: 1px solid #EBE4DA;
+    /* 地理位置與交通資訊 */
+    .contact-mook-section {
+      padding: 80px 6vw;
+      background: var(--paper-warm);
+      border-top: 1px dashed var(--border-dashed);
     }
-    .contact-grid {
+    .contact-mook-grid {
       max-width: 1140px;
       margin: 0 auto;
       display: grid;
@@ -1045,766 +1138,769 @@
       gap: 40px;
       align-items: center;
     }
-    .contact-info-card {
+    .contact-info-mook {
       background: #FFF;
-      border: 1px solid #E8DFD4;
-      border-radius: 20px;
-      padding: 36px;
-      box-shadow: 0 10px 30px rgba(36, 49, 46, 0.05);
+      border: 1px solid var(--border-ink);
+      padding: 34px;
+      border-radius: 4px;
+      box-shadow: 5px 6px 0 rgba(36, 49, 46, 0.08);
     }
-    .contact-info-card h3 {
+    .contact-info-mook h3 {
       font-family: 'Noto Serif TC', serif;
-      font-size: 26px;
-      color: var(--brand-ink);
-      margin: 0 0 20px;
+      font-size: 24px;
+      color: var(--ink);
+      margin: 0 0 16px;
     }
-    .contact-details-list {
+    .contact-list-mook {
       list-style: none;
       padding: 0;
-      margin: 0 0 28px;
+      margin: 0 0 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
-    .contact-details-list li {
+    .contact-list-mook li {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      color: #4A5652;
-      line-height: 1.6;
+      gap: 10px;
     }
-    .contact-details-list li strong {
-      color: var(--brand-ink);
+    .contact-list-mook li strong {
+      color: var(--ink);
       min-width: 70px;
     }
-    .contact-actions-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn-contact-call {
-      background: var(--brand-green);
-      color: #FFF;
+    .btn-call-mook {
+      background: var(--green);
+      color: #FFF !important;
       padding: 12px 22px;
-      border-radius: 10px;
+      border-radius: 3px;
       font-weight: 800;
       font-size: 14px;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--ink);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      text-decoration: none;
+      gap: 6px;
     }
-    .btn-contact-map {
+    .btn-map-mook {
       background: #FFF;
-      border: 1px solid var(--brand-border);
-      color: var(--brand-ink);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
       padding: 12px 22px;
-      border-radius: 10px;
+      border-radius: 3px;
       font-weight: 800;
       font-size: 14px;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 rgba(36, 49, 46, 0.12);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      text-decoration: none;
+      gap: 6px;
     }
-    .map-preview-box {
-      background: #EBE4DA;
-      border-radius: 20px;
+    .map-frame-box {
+      height: 360px;
+      border: 1px solid var(--border-ink);
+      border-radius: 4px;
       overflow: hidden;
-      border: 1px solid var(--brand-border);
-      height: 380px;
-      position: relative;
-    }
-    .map-preview-box iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+      box-shadow: 5px 6px 0 rgba(36, 49, 46, 0.08);
     }
 
-    /* Mobile Sticky CTA Bar */
-    .mobile-sticky-bar {
+    /* 手機底部懸浮常駐列 (Mobile Sticky Bar) */
+    .mobile-mook-sticky {
       display: none;
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 253, 248, 0.96);
+      background: rgba(247, 242, 232, 0.98);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(201, 109, 69, 0.3);
+      border-top: 2px solid var(--orange);
       padding: 10px 16px;
       z-index: 9999;
-      box-shadow: 0 -8px 24px rgba(0,0,0,0.1);
+      box-shadow: 0 -4px 16px rgba(36, 49, 46, 0.15);
     }
-    .mobile-sticky-inner {
+    .mobile-mook-inner {
       display: flex;
       gap: 10px;
       align-items: center;
       max-width: 500px;
       margin: 0 auto;
     }
-    .btn-sticky-call {
+    .btn-sticky-phone {
       background: #FFF;
-      border: 1.5px solid var(--brand-green);
-      color: var(--brand-green);
-      border-radius: 10px;
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      border-radius: 3px;
       padding: 10px 14px;
       font-size: 13px;
       font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
       text-decoration: none;
       flex-shrink: 0;
     }
-    .btn-sticky-booking {
-      background: var(--brand-terracotta);
-      color: #FFF;
-      border-radius: 10px;
+    .btn-sticky-form {
+      background: var(--orange);
+      color: #FFF !important;
+      border-radius: 3px;
       padding: 12px 20px;
       font-size: 15px;
       font-weight: 900;
       text-align: center;
       text-decoration: none;
       flex-grow: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(201, 109, 69, 0.35);
+      box-shadow: 3px 3px 0 var(--ink);
     }
 
-    /* Responsive Queries */
+    /* RWD 響應式佈局調整 */
     @media (max-width: 900px) {
-      .site-nav-links { display: none; }
-      .hero-container { grid-template-columns: 1fr; gap: 40px; }
-      .cluster-main-card img { height: 280px; }
-      .hero-trust-bar { grid-template-columns: repeat(2, 1fr); }
-      .pain-points-grid { grid-template-columns: 1fr; }
-      .courses-grid { grid-template-columns: 1fr; }
-      .routine-timeline { grid-template-columns: repeat(2, 1fr); }
-      .school-escort-box { grid-template-columns: 1fr; }
-      .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .mobile-sticky-bar { display: block; }
+      .mook-nav { display: none; }
+      .hero-mook-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stamps-bar { grid-template-columns: repeat(2, 1fr); }
+      .notebook-sheets-grid { grid-template-columns: 1fr; }
+      .notebook-sheet { grid-template-columns: 1fr; padding: 30px 20px 24px 40px; }
+      .sheet-polaroid { width: 100%; height: 220px; margin-top: 14px; }
+      .courses-mook-grid { grid-template-columns: 1fr; }
+      .routine-mook-grid { grid-template-columns: repeat(2, 1fr); }
+      .escort-mook-box { grid-template-columns: 1fr; }
+      .summer-polaroids-row { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-mook-grid { grid-template-columns: 1fr; }
+      .contact-mook-grid { grid-template-columns: 1fr; }
+      .mobile-mook-sticky { display: block; }
     }
 
     @media (max-width: 600px) {
-      .admission-hero { padding: 40px 5vw 60px; }
-      .hero-cta-group { flex-direction: column; width: 100%; }
-      .btn-main-pulse, .btn-secondary-link { width: 100%; justify-content: center; }
-      .showcase-grid { grid-template-columns: 1fr; }
-      .routine-timeline { grid-template-columns: 1fr; }
-      .booking-card-main { padding: 26px 18px; }
-      .booking-gift-box { flex-direction: column; align-items: flex-start; }
-      .btn-big-form { width: 100%; justify-content: center; font-size: 17px; padding: 15px 20px; }
+      .hero-mook { padding: 40px 5vw 60px; }
+      .hero-mook-actions { flex-direction: column; }
+      .btn-mook-primary, .btn-mook-secondary { width: 100%; justify-content: center; box-sizing: border-box; }
+      .summer-polaroids-row { grid-template-columns: 1fr; }
+      .booking-ticket-card { padding: 28px 18px; }
+      .btn-mook-ticket { width: 100%; font-size: 16px; padding: 15px 18px; box-sizing: border-box; }
+      .routine-mook-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Top Urgent Announcement -->
-  <aside class="top-announcement" aria-label="重要公告">
-    <span>🎒 2026 新學期熱烈招收中！低年級小班精緻安親課輔・情境美語啟蒙・右昌/莒光/加昌學區安心接送</span>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">立即預約體驗 →</a>
+  <!-- 頂部特輯橫幅 -->
+  <aside class="top-mook-bar" aria-label="開學特輯公告">
+    <span>🎒 2026 新學期開學特輯｜低年級小班常規安親・情境美語啟蒙・右昌/莒光/加昌學區安心接送</span>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班體驗 →</a>
   </aside>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="site-header-brand">
-      <a class="brand" href="./index.html" aria-label="回到首頁">
-        <img class="brand-logo" src="./shangxue-logo-transparent.png?v=20260904_v1" alt="尚學文教"/>
-      </a>
-    </div>
+  <!-- 日系生活誌頂部導覽列 -->
+  <header class="mook-header">
+    <a class="mook-brand" href="./index.html" aria-label="尚學文教首頁">
+      <img class="mook-brand-logo" src="./shangxue-logo-transparent.png?v=20260904_v2" alt="尚學文教"/>
+    </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="site-nav-links" aria-label="主要選單">
-      <a href="#concept">辦學堅持</a>
-      <a href="#courses">四大核心課程</a>
-      <a href="#routine">安心作息與接送</a>
-      <a href="#summer-showcase" style="color: #477B65;">🍉 暑期成果展</a>
+    <!-- 電腦版導覽列 -->
+    <nav class="mook-nav" aria-label="主要選單">
+      <a href="#concept">辦學理念</a>
+      <a href="#courses">核心學程</a>
+      <a href="#routine">安心作息</a>
+      <a class="btn-mook-summer" href="./summer-2026.html">🍉 2026暑期成果誌 ↗</a>
       <a href="#testimonials">家長見證</a>
-      <a href="#faq">常見問答</a>
-      <a href="#contact">交通位置</a>
-      <a class="btn-header-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班了解</a>
+      <a href="#contact">校園位置</a>
+      <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班了解</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="admission-hero" id="top">
-      <div class="hero-container">
-        <!-- Left: Text & CTA -->
-        <div class="hero-content-col">
-          <div class="hero-badge-pill">
-            <span>✨ 2026 新學期全面招生中｜右昌・莒光・加昌學區安心守護</span>
+    <!-- =========================================================
+         HERO SECTION: 日系 Mook 封面特輯排版
+         ========================================================= -->
+    <section class="hero-mook" id="top">
+      <div class="hero-mook-grid">
+        <!-- 左欄：主標題與招生專題 -->
+        <div>
+          <div class="mook-badge">
+            <span>SPECIAL ISSUE</span>
+            <span class="year">2026 AUTUMN</span>
+            <span>・ 右昌・莒光・加昌學區安心守護</span>
           </div>
 
-          <h1 class="hero-title">
+          <h1 class="hero-mook-title">
             學習不該只有反覆寫評量。<br>
             <span class="highlight">在溫暖引導中，看見孩子主動專注的光芒。</span>
           </h1>
 
-          <p class="hero-desc">
+          <p class="hero-mook-desc">
             楠梓小班制精緻國小安親課輔 × 沉浸式自然美語 × PBL生活專案探究。<br>
             我們不只幫孩子顧好課業，更用心陪伴良好的坐姿作息與自信表達，讓每一位孩子都長出踏實自律的底氣。
           </p>
 
-          <div class="hero-cta-group">
-            <a class="btn-main-pulse" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
               <span>👉 立即線上預約到班了解（免費學習健檢）</span>
             </a>
-            <a class="btn-secondary-link" href="./summer-2026.html" title="瀏覽 2026 暑期雙月學習成果誌">
-              <span>🍉 閱覽暑期成果誌完整版 →</span>
+            <a class="btn-mook-secondary" href="./summer-2026.html" title="閱覽 2026 暑期雙月成果誌">
+              <span>🍉 閱覽 2026 暑期雙月成果誌 →</span>
             </a>
           </div>
 
-          <!-- Trust Badges -->
-          <div class="hero-trust-bar">
-            <div class="trust-item">
-              <span class="icon">👥</span>
-              <div>
-                <strong>1:8~1:12 小班制</strong><br>
-                <small style="color: #7A8581;">拒絕大班工廠化</small>
-              </div>
+          <!-- 4 組手帳印章信任標籤 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <strong>👥 1:8~1:12 小班制</strong>
+              <small>拒絕大型連鎖工廠化</small>
             </div>
-            <div class="trust-item">
-              <span class="icon">🛡️</span>
-              <div>
-                <strong>學區安心接送</strong><br>
-                <small style="color: #7A8581;">右昌・莒光・加昌</small>
-              </div>
+            <div class="stamp-item-card">
+              <strong>🛡️ 學區安心接送</strong>
+              <small>右昌步行・莒光專車</small>
             </div>
-            <div class="trust-item">
-              <span class="icon">📝</span>
-              <div>
-                <strong>自律常規養成</strong><br>
-                <small style="color: #7A8581;">分段專注不填鴨</small>
-              </div>
+            <div class="stamp-item-card">
+              <strong>📝 自律常規養成</strong>
+              <small>番茄鐘分段專注作業</small>
             </div>
-            <div class="trust-item">
-              <span class="icon">🌿</span>
-              <div>
-                <strong>PBL生活探究</strong><br>
-                <small style="color: #7A8581;">食農・科學與表達</small>
-              </div>
+            <div class="stamp-item-card">
+              <strong>🌿 PBL生活探究</strong>
+              <small>食農自然與科學走讀</small>
             </div>
           </div>
         </div>
 
-        <!-- Right: Real Classroom / Project Photo -->
-        <div class="hero-photo-cluster">
-          <div class="cluster-main-card">
-            <img src="./photos/curated_v3/ch05_expo_1.jpg" alt="尚學文教小班孩子自信上台發表成果" loading="eager"/>
-            <div class="cluster-caption">
-              <div>
-                <strong>生活科學與公眾表達發表會</strong><br>
-                <small style="color:#7A8581;">從實驗觀察到從容上台，自信是孩子最好的名片</small>
-              </div>
-              <span>真實教學現場</span>
-            </div>
+        <!-- 右欄：拍立得照片拼貼 (Polaroid Collage) -->
+        <div class="hero-collage-wrap">
+          <!-- 拍立得 1：大張主圖 -->
+          <div class="polaroid-card hero-polaroid-main">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; right:30px; transform:rotate(5deg);"></div>
+            <span class="paper-clip">📎</span>
+            <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="尚學小班孩子自信上台發表成果" loading="eager"/>
+            <div class="polaroid-caption">8/1 科學探究博覽會・孩子自信解說 AI 垃圾桶</div>
           </div>
-          <div class="floating-accent-badge">
-            <span>🌱 2個月招滿 30席<br>依預約順序安排！</span>
+
+          <!-- 拍立得 2：下方交錯副圖 -->
+          <div class="polaroid-card hero-polaroid-sub">
+            <div class="washi-tape washi-tape-green" style="top:-10px; left:20px; transform:rotate(-6deg);"></div>
+            <img src="./photos/curated_mook/hero_farm_kid.jpg" alt="孩子走入田野親手整地育苗" loading="eager"/>
+            <div class="polaroid-caption">走進農場大地課堂・親手植苗觀察生命</div>
+          </div>
+
+          <!-- 復古印章蓋在右下角 -->
+          <div class="vintage-stamp" style="position: absolute; bottom: -10px; left: 10px;">
+            <span>SANGSUEH</span>
+            <strong>合格探究</strong>
+            <span>2026秋季</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PAIN POINTS & WHY SANGSUEH -->
-    <section class="pain-points-section" id="concept">
-      <div class="section-head">
-        <span class="section-eyebrow">HEAR YOUR VOICE</span>
-        <h2 class="section-title">開學了，您是否也正為孩子的課後學習感到焦慮？</h2>
-        <p class="section-subtitle">傳統大型安親班塞滿整頁評量，孩子疲憊抗拒；在尚學，我們用有溫度的節奏，帶孩子步入自主自律的正向循環。</p>
+    <!-- =========================================================
+         家長痛點專區：活頁手帳打孔便箋紙 (A+B FUSION 重構版)
+         ========================================================= -->
+    <section class="pain-section-mook" id="concept">
+      <div class="mook-section-header">
+        <div class="mook-badge">SPECIAL ISSUE 01</div>
+        <h2 class="mook-section-title">開學了，您是否也正為孩子的學習作息感到焦慮？</h2>
+        <p class="mook-section-subtitle">
+          在傳統大型補習班，孩子常被淹沒在重複的評量卷中；在尚學，我們用有溫度的手帳節奏，帶孩子步入自主學習軌道。
+        </p>
       </div>
 
-      <div class="pain-points-grid">
-        <!-- Card 1 -->
-        <article class="pain-card">
-          <div>
-            <div class="pain-header">
-              <div class="pain-icon">😰</div>
-              <div>
-                <h3 class="pain-title">大班直升小一，坐不住、寫作業哭天搶地？</h3>
-                <p class="pain-detail">幼稚園到小學作息巨變，握筆無力、注意力分散，回家光寫三行字就耗盡全家人的耐心。</p>
-              </div>
+      <div class="notebook-sheets-grid">
+        <!-- 便箋卡片 1：小一新生與作業習慣 -->
+        <article class="notebook-sheet">
+          <div class="binder-holes">
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+          </div>
+          <div class="washi-tape sheet-tape washi-tape-orange"></div>
+
+          <div class="sheet-main-content">
+            <div>
+              <h3 class="sheet-title">大班直升小一，坐不住、寫作業哭天搶地？</h3>
+              <p class="sheet-problem-desc">幼稚園到小學作息巨變，握筆無力、注意力分散，回家光寫三行字就耗盡全家人的耐心。</p>
+            </div>
+            <div class="sheet-solution-wrap">
+              <span class="stamp-solution-seal">尚學陪伴解法</span>
+              <div class="handwritten-arrow">↳ 番茄鐘分段專注 ＋ 握筆坐姿細緻矯正</div>
+              <p class="sheet-solution-text">採番茄鐘分段引導，陪伴孩子一筆一畫建立工整筆順，把大作業拆解成小成就，孩子在班內安心完成，重拾笑容！</p>
             </div>
           </div>
-          <div class="solution-box">
-            <div class="solution-label">✨ 尚學有溫度的解法</div>
-            <p class="solution-text">採番茄鐘分段專注引導，從握筆坐姿細緻陪伴，把大任務切成小里程碑，讓孩子在班內開心完成作業，重拾自信成就感！</p>
+
+          <!-- 右側專屬拍立得特寫照 -->
+          <div class="polaroid-card sheet-polaroid">
+            <span class="paper-clip">📎</span>
+            <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學孩子專注握筆寫作業" loading="lazy"/>
+            <div class="polaroid-caption">細心陪伴握筆常規</div>
           </div>
         </article>
 
-        <!-- Card 2 -->
-        <article class="pain-card">
-          <div>
-            <div class="pain-header">
-              <div class="pain-icon">📄</div>
-              <div>
-                <h3 class="pain-title">傳統安親一班 20~30 人，只能瘋狂盯評量考卷？</h3>
-                <p class="pain-detail">大型連鎖機構為求省事，往往用重複刷題壓制孩子，寫到傍晚七點，孩子的眼神失去了對學習的熱情與好奇。</p>
-              </div>
+        <!-- 便箋卡片 2：小班制 vs 傳統死背考卷 -->
+        <article class="notebook-sheet">
+          <div class="binder-holes">
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+          </div>
+          <div class="washi-tape sheet-tape washi-tape-green"></div>
+
+          <div class="sheet-main-content">
+            <div>
+              <h3 class="sheet-title">傳統安親一班 20~30 人，只能瘋狂盯評量考卷？</h3>
+              <p class="sheet-problem-desc">大型機構為求管理方便，往往用重複刷題壓制孩子，寫到傍晚七點，孩子的眼神失去了對學習的熱情與好奇。</p>
+            </div>
+            <div class="sheet-solution-wrap">
+              <span class="stamp-solution-seal">尚學陪伴解法</span>
+              <div class="handwritten-arrow">↳ 1:8~1:12 溫馨小班 ＋ 盲點精準個別點撥</div>
+              <p class="sheet-solution-text">嚴格維持精緻小班制！作業逐字檢查訂正，針對思考盲點耐心拆解，不靠無效刷題，而是引導孩子「學會如何自己解題」。</p>
             </div>
           </div>
-          <div class="solution-box">
-            <div class="solution-label">✨ 尚學有溫度的解法</div>
-            <p class="solution-text">嚴格維持 1:8~1:12 溫馨小班制！逐字檢查作業、針對觀念盲點個別拆解，不靠無效刷題，而是教會孩子「如何自己找到答案」。</p>
+
+          <!-- 右側專屬拍立得特寫照 -->
+          <div class="polaroid-card sheet-polaroid">
+            <span class="paper-clip">📎</span>
+            <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="尚學小班同儕討論與耐心解題" loading="lazy"/>
+            <div class="polaroid-caption">小班個別耐心引導</div>
           </div>
         </article>
 
-        <!-- Card 3 -->
-        <article class="pain-card">
-          <div>
-            <div class="pain-header">
-              <div class="pain-icon">🗣️</div>
-              <div>
-                <h3 class="pain-title">英文總是死記死背，孩子不敢開口又考不好？</h3>
-                <p class="pain-detail">單字抄十遍、文法背公式，孩子遇到外國人或日常對話時腦袋一片空白，越來越害怕英文。</p>
-              </div>
+        <!-- 便箋卡片 3：美語自然開口 vs 死背單字 -->
+        <article class="notebook-sheet">
+          <div class="binder-holes">
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+          </div>
+          <div class="washi-tape sheet-tape washi-tape-blue"></div>
+
+          <div class="sheet-main-content">
+            <div>
+              <h3 class="sheet-title">英文總是死記死背，孩子不敢開口又考不好？</h3>
+              <p class="sheet-problem-desc">單字抄寫十遍、背一堆文法公式，考試考得提心吊膽，遇到生活對話卻一句話都不敢說，越來越抗拒英文。</p>
+            </div>
+            <div class="sheet-solution-wrap">
+              <span class="stamp-solution-seal">尚學陪伴解法</span>
+              <div class="handwritten-arrow">↳ Phonics自然發音 ＋ 情境繪本趣味對話</div>
+              <p class="sheet-solution-text">以自然發音直覺拼讀為基礎，結合生活繪本閱讀與小班高頻率情境口說互動，讓說英文就像呼吸一樣自然好玩！</p>
             </div>
           </div>
-          <div class="solution-box">
-            <div class="solution-label">✨ 尚學有溫度的解法</div>
-            <p class="solution-text">系統化自然發音（Phonics）結合情境會話互動！透過生活英語對話、繪本閱讀與遊戲沉浸，讓孩子自然而然大方開口說美語。</p>
+
+          <!-- 右側專屬拍立得特寫照 -->
+          <div class="polaroid-card sheet-polaroid">
+            <span class="paper-clip">📎</span>
+            <img src="./photos/curated_mook/pain_english_reading.jpg" alt="孩子開心閱讀英文繪本" loading="lazy"/>
+            <div class="polaroid-caption">情境繪本自然開口</div>
           </div>
         </article>
 
-        <!-- Card 4 -->
-        <article class="pain-card">
-          <div>
-            <div class="pain-header">
-              <div class="pain-icon">⏰</div>
-              <div>
-                <h3 class="pain-title">雙薪家庭下班晚，回家還要跟作業「生死博鬥」？</h3>
-                <p class="pain-detail">工作忙了一整天，接完小孩回家只想好好吃頓飯，卻因為訂正作業跟簽聯絡簿搞得親子關係劍拔弩張。</p>
-              </div>
+        <!-- 便箋卡片 4：雙薪家庭下班與親子時光 -->
+        <article class="notebook-sheet">
+          <div class="binder-holes">
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+            <div class="binder-hole"></div>
+          </div>
+          <div class="washi-tape sheet-tape washi-tape-yellow"></div>
+
+          <div class="sheet-main-content">
+            <div>
+              <h3 class="sheet-title">雙薪家庭下班晚，回家還要跟作業「生死博鬥」？</h3>
+              <p class="sheet-problem-desc">工作忙了一整天，接完小孩只想好好吃頓飯，卻因為訂正作業跟簽聯絡簿搞得親子關係劍拔弩張、全家心力交瘁。</p>
+            </div>
+            <div class="sheet-solution-wrap">
+              <span class="stamp-solution-seal">尚學陪伴解法</span>
+              <div class="handwritten-arrow">↳ 班內扎實複習完備 ＋ 甜蜜親子時光歸還</div>
+              <p class="sheet-solution-text">在班嚴格落實作業訂正、單元複習與聯絡簿確認。傍晚接回孩子時功課早已俐落完成，把最珍貴的溫暖夜晚留給全家！</p>
             </div>
           </div>
-          <div class="solution-box">
-            <div class="solution-label">✨ 尚學有溫度的解法</div>
-            <p class="solution-text">在班嚴格落實作業訂正、單元複習與聯絡簿確認。傍晚接回孩子時功課早已乾淨俐落完成，把最珍貴的甜蜜時光留給親子相處。</p>
+
+          <!-- 右側專屬拍立得特寫照 -->
+          <div class="polaroid-card sheet-polaroid">
+            <span class="paper-clip">📎</span>
+            <img src="./photos/curated_mook/pain_happy_parenting.jpg" alt="孩子自信笑容完成作業" loading="lazy"/>
+            <div class="polaroid-caption">下班輕鬆享受親子夜</div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- FOUR FLAGSHIP COURSES -->
-    <section class="courses-section" id="courses">
-      <div class="section-head">
-        <span class="section-eyebrow">CORE CURRICULUM</span>
-        <h2 class="section-title">四大核心課程模組・為孩子打造長遠的學習底氣</h2>
-        <p class="section-subtitle">從低年級常規奠基、沉浸式美語聽說讀寫，到探究素養與各科進階，陪伴國小黃金成長階段。</p>
+    <!-- =========================================================
+       四大核心課程模組：日系雜誌特輯專欄 (FEATURE 02)
+       ========================================================= */
+    -->
+    <section class="courses-mook-section" id="courses">
+      <div class="mook-section-header">
+        <div class="mook-badge">FEATURE 02</div>
+        <h2 class="mook-section-title">四大核心課程模組・為孩子打造長遠的學習底氣</h2>
+        <p class="mook-section-subtitle">
+          從低年級常規奠基、沉浸式自然美語，到專案探究素養與各科進階，陪伴國小黃金成長階段。
+        </p>
       </div>
 
-      <div class="courses-grid">
-        <!-- Program 1 -->
-        <article class="course-card featured">
-          <span class="card-top-tag">🎒 開學主力熱招</span>
-          <div>
-            <h3 class="course-title">低年級（小一/小二）精緻常規安親課輔</h3>
-            <span class="course-audience">🎯 招收對象：國小一至二年級新生、大班直升轉銜</span>
-            <p class="course-intro">低年級是建立一生學習習慣的最關鍵兩年！我們注重常規勝過考卷，用鼓勵與陪伴，帶孩子習慣課堂節奏與自主專注。</p>
-            
-            <ul class="feature-list">
-              <li><strong>握筆與書寫常規校正</strong>：一筆一畫建立正確握筆姿勢與字跡結構。</li>
-              <li><strong>番茄鐘專注節奏訓練</strong>：25分鐘專心作業＋5分鐘放鬆，告別拖延症。</li>
-              <li><strong>學校課業逐字細緻輔導</strong>：國英數作業確實訂正，單元盲點個別點撥。</li>
-              <li><strong>專屬學區安心安全接送</strong>：右昌國小對面專人接駁，莒光/加昌定點防護。</li>
-            </ul>
+      <div class="courses-mook-grid">
+        <!-- 課程 1：低年級精緻安親 -->
+        <article class="course-mook-card">
+          <div class="course-ribbon-tag">01 · 開學熱招主力</div>
+          
+          <div class="course-card-top-row">
+            <div>
+              <h3 class="course-mook-title">低年級（小一/小二）精緻常規安親課輔</h3>
+              <span class="course-target-badge">🎯 招收對象：國小一至二年級新生、大班直升銜接</span>
+              <p class="course-mook-desc">低年級是奠定一生自律作息的最關鍵兩年！注重常規勝過考卷，用鼓勵引導孩子習慣課堂節奏與自主專注。</p>
+            </div>
+            <div class="polaroid-card course-card-polaroid">
+              <img src="./photos/curated_mook/course_lowgrade.jpg" alt="低年級專注寫字輔導" loading="lazy"/>
+              <div class="polaroid-caption">握筆常規養成</div>
+            </div>
           </div>
 
-          <a class="btn-course-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          <ul class="course-features-list">
+            <li><strong>握筆與坐姿基礎校正</strong>：一筆一畫建立正確筆順與字跡結構。</li>
+            <li><strong>番茄鐘專注節奏訓練</strong>：25分鐘專注作業＋5分鐘放鬆，告別拖延。</li>
+            <li><strong>學校課業逐字細緻輔導</strong>：國英數作業確實訂正，單元盲點個別點撥。</li>
+            <li><strong>右昌/莒光/加昌學區安心接送</strong>：專人安全路隊與接駁車，放學不漏接。</li>
+          </ul>
+
+          <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
             預約低年級課輔諮詢 & 體驗 →
           </a>
         </article>
 
-        <!-- Program 2 -->
-        <article class="course-card">
-          <span class="card-top-tag" style="background:#477B65;">🔤 自然開口・聽說讀寫</span>
-          <div>
-            <h3 class="course-title">兒童美語旗艦啟蒙與進階班</h3>
-            <span class="course-audience">🎯 招收對象：國小全年級、想建立道地英語口說自信的孩子</span>
-            <p class="course-intro">打破死背單字文法的痛苦魔咒！尚學美語以自然發音為基石，結合日常情境對話與互動任務，讓英語成為孩子的生活第二語言。</p>
-            
-            <ul class="feature-list">
-              <li><strong>Phonics 自然發音直覺拼讀</strong>：見字能讀、聽音能拼，建立自學力。</li>
-              <li><strong>情境生活口語情境會話</strong>：小班制高頻率互動開口，不再害怕說英文。</li>
-              <li><strong>分級繪本閱讀與語感培育</strong>：主題繪本延伸思考，培養英文閱讀興趣。</li>
-              <li><strong>英檢梯級階梯銜接機制</strong>：循序漸進銜接劍橋英檢（YLE）與小學檢定。</li>
-            </ul>
+        <!-- 課程 2：兒童美語旗艦班 -->
+        <article class="course-mook-card">
+          <div class="course-ribbon-tag">02 · 自然開口說美語</div>
+
+          <div class="course-card-top-row">
+            <div>
+              <h3 class="course-mook-title">兒童美語旗艦啟蒙與進階班</h3>
+              <span class="course-target-badge">🎯 招收對象：國小全年級、想擺脫死背單字文法的孩子</span>
+              <p class="course-mook-desc">打破死背單字文法的痛苦魔咒！以自然發音為基石，結合日常情境對話與主題繪本，讓英語成為孩子的生活第二語言。</p>
+            </div>
+            <div class="polaroid-card course-card-polaroid">
+              <img src="./photos/curated_mook/course_english.jpg" alt="兒童美語情境對話教學" loading="lazy"/>
+              <div class="polaroid-caption">口說自信大方</div>
+            </div>
           </div>
 
-          <a class="btn-course-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          <ul class="course-features-list">
+            <li><strong>Phonics 自然發音直覺拼讀</strong>：見字能讀、聽音能拼，建立自學語感。</li>
+            <li><strong>日常情境口語互動會話</strong>：小班制高頻率開口練習，讓孩子敢講愛講。</li>
+            <li><strong>分級主題繪本精讀引導</strong>：延伸思考與文化探索，培養深度閱讀力。</li>
+            <li><strong>劍橋英檢梯級階梯銜接</strong>：循序漸進銜接 YLE 與全民英檢認證。</li>
+          </ul>
+
+          <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
             預約美語分級能力健檢 →
           </a>
         </article>
 
-        <!-- Program 3 -->
-        <article class="course-card">
-          <span class="card-top-tag" style="background:#3B7684;">🔬 跳出課本・跨域實作</span>
-          <div>
-            <h3 class="course-title">PBL 專案探究與生活素養課程</h3>
-            <span class="course-audience">🎯 招收對象：充滿好奇心、想培養解決問題能力的小探究家</span>
-            <p class="course-intro">延續尚學最引以為傲的探究精神！從生活科學機構、食農土地生命觀察到公眾發表，讓孩子親手實證課本上的知識。</p>
-            
-            <ul class="feature-list">
-              <li><strong>生活科學機構與模型驗證</strong>：動手設計變因、組裝紙箱連桿機構。</li>
-              <li><strong>土地共感與食農生命教育</strong>：走進自然農場，親手育苗整地與採收。</li>
-              <li><strong>公眾策展發表與台風訓練</strong>：站上舞台向大家自信解說自己的作品。</li>
-              <li><strong>立體黏土與創客美學手作</strong>：揉合三原色色彩學，鍛鍊專注精細動作。</li>
-            </ul>
+        <!-- 課程 3：PBL 專案探究 -->
+        <article class="course-mook-card">
+          <div class="course-ribbon-tag">03 · 跳出課本動手做</div>
+
+          <div class="course-card-top-row">
+            <div>
+              <h3 class="course-mook-title">PBL 專案探究與生活素養課程</h3>
+              <span class="course-target-badge">🎯 招收對象：充滿好奇心、想培養獨立思考的小探究家</span>
+              <p class="course-mook-desc">延續尚學最引以為傲的探究基因！從生活科學機構、食農土地生命觀察到公眾發表，讓孩子親手實證課本上的知識。</p>
+            </div>
+            <div class="polaroid-card course-card-polaroid">
+              <img src="./photos/curated_mook/course_pbl_inquiry.jpg" alt="PBL科學連動模型操作" loading="lazy"/>
+              <div class="polaroid-caption">生活科學驗證</div>
+            </div>
           </div>
 
-          <a class="btn-course-cta" href="./summer-2026.html">
+          <ul class="course-features-list">
+            <li><strong>生活科學機構與模型驗證</strong>：動手設計變因、組裝紙箱連桿機構。</li>
+            <li><strong>土地共感與食農生命教育</strong>：走進農場果園，親手育苗整地與採收。</li>
+            <li><strong>公眾策展發表與台風訓練</strong>：站上舞台從容向評審與家長解說作品。</li>
+            <li><strong>黏土美學創客微縮雕塑</strong>：揉合三原色色彩學，鍛鍊專注精細動作。</li>
+          </ul>
+
+          <a class="btn-course-reserve" href="./summer-2026.html">
             瀏覽探究專案實績記錄 →
           </a>
         </article>
 
-        <!-- Program 4 -->
-        <article class="course-card">
-          <span class="card-top-tag" style="background:#6B706D;">📈 段考衝刺・自律養成</span>
-          <div>
-            <h3 class="course-title">中高年級課業精進與段考實力班</h3>
-            <span class="course-audience">🎯 招收對象：國小三至六年級、課業卡關想換環境轉班者</span>
-            <p class="course-intro">隨著課業難度倍增，死背已無法應對！我們引導孩子梳理章節邏輯、整理個人錯題本，無痛銜接國中升學新課綱。</p>
-            
-            <ul class="feature-list">
-              <li><strong>各科觀念心智圖系統梳理</strong>：理清因果關聯，拒絕片段零碎死記。</li>
-              <li><strong>個人化錯題訂正本深度解析</strong>：抓出思考盲點，徹底根治重複犯錯。</li>
-              <li><strong>自主學習讀書進度規劃</strong>：教導時間管理，培養自動自發的讀書節奏。</li>
-              <li><strong>國中數英先修銜接奠基</strong>：掌握關鍵先修主題，升國中信心滿滿。</li>
-            </ul>
+        <!-- 課程 4：中高年級段考實力 -->
+        <article class="course-mook-card">
+          <div class="course-ribbon-tag">04 · 段考衝刺自律養成</div>
+
+          <div class="course-card-top-row">
+            <div>
+              <h3 class="course-mook-title">中高年級課業精進與段考實力班</h3>
+              <span class="course-target-badge">🎯 招收對象：國小三至六年級、課業卡關想換環境轉班者</span>
+              <p class="course-mook-desc">隨著高年級課業難度倍增，死背已無法應付！我們引導孩子梳理章節邏輯心智圖、整理個人錯題本，無痛銜接國中升學。</p>
+            </div>
+            <div class="polaroid-card course-card-polaroid">
+              <img src="./photos/curated_mook/course_advancement.jpg" alt="中高年級心智圖與錯題梳理" loading="lazy"/>
+              <div class="polaroid-caption">自律讀書計畫</div>
+            </div>
           </div>
 
-          <a class="btn-course-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          <ul class="course-features-list">
+            <li><strong>各科觀念心智圖系統梳理</strong>：理清因果關聯，拒絕片段零碎死記。</li>
+            <li><strong>個人化錯題訂正本深度解析</strong>：抓出思考盲點，徹底根治重複犯錯。</li>
+            <li><strong>自主學習讀書進度管理</strong>：教導時間管理，培養自動自發的讀書節奏。</li>
+            <li><strong>國中數英先修銜接奠基</strong>：掌握國中會考關鍵主題，升學信心滿滿。</li>
+          </ul>
+
+          <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
             預約中高年級學力健檢 →
           </a>
         </article>
       </div>
     </section>
 
-    <!-- DAILY ROUTINE & ESCORT NETWORK -->
-    <section class="routine-section" id="routine">
-      <div class="section-head">
-        <span class="section-eyebrow">SAFE & PEACEFUL DAILY LIFE</span>
-        <h2 class="section-title">充實有度的課後生活，讓家長無後顧之憂</h2>
-        <p class="section-subtitle">雙薪爸媽最放心的堅強後盾！從放學走出校門口的那一刻起，全程守護孩子的安全與作息。</p>
+    <!-- =========================================================
+         安心作息與接送：手帳旅行時刻表 (COLUMN 03)
+         ========================================================= -->
+    <section class="routine-mook-section" id="routine">
+      <div class="mook-section-header">
+        <div class="mook-badge">COLUMN 03</div>
+        <h2 class="mook-section-title">充實有度的課後生活，讓家長無後顧之憂</h2>
+        <p class="mook-section-subtitle">
+          雙薪家庭最放心的堅強後盾！從放學走出校門口的那一刻起，全程守護孩子的安全與作息。
+        </p>
       </div>
 
-      <div class="routine-wrapper">
-        <div class="routine-timeline">
-          <!-- Step 1 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">12:00 / 16:00</span>
-              <div class="routine-step-icon">🚶</div>
-              <h4>安全放學接送</h4>
-              <p>右昌國小步行導護隊、莒光/加昌定點專車，安全抵達教室。</p>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">12:30 - 13:30</span>
-              <div class="routine-step-icon">🍱</div>
-              <h4>營養午餐與午休</h4>
-              <p>落實衛生洗手，享用均衡熱騰騰午餐，充足午睡充電。</p>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">13:30 - 15:30</span>
-              <div class="routine-step-icon">📖</div>
-              <h4>專注作業輔導</h4>
-              <p>番茄鐘分段節奏，字跡筆順逐字檢查，當日盲點徹底搞懂。</p>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">15:30 - 16:00</span>
-              <div class="routine-step-icon">🍎</div>
-              <h4>下午活力點心</h4>
-              <p>健康點心補給、多喝水上廁所，同儕輕鬆互動交流。</p>
-            </div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">16:00 - 17:30</span>
-              <div class="routine-step-icon">🗣️</div>
-              <h4>兒童美語/探究</h4>
-              <p>主題美語會話、探究動手做或單元精熟複習，多元充實。</p>
-            </div>
-          </div>
-
-          <!-- Step 6 -->
-          <div class="routine-step">
-            <div>
-              <span class="routine-time">17:30 - 19:30</span>
-              <div class="routine-step-icon">🏠</div>
-              <h4>自主閱讀與接回</h4>
-              <p>優質圖書角自主閱讀、益智桌遊，安心等候家長接回溫馨晚餐。</p>
-            </div>
+      <div class="routine-mook-grid">
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">12:00 / 16:00</span>
+            <div class="routine-mook-icon">🚶</div>
+            <h4>放學安全接送</h4>
+            <p>右昌國小專人步行導護隊、莒光/加昌安全接送車，平安入班。</p>
           </div>
         </div>
 
-        <!-- Escort Network Info -->
-        <div class="school-escort-box">
-          <div class="escort-badge">
-            <h3>🛡️ 楠梓在地學區安心接送生活圈</h3>
-            <p>教室位於軍校路靜巷內，遠離大馬路車流喧囂，環境安靜安全。我們提供周邊主要國小安心放學接送服務：</p>
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">12:30 - 13:30</span>
+            <div class="routine-mook-icon">🍱</div>
+            <h4>營養午餐與午休</h4>
+            <p>落實衛生洗手，享用均衡熱騰騰午餐，充足安靜午睡充電。</p>
           </div>
-          <div class="escort-school-tags">
-            <span class="school-tag">🏫 右昌國小（正對面巷內・專人步行導護）</span>
-            <span class="school-tag">🏫 莒光國小（定點安全專車接駁）</span>
-            <span class="school-tag">🏫 加昌國小（專屬課後接送）</span>
-            <span class="school-tag">🏫 藍田國小周邊學區</span>
+        </div>
+
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">13:30 - 15:30</span>
+            <div class="routine-mook-icon">📖</div>
+            <h4>專注作業輔導</h4>
+            <p>番茄鐘分段節奏，字跡筆順逐字檢查，當日盲點徹底搞懂。</p>
           </div>
+        </div>
+
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">15:30 - 16:00</span>
+            <div class="routine-mook-icon">🍎</div>
+            <h4>下午活力點心</h4>
+            <p>新鮮水果點心補給、多喝水上廁所，同儕輕鬆互動交流。</p>
+          </div>
+        </div>
+
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">16:00 - 17:30</span>
+            <div class="routine-mook-icon">🗣️</div>
+            <h4>兒童美語/探究</h4>
+            <p>主題美語對話、探究動手做或單元精熟複習，多元充實。</p>
+          </div>
+        </div>
+
+        <div class="routine-mook-card">
+          <div>
+            <span class="routine-stamp-time">17:30 - 19:30</span>
+            <div class="routine-mook-icon">🏠</div>
+            <h4>自主閱讀與接回</h4>
+            <p>優質圖書角自主閱讀、益智桌遊，安心等候家長接回溫馨晚餐。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 學區接送專車說明框 -->
+      <div class="escort-mook-box">
+        <div>
+          <h3>🛡️ 楠梓在地學區安心守護生活圈</h3>
+          <p>教室位於軍校路靜巷內，遠離大馬路車流喧囂，環境安靜安全。我們提供周邊主要國小安心放學接送服務：</p>
+        </div>
+        <div class="school-tags-row">
+          <span class="school-tag-pill">🏫 右昌國小（正對面巷內・專人步行導護）</span>
+          <span class="school-tag-pill">🏫 莒光國小（定點安全專車接駁）</span>
+          <span class="school-tag-pill">🏫 加昌國小（專屬課後接送）</span>
+          <span class="school-tag-pill">🏫 藍田國小周邊學區</span>
         </div>
       </div>
     </section>
 
-    <!-- 2026 SUMMER CAMP SHOWCASE -->
-    <section class="summer-showcase-section" id="summer-showcase">
-      <div class="section-head">
-        <span class="section-eyebrow">PROVEN EXCELLENCE</span>
-        <h2 class="section-title">真實看見孩子的蛻變：尚學文教教學實績精選</h2>
-        <p class="section-subtitle">這不是口號，而是孩子親身體驗的足跡！剛落幕的 2026 暑期雙月探究成果，完整記錄了孩子自主思考與自信表達的成長軌跡。</p>
+    <!-- =========================================================
+         暑期成果展精選櫥窗：日系特刊展覽區
+         ========================================================= -->
+    <section class="summer-mook-section" id="summer-showcase">
+      <div class="mook-section-header">
+        <div class="mook-badge">SPECIAL ARCHIVE</div>
+        <h2 class="mook-section-title">真實看見孩子的蛻變：尚學文教教學實績精選</h2>
+        <p class="mook-section-subtitle">
+          這不是口號，而是孩子親身體驗的足跡！剛落幕的 2026 暑期雙月探究成果，完整記錄了孩子自主思考與自信表達的成長軌跡。
+        </p>
       </div>
 
-      <div class="showcase-grid">
-        <!-- Showcase 1 -->
-        <div class="showcase-thumb-card">
-          <img src="./photos/curated_v3/ch02_sci_2.jpg" alt="科學探究紙箱連桿模型" loading="lazy"/>
-          <div class="thumb-content">
-            <span class="thumb-tag">01 生活科學探究</span>
-            <h4>把好奇變成可研究的課題</h4>
-            <p>孩子自主發想、變因假設與模型測試，學會用實驗數據自信說明論點。</p>
-          </div>
+      <div class="summer-polaroids-row">
+        <div class="polaroid-card summer-polaroid-item">
+          <div class="washi-tape washi-tape-orange" style="top:-8px; left:20px;"></div>
+          <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="公眾發表博覽會" loading="lazy"/>
+          <div class="polaroid-caption">01 · 自信策展面對大眾</div>
         </div>
 
-        <!-- Showcase 2 -->
-        <div class="showcase-thumb-card">
-          <img src="./photos/curated_v3/ch05_expo_2.jpg" alt="8/1科學博覽會孩子解說" loading="lazy"/>
-          <div class="thumb-content">
-            <span class="thumb-tag">02 公眾發表博覽會</span>
-            <h4>自信策展與面對大眾解說</h4>
-            <p>面對評審提問與家長參觀，展示 AI 垃圾桶連動原理並熱情義賣鮮採蔬果。</p>
-          </div>
+        <div class="polaroid-card summer-polaroid-item">
+          <div class="washi-tape washi-tape-green" style="top:-8px; right:20px;"></div>
+          <img src="./photos/curated_mook/hero_farm_kid.jpg" alt="食農育苗與採果" loading="lazy"/>
+          <div class="polaroid-caption">02 · 親手育苗大地課堂</div>
         </div>
 
-        <!-- Showcase 3 -->
-        <div class="showcase-thumb-card">
-          <img src="./photos/curated_v3/ch06_clay_1.jpg" alt="黏土創客美學色彩混合" loading="lazy"/>
-          <div class="thumb-content">
-            <span class="thumb-tag">03 黏土創客美學</span>
-            <h4>三原色魔法與微縮立體雕塑</h4>
-            <p>在指尖揉捏按壓中掌握色彩比例，把天馬行空的想像化為精緻手作藝術。</p>
-          </div>
+        <div class="polaroid-card summer-polaroid-item">
+          <div class="washi-tape washi-tape-blue" style="top:-8px; left:20px;"></div>
+          <img src="./photos/curated_mook/hero_clay_art.jpg" alt="黏土立體美學" loading="lazy"/>
+          <div class="polaroid-caption">03 · 三原色微縮創客</div>
         </div>
 
-        <!-- Showcase 4 -->
-        <div class="showcase-thumb-card">
-          <img src="./photos/curated_v3/ch07_mus_1.jpg" alt="台南雙館古蹟走讀" loading="lazy"/>
-          <div class="thumb-content">
-            <span class="thumb-tag">04 雙館古蹟走讀</span>
-            <h4>穿梭法庭與百年水道工程</h4>
-            <p>實地走訪司法博物館模擬法庭與水道古蹟，落實夥伴自律，在走讀中體會歷史。</p>
-          </div>
+        <div class="polaroid-card summer-polaroid-item">
+          <div class="washi-tape washi-tape-yellow" style="top:-8px; right:20px;"></div>
+          <img src="./photos/curated_mook/museum_visit.jpg" alt="走讀台南古蹟" loading="lazy"/>
+          <div class="polaroid-caption">04 · 雙館古蹟夥伴自律</div>
         </div>
       </div>
 
-      <!-- Callout link to summer-2026.html -->
-      <div class="showcase-link-box">
+      <!-- 導流進入 2026 成果展完整版 -->
+      <div class="summer-mook-callout">
         <h3>🍉 想看更多完整感動？瀏覽「2026 暑期雙月成果誌」</h3>
         <p>內含 149+ 張現場精彩高清寫真、學生真情金句牆、家長留言與雙月素養學習地圖，見證尚學文教如何把好奇種進孩子日常！</p>
-        <a class="btn-summer-hub" href="./summer-2026.html" title="前往 2026 暑期雙月學習成果誌完整專區">
-          進入 2026 暑期雙月學習成果誌完整版 →
+        <a class="btn-mook-read-summer" href="./summer-2026.html" title="進入 2026 暑期成果誌完整版">
+          進入 2026 暑期成果誌完整版（149+張高清現場照） →
         </a>
       </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials-section" id="testimonials">
-      <div class="section-head">
-        <span class="section-eyebrow">FAMILY VOICES</span>
-        <h2 class="section-title">家長與孩子心中，最有溫度的第二個家</h2>
-        <p class="section-subtitle">聽聽在尚學成長的孩子與放心託付的家長，分享最真實的轉變與感動。</p>
+    <!-- =========================================================
+         家長見證：日系專欄訪談引言 (VOICES)
+         ========================================================= -->
+    <section class="testimonials-mook-section" id="testimonials">
+      <div class="mook-section-header">
+        <div class="mook-badge">VOICES</div>
+        <h2 class="mook-section-title">家長與孩子心中，最有溫度的第二個家</h2>
+        <p class="mook-section-subtitle">聽聽在尚學成長的孩子與放心託付的家長，分享最真實的轉變與感動。</p>
       </div>
 
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
+      <div class="testimonials-mook-grid">
+        <div class="testimonial-mook-card">
           <div>
-            <div class="quote-mark">“</div>
-            <p class="quote-text">
+            <div class="mook-quote-bracket">“</div>
+            <p class="mook-quote-content">
               「剛上小一時每天為了作業跟孩子大哭大鬧，自從來到尚學，老師很有耐心地陪他拆解進度。現在放學回到家，聯絡簿跟功課都已經整整齊齊寫好，晚上終於能好好跟孩子聊聊天，真的是雙薪家庭的救星！」
             </p>
           </div>
-          <div class="quote-author">
-            <div class="author-avatar">右</div>
-            <div class="author-info">
+          <div class="mook-quote-footer">
+            <div class="mook-author-stamp">右</div>
+            <div class="mook-author-info">
               <strong>右昌國小 林媽媽</strong>
-              <span>小一安親課輔班家長</span>
+              <small>小一常規安親課輔班家長</small>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
+        <div class="testimonial-mook-card">
           <div>
-            <div class="quote-mark">“</div>
-            <p class="quote-text">
+            <div class="mook-quote-bracket">“</div>
+            <p class="mook-quote-content">
               「原本很擔心孩子排斥英文，但在尚學的美語課上，老師用生活繪本跟互動遊戲引導，他現在在家會指著冰箱上的牛奶主動用英文拼音念出來！看到他不再害怕開口，真的很感動。」
             </p>
           </div>
-          <div class="quote-author">
-            <div class="author-avatar">莒</div>
-            <div class="author-info">
+          <div class="mook-quote-footer">
+            <div class="mook-author-stamp">莒</div>
+            <div class="mook-author-info">
               <strong>莒光國小 陳爸爸</strong>
-              <span>小二兒童美語班家長</span>
+              <small>小二兒童美語班家長</small>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
+        <div class="testimonial-mook-card">
           <div>
-            <div class="quote-mark">“</div>
-            <p class="quote-text">
+            <div class="mook-quote-bracket">“</div>
+            <p class="mook-quote-content">
               「博覽會那天站在台上報告 AI 垃圾桶，原本心跳超級快，但當大家認真聽懂我的連動模型原理時，我覺得自己像真正的發明家！在尚學上課比一直寫考卷好玩一百倍！」
             </p>
           </div>
-          <div class="quote-author">
-            <div class="author-avatar">翔</div>
-            <div class="author-info">
+          <div class="mook-quote-footer">
+            <div class="mook-author-stamp">翔</div>
+            <div class="mook-author-info">
               <strong>翔翔 同學</strong>
-              <span>尚學探究先修班學員</span>
+              <small>尚學探究先修班學員</small>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section class="faq-section" id="faq">
-      <div class="section-head">
-        <span class="section-eyebrow">GOT QUESTIONS?</span>
-        <h2 class="section-title">家長常見問答 FAQ</h2>
-        <p class="section-subtitle">了解更多關於班級人數、日常接送、課程費用與預約流程的貼心說明。</p>
-      </div>
-
-      <div class="faq-container">
-        <!-- Q1 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span class="q-badge">Q</span>
-            <span>尚學文教主要招收哪些學校的學生？接送安全如何把關？</span>
-          </div>
-          <p class="faq-answer">
-            我們主要服務<strong>右昌國小、莒光國小、加昌國小與藍田國小</strong>周邊學童。右昌國小就在教室正對面巷內，放學時有專人步行導護排隊接回；莒光國小與加昌國小則由專屬人員安全專車接駁，確保每一位孩子準時、安全抵達教室。
-          </p>
-        </div>
-
-        <!-- Q2 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span class="q-badge">Q</span>
-            <span>孩子上課容易分心、寫作業拖拖拉拉，尚學如何引導？</span>
-          </div>
-          <p class="faq-answer">
-            我們堅持<strong>小班制（師生比 1:8~1:12）</strong>，不採取一次發很多張評量的粗暴盯功課方式。老師會根據孩子的注意力曲線，運用「番茄鐘分段專注法」，先陪孩子建立握筆姿勢與筆順，逐項打勾累積成就感，引導孩子長出自律學習的習慣。
-          </p>
-        </div>
-
-        <!-- Q3 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span class="q-badge">Q</span>
-            <span>沒有英文基礎或幼稚園沒學過自然發音，跟得上美語班嗎？</span>
-          </div>
-          <p class="faq-answer">
-            絕對跟得上！尚學兒童美語採精緻分級制，從基礎自然發音（Phonics）韻律、字母拼讀口訣開始，搭配生活情境會話與童趣繪本，先引導孩子「敢聽敢說」，再循序漸進建立拼讀與書寫能力。
-          </p>
-        </div>
-
-        <!-- Q4 -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span class="q-badge">Q</span>
-            <span>請問安親與美語課程費用如何計算？有試聽或參觀嗎？</span>
-          </div>
-          <p class="faq-answer">
-            為了給孩子最合適的學習安排，我們會先邀請家長與孩子到班參觀，進行一對一的學習習慣與學力健檢，並詳細為您說明透明合宜的收費方案。目前開學季提供<strong>「0 元預約到班體驗與習慣健檢」</strong>，名額有限，歡迎線上填表預約！
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOKING OFFER & GOOGLE FORM EMBED -->
-    <section class="booking-section" id="booking">
-      <div class="booking-card-main">
-        <span class="section-eyebrow" style="color:#C96D45;">LIMITED SEATS · ACT NOW</span>
-        <h2 class="section-title" style="margin-bottom:12px;">新學期，給孩子一個看見自己潛力的起點</h2>
-        <p class="section-subtitle" style="max-width:640px; margin:0 auto 20px;">
+    <!-- =========================================================
+         預約到班：手作邀請函 (RESERVATION TICKET)
+         ========================================================= -->
+    <section class="booking-mook-section" id="booking">
+      <div class="booking-ticket-card">
+        <div class="mook-badge">RESERVATION 2026</div>
+        <h2 class="mook-section-title" style="margin-top:8px;">新學期，給孩子一個看見自己潛力的起點</h2>
+        <p class="mook-section-subtitle" style="max-width:680px; margin:0 auto;">
           為維護小班教學品質與每位孩子的專注陪伴，每班名額上限嚴格控管。目前各年級僅保留少量席次，依線上預約先後順序為您保留！
         </p>
 
-        <!-- Gift Highlight -->
-        <div class="booking-gift-box">
-          <div class="gift-icon">🎁</div>
-          <div class="gift-content">
+        <!-- 早鳥好禮小黃卡 -->
+        <div class="booking-gift-pill">
+          <div class="booking-gift-icon">🎁</div>
+          <div class="booking-gift-text">
             <strong>【開學早鳥專屬好禮】前 15 名預約到班家長限定：</strong>
             <p>完成線上預約並到班參觀，即享【一對一小學作息與學習習慣健檢 1 次】＋【尚學專屬探索文具小禮盒】！</p>
           </div>
         </div>
 
-        <!-- Action Button -->
-        <div class="form-cta-row">
-          <a class="btn-big-form" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+        <!-- Google 表單主要按鈕 -->
+        <div>
+          <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
             <span>📝 開啟 Google 表單預約到班了解（約需 1 分鐘）</span>
           </a>
-          <span class="form-time-note">填寫後專人將於 24 小時內與您聯繫確認到班時間，亦可點選下方在網頁直接填寫</span>
-          
-          <button class="form-embed-toggle-btn" type="button" id="toggle-embed-form">
+        </div>
+
+        <div style="margin-top: 14px;">
+          <small style="color: #7A7263;">填寫後專人將於 24 小時內與您聯繫確認到班時間，亦可點選下方在網頁直接填寫</small><br>
+          <button class="btn-toggle-embed" type="button" id="toggle-embed-form">
             ▼ 或點此展開表單在頁面內填寫
           </button>
         </div>
 
-        <!-- Embedded Google Form Container -->
-        <div class="form-iframe-container" id="iframe-box">
+        <!-- 嵌入 Google 表單 -->
+        <div class="mook-embed-container" id="iframe-box">
           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">載入中…</iframe>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT & LOCATION -->
-    <section class="contact-section" id="contact">
-      <div class="contact-grid">
-        <!-- Details -->
-        <div class="contact-info-card">
+    <!-- =========================================================
+         校園位置與交通資訊
+         ========================================================= -->
+    <section class="contact-mook-section" id="contact">
+      <div class="contact-mook-grid">
+        <!-- 左側：聯絡詳情 -->
+        <div class="contact-info-mook">
           <h3>尚學文教 楠梓旗艦教室</h3>
-          <p style="color: #6D7774; font-size: 14px; margin-bottom: 24px;">位於軍校路靜謐巷弄內，鄰近右昌國小對面，接送安全便利，環境安靜無車流干擾。</p>
+          <p style="color: var(--ink-soft); font-size: 14px; margin-bottom: 22px;">位於軍校路靜謐巷弄內，鄰近右昌國小正對面，接送安全便利，環境安靜無車流干擾。</p>
 
-          <ul class="contact-details-list">
+          <ul class="contact-list-mook">
             <li>
               <strong>📍 班級地址：</strong>
               <span>811 高雄市楠梓區軍校路880巷38號（右昌國小對面巷內）</span>
             </li>
             <li>
               <strong>📞 諮詢電話：</strong>
-              <span><a href="tel:073646570" style="color: #C96D45; font-weight: 800;">(07) 364-6570</a></span>
+              <span><a href="tel:073646570" style="color: var(--orange); font-weight: 800;">(07) 364-6570</a></span>
             </li>
             <li>
               <strong>🕒 服務時間：</strong>
@@ -1816,18 +1912,18 @@
             </li>
           </ul>
 
-          <div class="contact-actions-row">
-            <a class="btn-contact-call" href="tel:073646570">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn-call-mook" href="tel:073646570">
               <span>📞 立即撥打電話諮詢</span>
             </a>
-            <a class="btn-contact-map" href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener noreferrer">
+            <a class="btn-map-mook" href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener noreferrer">
               <span>🗺️ Google 地圖導航 ↗</span>
             </a>
           </div>
         </div>
 
-        <!-- Google Maps Embed -->
-        <div class="map-preview-box">
+        <!-- 右側：Google 地圖內嵌 -->
+        <div class="map-frame-box">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.7093202568434!2d120.29749999999999!3d22.709300000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e053f3192bf17%3A0x1d471016ec7c6b90!2zODEx6auY6ZuE5biC5qWg5qKT5Y2A6LuN5qCh6LevODgw5be3MzjomZ8!5e0!3m2!1szh-TW!2stw!4v1725442000000!5m2!1szh-TW!2stw" 
             width="100%" 
@@ -1843,46 +1939,39 @@
     </section>
   </main>
 
-  <!-- Site Footer -->
-  <footer>
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="footer-brand" style="display: flex; align-items: center; gap: 10px;">
-        <img class="footer-logo" src="./shangxue-logo-transparent.png?v=20260904_v1" alt="尚學文教"/>
+  <!-- 頁尾 -->
+  <footer style="background: var(--ink); color: #DFE8E2; padding: 40px 6vw; font-size: 13px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
+      <div>
+        <img src="./shangxue-logo-transparent.png?v=20260904_v2" alt="尚學文教" style="height: 46px; margin-bottom: 8px;"/>
+        <p style="margin: 0; color: #95A39D;">高雄市楠梓區軍校路880巷38號 ｜ 電話：(07) 364-6570</p>
+        <small style="color: #6D7D76;">© 2026 尚學文教 (SangSueh Education). All Rights Reserved.</small>
       </div>
-      <p style="color: #95A39D; font-size: 13px; margin: 0;">
-        高雄市楠梓區軍校路880巷38號 ｜ 電話：(07) 364-6570
-      </p>
-      <p style="color: #72807A; font-size: 11px; margin: 0;">
-        © 2026 尚學文教 (SangSueh Education). All Rights Reserved. 
-      </p>
-    </div>
 
-    <!-- Social Links Matrix -->
-    <div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; font-weight: 700; align-items: center;">
-      <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener noreferrer" style="color: #E8C968;">FB 粉絲專頁 ↗</a>
-      <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener noreferrer" style="color: #E8C968;">FB 日常專頁 ↗</a>
-      <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener noreferrer" style="color: #E8C968;">Instagram ↗</a>
-      <a href="https://www.threads.com/@sangsueh_education" target="_blank" rel="noopener noreferrer" style="color: #E8C968;">Threads ↗</a>
-      <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener noreferrer" style="color: #E8C968;">YouTube ↗</a>
-      <a href="./summer-2026.html" style="color: #FFF; background: #C96D45; padding: 4px 10px; border-radius: 6px;">🍉 暑期成果誌</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; font-weight: 700;">
+        <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener noreferrer" style="color: var(--yellow);">FB 粉絲專頁 ↗</a>
+        <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener noreferrer" style="color: var(--yellow);">FB 日常專頁 ↗</a>
+        <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener noreferrer" style="color: var(--yellow);">Instagram ↗</a>
+        <a href="https://www.threads.com/@sangsueh_education" target="_blank" rel="noopener noreferrer" style="color: var(--yellow);">Threads ↗</a>
+        <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener noreferrer" style="color: var(--yellow);">YouTube ↗</a>
+        <a href="./summer-2026.html" style="color: #FFF; background: var(--orange); padding: 4px 12px; border-radius: 3px;">🍉 暑期成果誌完整版</a>
+      </div>
     </div>
   </footer>
 
-  <!-- MOBILE STICKY FLOATING CTA BAR -->
-  <aside class="mobile-sticky-bar" aria-label="手機快速諮詢預約">
-    <div class="mobile-sticky-inner">
-      <a class="btn-sticky-call" href="tel:073646570" aria-label="致電諮詢">
-        <span>📞 電話諮詢</span>
-      </a>
-      <a class="btn-sticky-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-        <span>📝 預約到班了解（免費健檢）</span>
+  <!-- 手機底部常駐列 (Mobile Sticky Bar) -->
+  <aside class="mobile-mook-sticky" aria-label="手機快速預約列">
+    <div class="mobile-mook-inner">
+      <a class="btn-sticky-phone" href="tel:073646570">📞 電話諮詢</a>
+      <a class="btn-sticky-form" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+        📝 預約到班了解（免費健檢）
       </a>
     </div>
   </aside>
 
-  <!-- Interactive Scripts -->
+  <!-- 互動腳本 -->
   <script>
-    // Toggle Embedded Google Form
+    // 展開 / 收合內嵌 Google 表單
     const toggleBtn = document.getElementById('toggle-embed-form');
     const iframeBox = document.getElementById('iframe-box');
     if (toggleBtn && iframeBox) {
@@ -1897,15 +1986,13 @@
       });
     }
 
-    // Smooth Scroll for Internal Anchors
+    // 錨點平滑滾動
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
         if (targetId && targetId !== '#' && document.querySelector(targetId)) {
           e.preventDefault();
-          document.querySelector(targetId).scrollIntoView({
-            behavior: 'smooth'
-          });
+          document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
