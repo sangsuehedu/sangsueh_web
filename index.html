@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>尚學文教｜高雄楠梓國小安親課輔・珠心算思維・兒童美語・國中英文先修旗艦（右昌・莒光・加昌學區）</title>
+  <title>尚學文教｜高雄楠梓國小安親課輔・珠心算思維・兒童美語・進階英語素養旗艦（右昌・莒光・加昌學區）</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="高雄楠梓推薦國小安親班首選！尚學文教堅持嚴格 1:15 精緻師生比與資深穩定專職師資。專注小一新生作息常規、坐姿握筆、作業當日完成、珠心算邏輯專注力訓練、自然發音情境兒童美語與國中英文先修。右昌、莒光步行接送；加昌、屏山、援中、油廠專屬校車接送。新學期熱烈招生中，歡迎預約了解！"/>
-  <meta name="keywords" content="楠梓安親班, 右昌國小補習班, 莒光國小安親班, 加昌國小安親班, 屏山國小補習班, 援中國小安親, 油廠國小課輔, 楠梓珠心算, 楠梓兒童美語, 尚學文教, 國中英文先修"/>
+  <meta name="description" content="高雄楠梓推薦國小安親班首選！尚學文教堅持嚴格 1:15 精緻師生比與資深穩定專職師資。專注小一新生作息常規、坐姿握筆、作業當日完成、珠心算邏輯專注力訓練、自然發音情境兒童美語與進階英語素養。右昌、莒光步行接送；加昌、屏山、援中、油廠專屬校車接送。新學期熱烈招生中，歡迎預約了解！"/>
+  <meta name="keywords" content="楠梓安親班, 右昌國小補習班, 莒光國小安親班, 加昌國小安親班, 屏山國小補習班, 援中國小安親, 油廠國小課輔, 楠梓珠心算, 楠梓兒童美語, 尚學文教, 進階英語素養"/>
   <meta name="author" content="尚學文教 (SangSueh Education)"/>
   <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/"/>
 
@@ -215,6 +215,343 @@
     .btn-mook-booking:hover {
       transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0 var(--yellow);
+    }
+
+    /* 手機版頂部 Header 快捷按鈕 (比照暑假成果誌) */
+    .mobile-header-actions {
+      display: none;
+    }
+    .mobile-cta-btn {
+      background: var(--orange);
+      color: #FFF !important;
+      font-size: 12.5px;
+      font-weight: 850;
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(201, 109, 69, 0.3);
+      white-space: nowrap;
+    }
+    .mobile-menu-btn {
+      background: var(--ink);
+      color: #FFF;
+      border: 0;
+      font-size: 12px;
+      font-weight: 850;
+      padding: 6px 12px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* 手機版抽屜選單模組 (Drawer Sheet) */
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .mobile-drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .mobile-drawer {
+      width: 100%;
+      background: #FFFDF8;
+      border-radius: 24px 24px 0 0;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+      box-sizing: border-box;
+    }
+    .mobile-drawer-overlay.active .mobile-drawer {
+      transform: translateY(0);
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-ink);
+      background: #FFFDF8;
+      border-radius: 24px 24px 0 0;
+    }
+    .drawer-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 850;
+      font-size: 16px;
+      color: var(--ink);
+    }
+    .drawer-close {
+      background: rgba(36, 49, 46, 0.08);
+      border: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .drawer-content {
+      padding: 16px 20px 36px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .drawer-group-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed var(--border-dashed);
+    }
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 750;
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      transition: all 0.2s;
+      margin-bottom: 6px;
+    }
+    .drawer-link:hover {
+      background: var(--paper);
+      color: var(--orange);
+    }
+    .drawer-link .d-num {
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 13px;
+      min-width: 22px;
+    }
+    .drawer-link.drawer-highlight {
+      background: var(--yellow-light);
+      border-color: var(--yellow);
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .drawer-link.drawer-reserve-link {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #FFF !important;
+      font-weight: 850;
+    }
+    .drawer-link.drawer-reserve-link .d-num {
+      color: #FFF;
+    }
+
+    /* 手機版專屬極致精簡對照表 (免滑動 3 欄式) */
+    .mobile-table-wrap {
+      display: none;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1.5px solid var(--border-ink);
+      box-shadow: 0 4px 14px rgba(36, 49, 46, 0.08);
+      background: #FFF;
+    }
+    .mobile-mook-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+    }
+    .mobile-mook-table th {
+      padding: 10px 5px;
+      font-size: 12px;
+      font-weight: 850;
+      text-align: center;
+      border-bottom: 2px solid var(--border-ink);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .mobile-mook-table th.highlight-col {
+      background: var(--green);
+      color: #FFF;
+    }
+    .mobile-mook-table th .badge-recommended {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 900;
+      padding: 1px 6px;
+      border-radius: 999px;
+      margin-top: 3px;
+    }
+    .mobile-mook-table td {
+      padding: 10px 6px;
+      border-bottom: 1px solid rgba(36, 49, 46, 0.08);
+      vertical-align: top;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+    .mobile-mook-table td.highlight-col {
+      background: rgba(71, 123, 101, 0.07);
+      border-left: 2px solid var(--green);
+      border-right: 2px solid var(--green);
+      color: var(--ink);
+    }
+    .mobile-mook-table tr:last-child td {
+      border-bottom: none;
+    }
+    .mobile-mook-table tr:last-child td.highlight-col {
+      border-bottom: 2px solid var(--green);
+    }
+
+    /* 日系生活誌社群精選動態卡片 (取代 raw FB iframe) */
+    .social-magazine-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .social-magazine-card {
+      background: #FFFDF8;
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 4px 6px 0 rgba(36, 49, 46, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .social-magazine-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 10px 0 rgba(36, 49, 46, 0.12);
+    }
+    .social-mag-cover {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background: #EAE5D9;
+    }
+    .social-mag-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .social-magazine-card:hover .social-mag-cover img {
+      transform: scale(1.05);
+    }
+    .social-mag-channel-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .social-mag-channel-badge img {
+      width: 16px;
+      height: 16px;
+    }
+    .social-mag-body {
+      padding: 20px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .social-mag-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .social-mag-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 17px;
+      font-weight: 850;
+      line-height: 1.45;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .social-mag-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+      flex-grow: 1;
+    }
+    .social-mag-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 850;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-mag-btn.btn-fb {
+      background: #1877F2;
+      color: #FFF !important;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .social-mag-btn.btn-fb-green {
+      background: var(--green);
+      color: #FFF !important;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .social-mag-btn.btn-ig {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFF !important;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .social-mag-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--ink);
     }
 
     /* 和紙膠帶裝飾元素 */
@@ -674,55 +1011,7 @@
       margin-top: 3px;
     }
 
-    /* 手機版維度比較卡 (免橫向滑動) */
-    .mobile-compare-cards {
-      display: none;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .mobile-compare-item {
-      background: #FFFDF8;
-      border: 1.5px solid var(--border-ink);
-      border-radius: 14px;
-      padding: 18px 16px;
-      box-shadow: 4px 4px 0 rgba(71, 123, 101, 0.1);
-    }
-    .mobile-compare-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 15px;
-      font-weight: 850;
-      color: var(--ink);
-      border-bottom: 1px dashed rgba(36, 49, 46, 0.15);
-      padding-bottom: 8px;
-      margin: 0 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .mobile-compare-row {
-      margin-bottom: 10px;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-    .mobile-compare-row strong {
-      display: block;
-      color: #596561;
-      font-size: 12px;
-      margin-bottom: 2px;
-    }
-    .mobile-compare-row.highlight-row {
-      background: var(--green-light);
-      border: 1px solid var(--green);
-      padding: 10px 12px;
-      border-radius: 8px;
-      margin-top: 8px;
-    }
-    .mobile-compare-row.highlight-row strong {
-      color: var(--green);
-      font-weight: 850;
-    }
+
 
     /* 課程卡片 (微圓角 16px) */
     .courses-mook-section {
@@ -1453,6 +1742,7 @@
        ========================================================= */
     @media (max-width: 900px) {
       .mook-nav { display: none; }
+      .mobile-header-actions { display: flex; align-items: center; gap: 8px; }
       .hero-mook-grid { grid-template-columns: 1fr; gap: 30px; }
       .hero-stamps-bar { grid-template-columns: repeat(2, 1fr); }
       .notebook-sheets-grid { grid-template-columns: 1fr; gap: 18px; }
@@ -1468,9 +1758,9 @@
       .sheet-problem-desc { font-size: 12.5px; margin-bottom: 10px; line-height: 1.55; }
       .sheet-solution-text { font-size: 12px; line-height: 1.55; }
 
-      /* 機構比較：手機版隱藏大表格，顯示維度卡片 (免滑動) */
-      .comparison-table-wrap { display: none; }
-      .mobile-compare-cards { display: flex; }
+      /* 機構比較：手機版完全免滑動，顯示 3 欄精簡自適應對照表 */
+      .comparison-table-wrap { display: none !important; }
+      .mobile-table-wrap { display: block !important; }
 
       .courses-mook-grid { grid-template-columns: 1fr; gap: 20px; }
       .course-mook-card { padding: 22px 18px; }
@@ -1484,7 +1774,8 @@
       .escort-mook-box { grid-template-columns: 1fr; gap: 16px; padding: 18px 16px; }
       .summer-polaroids-row { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .testimonials-mook-grid { grid-template-columns: 1fr; gap: 14px; }
-      .social-cards-grid { grid-template-columns: 1fr; gap: 20px; }
+      .social-magazine-grid { grid-template-columns: 1fr; gap: 18px; }
+      .social-mag-cover { height: 180px; }
       .contact-mook-grid { grid-template-columns: 1fr; }
       .mobile-mook-sticky { display: block; }
     }
@@ -1706,14 +1997,24 @@
 
     <nav class="mook-nav" aria-label="網站主要選單">
       <a href="#concept">辦學理念</a>
+      <a href="#comparison">特色對照</a>
       <a href="#courses">核心學程</a>
       <a class="nav-courses-link" href="./courses.html">📚 課程總覽</a>
-      <a href="#comparison">辦學比較</a>
       <a href="#routine">作息與接送</a>
+      <a href="#testimonials">家長見證</a>
       <a href="#social">📱 即時動態</a>
       <a class="btn-mook-summer" href="./summer-2026.html">🍉 2026暑期成果誌 ↗</a>
       <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班了解</a>
     </nav>
+
+    <!-- 手機版專屬極簡導覽按鈕 (比照暑假成果誌) -->
+    <div class="mobile-header-actions">
+      <a class="mobile-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">📝 預約到班</a>
+      <button class="mobile-menu-btn" type="button" id="mobile-menu-trigger" aria-label="開啟導覽目錄">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <span>目錄</span>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -1985,67 +2286,39 @@
         </div>
       </div>
 
-      <!-- 手機版卡片化對照 (完全免滑動) -->
-      <div class="mobile-compare-cards">
-        <div class="mobile-compare-item">
-          <div class="mobile-compare-title">
-            <span>👥 班級規模與師生比</span>
-          </div>
-          <div class="mobile-compare-row">
-            <strong>傳統大型補習班：</strong>一班 30~35 人大班制，難以兼顧每位孩子。
-          </div>
-          <div class="mobile-compare-row">
-            <strong>高價連鎖品牌：</strong>一班 16~20 人中班制。
-          </div>
-          <div class="mobile-compare-row highlight-row">
-            <strong>尚學文教（精緻首選）：</strong>嚴格 1:15 精緻黃金師生比，每個孩子都被細心看見！
-          </div>
-        </div>
-
-        <div class="mobile-compare-item">
-          <div class="mobile-compare-title">
-            <span>👩‍🏫 師資穩定性與專注度</span>
-          </div>
-          <div class="mobile-compare-row">
-            <strong>傳統大型補習班：</strong>兼職跑班、工讀生多，幾個月換一次老師。
-          </div>
-          <div class="mobile-compare-row">
-            <strong>高價連鎖品牌：</strong>體系制式標準化，師資流動偏高。
-          </div>
-          <div class="mobile-compare-row highlight-row">
-            <strong>尚學文教（精緻首選）：</strong>全職資深專任導師長期深耕，比家長更懂孩子脾氣與盲點！
-          </div>
-        </div>
-
-        <div class="mobile-compare-item">
-          <div class="mobile-compare-title">
-            <span>📝 作業輔導與習慣養成</span>
-          </div>
-          <div class="mobile-compare-row">
-            <strong>傳統大型補習班：</strong>瘋狂刷評量考卷壓秩序，作業只求對答案。
-          </div>
-          <div class="mobile-compare-row">
-            <strong>高價連鎖品牌：</strong>外語活動熱鬧，但國小日常課業輔導較少著墨。
-          </div>
-          <div class="mobile-compare-row highlight-row">
-            <strong>尚學文教（精緻首選）：</strong>握筆坐姿細緻矯正，逐字逐題耐心批閱，功課在班內確實完成！
-          </div>
-        </div>
-
-        <div class="mobile-compare-item">
-          <div class="mobile-compare-title">
-            <span>💰 學費合理性與性價比</span>
-          </div>
-          <div class="mobile-compare-row">
-            <strong>傳統大型補習班：</strong>收費普通，但缺乏個別關注與細緻指導。
-          </div>
-          <div class="mobile-compare-row">
-            <strong>高價連鎖品牌：</strong>學費極昂貴，負擔高額品牌加盟金與權利金。
-          </div>
-          <div class="mobile-compare-row highlight-row">
-            <strong>尚學文教（精緻首選）：</strong>兼具頂級精緻品質與平實收費，把資源 100% 放在孩子成長上！
-          </div>
-        </div>
+      <!-- 手機版專屬極致精簡對照表 (完全免滑動，自適應螢幕寬度，保留清晰表格質感) -->
+      <div class="mobile-table-wrap">
+        <table class="mobile-mook-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">評比面向</th>
+              <th style="width: 37%;">傳統/連鎖加盟</th>
+              <th class="highlight-col" style="width: 41%;">尚學文教<br><span class="badge-recommended">★ 精緻首選</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>師生比例</strong></td>
+              <td>一班 30~35 人<br><span class="tag-warn">大班跑班顧不來</span></td>
+              <td class="highlight-col"><strong>嚴格 1:15 小班</strong><br><span class="tag-good">每個孩子都被細心看見</span></td>
+            </tr>
+            <tr>
+              <td><strong>師資穩定</strong></td>
+              <td>工讀兼職跑班多<br><span class="tag-warn">流動頻繁難懂孩子</span></td>
+              <td class="highlight-col"><strong>全職資深專任導師</strong><br><span class="tag-good">長期深耕、最懂孩子脾氣</span></td>
+            </tr>
+            <tr>
+              <td><strong>作業常規</strong></td>
+              <td>重複刷題壓秩序<br><span class="tag-warn">作業只快速對答案</span></td>
+              <td class="highlight-col"><strong>坐姿握筆逐字批改</strong><br><span class="tag-good">盲點當天班內徹底弄懂</span></td>
+            </tr>
+            <tr>
+              <td><strong>學費價值</strong></td>
+              <td>高額連鎖加盟溢價<br><span class="tag-warn">或缺乏細緻個別引導</span></td>
+              <td class="highlight-col"><strong>頂級精緻、平實親民</strong><br><span class="tag-good">資源 100% 投在孩子身上</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -2062,18 +2335,18 @@
       </div>
 
       <div class="courses-mook-grid">
-        <!-- 課程 1: 國小安親課輔 -->
+        <!-- 課程 1: 國小課後安親 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 熱招中</span>
           <div>
             <div class="course-card-top-row">
               <div>
                 <span class="course-target-badge">國小各年級適讀</span>
-                <h3 class="course-mook-title">國小安親課輔</h3>
+                <h3 class="course-mook-title">國小課後安親</h3>
                 <p class="course-mook-desc">奠定一生自律作息的最關鍵起點！注重常規勝過考卷，引導孩子習慣專注節奏與主動完成作業。</p>
               </div>
               <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_lowgrade.jpg" alt="尚學國小安親課輔班" loading="lazy"/>
+                <img src="./photos/curated_mook/course_lowgrade.jpg" alt="尚學國小課後安親" loading="lazy"/>
                 <div class="polaroid-caption">細緻常規指導</div>
               </div>
             </div>
@@ -2087,11 +2360,11 @@
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-            預約國小安親名額 →
+            預約課後安親名額 →
           </a>
         </article>
 
-        <!-- 課程 2: 珠心算思維 (開學熱門常態課) -->
+        <!-- 課程 2: 珠心算思維 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 專注力奠基</span>
           <div>
@@ -2102,7 +2375,7 @@
                 <p class="course-mook-desc">手腦並用、右腦圖像速算！透過撥珠手眼協調訓練空間數感與沉浸靜心定力，有效破除粗心，數學信心大增。</p>
               </div>
               <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/hero_focus_mindmap_noface.jpg" alt="尚學珠心算思維課堂" loading="lazy"/>
+                <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學珠心算思維課堂" loading="lazy"/>
                 <div class="polaroid-caption">空間數感養成</div>
               </div>
             </div>
@@ -2131,7 +2404,7 @@
                 <p class="course-mook-desc">拒絕死背單字文法！以自然拼讀（Phonics）與生活原創繪本為核心，讓孩子在無壓力情境中大方開口說英文。</p>
               </div>
               <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_english.jpg" alt="尚學兒童美語課堂" loading="lazy"/>
+                <img src="./photos/curated_mook/course_english.jpg" alt="尚學兒童生活美語" loading="lazy"/>
                 <div class="polaroid-caption">自然拼讀繪本</div>
               </div>
             </div>
@@ -2140,7 +2413,7 @@
               <li><strong>Phonics 自然拼讀直覺</strong>：見字能讀、聽音能寫，建立發音安全感。</li>
               <li><strong>生活主題情境口說對話</strong>：每週主題對話演練，培養直覺英語思考。</li>
               <li><strong>分級原版英文繪本共讀</strong>：結合圖像情境問答，厚植單字閱讀量。</li>
-              <li><strong>階梯式能力銜接</strong>：穩健累積實力，銜接全民英檢與劍橋英檢。</li>
+              <li><strong>階梯式能力銜接</strong>：穩健累積實力，銜接國際英檢認證。</li>
             </ul>
           </div>
 
@@ -2149,41 +2422,41 @@
           </a>
         </article>
 
-        <!-- 課程 4: 國中升學英文 -->
+        <!-- 課程 4: 進階英語素養 (換上專注閱讀男童特寫，4位完全不同學童) -->
         <article class="course-mook-card">
-          <span class="course-ribbon-tag">★ 升學會考奪標</span>
+          <span class="course-ribbon-tag">★ 深度思維閱讀</span>
           <div>
             <div class="course-card-top-row">
               <div>
-                <span class="course-target-badge">小六先修 ～ 國中七至九年級</span>
-                <h3 class="course-mook-title">國中升學英文</h3>
-                <p class="course-mook-desc">跨越小學到國中的英語難度斷崖！系統化剖析各版本文法結構，結合個人錯題本深度診斷，目標國中會考 A++ 穩健奪標。</p>
+                <span class="course-target-badge">中高年級～銜接先修適讀</span>
+                <h3 class="course-mook-title">進階英語素養</h3>
+                <p class="course-mook-desc">奠定深厚閱讀語感與文法架構！系統化擴充學術字彙，由專任導師帶領精讀長篇文章與思維寫作，建立終身受用的英語自學實力。</p>
               </div>
               <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_advancement.jpg" alt="尚學國中升學英語" loading="lazy"/>
-                <div class="polaroid-caption">升學文法精進</div>
+                <img src="./photos/curated_mook/course_middleschool.jpg" alt="尚學進階英語素養" loading="lazy"/>
+                <div class="polaroid-caption">進階文法閱讀</div>
               </div>
             </div>
 
             <ul class="course-features-list">
-              <li><strong>國中必背 1200 單字先修</strong>：字根字首記憶法，單字量倍數成長。</li>
-              <li><strong>文法觀念邏輯樹狀拆解</strong>：釐清五大句型與時態，文法融會貫通。</li>
-              <li><strong>個人化錯題本診斷機制</strong>：深度追蹤盲點，徹底根除重複失分。</li>
-              <li><strong>會考素養題組解題直覺</strong>：長文閱讀與克漏字速讀破題訓練。</li>
+              <li><strong>高頻核心字彙倍增擴充</strong>：字根字首聯想記憶法，字彙理解深度躍升。</li>
+              <li><strong>語法觀念邏輯樹狀解析</strong>：釐清句子結構與時態脈絡，融會貫通不生硬。</li>
+              <li><strong>長篇閱讀思維與速讀策略</strong>：掌握段落核心意旨，提早破除長文閱讀障礙。</li>
+              <li><strong>個別化學習盲點追蹤</strong>：課堂即時解惑糾錯，建立自主穩健的學習步調。</li>
             </ul>
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-            預約升學學力健檢 →
+            預約學力程度檢測 →
           </a>
         </article>
       </div>
 
-      <!-- 全方位課程總覽引導橫幅 -->
+      <!-- 全方位課程總覽引導橫幅 (合規用語) -->
       <div class="courses-hub-banner">
         <div class="courses-hub-text">
           <h3>📚 想了解尚學文教全部開設課程？</h3>
-          <p>除了上述四大學程，尚學亦開設<strong>【國中先修英文】、【GEPT 全民英檢】與【TOEIC 多益認證】</strong>，提供從國小到國中完整的一站式升學能力培訓！</p>
+          <p>除了上述四大學程，尚學亦開設<strong>【文法閱讀精進】、【GEPT 全民英檢】與【TOEIC 多益認證】</strong>，提供完善豐富的適性語文素養培訓！</p>
         </div>
         <a class="btn-hub-jump" href="./courses.html">
           查看 7 大完整課程總覽 ➔
@@ -2501,101 +2774,86 @@
     </section>
 
     <!-- =========================================================
-         📱 即時社群動態牆 (實時嵌入 Facebook Page Plugin 動態貼文)
+         📱 即時精選社群動態牆 (日系生活誌精選卡，告別跑版 iframe)
          ========================================================= -->
     <section class="social-mook-section" id="social">
       <div class="mook-section-header">
         <div class="mook-badge">COMMUNITY & LIVE</div>
-        <h2 class="mook-section-title">📱 追蹤尚學日常・即時看見孩子的精彩瞬間</h2>
+        <h2 class="mook-section-title">📱 追蹤尚學社群・看見孩子最真實的成長足跡</h2>
         <p class="mook-section-subtitle">
-          下方直接嵌入我們官方 Facebook 的即時動態牆！最新課堂花絮、探究實驗、下課笑顏隨時自動更新，歡迎同步追蹤我們的 IG。
+          同步連線尚學三大官方社群平台！即時更新最新招生資訊、親師專欄、課後點心日常與精彩動手實作短影音。
         </p>
       </div>
 
-      <div class="social-cards-grid">
-        <!-- 社群卡 1：FB 官方粉專 (實時動態嵌入) -->
-        <div class="social-card">
-          <div class="social-card-header">
-            <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-card-icon" width="38" height="38"/>
+      <div class="social-magazine-grid">
+        <!-- 卡片 1：FB 官方粉專 -->
+        <article class="social-magazine-card">
+          <div class="social-mag-cover">
+            <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="尚學文教成果博覽會" loading="lazy"/>
+            <span class="social-mag-channel-badge">
+              <img src="./photos/icons/icon_facebook.svg" alt="FB"/>
+              <span>官方專欄 @cms.edu</span>
+            </span>
+          </div>
+          <div class="social-mag-body">
             <div>
-              <h3 class="social-card-title">尚學文教・官方粉專</h3>
-              <span class="social-card-handle">@cms.edu</span>
+              <span class="social-mag-tag">📍 策展特輯 · 親師深度專欄</span>
+              <h3 class="social-mag-title">【把世界議題搬進課堂，把成果變成闖關遊戲！】</h3>
+              <p class="social-mag-desc">
+                家長最想知道的「自主學習」如何從小扎根？從問題假設到自信登台發表，看見孩子眼底發光的蛻變。
+              </p>
             </div>
-          </div>
-          
-          <div class="social-embed-box">
-            <iframe 
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcms.edu%2F&tabs=timeline&width=360&height=480&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-              width="100%" 
-              height="100%" 
-              style="border:none;overflow:hidden;" 
-              scrolling="no" 
-              frameborder="0" 
-              allowfullscreen="true" 
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title="尚學文教 Facebook 官方粉絲專頁即時動態">
-            </iframe>
-          </div>
-
-          <a class="btn-social-action btn-fb" href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener noreferrer">
-            前往 FB 官方粉絲專頁 ↗
-          </a>
-        </div>
-
-        <!-- 社群卡 2：FB 日常日記 (實時動態嵌入) -->
-        <div class="social-card">
-          <div class="social-card-header">
-            <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-card-icon" width="38" height="38"/>
-            <div>
-              <h3 class="social-card-title">尚學文教・日常相簿</h3>
-              <span class="social-card-handle">@sunshueh.edu</span>
-            </div>
-          </div>
-
-          <div class="social-embed-box">
-            <iframe 
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsunshueh.edu&tabs=timeline&width=360&height=480&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-              width="100%" 
-              height="100%" 
-              style="border:none;overflow:hidden;" 
-              scrolling="no" 
-              frameborder="0" 
-              allowfullscreen="true" 
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title="尚學文教 Facebook 日常生活相簿即時動態">
-            </iframe>
-          </div>
-
-          <a class="btn-social-action btn-fb" href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener noreferrer">
-            瀏覽 FB 日常相簿 ↗
-          </a>
-        </div>
-
-        <!-- 社群卡 3：Instagram 官方帳號 -->
-        <div class="social-card">
-          <div class="social-card-header">
-            <img src="./photos/icons/icon_instagram.svg" alt="Instagram" class="social-card-icon" width="38" height="38"/>
-            <div>
-              <h3 class="social-card-title">尚學文教 Instagram</h3>
-              <span class="social-card-handle">@sangsueh_education</span>
-            </div>
-          </div>
-
-          <div class="social-embed-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; box-sizing: border-box;">
-            <img src="./photos/icons/icon_instagram.svg" alt="Instagram" width="60" height="60" style="margin-bottom: 14px;"/>
-            <h4 style="font-family: 'Noto Serif TC', serif; font-size: 16px; margin: 0 0 8px; color: var(--ink);">精彩課堂 Reels & 限時動態</h4>
-            <p style="font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 16px;">
-              每週更新孩子最純真的課堂笑顏、動手實作寫真與精彩短影音，用鏡頭記錄成長的每一步！
-            </p>
-            <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener noreferrer" style="background: #E1306C; color: #FFF; padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 800; text-decoration: none;">
-              查看 @sangsueh_education
+            <a class="social-mag-btn btn-fb" href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener noreferrer">
+              前往 FB 官方專欄 ↗
             </a>
           </div>
+        </article>
 
-          <a class="btn-social-action btn-ig" href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener noreferrer">
-            追蹤官方 Instagram ↗
-          </a>
-        </div>
+        <!-- 卡片 2：FB 日常相簿 -->
+        <article class="social-magazine-card">
+          <div class="social-mag-cover">
+            <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="尚學孩子日常課堂" loading="lazy"/>
+            <span class="social-mag-channel-badge">
+              <img src="./photos/icons/icon_facebook.svg" alt="FB"/>
+              <span>生活日記 @sunshueh.edu</span>
+            </span>
+          </div>
+          <div class="social-mag-body">
+            <div>
+              <span class="social-mag-tag">📍 每日生活 · 點心與作息常規</span>
+              <h3 class="social-mag-title">【午後活力點心充電，靜心沉澱投入作業】</h3>
+              <p class="social-mag-desc">
+                今天的水果是香甜蘋果與香蕉！放學回班脫鞋洗手、抄聯絡簿，在番茄鐘音樂中靜心完成各科作業。
+              </p>
+            </div>
+            <a class="social-mag-btn btn-fb-green" href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener noreferrer">
+              瀏覽 FB 日常相簿 ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- 卡片 3：Instagram 官方帳號 -->
+        <article class="social-magazine-card">
+          <div class="social-mag-cover">
+            <img src="./photos/curated_mook/hero_clay_art.jpg" alt="尚學實作捏塑美學" loading="lazy"/>
+            <span class="social-mag-channel-badge">
+              <img src="./photos/icons/icon_instagram.svg" alt="IG"/>
+              <span>官方 IG @sangsueh_education</span>
+            </span>
+          </div>
+          <div class="social-mag-body">
+            <div>
+              <span class="social-mag-tag">📍 Reels 短影音 · 課堂精彩花絮</span>
+              <h3 class="social-mag-title">【指尖上的三原色魔法與手作微縮世界】</h3>
+              <p class="social-mag-desc">
+                捕捉孩子最純真專注的瞬間！每週更新課堂動手捏塑、科學小實驗與戶外探訪短影音與限時動態。
+              </p>
+            </div>
+            <a class="social-mag-btn btn-ig" href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener noreferrer">
+              追蹤官方 Instagram ↗
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -2684,7 +2942,7 @@
         <div class="faq-mook-item">
           <h4>除了國小安親，還有哪些專業延伸課程可以報名？</h4>
           <p>
-            尚學文教建構完整的學習成長階梯，開設<strong>【珠心算思維】、【兒童生活美語】、【國中先修英文】、【國中升學英文】、【全民英檢 GEPT】與【多益 TOEIC】</strong>，歡迎點擊上方選單的【課程總覽】了解詳情。
+            尚學文教建構完整的學習成長階梯，開設<strong>【珠心算思維】、【兒童生活美語】、【進階英語素養】、【文法閱讀精進】、【全民英檢 GEPT】與【多益 TOEIC】</strong>，歡迎點擊上方選單的【課程總覽】了解詳情。
           </p>
         </div>
       </div>
@@ -2828,6 +3086,77 @@
         }
       });
     }
+
+  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet) -->
+  <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <img src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教" style="height: 28px; width: auto;"/>
+          <span>尚學文教・導覽目錄</span>
+        </div>
+        <button class="drawer-close" type="button" id="drawer-close-btn" aria-label="關閉目錄">✕</button>
+      </div>
+      <div class="drawer-content">
+        <div class="drawer-group">
+          <div class="drawer-group-title">📚 核心學程與成果展</div>
+          <a class="drawer-link drawer-highlight" href="./index.html"><span class="d-num">🏫</span>招生首頁</a>
+          <a class="drawer-link" href="./courses.html"><span class="d-num">📚</span>全方位課程總覽</a>
+          <a class="drawer-link" href="./summer-2026.html"><span class="d-num">🍉</span>2026 暑期學習成果誌</a>
+        </div>
+        <div class="drawer-group">
+          <div class="drawer-group-title">🌱 首頁內容導航</div>
+          <a class="drawer-link" href="#concept"><span class="d-num">01</span>辦學理念與生活常規</a>
+          <a class="drawer-link" href="#comparison"><span class="d-num">02</span>市場體系深度對照</a>
+          <a class="drawer-link" href="#courses"><span class="d-num">03</span>四大常態核心學程</a>
+          <a class="drawer-link" href="#routine"><span class="d-num">04</span>課後作息與接送學區</a>
+          <a class="drawer-link" href="#testimonials"><span class="d-num">05</span>家長真實就讀見證</a>
+          <a class="drawer-link" href="#social"><span class="d-num">06</span>即時精選社群動態</a>
+          <a class="drawer-link" href="#faq"><span class="d-num">07</span>常見問題解答 FAQ</a>
+          <a class="drawer-link drawer-reserve-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer"><span class="d-num">📝</span>預約參觀與學力健檢</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    (function() {
+      const menuTrigger = document.getElementById('mobile-menu-trigger');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+      const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
+      function openDrawer(e) {
+        if (e) e.preventDefault();
+        if (drawerOverlay) {
+          drawerOverlay.classList.add('active');
+          drawerOverlay.setAttribute('aria-hidden', 'false');
+        }
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer(e) {
+        if (e) e.preventDefault();
+        if (drawerOverlay) {
+          drawerOverlay.classList.remove('active');
+          drawerOverlay.setAttribute('aria-hidden', 'true');
+        }
+        document.body.style.overflow = '';
+      }
+
+      if (menuTrigger) menuTrigger.addEventListener('click', openDrawer);
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+      if (drawerOverlay) {
+        drawerOverlay.addEventListener('click', function(e) {
+          if (e.target === drawerOverlay) closeDrawer(e);
+        });
+      }
+
+      document.querySelectorAll('.drawer-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeDrawer();
+        });
+      });
+    })();
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
