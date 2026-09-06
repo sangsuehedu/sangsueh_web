@@ -2185,60 +2185,6 @@
       .courses-grid-full { grid-template-columns: 1fr; gap: 18px; }
       .course-card-full { padding: 20px 18px; }
     }
-  
-    /* 手機版底部常駐快捷條 */
-    .mobile-sticky-bar {
-      display: none;
-    }
-    @media (max-width: 900px) {
-      .mobile-sticky-bar {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(255, 253, 248, 0.96);
-        -webkit-backdrop-filter: blur(12px);
-        backdrop-filter: blur(12px);
-        border-top: 1.5px solid var(--border-ink);
-        padding: 10px 16px env(safe-area-inset-bottom, 12px);
-        gap: 12px;
-        z-index: 9999;
-        box-shadow: 0 -4px 16px rgba(36, 49, 46, 0.1);
-      }
-      .mobile-sticky-tel {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        background: #FFF;
-        color: var(--ink);
-        border: 1.5px solid var(--border-ink);
-        padding: 10px 12px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 800;
-        text-decoration: none;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-      }
-      .mobile-sticky-btn {
-        flex: 1.5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--orange);
-        color: #FFF !important;
-        border: 0;
-        padding: 10px 14px;
-        border-radius: 10px;
-        font-size: 13.5px;
-        font-weight: 850;
-        text-decoration: none;
-        box-shadow: 0 3px 8px rgba(201, 109, 69, 0.35);
-      }
-    }
-
   </style>
 </head>
 
@@ -2250,26 +2196,26 @@
   </aside>
 
   <!-- 導覽列 -->
-        <header class="mook-header">
+  <header class="mook-header">
     <a class="mook-brand" href="./index.html" aria-label="尚學文教首頁">
       <img class="mook-brand-logo" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教"/>
     </a>
 
-    <nav class="mook-nav" aria-label="網站主要選單">
-      <a href="./index.html">招生首頁</a>
-      <a href="./courses.html" style="color: var(--orange); font-weight: 900;">全方位課程</a>
-      <a href="./pbl.html">PBL 專案學習</a>
-      <a href="./grades.html">各年級指南</a>
-      <a href="./campus.html">校園環境</a>
-      <a href="./teachers.html">師資標準</a>
-      <a href="./journal.html">教育專欄</a>
-      <a class="btn-mook-summer" href="./summer-2026.html">🍉 2026成果誌 ↗</a>
-      <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約諮詢</a>
+    <nav class="mook-nav" aria-label="課程選單">
+      <a href="./index.html">← 返回招生首頁</a>
+      <a href="#c1">課後安親</a>
+      <a href="#c2">珠心算思維</a>
+      <a href="#c3">生活美語</a>
+      <a href="#c4">進階素養</a>
+      <a href="#c5">文法閱讀</a>
+      <a href="#c6">全民英檢</a>
+      <a href="#c7">多益認證</a>
+      <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約課程諮詢</a>
     </nav>
 
-    <!-- 手機版專屬極簡導覽按鈕 -->
+    <!-- 手機版專屬極簡導覽按鈕 (比照暑假成果誌) -->
     <div class="mobile-header-actions">
-      <a class="mobile-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">📝 預約到班</a>
+      <a class="mobile-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">📝 預約諮詢</a>
       <button class="mobile-menu-btn" type="button" id="mobile-menu-trigger" aria-label="開啟導覽目錄">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         <span>目錄</span>
@@ -2548,99 +2494,81 @@
   </main>
 
   <!-- 官方旗艦頁尾 -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <!-- Top Section: Brand Info & Social Media Hub -->
-      <div class="footer-top-grid">
-        <!-- Brand Info (Strictly Left Aligned) -->
-        <div class="footer-brand-col">
-          <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教 Logo"/>
-          <div class="footer-mission">
-            <strong class="brand-slogan-main">開心學習・快樂成長</strong>
-            <p class="brand-slogan-sub">#讓孩子今天比昨天成長以期望更好的明天💪</p>
+<footer class="site-footer">
+      <div class="footer-container">
+        <!-- Top Section: Brand Info & Social Media Hub -->
+        <div class="footer-top-grid">
+          <!-- Brand Info (Strictly Left Aligned) -->
+          <div class="footer-brand-col">
+            <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260829_v9" alt="尚學文教 Logo"/>
+            <div class="footer-mission">
+              <strong class="brand-slogan-main">開心學習・快樂成長</strong>
+              <p class="brand-slogan-sub">#讓孩子今天比昨天成長以期望更好的明天💪</p>
+            </div>
+            <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
           </div>
-          <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
-          <div style="margin-top: 14px; font-size: 13px; color: #A3B8AF; line-height: 1.65;">
-            📍 校址：高雄市楠梓區軍校路880巷38號<br/>
-            📞 諮詢電話：(07) 364-6570<br/>
-            🏫 接送學區：右昌國小、莒光國小、加昌國小、屏山國小、援中國小、油廠國小
-          </div>
-        </div>
 
-        <!-- Social Media & Maps (Real Official App Icons, Clean Borderless) -->
-        <div class="footer-social-col">
-          <h3 class="social-hub-title">關注尚學文教社群 · 探索更多活動花絮與即時動態</h3>
-          <div class="social-links-clean-grid">
-            <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook 粉絲專頁">
-              <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>FB 粉絲專頁</strong>
-                <small>尚學文教旗艦主頁 ↗</small>
-              </div>
-            </a>
+          <!-- Social Media & Maps (Real Official App Icons, Clean Borderless) -->
+          <div class="footer-social-col">
+            <h3 class="social-hub-title">關注尚學文教社群 · 探索更多活動花絮與即時動態</h3>
+            <div class="social-links-clean-grid">
+              <a href="https://www.facebook.com/cms.edu/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook 粉絲專頁">
+                <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>FB 粉絲專頁</strong>
+                  <small>尚學文教旗艦主頁 ↗</small>
+                </div>
+              </a>
 
-            <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook">
-              <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>FB 尚學文教</strong>
-                <small>日常學習與花絮 ↗</small>
-              </div>
-            </a>
+              <a href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Facebook">
+                <img src="./photos/icons/icon_facebook.svg" alt="Facebook" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>FB 尚學文教</strong>
+                  <small>日常學習與花絮 ↗</small>
+                </div>
+              </a>
 
-            <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Instagram">
-              <img src="./photos/icons/icon_instagram.svg" alt="Instagram" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>Instagram</strong>
-                <small>@sangsueh_education ↗</small>
-              </div>
-            </a>
+              <a href="https://www.instagram.com/sangsueh_education/" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Instagram">
+                <img src="./photos/icons/icon_instagram.svg" alt="Instagram" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>Instagram</strong>
+                  <small>@sangsueh_education ↗</small>
+                </div>
+              </a>
 
-            <a href="https://www.threads.com/@sangsueh_education?hl=zh-tw" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Threads">
-              <img src="./photos/icons/icon_threads.svg" alt="Threads" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>Threads</strong>
-                <small>即時交流與教學札記 ↗</small>
-              </div>
-            </a>
+              <a href="https://www.threads.com/@sangsueh_education?hl=zh-tw" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Threads">
+                <img src="./photos/icons/icon_threads.svg" alt="Threads" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>Threads</strong>
+                  <small>即時交流與教學札記 ↗</small>
+                </div>
+              </a>
 
-            <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 YouTube">
-              <img src="./photos/icons/icon_youtube.svg" alt="YouTube" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>YouTube 頻道</strong>
-                <small>精選活動紀錄影音 ↗</small>
-              </div>
-            </a>
+              <a href="https://www.youtube.com/@sangsueh.education" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 YouTube">
+                <img src="./photos/icons/icon_youtube.svg" alt="YouTube" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>YouTube 頻道</strong>
+                  <small>精選活動紀錄影音 ↗</small>
+                </div>
+              </a>
 
-            <a href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Google 地圖導航">
-              <img src="./photos/icons/icon_googlemaps.svg" alt="Google Maps" class="social-app-icon" width="28" height="28"/>
-              <div class="social-clean-text">
-                <strong>Google 地圖導航</strong>
-                <small>高雄楠梓旗艦教室 ↗</small>
-              </div>
-            </a>
+              <a href="https://maps.app.goo.gl/XZvRkG2DrFg5kXQS6" target="_blank" rel="noopener" class="social-clean-item" aria-label="尚學文教 Google 地圖導航">
+                <img src="./photos/icons/icon_googlemaps.svg" alt="Google Maps" class="social-app-icon" width="28" height="28"/>
+                <div class="social-clean-text">
+                  <strong>Google 地圖導航</strong>
+                  <small>高雄楠梓旗艦教室 ↗</small>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Bottom Section: Copyright -->
-      <div class="footer-bottom-bar">
-        <p>© 2026 尚學文教 (SangSueh Education). All Rights Reserved.</p>
+        <!-- Bottom Section: Copyright -->
+        <div class="footer-bottom-bar">
+          <p>© 2026 尚學文教 (SangSueh Education). All Rights Reserved.</p>
+        </div>
       </div>
-    </div>
-  </footer>
-  <!-- 手機版底部常駐快捷條 (Mobile Sticky Bottom Bar) -->
-  <!-- 手機版底部常駐快捷條 (Mobile Sticky Bottom Bar) -->
-  <!-- 手機版底部常駐快捷條 (Mobile Sticky Bottom Bar) -->
-  <div class="mobile-sticky-bar">
-    <a class="mobile-sticky-tel" href="tel:073646570">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-      <span>電話諮詢</span>
-    </a>
-    <a class="mobile-sticky-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-      <span>📝 預約到班／學力健檢</span>
-    </a>
-  </div>
-
+    </footer>
 
   <!-- 手機底部常駐列 -->
   <aside class="mobile-mook-sticky" aria-label="手機快速預約列">
@@ -2652,9 +2580,6 @@
     </div>
   </aside>
 
-  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
-  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
-  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
   <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
   <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
     <div class="mobile-drawer" id="mobile-drawer">
@@ -2669,27 +2594,23 @@
       <div class="drawer-content">
         <div class="drawer-group">
           <div class="drawer-group-title">📚 核心學程與成果展</div>
-          <a class="drawer-link" href="./index.html"><span class="d-num">🏫</span>招生首頁</a>
-          <a class="drawer-link drawer-highlight" href="./courses.html"><span class="d-num">📚</span>全方位課程總覽</a>
+          <a class="drawer-link drawer-highlight" href="./index.html"><span class="d-num">🏫</span>招生首頁</a>
+          <a class="drawer-link" href="./courses.html"><span class="d-num">📚</span>全方位課程總覽</a>
           <a class="drawer-link" href="./summer-2026.html"><span class="d-num">🍉</span>2026 暑期學習成果誌</a>
         </div>
         <div class="drawer-group">
-          <div class="drawer-group-title">💡 特色專題與教育理念</div>
-          <a class="drawer-link" href="./pbl.html"><span class="d-num">💡</span>PBL 專案探究學習</a>
-          <a class="drawer-link" href="./grades.html"><span class="d-num">🎒</span>國小各年級適應指南</a>
-          <a class="drawer-link" href="./campus.html"><span class="d-num">🏫</span>校園環境與安全實境</a>
-          <a class="drawer-link" href="./teachers.html"><span class="d-num">👩‍🏫</span>專任師資標準與引導哲學</a>
-          <a class="drawer-link" href="./journal.html"><span class="d-num">✍️</span>尚學教育專欄／成長誌</a>
-        </div>
-        <div class="drawer-group">
-          <div class="drawer-group-title">🌱 線上預約與諮詢</div>
+          <div class="drawer-group-title">🌱 首頁內容導航</div>
+          <a class="drawer-link" href="#concept"><span class="d-num">01</span>辦學理念與生活常規</a>
+          <a class="drawer-link" href="#comparison"><span class="d-num">02</span>市場體系深度對照</a>
+          <a class="drawer-link" href="#courses"><span class="d-num">03</span>四大常態核心學程</a>
+          <a class="drawer-link" href="#routine"><span class="d-num">04</span>課後作息與接送學區</a>
+          <a class="drawer-link" href="#testimonials"><span class="d-num">05</span>家長真實就讀見證</a>
+          <a class="drawer-link" href="#social"><span class="d-num">06</span>即時精選社群動態</a>
+          <a class="drawer-link" href="#faq"><span class="d-num">07</span>常見問題解答 FAQ</a>
           <a class="drawer-link drawer-reserve-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer"><span class="d-num">📝</span>預約參觀與學力健檢</a>
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  </div>
   </div>
 
   <script>
