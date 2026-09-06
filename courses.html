@@ -588,6 +588,7 @@
       box-shadow: 3px 3px 0 var(--orange);
       margin-bottom: 16px;
     }
+    .mook-badge span { white-space: nowrap; }
     .mook-badge span.year { color: var(--yellow); }
 
     .paper-clip {
@@ -772,16 +773,24 @@
     .notebook-sheet {
       background: #FFFDF8;
       border: 1px solid #DFD7CA;
-      border-radius: 6px;
-      padding: 26px 22px 22px 42px;
-      box-shadow: 5px 6px 0 rgba(36, 49, 46, 0.08);
+      border-radius: 14px;
+      padding: 24px 22px 20px 42px;
+      box-shadow: 4px 6px 0 rgba(36, 49, 46, 0.08);
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr 140px;
-      gap: 16px;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       transition: transform 0.25s, box-shadow 0.25s;
       box-sizing: border-box;
+    }
+    .sheet-header-wide {
+      width: 100%;
+    }
+    .sheet-body-row {
+      display: grid;
+      grid-template-columns: 1fr 135px;
+      gap: 16px;
+      align-items: center;
     }
     .notebook-sheet:hover {
       transform: translateY(-3px);
@@ -993,25 +1002,9 @@
       letter-spacing: 0.05em;
       box-shadow: 2px 2px 0 var(--orange);
     }
-    .course-card-top-row {
-      display: grid;
-      grid-template-columns: 1fr 130px;
-      gap: 16px;
-      align-items: start;
-      margin-bottom: 16px;
-    }
-    .course-card-polaroid {
-      width: 125px;
-      height: 140px;
-      transform: rotate(-2deg);
-    }
-    .course-mook-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 20px;
-      font-weight: 850;
-      color: var(--ink);
-      margin: 8px 0 6px;
-      line-height: 1.35;
+    .course-card-header-wide {
+      width: 100%;
+      margin-bottom: 12px;
     }
     .course-target-badge {
       font-size: 11.5px;
@@ -1021,23 +1014,70 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 999px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+    .course-mook-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 850;
+      color: var(--ink);
+      margin: 0 0 6px;
+      line-height: 1.35;
     }
     .course-mook-desc {
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--ink-soft);
-      line-height: 1.65;
+      line-height: 1.6;
       margin: 0;
+    }
+    .course-card-body-row {
+      display: grid;
+      grid-template-columns: 1fr 135px;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      border-top: 1px dashed rgba(36, 49, 46, 0.18);
+      padding-top: 14px;
+    }
+    .course-card-polaroid-side {
+      width: 135px;
+      height: 150px;
+      align-self: center;
     }
     .course-features-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      border-top: 1px dashed rgba(36, 49, 46, 0.18);
-      padding-top: 14px;
+    }
+    .course-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .feat-icon {
+      font-size: 13px;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+    .feat-content {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .feat-content strong {
+      color: var(--ink);
+      font-weight: 850;
+      margin-bottom: 1px;
+    }
+    .feat-content span {
+      color: var(--ink-soft);
     }
     .course-features-list li {
       font-size: 13px;
@@ -1116,86 +1156,120 @@
       box-shadow: 4px 4px 0 var(--ink);
     }
 
-    /* 作息時程雙軌分頁 (半天 vs 整天) */
+    /* 作息流程圖 (Flowchart Timeline 連線設計・極致省空間) */
     .routine-mook-section {
-      padding: 85px 6vw;
-      background: var(--paper);
+      padding: 80px 6vw;
+      background: var(--paper-cream, #FFFDF8);
       border-bottom: 2px dashed var(--border-dashed);
     }
-    .routine-tabs-nav {
+    .flowchart-track-header {
+      max-width: 860px;
+      margin: 0 auto 16px;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 850;
+      font-size: 15px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-routine-tab {
-      background: #FFF;
-      border: 1.5px solid var(--border-ink);
-      color: var(--ink);
-      padding: 10px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-routine-tab.active {
-      background: var(--green);
-      color: #FFF;
-      border-color: var(--green);
-      box-shadow: 3px 3px 0 var(--yellow);
-    }
-    .routine-mook-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-    }
-    .routine-mook-card {
-      background: #FFFDF8;
-      border: 1px solid var(--border-ink);
-      border-radius: 14px;
-      padding: 18px 12px;
-      text-align: center;
-      box-shadow: 3px 4px 0 rgba(36, 49, 46, 0.06);
-      position: relative;
+    .flowchart-track-header.track-orange { color: var(--orange); }
+    .flowchart-track-header.track-blue { color: var(--blue); }
+
+    .flowchart-timeline {
+      max-width: 860px;
+      margin: 0 auto 36px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      position: relative;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .flow-step-last {
+      padding-bottom: 0;
+    }
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .flow-icon {
+      width: 36px;
+      height: 36px;
+      background: #FFF;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      box-shadow: 2px 2px 0 rgba(36, 49, 46, 0.1);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .track-blue .flow-icon {
+      border-color: var(--blue);
+    }
+    .flow-line {
+      width: 2px;
+      flex-grow: 1;
+      background: repeating-linear-gradient(to bottom, var(--orange) 0, var(--orange) 4px, transparent 4px, transparent 8px);
+      margin: 4px 0;
+    }
+    .track-blue .flow-line {
+      background: repeating-linear-gradient(to bottom, var(--blue) 0, var(--blue) 4px, transparent 4px, transparent 8px);
+    }
+    .flow-card {
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 2px 3px 0 rgba(36, 49, 46, 0.05);
       transition: transform 0.2s;
     }
-    .routine-mook-card:hover { transform: translateY(-3px); }
-    .routine-stamp-time {
+    .flow-card:hover {
+      transform: translateX(3px);
+    }
+    .flow-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .flow-stamp {
       font-family: 'Comfortaa', sans-serif;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 850;
       color: var(--orange);
-      font-size: 11.5px;
       background: var(--orange-light);
-      padding: 2px 7px;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
     }
-    .routine-mook-icon {
-      font-size: 24px;
-      margin: 6px auto;
+    .track-blue .flow-stamp {
+      color: var(--blue);
+      background: var(--blue-light);
     }
-    .routine-mook-card h4 {
+    .flow-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 14.5px;
+      font-weight: 850;
       color: var(--ink);
-      margin: 0 0 5px;
+      margin: 0;
     }
-    .routine-mook-card p {
-      font-size: 11.5px;
+    .flow-desc {
+      font-size: 12px;
       color: var(--ink-soft);
-      line-height: 1.55;
+      line-height: 1.5;
       margin: 0;
     }
 
-    /* 接送方式卡片 (明確劃分步行 vs 校車) */
+    /* 接送方式卡片 (明確劃分步行 vs 車輛接送) */
     .escort-mook-box {
       max-width: 1200px;
       margin: 34px auto 0;
@@ -1687,30 +1761,44 @@
       .hero-stamps-bar { grid-template-columns: repeat(2, 1fr); }
       .notebook-sheets-grid { grid-template-columns: 1fr; gap: 18px; }
       
-      /* 手機版便箋卡片精準緊湊化，不佔滿版 */
+      /* 手機版便箋卡片精準緊湊化：上排橫跨、下排並排 */
       .notebook-sheet {
-        grid-template-columns: 1fr 115px;
-        padding: 20px 14px 18px 34px;
-        gap: 12px;
+        padding: 18px 14px 16px 30px;
+        gap: 10px;
       }
-      .sheet-polaroid { width: 110px; height: 130px; }
-      .sheet-title { font-size: 16px; margin-bottom: 6px; }
-      .sheet-problem-desc { font-size: 12.5px; margin-bottom: 10px; line-height: 1.55; }
-      .sheet-solution-text { font-size: 12px; line-height: 1.55; }
+      .sheet-header-wide .sheet-title { font-size: 15px; margin-bottom: 5px; line-height: 1.4; }
+      .sheet-header-wide .sheet-problem-desc { font-size: 12px; margin-bottom: 4px; line-height: 1.45; }
+      .sheet-body-row { grid-template-columns: 1fr 105px; gap: 10px; }
+      .sheet-polaroid { width: 105px !important; height: 125px !important; }
+      .sheet-solution-wrap { padding: 8px 10px; }
+      .handwritten-arrow { font-size: 12px; margin-bottom: 2px; }
+      .sheet-solution-text { font-size: 11.5px; line-height: 1.4; }
 
       /* 機構比較：手機版完全免滑動，顯示 3 欄精簡自適應對照表 */
       .comparison-table-wrap { display: none !important; }
       .mobile-table-wrap { display: block !important; }
 
-      .courses-mook-grid { grid-template-columns: 1fr; gap: 20px; }
-      .course-mook-card { padding: 22px 18px; }
-      .course-card-top-row { grid-template-columns: 1fr 110px; gap: 12px; }
-      .course-card-polaroid { width: 105px; height: 120px; }
+      /* 課程卡片：上排滿版橫跨，下排特色+拍立得並排 */
+      .courses-mook-grid { grid-template-columns: 1fr; gap: 18px; }
+      .course-mook-card { padding: 20px 16px; }
+      .course-card-header-wide { margin-bottom: 10px; }
+      .course-card-header-wide .course-mook-title { font-size: 18px; margin: 0 0 4px; }
+      .course-card-header-wide .course-mook-desc { font-size: 12px; line-height: 1.5; }
+      .course-card-body-row { grid-template-columns: 1fr 105px; gap: 10px; margin-bottom: 14px; }
+      .course-card-polaroid-side { width: 105px; height: 125px; }
+      .feat-content { font-size: 11.5px; line-height: 1.4; }
+      .feat-content strong { font-size: 12px; }
       
       .courses-hub-banner { flex-direction: column; text-align: center; padding: 22px 18px; }
       .btn-hub-jump { width: 100%; box-sizing: border-box; text-align: center; }
       
-      .routine-mook-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      /* 流程圖作息手機緊湊化 */
+      .flow-step { grid-template-columns: 36px 1fr; gap: 10px; padding-bottom: 8px; }
+      .flow-icon { width: 32px; height: 32px; font-size: 14px; }
+      .flow-card { padding: 8px 12px; }
+      .flow-title { font-size: 13.5px; }
+      .flow-desc { font-size: 11px; }
+
       .escort-mook-box { grid-template-columns: 1fr; gap: 16px; padding: 18px 16px; }
       .summer-polaroids-row { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .testimonials-mook-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1722,13 +1810,21 @@
 
     @media (max-width: 600px) {
       .hero-mook { padding: 35px 5vw 50px; }
+      .hero-mook .mook-badge {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 6px;
+        padding: 6px 12px;
+        font-size: 11px;
+        line-height: 1.35;
+      }
       .hero-mook-actions { flex-direction: column; }
       .btn-mook-primary, .btn-mook-secondary { width: 100%; justify-content: center; box-sizing: border-box; }
       .hero-collage-wrap { min-height: 380px; }
       .summer-polaroids-row { grid-template-columns: 1fr; }
       .booking-ticket-card { padding: 26px 16px; }
       .btn-mook-ticket { width: 100%; font-size: 15.5px; padding: 14px 18px; box-sizing: border-box; justify-content: center; }
-      .routine-mook-grid { grid-template-columns: 1fr; }
     }
 
 /* ========================================================
@@ -2146,7 +2242,7 @@
                 <li><strong>番茄鐘專注作息節奏</strong>：25分鐘專注寫作業＋5分鐘放鬆，打破拖延惡習。</li>
                 <li><strong>字跡筆順逐筆細心檢查</strong>：不只對答案，更耐心拆解思考盲點，確實訂正。</li>
                 <li><strong>學校學科學力單元穩固</strong>：循序漸進梳理心智圖重點，日常學力基礎扎實。</li>
-                <li><strong>學區安心專車與步行接送</strong>：右昌莒光老師步行導護帶回，加昌屏山援中油廠專車接駁。</li>
+                <li><strong>學區安心接送網絡</strong>：右昌莒光老師步行導護帶回，其他學區配合車輛接送。</li>
               </ul>
             </div>
           </div>

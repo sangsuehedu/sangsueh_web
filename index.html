@@ -6,7 +6,7 @@
   <title>尚學文教｜高雄楠梓國小安親課輔・珠心算思維・兒童美語・進階英語素養旗艦（右昌・莒光・加昌學區）</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="高雄楠梓推薦國小安親班首選！尚學文教堅持嚴格 1:15 精緻師生比與資深穩定專職師資。專注小一新生作息常規、坐姿握筆、作業當日完成、珠心算邏輯專注力訓練、自然發音情境兒童美語與進階英語素養。右昌、莒光步行接送；加昌、屏山、援中、油廠專屬校車接送。新學期熱烈招生中，歡迎預約了解！"/>
+  <meta name="description" content="高雄楠梓推薦國小安親班首選！尚學文教堅持嚴格 1:15 精緻師生比與資深穩定專職師資。專注小一新生作息常規、坐姿握筆、作業當日完成、珠心算邏輯專注力訓練、自然發音情境兒童美語與進階英語素養。右昌、莒光老師步行導護；加昌、屏山、援中、油廠車輛定點接送。新學期熱烈招生中，歡迎預約了解！"/>
   <meta name="keywords" content="楠梓安親班, 右昌國小補習班, 莒光國小安親班, 加昌國小安親班, 屏山國小補習班, 援中國小安親, 油廠國小課輔, 楠梓珠心算, 楠梓兒童美語, 尚學文教, 進階英語素養"/>
   <meta name="author" content="尚學文教 (SangSueh Education)"/>
   <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/"/>
@@ -648,6 +648,7 @@
       box-shadow: 3px 3px 0 var(--orange);
       margin-bottom: 16px;
     }
+    .mook-badge span { white-space: nowrap; }
     .mook-badge span.year { color: var(--yellow); }
 
     .paper-clip {
@@ -832,16 +833,24 @@
     .notebook-sheet {
       background: #FFFDF8;
       border: 1px solid #DFD7CA;
-      border-radius: 6px;
-      padding: 26px 22px 22px 42px;
-      box-shadow: 5px 6px 0 rgba(36, 49, 46, 0.08);
+      border-radius: 14px;
+      padding: 24px 22px 20px 42px;
+      box-shadow: 4px 6px 0 rgba(36, 49, 46, 0.08);
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr 140px;
-      gap: 16px;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       transition: transform 0.25s, box-shadow 0.25s;
       box-sizing: border-box;
+    }
+    .sheet-header-wide {
+      width: 100%;
+    }
+    .sheet-body-row {
+      display: grid;
+      grid-template-columns: 1fr 135px;
+      gap: 16px;
+      align-items: center;
     }
     .notebook-sheet:hover {
       transform: translateY(-3px);
@@ -1053,25 +1062,9 @@
       letter-spacing: 0.05em;
       box-shadow: 2px 2px 0 var(--orange);
     }
-    .course-card-top-row {
-      display: grid;
-      grid-template-columns: 1fr 130px;
-      gap: 16px;
-      align-items: start;
-      margin-bottom: 16px;
-    }
-    .course-card-polaroid {
-      width: 125px;
-      height: 140px;
-      transform: rotate(-2deg);
-    }
-    .course-mook-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 20px;
-      font-weight: 850;
-      color: var(--ink);
-      margin: 8px 0 6px;
-      line-height: 1.35;
+    .course-card-header-wide {
+      width: 100%;
+      margin-bottom: 12px;
     }
     .course-target-badge {
       font-size: 11.5px;
@@ -1081,23 +1074,70 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 999px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+    .course-mook-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 850;
+      color: var(--ink);
+      margin: 0 0 6px;
+      line-height: 1.35;
     }
     .course-mook-desc {
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--ink-soft);
-      line-height: 1.65;
+      line-height: 1.6;
       margin: 0;
+    }
+    .course-card-body-row {
+      display: grid;
+      grid-template-columns: 1fr 135px;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      border-top: 1px dashed rgba(36, 49, 46, 0.18);
+      padding-top: 14px;
+    }
+    .course-card-polaroid-side {
+      width: 135px;
+      height: 150px;
+      align-self: center;
     }
     .course-features-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      border-top: 1px dashed rgba(36, 49, 46, 0.18);
-      padding-top: 14px;
+    }
+    .course-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .feat-icon {
+      font-size: 13px;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+    .feat-content {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .feat-content strong {
+      color: var(--ink);
+      font-weight: 850;
+      margin-bottom: 1px;
+    }
+    .feat-content span {
+      color: var(--ink-soft);
     }
     .course-features-list li {
       font-size: 13px;
@@ -1176,86 +1216,120 @@
       box-shadow: 4px 4px 0 var(--ink);
     }
 
-    /* 作息時程雙軌分頁 (半天 vs 整天) */
+    /* 作息流程圖 (Flowchart Timeline 連線設計・極致省空間) */
     .routine-mook-section {
-      padding: 85px 6vw;
-      background: var(--paper);
+      padding: 80px 6vw;
+      background: var(--paper-cream, #FFFDF8);
       border-bottom: 2px dashed var(--border-dashed);
     }
-    .routine-tabs-nav {
+    .flowchart-track-header {
+      max-width: 860px;
+      margin: 0 auto 16px;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 850;
+      font-size: 15px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-routine-tab {
-      background: #FFF;
-      border: 1.5px solid var(--border-ink);
-      color: var(--ink);
-      padding: 10px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-routine-tab.active {
-      background: var(--green);
-      color: #FFF;
-      border-color: var(--green);
-      box-shadow: 3px 3px 0 var(--yellow);
-    }
-    .routine-mook-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-    }
-    .routine-mook-card {
-      background: #FFFDF8;
-      border: 1px solid var(--border-ink);
-      border-radius: 14px;
-      padding: 18px 12px;
-      text-align: center;
-      box-shadow: 3px 4px 0 rgba(36, 49, 46, 0.06);
-      position: relative;
+    .flowchart-track-header.track-orange { color: var(--orange); }
+    .flowchart-track-header.track-blue { color: var(--blue); }
+
+    .flowchart-timeline {
+      max-width: 860px;
+      margin: 0 auto 36px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      position: relative;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .flow-step-last {
+      padding-bottom: 0;
+    }
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .flow-icon {
+      width: 36px;
+      height: 36px;
+      background: #FFF;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      box-shadow: 2px 2px 0 rgba(36, 49, 46, 0.1);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .track-blue .flow-icon {
+      border-color: var(--blue);
+    }
+    .flow-line {
+      width: 2px;
+      flex-grow: 1;
+      background: repeating-linear-gradient(to bottom, var(--orange) 0, var(--orange) 4px, transparent 4px, transparent 8px);
+      margin: 4px 0;
+    }
+    .track-blue .flow-line {
+      background: repeating-linear-gradient(to bottom, var(--blue) 0, var(--blue) 4px, transparent 4px, transparent 8px);
+    }
+    .flow-card {
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 2px 3px 0 rgba(36, 49, 46, 0.05);
       transition: transform 0.2s;
     }
-    .routine-mook-card:hover { transform: translateY(-3px); }
-    .routine-stamp-time {
+    .flow-card:hover {
+      transform: translateX(3px);
+    }
+    .flow-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .flow-stamp {
       font-family: 'Comfortaa', sans-serif;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 850;
       color: var(--orange);
-      font-size: 11.5px;
       background: var(--orange-light);
-      padding: 2px 7px;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
     }
-    .routine-mook-icon {
-      font-size: 24px;
-      margin: 6px auto;
+    .track-blue .flow-stamp {
+      color: var(--blue);
+      background: var(--blue-light);
     }
-    .routine-mook-card h4 {
+    .flow-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 14.5px;
+      font-weight: 850;
       color: var(--ink);
-      margin: 0 0 5px;
+      margin: 0;
     }
-    .routine-mook-card p {
-      font-size: 11.5px;
+    .flow-desc {
+      font-size: 12px;
       color: var(--ink-soft);
-      line-height: 1.55;
+      line-height: 1.5;
       margin: 0;
     }
 
-    /* 接送方式卡片 (明確劃分步行 vs 校車) */
+    /* 接送方式卡片 (明確劃分步行 vs 車輛接送) */
     .escort-mook-box {
       max-width: 1200px;
       margin: 34px auto 0;
@@ -1747,30 +1821,44 @@
       .hero-stamps-bar { grid-template-columns: repeat(2, 1fr); }
       .notebook-sheets-grid { grid-template-columns: 1fr; gap: 18px; }
       
-      /* 手機版便箋卡片精準緊湊化，不佔滿版 */
+      /* 手機版便箋卡片精準緊湊化：上排橫跨、下排並排 */
       .notebook-sheet {
-        grid-template-columns: 1fr 115px;
-        padding: 20px 14px 18px 34px;
-        gap: 12px;
+        padding: 18px 14px 16px 30px;
+        gap: 10px;
       }
-      .sheet-polaroid { width: 110px; height: 130px; }
-      .sheet-title { font-size: 16px; margin-bottom: 6px; }
-      .sheet-problem-desc { font-size: 12.5px; margin-bottom: 10px; line-height: 1.55; }
-      .sheet-solution-text { font-size: 12px; line-height: 1.55; }
+      .sheet-header-wide .sheet-title { font-size: 15px; margin-bottom: 5px; line-height: 1.4; }
+      .sheet-header-wide .sheet-problem-desc { font-size: 12px; margin-bottom: 4px; line-height: 1.45; }
+      .sheet-body-row { grid-template-columns: 1fr 105px; gap: 10px; }
+      .sheet-polaroid { width: 105px !important; height: 125px !important; }
+      .sheet-solution-wrap { padding: 8px 10px; }
+      .handwritten-arrow { font-size: 12px; margin-bottom: 2px; }
+      .sheet-solution-text { font-size: 11.5px; line-height: 1.4; }
 
       /* 機構比較：手機版完全免滑動，顯示 3 欄精簡自適應對照表 */
       .comparison-table-wrap { display: none !important; }
       .mobile-table-wrap { display: block !important; }
 
-      .courses-mook-grid { grid-template-columns: 1fr; gap: 20px; }
-      .course-mook-card { padding: 22px 18px; }
-      .course-card-top-row { grid-template-columns: 1fr 110px; gap: 12px; }
-      .course-card-polaroid { width: 105px; height: 120px; }
+      /* 課程卡片：上排滿版橫跨，下排特色+拍立得並排 */
+      .courses-mook-grid { grid-template-columns: 1fr; gap: 18px; }
+      .course-mook-card { padding: 20px 16px; }
+      .course-card-header-wide { margin-bottom: 10px; }
+      .course-card-header-wide .course-mook-title { font-size: 18px; margin: 0 0 4px; }
+      .course-card-header-wide .course-mook-desc { font-size: 12px; line-height: 1.5; }
+      .course-card-body-row { grid-template-columns: 1fr 105px; gap: 10px; margin-bottom: 14px; }
+      .course-card-polaroid-side { width: 105px; height: 125px; }
+      .feat-content { font-size: 11.5px; line-height: 1.4; }
+      .feat-content strong { font-size: 12px; }
       
       .courses-hub-banner { flex-direction: column; text-align: center; padding: 22px 18px; }
       .btn-hub-jump { width: 100%; box-sizing: border-box; text-align: center; }
       
-      .routine-mook-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      /* 流程圖作息手機緊湊化 */
+      .flow-step { grid-template-columns: 36px 1fr; gap: 10px; padding-bottom: 8px; }
+      .flow-icon { width: 32px; height: 32px; font-size: 14px; }
+      .flow-card { padding: 8px 12px; }
+      .flow-title { font-size: 13.5px; }
+      .flow-desc { font-size: 11px; }
+
       .escort-mook-box { grid-template-columns: 1fr; gap: 16px; padding: 18px 16px; }
       .summer-polaroids-row { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .testimonials-mook-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1782,13 +1870,21 @@
 
     @media (max-width: 600px) {
       .hero-mook { padding: 35px 5vw 50px; }
+      .hero-mook .mook-badge {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 6px;
+        padding: 6px 12px;
+        font-size: 11px;
+        line-height: 1.35;
+      }
       .hero-mook-actions { flex-direction: column; }
       .btn-mook-primary, .btn-mook-secondary { width: 100%; justify-content: center; box-sizing: border-box; }
       .hero-collage-wrap { min-height: 380px; }
       .summer-polaroids-row { grid-template-columns: 1fr; }
       .booking-ticket-card { padding: 26px 16px; }
       .btn-mook-ticket { width: 100%; font-size: 15.5px; padding: 14px 18px; box-sizing: border-box; justify-content: center; }
-      .routine-mook-grid { grid-template-columns: 1fr; }
     }
 
 /* ========================================================
@@ -1985,7 +2081,7 @@
 <body>
   <!-- 頂部特輯橫幅 -->
   <aside class="top-mook-bar" aria-label="開學特輯公告">
-    <span>🎒 2026 秋季招生特輯｜1:15 精緻小班常規安親・珠心算思維・情境美語・學區專車/步行安心接送</span>
+    <span>🎒 2026 秋季招生特輯｜1:15 精緻小班常規安親・珠心算思維・情境美語・學區車輛/步行安心接送</span>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班了解 →</a>
   </aside>
 
@@ -2058,7 +2154,7 @@
             </div>
             <div class="stamp-item-card">
               <strong>🛡️ 學區專屬接送</strong>
-              <small>老師步行帶隊・專屬校車</small>
+              <small>老師步行帶隊・車輛接送</small>
             </div>
             <div class="stamp-item-card">
               <strong>📝 自律常規養成</strong>
@@ -2118,22 +2214,25 @@
           </div>
           <div class="washi-tape sheet-tape washi-tape-orange"></div>
 
-          <div class="sheet-main-content">
-            <div>
-              <h3 class="sheet-title">大班直升小一，坐不住、寫作業哭天搶地？</h3>
-              <p class="sheet-problem-desc">幼稚園到小學作息巨變，握筆無力、注意力分散，回家光寫三行字就耗盡全家人的耐心。</p>
-            </div>
+          <!-- 上排橫跨 -->
+          <div class="sheet-header-wide">
+            <h3 class="sheet-title">大班直升小一，坐不住、寫作業哭天搶地？</h3>
+            <p class="sheet-problem-desc">幼稚園到小學作息巨變，握筆無力、注意力分散，回家光寫三行字就耗盡全家人的耐心。</p>
+          </div>
+
+          <!-- 下排解法與拍立得並排 -->
+          <div class="sheet-body-row">
             <div class="sheet-solution-wrap">
               <span class="stamp-solution-seal">尚學引導解法</span>
               <div class="handwritten-arrow">↳ 番茄鐘分段專注 ＋ 握筆坐姿細緻矯正</div>
               <p class="sheet-solution-text">採番茄鐘分段引導，一筆一畫陪孩子建立工整筆順，把大作業拆解成小成就，孩子在班內安心完成，重拾自信！</p>
             </div>
-          </div>
 
-          <div class="polaroid-card sheet-polaroid">
-            <span class="paper-clip">📎</span>
-            <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學孩子專注握筆寫作業" loading="lazy"/>
-            <div class="polaroid-caption">細心矯正握筆常規</div>
+            <div class="polaroid-card sheet-polaroid">
+              <span class="paper-clip">📎</span>
+              <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學孩子專注握筆寫作業" loading="lazy"/>
+              <div class="polaroid-caption">細心矯正握筆常規</div>
+            </div>
           </div>
         </article>
 
@@ -2147,22 +2246,25 @@
           </div>
           <div class="washi-tape sheet-tape washi-tape-green"></div>
 
-          <div class="sheet-main-content">
-            <div>
-              <h3 class="sheet-title">傳統大班一班 30~35 人，老師流動頻繁、只能狂刷評量？</h3>
-              <p class="sheet-problem-desc">大型機構常一班塞滿 30~35 個孩子，多由跑班或兼職工讀生輪替；為求秩序只能發考卷重複狂寫，孩子眼神失去對學習的熱情。</p>
-            </div>
+          <!-- 上排橫跨 -->
+          <div class="sheet-header-wide">
+            <h3 class="sheet-title">傳統大班一班 30~35 人，老師流動頻繁、只能狂刷評量？</h3>
+            <p class="sheet-problem-desc">大型機構常一班塞滿 30~35 個孩子，多由跑班或兼職工讀生輪替；為求秩序只能發考卷重複狂寫，孩子眼神失去對學習的熱情。</p>
+          </div>
+
+          <!-- 下排解法與拍立得並排 -->
+          <div class="sheet-body-row">
             <div class="sheet-solution-wrap">
               <span class="stamp-solution-seal">尚學引導解法</span>
               <div class="handwritten-arrow">↳ 堅持 1:15 精緻師生比 ＋ 資深穩定專職師資</div>
               <p class="sheet-solution-text">嚴格落實 1:15 黃金師生比！由資深專任導師長期帶班，流動率極低。作業逐字檢查批改、耐心拆解盲點，引導孩子真正學會自己思考。</p>
             </div>
-          </div>
 
-          <div class="polaroid-card sheet-polaroid">
-            <span class="paper-clip">📎</span>
-            <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="尚學小班同儕討論與耐心解題" loading="lazy"/>
-            <div class="polaroid-caption">1:15 穩定專職指導</div>
+            <div class="polaroid-card sheet-polaroid">
+              <span class="paper-clip">📎</span>
+              <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="尚學小班同儕討論與耐心解題" loading="lazy"/>
+              <div class="polaroid-caption">1:15 穩定專職指導</div>
+            </div>
           </div>
         </article>
 
@@ -2176,22 +2278,25 @@
           </div>
           <div class="washi-tape sheet-tape washi-tape-blue"></div>
 
-          <div class="sheet-main-content">
-            <div>
-              <h3 class="sheet-title">英文總是死記死背，孩子不敢開口又考不好？</h3>
-              <p class="sheet-problem-desc">單字抄寫十遍、背一堆生硬公式，考試考得提心吊膽，遇到生活會話一句話都不敢說，越來越排斥英文。</p>
-            </div>
+          <!-- 上排橫跨 -->
+          <div class="sheet-header-wide">
+            <h3 class="sheet-title">英文總是死記死背，孩子不敢開口又考不好？</h3>
+            <p class="sheet-problem-desc">單字抄寫十遍、背一堆生硬公式，考試考得提心吊膽，遇到生活會話一句話都不敢說，越來越排斥英文。</p>
+          </div>
+
+          <!-- 下排解法與拍立得並排 -->
+          <div class="sheet-body-row">
             <div class="sheet-solution-wrap">
               <span class="stamp-solution-seal">尚學引導解法</span>
               <div class="handwritten-arrow">↳ Phonics自然拼讀 ＋ 情境繪本趣味對話</div>
               <p class="sheet-solution-text">從自然發音扎根，孩子見字能讀、聽音能寫！透過生動生活繪本與小班對話，讓美語成為生活工具，自然自信開口。</p>
             </div>
-          </div>
 
-          <div class="polaroid-card sheet-polaroid">
-            <span class="paper-clip">📎</span>
-            <img src="./photos/curated_mook/pain_english_reading.jpg" alt="尚學美語繪本生動互動" loading="lazy"/>
-            <div class="polaroid-caption">自然發音情境互動</div>
+            <div class="polaroid-card sheet-polaroid">
+              <span class="paper-clip">📎</span>
+              <img src="./photos/curated_mook/pain_english_reading.jpg" alt="尚學美語繪本生動互動" loading="lazy"/>
+              <div class="polaroid-caption">自然發音情境互動</div>
+            </div>
           </div>
         </article>
 
@@ -2205,22 +2310,25 @@
           </div>
           <div class="washi-tape sheet-tape washi-tape-orange"></div>
 
-          <div class="sheet-main-content">
-            <div>
-              <h3 class="sheet-title">雙薪家庭下班已經七點，還要盯功課心力交瘁？</h3>
-              <p class="sheet-problem-desc">加班回到家已經精疲力竭，看到書包裡還有好幾樣功課沒寫、評量錯誤滿篇，親子關係每晚都在緊繃摩擦中崩潰。</p>
-            </div>
+          <!-- 上排橫跨 -->
+          <div class="sheet-header-wide">
+            <h3 class="sheet-title">雙薪家庭下班已經七點，還要盯功課心力交瘁？</h3>
+            <p class="sheet-problem-desc">加班回到家已經精疲力竭，看到書包裡還有好幾樣功課沒寫、評量錯誤滿篇，親子關係每晚都在緊繃摩擦中崩潰。</p>
+          </div>
+
+          <!-- 下排解法與拍立得並排 -->
+          <div class="sheet-body-row">
             <div class="sheet-solution-wrap">
               <span class="stamp-solution-seal">尚學引導解法</span>
               <div class="handwritten-arrow">↳ 在班確實完成 ＋ 回家享受優質親子時光</div>
               <p class="sheet-solution-text">作業、訂正、複習在班內確實解決！家長接回時只有完成的書包與開朗的笑容，晚上的家庭時光留給溫暖的共處與聊天。</p>
             </div>
-          </div>
 
-          <div class="polaroid-card sheet-polaroid">
-            <span class="paper-clip">📎</span>
-            <img src="./photos/curated_mook/pain_happy_parenting.jpg" alt="孩子放學開心與家長互動" loading="lazy"/>
-            <div class="polaroid-caption">守護溫馨無壓家庭時光</div>
+            <div class="polaroid-card sheet-polaroid">
+              <span class="paper-clip">📎</span>
+              <img src="./photos/curated_mook/pain_happy_parenting.jpg" alt="孩子放學開心與家長互動" loading="lazy"/>
+              <div class="polaroid-caption">守護溫馨無壓家庭時光</div>
+            </div>
           </div>
         </article>
       </div>
@@ -2338,25 +2446,49 @@
         <!-- 課程 1: 國小課後安親 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 熱招中</span>
-          <div>
-            <div class="course-card-top-row">
-              <div>
-                <span class="course-target-badge">國小各年級適讀</span>
-                <h3 class="course-mook-title">國小課後安親</h3>
-                <p class="course-mook-desc">奠定一生自律作息的最關鍵起點！注重常規勝過考卷，引導孩子習慣專注節奏與主動完成作業。</p>
-              </div>
-              <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_lowgrade.jpg" alt="尚學國小課後安親" loading="lazy"/>
-                <div class="polaroid-caption">細緻常規指導</div>
-              </div>
-            </div>
+          
+          <div class="course-card-header-wide">
+            <span class="course-target-badge">國小各年級適讀</span>
+            <h3 class="course-mook-title">國小課後安親</h3>
+            <p class="course-mook-desc">奠定一生自律作息的最關鍵起點！注重生活常規勝過考卷刷題，引導孩子建立專注節奏與主動完成作業習慣。</p>
+          </div>
 
+          <div class="course-card-body-row">
             <ul class="course-features-list">
-              <li><strong>握筆坐姿細緻雕琢</strong>：輔助握筆陪伴，保護視力與手部肌力。</li>
-              <li><strong>番茄鐘專注節奏訓練</strong>：25分鐘專注作業＋5分鐘放鬆，告別拖延。</li>
-              <li><strong>學校課業逐字審核</strong>：逐字逐行耐心批閱，當日作業當日訂正完成。</li>
-              <li><strong>學區安心專車與步行接送</strong>：放學第一時間平安進班。</li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>握筆坐姿細緻雕琢</strong>
+                  <span>輔助握筆陪伴，保護視力與手部肌力。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>番茄鐘專注節奏訓練</strong>
+                  <span>25分鐘專注作業＋5分鐘放鬆，告別拖延。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>學校課業逐字審核</strong>
+                  <span>逐字逐行耐心批閱，當日作業當日訂正完成。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>學區安心接送網絡</strong>
+                  <span>右昌莒光老師步行帶回，其他學區車輛接送。</span>
+                </div>
+              </li>
             </ul>
+
+            <div class="polaroid-card course-card-polaroid-side">
+              <img src="./photos/curated_mook/course_lowgrade.jpg" alt="尚學國小課後安親" loading="lazy"/>
+              <div class="polaroid-caption">細緻常規指導</div>
+            </div>
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
@@ -2367,25 +2499,49 @@
         <!-- 課程 2: 珠心算思維 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 專注力奠基</span>
-          <div>
-            <div class="course-card-top-row">
-              <div>
-                <span class="course-target-badge">大班～國小全年級</span>
-                <h3 class="course-mook-title">珠心算思維</h3>
-                <p class="course-mook-desc">手腦並用、右腦圖像速算！透過撥珠手眼協調訓練空間數感與沉浸靜心定力，有效破除粗心，數學信心大增。</p>
-              </div>
-              <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學珠心算思維課堂" loading="lazy"/>
-                <div class="polaroid-caption">空間數感養成</div>
-              </div>
-            </div>
+          
+          <div class="course-card-header-wide">
+            <span class="course-target-badge">大班～國小全年級</span>
+            <h3 class="course-mook-title">珠心算思維</h3>
+            <p class="course-mook-desc">手腦並用、右腦圖像速算！透過撥珠手眼協調訓練空間數感與沉浸靜心定力，有效破除粗心，數學信心大增。</p>
+          </div>
 
+          <div class="course-card-body-row">
             <ul class="course-features-list">
-              <li><strong>右腦圖像空間速算</strong>：將數字轉化為立體算珠，運算精準又神速。</li>
-              <li><strong>沉浸式專注耐力養成</strong>：限時聽算看算演練，培養高度抗壓靜心能力。</li>
-              <li><strong>奠定國小數學直覺</strong>：提早掌握加減乘除邏輯，數學不再抽象恐懼。</li>
-              <li><strong>考照檢定成就激勵</strong>：定期輔導參與全國檢定，累積踏實自信。</li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>右腦圖像空間速算</strong>
+                  <span>將數字轉化為立體算珠，運算精準又神速。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>沉浸式專注耐力養成</strong>
+                  <span>限時聽算看算演練，培養高度抗壓靜心定力。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>奠定國小數學直覺</strong>
+                  <span>提早掌握加減乘除邏輯，數學不再抽象恐懼。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>考照檢定成就激勵</strong>
+                  <span>定期輔導參與全國檢定，累積踏實成就感。</span>
+                </div>
+              </li>
             </ul>
+
+            <div class="polaroid-card course-card-polaroid-side">
+              <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="尚學珠心算思維課堂" loading="lazy"/>
+              <div class="polaroid-caption">空間數感養成</div>
+            </div>
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
@@ -2396,25 +2552,49 @@
         <!-- 課程 3: 兒童生活美語 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 語感自然開口</span>
-          <div>
-            <div class="course-card-top-row">
-              <div>
-                <span class="course-target-badge">國小全年級分級授課</span>
-                <h3 class="course-mook-title">兒童生活美語</h3>
-                <p class="course-mook-desc">拒絕死背單字文法！以自然拼讀（Phonics）與生活原創繪本為核心，讓孩子在無壓力情境中大方開口說英文。</p>
-              </div>
-              <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_english.jpg" alt="尚學兒童生活美語" loading="lazy"/>
-                <div class="polaroid-caption">自然拼讀繪本</div>
-              </div>
-            </div>
+          
+          <div class="course-card-header-wide">
+            <span class="course-target-badge">國小全年級分級授課</span>
+            <h3 class="course-mook-title">兒童生活美語</h3>
+            <p class="course-mook-desc">拒絕死背單字文法！以自然拼讀（Phonics）與生活原創繪本為核心，讓孩子在無壓力情境中大方開口說英文。</p>
+          </div>
 
+          <div class="course-card-body-row">
             <ul class="course-features-list">
-              <li><strong>Phonics 自然拼讀直覺</strong>：見字能讀、聽音能寫，建立發音安全感。</li>
-              <li><strong>生活主題情境口說對話</strong>：每週主題對話演練，培養直覺英語思考。</li>
-              <li><strong>分級原版英文繪本共讀</strong>：結合圖像情境問答，厚植單字閱讀量。</li>
-              <li><strong>階梯式能力銜接</strong>：穩健累積實力，銜接國際英檢認證。</li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>Phonics 自然拼讀直覺</strong>
+                  <span>見字能讀、聽音能寫，建立開口安全感。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>生活主題情境口說</strong>
+                  <span>每週主題對話演練，培養直覺外語思考。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>分級原版英文繪本共讀</strong>
+                  <span>結合圖像情境問答，厚植單字閱讀量。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>階梯式能力穩健銜接</strong>
+                  <span>累積扎實實力，銜接國際英檢認證。</span>
+                </div>
+              </li>
             </ul>
+
+            <div class="polaroid-card course-card-polaroid-side">
+              <img src="./photos/curated_mook/course_english.jpg" alt="尚學兒童生活美語" loading="lazy"/>
+              <div class="polaroid-caption">自然拼讀繪本</div>
+            </div>
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
@@ -2422,28 +2602,52 @@
           </a>
         </article>
 
-        <!-- 課程 4: 進階英語素養 (換上專注閱讀男童特寫，4位完全不同學童) -->
+        <!-- 課程 4: 進階英語素養 -->
         <article class="course-mook-card">
           <span class="course-ribbon-tag">★ 深度思維閱讀</span>
-          <div>
-            <div class="course-card-top-row">
-              <div>
-                <span class="course-target-badge">中高年級～銜接先修適讀</span>
-                <h3 class="course-mook-title">進階英語素養</h3>
-                <p class="course-mook-desc">奠定深厚閱讀語感與文法架構！系統化擴充學術字彙，由專任導師帶領精讀長篇文章與思維寫作，建立終身受用的英語自學實力。</p>
-              </div>
-              <div class="polaroid-card course-card-polaroid">
-                <img src="./photos/curated_mook/course_middleschool.jpg" alt="尚學進階英語素養" loading="lazy"/>
-                <div class="polaroid-caption">進階文法閱讀</div>
-              </div>
-            </div>
+          
+          <div class="course-card-header-wide">
+            <span class="course-target-badge">中高年級～銜接先修適讀</span>
+            <h3 class="course-mook-title">進階英語素養</h3>
+            <p class="course-mook-desc">奠定深厚閱讀語感與文法架構！系統化擴充學術字彙，由專任導師帶領精讀長篇文章與思維寫作，建立終身受用的英語自學實力。</p>
+          </div>
 
+          <div class="course-card-body-row">
             <ul class="course-features-list">
-              <li><strong>高頻核心字彙倍增擴充</strong>：字根字首聯想記憶法，字彙理解深度躍升。</li>
-              <li><strong>語法觀念邏輯樹狀解析</strong>：釐清句子結構與時態脈絡，融會貫通不生硬。</li>
-              <li><strong>長篇閱讀思維與速讀策略</strong>：掌握段落核心意旨，提早破除長文閱讀障礙。</li>
-              <li><strong>個別化學習盲點追蹤</strong>：課堂即時解惑糾錯，建立自主穩健的學習步調。</li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>高頻核心字彙倍增擴充</strong>
+                  <span>字根字首聯想記憶法，字彙理解深度躍升。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>語法觀念邏輯樹狀解析</strong>
+                  <span>釐清句子結構與時態脈絡，融會貫通不生硬。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>長篇閱讀思維速讀策略</strong>
+                  <span>掌握段落核心意旨，提早破除長文閱讀障礙。</span>
+                </div>
+              </li>
+              <li>
+                <span class="feat-icon">🌱</span>
+                <div class="feat-content">
+                  <strong>個別化學習盲點追蹤</strong>
+                  <span>課堂即時解惑糾錯，建立自主穩健學習步調。</span>
+                </div>
+              </li>
             </ul>
+
+            <div class="polaroid-card course-card-polaroid-side">
+              <img src="./photos/curated_mook/course_middleschool.jpg" alt="尚學進階英語素養" loading="lazy"/>
+              <div class="polaroid-caption">進階文法閱讀</div>
+            </div>
           </div>
 
           <a class="btn-course-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
@@ -2465,7 +2669,7 @@
     </section>
 
     <!-- =========================================================
-         作息與接送專區 (明確區分半天/整天 + 步行/校車學區)
+         作息與接送專區 (明確區分半天/整天 + 步行/車輛接送)
          ========================================================= -->
     <section class="routine-mook-section" id="routine">
       <div class="mook-section-header">
@@ -2477,118 +2681,172 @@
       </div>
 
       <!-- 半天時程 (12:40 放學) -->
-      <div style="max-width: 1200px; margin: 0 auto 16px;">
-        <span style="font-family: 'Noto Serif TC', serif; font-weight: 850; font-size: 16px; color: var(--orange); display: flex; align-items: center; gap: 8px;">
-          <span>☀️ 半天下課作息時程（低年級或各校半天放學・學校已用畢午餐）</span>
-        </span>
+      <div class="flowchart-track-header track-orange">
+        <span>☀️ 半天下課作息時程（低年級或各校半天放學・學校已用畢午餐）</span>
       </div>
 
-      <div class="routine-mook-grid" style="margin-bottom: 36px;">
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">12:40 入班</span>
-            <div class="routine-mook-icon">🚶</div>
-            <h4>放學接送與入班沉澱</h4>
-            <p>學校用畢午餐後接送回班，衛生洗手消毒、脫鞋整理書包、喝水沉澱心情。</p>
+      <div class="flowchart-timeline">
+        <!-- 步驟 1 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">🚶</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">12:40 入班</span>
+              <h4 class="flow-title">放學接送與入班沉澱</h4>
+            </div>
+            <p class="flow-desc">學校用畢午餐後接送回班，衛生洗手消毒、脫鞋整理書包、喝水沉澱心情。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">13:00 - 13:30</span>
-            <div class="routine-mook-icon">📝</div>
-            <h4>抄聯絡簿與進度規劃</h4>
-            <p>嚴謹逐一核對學校聯絡簿事項，指導孩子釐清今日作業順序，條理分明。</p>
+        <!-- 步驟 2 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">📝</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">13:00 - 13:30</span>
+              <h4 class="flow-title">抄聯絡簿與進度規劃</h4>
+            </div>
+            <p class="flow-desc">嚴謹逐一核對學校聯絡簿事項，指導孩子釐清今日作業順序，條理分明。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">13:30 - 15:30</span>
-            <div class="routine-mook-icon">📖</div>
-            <h4>專注學校作業輔導</h4>
-            <p>番茄鐘分段專注，一對一坐姿握筆指導、逐字逐題批閱，盲點當場弄懂。</p>
+        <!-- 步驟 3 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">📖</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">13:30 - 15:30</span>
+              <h4 class="flow-title">專注學校作業輔導</h4>
+            </div>
+            <p class="flow-desc">番茄鐘分段專注，一對一坐姿握筆指導、逐字逐題批閱，盲點當場弄懂。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">15:30 - 16:00</span>
-            <div class="routine-mook-icon">🍎</div>
-            <h4>午後活力點心時間</h4>
-            <p>新鮮水果與健康點心補給、多喝水上洗手間，起身伸展身心，同儕交流。</p>
+        <!-- 步驟 4 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">🍎</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">15:30 - 16:00</span>
+              <h4 class="flow-title">午後活力點心時間</h4>
+            </div>
+            <p class="flow-desc">新鮮水果與健康點心補給、多喝水上洗手間，起身伸展身心，同儕交流。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">16:00 - 17:30</span>
-            <div class="routine-mook-icon">💡</div>
-            <h4>評量訂正 / 珠心算 / 美語</h4>
-            <p>練習卷盲點深度訂正；或銜接珠心算思維課、生活美語課，實力深耕。</p>
+        <!-- 步驟 5 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">💡</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">16:00 - 17:30</span>
+              <h4 class="flow-title">評量訂正 / 珠心算 / 美語</h4>
+            </div>
+            <p class="flow-desc">練習卷盲點深度訂正；或銜接珠心算思維課、生活美語課，實力深耕。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">17:30 - 19:30</span>
-            <div class="routine-mook-icon">🏠</div>
-            <h4>自主閱讀與安心接回</h4>
-            <p>圖書角自主閱讀、益智桌遊思維激盪，老師與家長個別交班，安心等候接回。</p>
+        <!-- 步驟 6 -->
+        <div class="flow-step flow-step-last">
+          <div class="flow-node">
+            <div class="flow-icon">🏠</div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">17:30 - 19:30</span>
+              <h4 class="flow-title">自主閱讀與安心接回</h4>
+            </div>
+            <p class="flow-desc">圖書角自主閱讀、益智桌遊思維激盪，老師與家長個別交班，安心等候接回。</p>
           </div>
         </div>
       </div>
 
       <!-- 整天時程 (16:00 放學) -->
-      <div style="max-width: 1200px; margin: 0 auto 16px;">
-        <span style="font-family: 'Noto Serif TC', serif; font-weight: 850; font-size: 16px; color: var(--blue); display: flex; align-items: center; gap: 8px;">
-          <span>🎒 整天下課作息時程（中高年級整天課或週二全天下課）</span>
-        </span>
+      <div class="flowchart-track-header track-blue">
+        <span>🎒 整天下課作息時程（中高年級整天課或週二全天下課）</span>
       </div>
 
-      <div class="routine-mook-grid">
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">16:00 入班</span>
-            <div class="routine-mook-icon">🚌</div>
-            <h4>放學接送與洗手點心</h4>
-            <p>步行或校車安全接送回班，落實衛生洗手，享用午後新鮮水果點心充電。</p>
+      <div class="flowchart-timeline track-blue">
+        <!-- 步驟 1 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">🚗</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">16:00 入班</span>
+              <h4 class="flow-title">放學接送與洗手點心</h4>
+            </div>
+            <p class="flow-desc">步行或車輛安全接送回班，落實衛生洗手，享用午後新鮮水果點心充電。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">16:20 - 17:40</span>
-            <div class="routine-mook-icon">📖</div>
-            <h4>專注作業輔導與審查</h4>
-            <p>抄寫聯絡簿、高效專注完成今日各科學校功課，老師逐字耐心檢查批改。</p>
+        <!-- 步驟 2 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">📖</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">16:20 - 17:40</span>
+              <h4 class="flow-title">專注作業輔導與審查</h4>
+            </div>
+            <p class="flow-desc">抄寫聯絡簿、高效專注完成今日各科學校功課，老師逐字耐心檢查批改。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">17:40 - 18:30</span>
-            <div class="routine-mook-icon">✏️</div>
-            <h4>評量訂正與單元複習</h4>
-            <p>針對今日學校作業錯題深入解析，配合單元練習卷確實訂正、釐清觀念。</p>
+        <!-- 步驟 3 -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <div class="flow-icon">✏️</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">17:40 - 18:30</span>
+              <h4 class="flow-title">評量訂正與單元複習</h4>
+            </div>
+            <p class="flow-desc">針對今日學校作業錯題深入解析，配合單元練習卷確實訂正、釐清觀念。</p>
           </div>
         </div>
 
-        <div class="routine-mook-card">
-          <div>
-            <span class="routine-stamp-time">18:30 - 19:30</span>
-            <div class="routine-mook-icon">🏠</div>
-            <h4>自主閱讀・家長接回</h4>
-            <p>優質課外讀物沉浸閱讀、桌遊益智互動，老師個別親切交班，無壓等候家長接回。</p>
+        <!-- 步驟 4 -->
+        <div class="flow-step flow-step-last">
+          <div class="flow-node">
+            <div class="flow-icon">🏠</div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-head">
+              <span class="flow-stamp">18:30 - 19:30</span>
+              <h4 class="flow-title">自主閱讀・家長接回</h4>
+            </div>
+            <p class="flow-desc">優質課外讀物沉浸閱讀、桌遊益智互動，老師個別親切交班，無壓等候家長接回。</p>
           </div>
         </div>
       </div>
 
-      <!-- 接送方式明確劃分卡片 (步行接送 vs 校車接送) -->
+      <!-- 接送方式明確劃分卡片 (步行接送 vs 車輛接送・低調合規) -->
       <div class="escort-mook-box">
         <div class="escort-group escort-walk">
           <h3>🚶 專任老師親自步行帶隊導護學校</h3>
-          <p>放學準時抵達校門口整隊，老師沿途安全導護帶隊步行回班：</p>
+          <p>放學準時抵達校門口整隊，由專任老師沿途安全導護帶隊步行回班：</p>
           <div class="school-tags-row">
             <span class="school-tag-pill">🏫 右昌國小（正對面靜巷・專人步行導護）</span>
             <span class="school-tag-pill">🏫 莒光國小（老師親自帶隊步行接送）</span>
@@ -2596,13 +2854,13 @@
         </div>
 
         <div class="escort-group escort-bus">
-          <h3>🚌 專屬安全校車定點接駁學校</h3>
-          <p>由尚學專屬安全校車定點接駁，直達教室門口，風雨無阻更安心：</p>
+          <h3>🚗 其他學區・車輛接送服務</h3>
+          <p>莒光與右昌以外學區，配合放學時程提供車輛定點安全接送服務：</p>
           <div class="school-tags-row">
-            <span class="school-tag-pill bus-pill">🚌 加昌國小（專車安全接送）</span>
-            <span class="school-tag-pill bus-pill">🚌 屏山國小（專車安全接送）</span>
-            <span class="school-tag-pill bus-pill">🚌 援中國小（專車安全接送）</span>
-            <span class="school-tag-pill bus-pill">🚌 油廠國小（專車安全接送）</span>
+            <span class="school-tag-pill bus-pill">🏫 加昌國小</span>
+            <span class="school-tag-pill bus-pill">🏫 屏山國小</span>
+            <span class="school-tag-pill bus-pill">🏫 援中國小</span>
+            <span class="school-tag-pill bus-pill">🏫 油廠國小</span>
           </div>
         </div>
       </div>
@@ -2914,7 +3172,7 @@
         <div class="faq-mook-item">
           <h4>請問放學接送涵蓋哪些學校？如何確保孩子的交通安全？</h4>
           <p>
-            我們主要服務<strong>右昌國小、莒光國小、加昌國小、屏山國小、援中國小、油廠國小</strong>。右昌與莒光國小由專任老師親自步行導護帶隊回班；加昌、屏山、援中、油廠國小則由專屬安全校車定點接駁，確保孩子放學第一時間平安抵達教室。
+            我們主要服務<strong>右昌國小、莒光國小、加昌國小、屏山國小、援中國小、油廠國小</strong>。右昌與莒光國小由專任老師親自步行導護帶隊回班；加昌、屏山、援中、油廠國小則提供車輛定點安全接送，確保孩子放學第一時間平安抵達教室。
           </p>
         </div>
 
