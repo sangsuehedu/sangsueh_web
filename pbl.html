@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>PBL 專案式學習｜尚學文教・打破死背刷題，讓孩子在生活中長出主動思考與表達力</title>
+  <title>PBL 專案式探究學習｜尚學文教・打破死背刷題，讓孩子在生活中長出主動思考與自信表達</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="尚學文教 PBL 專案式探究學習專題：突破傳統安親班機械式刷題！以 108 課綱素養導向為核心，從生活提問出發，結合團隊探究、動手實作與公開發表。貫穿全年的自學力思維，喚醒孩子真正的好奇心與自信表達。"/>
+  <meta name="description" content="尚學文教 PBL 專案式探究學習特輯：突破傳統補習班機械式刷題！以 108 課綱素養導向為核心，從生活提問出發，結合 1:15 小班團隊探究、動手實作驗證與公眾發表。貫穿全年的自學力思維，喚醒孩子真正的好奇心與表達自信。"/>
   <meta name="keywords" content="楠梓 PBL 教育, 專案式學習, 尚學文教 PBL, 右昌國小 安親班, 素養教育, 國小探究學習, 兒童自主學習"/>
   <meta name="author" content="尚學文教 (SangSueh Education)"/>
   <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/pbl.html"/>
@@ -14,8 +14,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sangsuehedu.github.io/sangsueh_web/pbl.html"/>
-  <meta property="og:title" content="PBL 專案式學習｜尚學文教・讓孩子在生活中長出主動思考與自信表達"/>
-  <meta property="og:description" content="突破傳統安親班機械刷題！以 108 課綱素養為核心，從生活提問出發，結合團隊探究、動手實作與公開發表。"/>
+  <meta property="og:title" content="PBL 專案式探究學習｜尚學文教・讓孩子在生活中長出主動思考與自信表達"/>
+  <meta property="og:description" content="突破傳統補習班機械刷題！以 108 課綱素養為核心，從生活提問出發，結合團隊探究、動手實作與公開發表。"/>
   <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/curated_mook/hero_expo_speaker.jpg"/>
 
   <!-- Favicon -->
@@ -683,94 +683,493 @@
     }
 
 
-    /* PBL 專題特有樣式 */
-    .pbl-hero-banner {
-      padding: 60px 6vw 50px;
-      background: radial-gradient(circle at 85% 15%, rgba(201, 109, 69, 0.18) 0%, transparent 40%),
-                  radial-gradient(circle at 15% 85%, rgba(71, 123, 101, 0.15) 0%, transparent 45%),
+    /* ========================================================
+       PBL 專題特輯：日系雜誌 Mook 視覺核心樣式
+       ======================================================== */
+    
+    /* 雜誌特輯卷頭封面 (Magazine Cover Hero) */
+    .pbl-cover-hero {
+      position: relative;
+      padding: clamp(48px, 6vw, 76px) clamp(20px, 6vw, 64px) clamp(50px, 6vw, 80px);
+      background: radial-gradient(circle at 85% 15%, rgba(201, 109, 69, 0.16) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 85%, rgba(71, 123, 101, 0.14) 0%, transparent 50%),
                   var(--paper);
       border-bottom: 2px dashed var(--border-dashed);
-      text-align: center;
+      overflow: hidden;
     }
-    .pbl-hero-inner {
-      max-width: 860px;
+    .pbl-cover-grid {
+      max-width: 1200px;
       margin: 0 auto;
-    }
-    .pbl-step-grid {
-      max-width: 1100px;
-      margin: 40px auto 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
     }
-    .pbl-step-card {
-      background: #FFFDF8;
-      border: 1px solid var(--border-ink);
-      border-radius: 14px;
-      padding: 24px 18px;
+    .pbl-cover-intro {
       position: relative;
-      box-shadow: 3px 4px 0 rgba(36, 49, 46, 0.06);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      transition: transform 0.2s;
+      z-index: 2;
     }
-    .pbl-step-card:hover {
-      transform: translateY(-3px);
-    }
-    .pbl-step-badge {
+    .magazine-vol-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-family: 'Comfortaa', sans-serif;
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 850;
       color: var(--orange);
       background: var(--orange-light);
-      padding: 2px 8px;
+      border: 1px dashed var(--orange);
+      padding: 4px 14px;
       border-radius: 999px;
-      display: inline-block;
-      margin: 0 auto 10px;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
     }
-    .pbl-step-icon {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    .pbl-step-card h4 {
+    .pbl-cover-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 16px;
+      font-size: clamp(28px, 4.4vw, 42px);
       font-weight: 850;
       color: var(--ink);
-      margin: 0 0 8px;
+      line-height: 1.32;
+      margin: 0 0 16px;
+      letter-spacing: 0.01em;
     }
-    .pbl-step-card p {
-      font-size: 12.5px;
+    .pbl-cover-title span.highlight-orange {
+      color: var(--orange);
+      border-bottom: 3px solid var(--yellow);
+    }
+    .pbl-cover-subtitle {
+      font-size: clamp(14px, 1.8vw, 16px);
       color: var(--ink-soft);
-      line-height: 1.55;
-      margin: 0;
+      line-height: 1.78;
+      margin: 0 0 24px;
+    }
+    .pbl-cover-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .pbl-cover-tag {
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 750;
+      color: var(--ink);
+      box-shadow: 2px 2px 0 rgba(36,49,46,0.05);
     }
 
-    /* PBL 理念深度解析雙欄 */
-    .pbl-why-section {
-      padding: 85px 6vw;
-      background: var(--paper-warm);
-      border-bottom: 2px dashed var(--border-dashed);
+    /* 卷頭封面照片拼貼 (Photo Collage with Tape & Stamp) */
+    .pbl-hero-collage {
+      position: relative;
+      min-height: 380px;
     }
-    .pbl-why-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .pbl-why-card {
+    .collage-main-card {
+      position: relative;
       background: #FFF;
       border: 1.5px solid var(--border-ink);
       border-radius: 16px;
-      padding: 28px 24px;
-      box-shadow: 4px 5px 0 rgba(36, 49, 46, 0.06);
+      padding: 10px 10px 16px;
+      box-shadow: 6px 10px 24px rgba(36, 49, 46, 0.12);
+      transform: rotate(-2deg);
+      transition: transform 0.3s;
+      z-index: 2;
     }
-    .pbl-why-card h3 {
+    .collage-main-card:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .collage-main-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    .collage-caption {
       font-family: 'Noto Serif TC', serif;
-      font-size: 18px;
+      font-size: 13.5px;
+      font-weight: 850;
+      color: var(--ink);
+      margin-top: 10px;
+      text-align: center;
+    }
+    .collage-sub-card {
+      position: absolute;
+      width: 58%;
+      background: #FFF;
+      border: 1.5px solid var(--border-ink);
+      border-radius: 14px;
+      padding: 8px 8px 12px;
+      box-shadow: 4px 6px 18px rgba(36, 49, 46, 0.1);
+      z-index: 3;
+    }
+    .collage-sub-card.bottom-right {
+      right: -10px;
+      bottom: -30px;
+      transform: rotate(4deg);
+    }
+    .collage-sub-card.bottom-right:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+    .collage-sub-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .collage-sub-card .collage-caption {
+      font-size: 11.5px;
+      margin-top: 6px;
+    }
+    .vintage-stamp {
+      position: absolute;
+      top: -12px;
+      right: 15px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px dashed var(--orange);
+      color: var(--orange);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 900;
+      font-size: 10.5px;
+      line-height: 1.15;
+      text-align: center;
+      transform: rotate(12deg);
+      background: rgba(252, 239, 233, 0.9);
+      box-shadow: 2px 3px 6px rgba(0,0,0,0.06);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* 序章 (Opening Section with Stats) */
+    .opening-mook {
+      position: relative;
+      padding: 70px 6vw;
+      background: var(--paper-warm);
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+    .vertical-note {
+      position: absolute;
+      left: 20px;
+      top: 50px;
+      writing-mode: vertical-rl;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--orange);
+      font-weight: 850;
+      opacity: 0.65;
+    }
+    .opening-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .opening-head-badge {
+      display: inline-block;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 12px;
+      font-weight: 850;
+      color: var(--green);
+      background: var(--green-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .opening-title-h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(24px, 3.8vw, 34px);
+      font-weight: 850;
+      color: var(--ink);
+      line-height: 1.4;
+      margin: 0 0 20px;
+    }
+    .opening-prose {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      margin-bottom: 36px;
+    }
+    .stats-mook-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: #FFF;
+      border: 1.5px solid var(--border-ink);
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 4px 5px 0 rgba(36,49,46,0.06);
+    }
+    .stat-mook-item {
+      text-align: center;
+      border-right: 1px dashed var(--border-dashed);
+    }
+    .stat-mook-item:last-child {
+      border-right: none;
+    }
+    .stat-num {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 900;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .stat-desc {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    /* ========================================================
+       PBL 探究四步驟章節 (4 Chapters 深度對稱圖文排版)
+       ======================================================== */
+    .pbl-chapter {
+      padding: clamp(60px, 7vw, 90px) clamp(20px, 6vw, 64px);
+      border-bottom: 2px dashed var(--border-dashed);
+      position: relative;
+    }
+    .pbl-chapter.chapter-yellow { background: #FEF9E7; }
+    .pbl-chapter.chapter-blue   { background: #EEF4F8; }
+    .pbl-chapter.chapter-green  { background: #EEF5F0; }
+    .pbl-chapter.chapter-orange { background: #FFF6EE; }
+
+    .pbl-chapter-head {
+      max-width: 1100px;
+      margin: 0 auto 36px;
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      border-bottom: 1.5px solid rgba(36, 49, 46, 0.15);
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .pbl-chapter-num {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: clamp(38px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .pbl-chapter-head-text {
+      flex: 1;
+      min-width: 260px;
+    }
+    .pbl-chapter-category {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .pbl-chapter-h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(22px, 3.2vw, 30px);
+      font-weight: 850;
+      color: var(--ink);
+      line-height: 1.35;
+      margin: 0;
+    }
+    .pbl-chapter-badge-tag {
+      margin-left: auto;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 11px;
+      font-weight: 850;
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: var(--ink);
+    }
+
+    .pbl-chapter-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+    }
+    .pbl-chapter-layout.reverse {
+      grid-template-columns: 1fr 1.08fr;
+    }
+
+    .pbl-story-col {
+      position: relative;
+    }
+    .pbl-core-question {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF;
+      border: 1.5px solid var(--border-ink);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 13.5px;
+      font-weight: 850;
+      color: var(--ink);
+      box-shadow: 2px 3px 0 rgba(36,49,46,0.06);
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+    .pbl-story-lead {
+      font-size: 15px;
+      line-height: 1.82;
+      color: #2F3D39;
+      margin-bottom: 18px;
+    }
+    .pbl-teacher-note {
+      background: #FFFDF8;
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 18px;
+    }
+    .pbl-teacher-note strong {
+      display: block;
+      color: var(--green);
+      font-weight: 900;
+      font-size: 13.5px;
+      margin-bottom: 4px;
+    }
+    .pbl-blockquote {
+      font-family: 'Noto Serif TC', serif;
+      border-left: 3px solid var(--orange);
+      padding-left: 14px;
+      margin: 16px 0;
+      font-size: 14.5px;
+      font-style: italic;
+      color: #4A5652;
+      line-height: 1.65;
+    }
+    .pbl-feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .pbl-feature-pill {
+      background: #FFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--ink);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    /* 雙格雜誌照片櫥窗 (Showcase Cards with Figcaption) */
+    .pbl-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      position: relative;
+    }
+    .pbl-showcase-card {
+      background: #FFFFFF;
+      padding: 8px 8px 12px;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(36,49,46,0.08);
+      border: 1px solid var(--border-ink);
+      text-align: center;
+      transition: transform 0.25s;
+    }
+    .pbl-showcase-card:hover {
+      transform: translateY(-3px);
+    }
+    .pbl-showcase-card img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .pbl-showcase-card figcaption {
+      margin-top: 8px;
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    /* ========================================================
+       開學常態融入便箋 (Notebook Sheet with Binder Holes)
+       ======================================================== */
+    .pbl-all-year-section {
+      padding: clamp(60px, 7vw, 90px) 6vw;
+      background: var(--paper-warm);
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+    .notebook-sheet-mook {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: #FFFDF8;
+      border: 1.5px solid var(--border-ink);
+      border-radius: 20px;
+      padding: clamp(32px, 5vw, 52px) clamp(24px, 5vw, 48px);
+      box-shadow: 6px 8px 0 rgba(36,49,46,0.07);
+      position: relative;
+      background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(36,49,46,0.04) 31px, rgba(36,49,46,0.04) 32px);
+    }
+    .binder-holes-row {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin-bottom: 24px;
+    }
+    .binder-hole {
+      width: 14px;
+      height: 14px;
+      background: var(--paper);
+      border: 1.5px solid var(--border-ink);
+      border-radius: 50%;
+      box-shadow: inset 1px 1px 3px rgba(0,0,0,0.15);
+    }
+    .notebook-sheet-mook h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(24px, 3.6vw, 32px);
+      font-weight: 850;
+      color: var(--ink);
+      text-align: center;
+      margin: 0 0 12px;
+    }
+    .notebook-sheet-mook p.intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 36px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+    .notebook-cols-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .notebook-col-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border-ink);
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 2px 3px 0 rgba(36,49,46,0.05);
+      position: relative;
+    }
+    .notebook-col-card h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 17px;
       font-weight: 850;
       color: var(--ink);
       margin: 0 0 10px;
@@ -778,94 +1177,152 @@
       align-items: center;
       gap: 8px;
     }
-    .pbl-why-card p {
+    .notebook-col-card p {
       font-size: 13.5px;
       color: var(--ink-soft);
-      line-height: 1.65;
+      line-height: 1.68;
       margin: 0;
     }
+    .notebook-disclaimer-box {
+      background: var(--yellow-light);
+      border: 1px dashed var(--yellow);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 12.5px;
+      color: #7D5D00;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-    /* 全年貫穿常態融入區 */
-    .pbl-all-year-section {
-      padding: 85px 6vw;
+    /* ========================================================
+       家長安心問答 (FAQ 对谈对话专栏)
+       ======================================================== */
+    .pbl-faq-section {
+      padding: clamp(60px, 7vw, 90px) 6vw;
       background: var(--paper-cream);
       border-bottom: 2px dashed var(--border-dashed);
     }
-    .pbl-all-year-box {
-      max-width: 960px;
+    .faq-dialogue-wrap {
+      max-width: 980px;
       margin: 0 auto;
-      background: #FFF;
-      border: 2px solid var(--green);
-      border-radius: 18px;
-      padding: 32px 30px;
-      box-shadow: 6px 6px 0 var(--green-light);
-    }
-    .pbl-all-year-box h3 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 20px;
-      font-weight: 850;
-      color: var(--green);
-      margin: 0 0 14px;
-      text-align: center;
-    }
-    .pbl-routes-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0 0;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 28px;
     }
-    .pbl-routes-list li {
+    .faq-dialogue-card {
+      background: #FFF;
+      border: 1.5px solid var(--border-ink);
+      border-radius: 18px;
+      padding: 28px 28px;
+      box-shadow: 4px 6px 0 rgba(71, 123, 101, 0.08);
+      position: relative;
+    }
+    .dialogue-q-row {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      background: var(--paper-warm);
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      line-height: 1.6;
-      color: var(--ink);
+      gap: 14px;
+      margin-bottom: 14px;
     }
-    .route-badge {
-      background: var(--green);
-      color: #FFF;
+    .avatar-bubble-q {
+      background: var(--orange-light);
+      color: var(--orange);
+      border: 1px solid var(--orange);
       font-family: 'Comfortaa', sans-serif;
-      font-weight: 850;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 6px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* 成果見證排版 */
-    .pbl-showcase-section {
-      padding: 85px 6vw;
-      background: var(--paper);
-      border-bottom: 2px dashed var(--border-dashed);
-    }
-    .pbl-polaroids-row {
-      max-width: 1000px;
-      margin: 36px auto 0;
+      font-size: 13px;
+      font-weight: 900;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .dialogue-q-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 850;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+    .dialogue-a-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #FAF8F4;
+      border-radius: 14px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--green);
+    }
+    .avatar-bubble-a {
+      background: var(--green-light);
+      color: var(--green);
+      border: 1px solid var(--green);
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .dialogue-a-text {
+      font-size: 14px;
+      line-height: 1.78;
+      color: #384542;
     }
 
+    /* ========================================================
+       RWD 響應式佈局
+       ======================================================== */
     @media (max-width: 900px) {
-      .pbl-step-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .pbl-why-grid { grid-template-columns: 1fr; }
-      .pbl-polaroids-row { grid-template-columns: 1fr; gap: 20px; }
-      .pbl-all-year-box { padding: 22px 18px; }
+      .pbl-cover-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .pbl-hero-collage {
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .pbl-chapter-layout,
+      .pbl-chapter-layout.reverse {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .stats-mook-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 10px;
+      }
+      .stat-mook-item:nth-child(2) {
+        border-right: none;
+      }
+      .notebook-cols-3 {
+        grid-template-columns: 1fr;
+      }
+      .vertical-note {
+        display: none;
+      }
     }
-    @media (max-width: 600px) {
-      .pbl-step-grid { grid-template-columns: 1fr; }
-      .pbl-hero-banner { padding: 35px 5vw 40px; }
+    @media (max-width: 560px) {
+      .pbl-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      .pbl-showcase-card img {
+        height: 200px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <!-- 頂部通知條 (官方正確電話 07-3646570) -->
+  <div class="top-mook-bar">
+    <span>💡 突破死背刷題・帶孩子走進主動思考的探究課堂・諮詢專線 (07) 364-6570</span>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">線上預約 ↗</a>
+  </div>
+
   <header class="mook-header">
     <a class="mook-brand" href="./index.html" aria-label="尚學文教首頁">
       <img class="mook-brand-logo" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教"/>
@@ -894,199 +1351,412 @@
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="pbl-hero-banner">
-      <div class="pbl-hero-inner">
-        <div class="mook-badge">SPECIAL FEATURE 01</div>
-        <h1 class="hero-mook-title">
-          學習不該只有被動聽講。<br>
-          <span class="highlight">讓孩子在生活探索中，長出主動解決問題的自學力。</span>
-        </h1>
-        <p class="hero-mook-desc">
-          什麼是 108 課綱與未來教育最看重的 PBL（Project-Based Learning）？<br>
-          尚學文教突破傳統補習班只對答案、狂刷考卷的代工模式，將專案探究思維貫穿全年，讓知識與生活深度連結。
-        </p>
-      </div>
-
-      <!-- 4 步驟核心流程 -->
-      <div class="pbl-step-grid">
-        <div class="pbl-step-card">
-          <span class="pbl-step-badge">STEP 01</span>
-          <div class="pbl-step-icon">🔍</div>
-          <h4>真實生活提問</h4>
-          <p>不照本宣科，從孩子身邊的真實現象出發，引導發現問題、啟發好奇心。</p>
+    <!-- 雜誌特輯卷頭封面 (Magazine Cover Hero) -->
+    <section class="pbl-cover-hero">
+      <div class="pbl-cover-grid">
+        <div class="pbl-cover-intro">
+          <div class="magazine-vol-stamp">
+            <span>SPECIAL FEATURE</span> · <span>VOL. 01</span>
+          </div>
+          <h1 class="pbl-cover-title">
+            打破死背刷題，讓孩子在生活中長出<span class="highlight-orange">主動思考與自信表達</span>
+          </h1>
+          <p class="pbl-cover-subtitle">
+            為什麼 108 課綱的核心是 PBL（專案式探究學習）？尚學文教如何把「專案探究思維」深度融入課後輔導？帶您走進孩子眼裡有光的真實學習現場。
+          </p>
+          <div class="pbl-cover-tags">
+            <span class="pbl-cover-tag">🌱 生活提問出發</span>
+            <span class="pbl-cover-tag">🤝 1:15 小組思維激盪</span>
+            <span class="pbl-cover-tag">🛠️ 動手實證除錯</span>
+            <span class="pbl-cover-tag">🎤 公開台風發表</span>
+          </div>
+          <div>
+            <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              👉 預約到班體驗探究課輔
+            </a>
+          </div>
         </div>
 
-        <div class="pbl-step-card">
-          <span class="pbl-step-badge">STEP 02</span>
-          <div class="pbl-step-icon">👥</div>
-          <h4>小班分組探究</h4>
-          <p>1:15 精緻小班分工合作，學習資料蒐集、聆聽多元觀點與討論決策。</p>
-        </div>
+        <!-- 封面照片拼貼 (真實活動相片・層疊手作感) -->
+        <div class="pbl-hero-collage">
+          <div class="washi-tape washi-tape-orange" style="top: -10px; left: 30px; z-index: 5;"></div>
+          <figure class="collage-main-card">
+            <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="孩子在成果博覽會台風穩健自信發表" loading="lazy"/>
+            <div class="collage-caption">成果博覽會・孩子手握麥克風自信說明研究論點</div>
+          </figure>
 
-        <div class="pbl-step-card">
-          <span class="pbl-step-badge">STEP 03</span>
-          <div class="pbl-step-icon">🛠️</div>
-          <h4>動手實作策展</h4>
-          <p>跳脫紙筆測驗限制，將抽象知識轉化為立體模型、主題海報與具體成果。</p>
-        </div>
+          <figure class="collage-sub-card bottom-right">
+            <div class="washi-tape washi-tape-green" style="top: -6px; right: 15px; z-index: 5;"></div>
+            <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="小班同儕圍桌激盪思維" loading="lazy"/>
+            <div class="collage-caption">1:15 小組圍坐討論探究假設</div>
+          </figure>
 
-        <div class="pbl-step-card">
-          <span class="pbl-step-badge">STEP 04</span>
-          <div class="pbl-step-icon">🎤</div>
-          <h4>公開自信發表</h4>
-          <p>站上講台面對同儕與家長侃侃而談，把「學會」昇華為「清楚講給別人聽」。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 為什麼尚學採用 PBL -->
-    <section class="pbl-why-section">
-      <div class="mook-section-header">
-        <div class="mook-badge">WHY WE BELIEVE</div>
-        <h2 class="mook-section-title">為什麼尚學文教堅持採用 PBL 探究方法？</h2>
-        <p class="mook-section-subtitle">
-          傳統教育常是「老師講、孩子抄、回家背、期末考」，考完就忘光。PBL 培養的是孩子帶得走的一生底氣：
-        </p>
-      </div>
-
-      <div class="pbl-why-grid">
-        <div class="pbl-why-card">
-          <h3>🌱 1. 好奇心才是自學的原動力</h3>
-          <p>當孩子被允許問「為什麼」，學習就不再是應付大人的苦差事。透過生活化情境提問，點燃孩子眼中的求知光芒，從「要我學」轉變為「我想弄懂」。</p>
-        </div>
-
-        <div class="pbl-why-card">
-          <h3>💬 2. 敢講、能說、有條理的溝通力</h3>
-          <p>很多孩子考試考高分，但站上講台卻腦袋一片空白。在 PBL 的發表過程中，老師引導孩子整理論點、台風演練，建立不畏懼注視的踏實自信。</p>
-        </div>
-
-        <div class="pbl-why-card">
-          <h3>🤝 3. 團隊協作與同儕包容素養</h3>
-          <p>未來世界沒有任何難題是一個人能獨力解決的。孩子在分組探究中學習表達自己的想法、尊重隊友的不同觀點，在摩擦中學會溝通與領導力。</p>
-        </div>
-
-        <div class="pbl-why-card">
-          <h3>🛡️ 4. 面對失敗與修正的真實抗挫力</h3>
-          <p>在探究實作中，成果不如預期是常態。老師不會直接給答案，而是陪孩子討論「哪一步可以換個方法試試看」，在安全環境中長出強韌心智。</p>
+          <div class="vintage-stamp">
+            <span>PBL</span>
+            <span>INQUIRY</span>
+            <span>2026</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 全年貫穿的教育思維 (開學期間的融入) -->
+    <!-- 序章 (Opening Section with Stats) -->
+    <section class="opening-mook">
+      <span class="vertical-note">WHY PROJECT-BASED LEARNING?</span>
+      <div class="opening-inner">
+        <span class="opening-head-badge">EDITORIAL ESSAY · 序章</span>
+        <h2 class="opening-title-h2">告別「標準答案」的填鴨時代：在 AI 時代，孩子最需要的是自學超能力</h2>
+        <div class="opening-prose">
+          <p>
+            過去的補習教育，往往將孩子訓練成機械式刷題的「答題機器」——老師在黑板抄寫解題公式，孩子在台下一遍遍抄寫默背。然而，在生成式 AI 一秒鐘就能給出標準答案的今天，單純死記硬背的知識最容易過期失效。
+          </p>
+          <p>
+            未來的社會，真正考驗的是<strong>「能不能從生活細微處發現好問題、能不能與同儕協作找線索、能不能動手做實驗排除錯誤，並自信向眾人表達自己的觀點」</strong>。這正是教育部 108 課綱推動「素養導向」的核心，也是尚學文教堅定實踐 PBL 專案式學習的初衷。
+          </p>
+        </div>
+
+        <!-- 關鍵指標數據框 -->
+        <div class="stats-mook-row">
+          <div class="stat-mook-item">
+            <div class="stat-num">4 步驟</div>
+            <div class="stat-desc">完整探究思考迴路</div>
+          </div>
+          <div class="stat-mook-item">
+            <div class="stat-num">1:15</div>
+            <div class="stat-desc">精緻小班全員發言</div>
+          </div>
+          <div class="stat-mook-item">
+            <div class="stat-num">365 天</div>
+            <div class="stat-desc">常態課業素養融入</div>
+          </div>
+          <div class="stat-mook-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-desc">孩子自信站上講台</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PBL 探究四步驟深度走讀 (4 Chapters)
+         ======================================================== -->
+
+    <!-- Chapter 01: 生活提問 -->
+    <section class="pbl-chapter chapter-yellow" id="step-1">
+      <div class="pbl-chapter-head">
+        <div class="pbl-chapter-num">01</div>
+        <div class="pbl-chapter-head-text">
+          <div class="pbl-chapter-category">STEP 01 · 生活提問</div>
+          <h2 class="pbl-chapter-h2">從「習慣接受」到「為什麼會這樣？」的好奇心重燃</h2>
+        </div>
+        <div class="pbl-chapter-badge-tag">OBSERVATION & INQUIRY</div>
+      </div>
+
+      <div class="pbl-chapter-layout">
+        <div class="pbl-story-col">
+          <div class="pbl-core-question">🌱 核心引導問題：生活裡遇到困惑時，如何把它變成可以研究的題目？</div>
+          <p class="pbl-story-lead">
+            傳統課堂是老師給題目、孩子交作業；而 PBL 的第一步，是讓孩子用自己的眼睛看見日常痛點。例如：為什麼育苗場的菜苗有的長得快、有的長得慢？垃圾桶總是塞滿，該怎麼用紙箱機構解決？當問題是由孩子自己提出，求知的渴望就有了強大的內在動機。
+          </p>
+          <div class="pbl-teacher-note">
+            <strong>💡 導師課堂觀察手記</strong>
+            當孩子第一次主動舉手問「老師，為什麼會這樣？」的時候，他已經不再是被動填鴨的容器，他的大腦學習開關才真正被點亮。
+          </div>
+          <blockquote class="pbl-blockquote">
+            「問題比答案更有力量，因為一個好問題，會推著孩子自己動身找路。」
+          </blockquote>
+          <div class="pbl-feature-pills">
+            <span class="pbl-feature-pill">生活五感觀察</span>
+            <span class="pbl-feature-pill">定義探究變因</span>
+            <span class="pbl-feature-pill">提出研究假設</span>
+          </div>
+        </div>
+
+        <!-- 雙格照片櫥窗 -->
+        <div class="pbl-showcase-grid">
+          <figure class="pbl-showcase-card">
+            <img src="./photos/farm-journey/01-nursery.jpg" alt="孩子在育苗場觀察幼苗生長" loading="lazy"/>
+            <figcaption>育苗場走讀・實地觀察植物生長環境與水分變因</figcaption>
+          </figure>
+          <figure class="pbl-showcase-card">
+            <img src="./photos/farm-journey/02-plan.jpg" alt="孩子小組討論種植計畫" loading="lazy"/>
+            <figcaption>圍坐討論・將生活疑問梳理成探究計畫草圖</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 02: 團隊探究 -->
+    <section class="pbl-chapter chapter-blue" id="step-2">
+      <div class="pbl-chapter-head">
+        <div class="pbl-chapter-num">02</div>
+        <div class="pbl-chapter-head-text">
+          <div class="pbl-chapter-category">STEP 02 · 團隊探究</div>
+          <h2 class="pbl-chapter-h2">在 1:15 小班裡，學會聆聽不同觀點與論點辯證</h2>
+        </div>
+        <div class="pbl-chapter-badge-tag">COLLABORATION & LOGIC</div>
+      </div>
+
+      <div class="pbl-chapter-layout reverse">
+        <!-- 雙格照片櫥窗 -->
+        <div class="pbl-showcase-grid">
+          <figure class="pbl-showcase-card">
+            <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="小組圍桌討論探究假設" loading="lazy"/>
+            <figcaption>小組探究・同儕面對面討論，各持論點思維激盪</figcaption>
+          </figure>
+          <figure class="pbl-showcase-card">
+            <img src="./photos/curated_mook/hero_focus_mindmap_noface.jpg" alt="心智圖黑板前梳理知識結構" loading="lazy"/>
+            <figcaption>心智圖黑板引導・老師陪伴整理論點結構圖</figcaption>
+          </figure>
+        </div>
+
+        <div class="pbl-story-col">
+          <div class="pbl-core-question">🤝 核心引導問題：同儕想法不一樣時，如何用事實與數據找到最佳方案？</div>
+          <p class="pbl-story-lead">
+            在 30 人的大班級中，強勢的孩子往往主導全場，內向的孩子則習慣低頭沈默。尚學嚴格堅持 1:15 精緻黃金比，確保每位孩子都有發言席位。小組內各自承擔觀察員、紀錄員、材料員，在思想碰撞中學會尊重與互助。
+          </p>
+          <div class="pbl-teacher-note">
+            <strong>💡 導師課堂觀察手記</strong>
+            面對不同意見的爭執，老師不直接當裁判給結論，而是溫柔引導：「我們來設計個小對照組，看看數據會告訴我們什麼。」
+          </div>
+          <blockquote class="pbl-blockquote">
+            「同儕之間的互助與啟發，往往比大人講一百遍大道理更具說服力。」
+          </blockquote>
+          <div class="pbl-feature-pills">
+            <span class="pbl-feature-pill">小組角色分工</span>
+            <span class="pbl-feature-pill">心智圖邏輯整理</span>
+            <span class="pbl-feature-pill">用客觀事實溝通</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 03: 動手實證 -->
+    <section class="pbl-chapter chapter-green" id="step-3">
+      <div class="pbl-chapter-head">
+        <div class="pbl-chapter-num">03</div>
+        <div class="pbl-chapter-head-text">
+          <div class="pbl-chapter-category">STEP 03 · 動手實作</div>
+          <h2 class="pbl-chapter-h2">把抽象觀念做出來・在挫折與除錯中長出韌性</h2>
+        </div>
+        <div class="pbl-chapter-badge-tag">PROTOTYPING & RESILIENCE</div>
+      </div>
+
+      <div class="pbl-chapter-layout">
+        <div class="pbl-story-col">
+          <div class="pbl-core-question">🛠️ 核心引導問題：連動機構卡住了、調色失敗了，下一步該如何修正？</div>
+          <p class="pbl-story-lead">
+            紙箱連動機構卡住、黏土調色比例偏差、農場田畦深度不夠……在動手做的過程中，挫折在所難免。尚學引導孩子把「失敗」看成「排除錯誤變因的珍貴線索」，反覆測試、調整支點結構，培養小小工程師百折不撓的科學精神。
+          </p>
+          <div class="pbl-teacher-note">
+            <strong>💡 導師課堂觀察手記</strong>
+            連動槓桿試了三次都沒有踩動，孩子們沒有氣餒放棄，反而湊在一起拿尺重新比對支點距離。那一刻，我看見了真正的韌性。
+          </div>
+          <blockquote class="pbl-blockquote">
+            「親手動手做過的深刻體驗，會化為身體的直覺記憶，一輩子忘不掉。」
+          </blockquote>
+          <div class="pbl-feature-pills">
+            <span class="pbl-feature-pill">原型模型組裝</span>
+            <span class="pbl-feature-pill">容錯除錯能力</span>
+            <span class="pbl-feature-pill">反覆測試迭代</span>
+          </div>
+        </div>
+
+        <!-- 雙格照片櫥窗 -->
+        <div class="pbl-showcase-grid">
+          <figure class="pbl-showcase-card">
+            <img src="./photos/moments_extra/extra_science_8.jpg" alt="孩子操作組裝連動模型" loading="lazy"/>
+            <figcaption>生活科學探究・組裝測試紙箱連動智慧垃圾桶</figcaption>
+          </figure>
+          <figure class="pbl-showcase-card">
+            <img src="./photos/curated_mook/hero_clay_art.jpg" alt="指尖調色與立體黏土雕塑" loading="lazy"/>
+            <figcaption>創客美感體驗・親手揉捏黏土，掌握三維立體空間感</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 04: 公開發表 -->
+    <section class="pbl-chapter chapter-orange" id="step-4">
+      <div class="pbl-chapter-head">
+        <div class="pbl-chapter-num">04</div>
+        <div class="pbl-chapter-head-text">
+          <div class="pbl-chapter-category">STEP 04 · 公開發表</div>
+          <h2 class="pbl-chapter-h2">站上講台自信表達・為自己的探究成果發光</h2>
+        </div>
+        <div class="pbl-chapter-badge-tag">PUBLIC PRESENTATION</div>
+      </div>
+
+      <div class="pbl-chapter-layout reverse">
+        <!-- 雙格照片櫥窗 -->
+        <div class="pbl-showcase-grid">
+          <figure class="pbl-showcase-card">
+            <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="博覽會上孩子自信表達" loading="lazy"/>
+            <figcaption>成果博覽會・面對家長與評審，台風穩健侃侃而談</figcaption>
+          </figure>
+          <figure class="pbl-showcase-card">
+            <img src="./photos/digital/img-06.jpg" alt="孩子共同完成實驗海報" loading="lazy"/>
+            <figcaption>成果海報展示・將探究結論化為圖文並茂的看板</figcaption>
+          </figure>
+        </div>
+
+        <div class="pbl-story-col">
+          <div class="pbl-core-question">🎤 核心引導問題：如何用清楚的邏輯與台風，向大家說明自己的發現？</div>
+          <p class="pbl-story-lead">
+            探究專案的終點，不是把作品收進抽屜，而是自信地向大眾發表。在成果博覽會上，孩子們手拿麥克風、指著海報看板，台風穩健地向家長與評審說明設計理念、大方回答提問。那份眼神中閃爍的光芒，是任何單純的試卷分數都無法比擬的。
+          </p>
+          <div class="pbl-teacher-note">
+            <strong>💡 導師課堂觀察手記</strong>
+            平時靦腆害羞、在班上說話小聲的孩子，當天講起自己親手完成的作品時，昂首挺胸、滔滔不絕！那一刻，自尊與自信徹底扎根了。
+          </div>
+          <blockquote class="pbl-blockquote">
+            「看見孩子在講台上從容微笑的那一刻，我們知道，自學的種子已經深植心底。」
+          </blockquote>
+          <div class="pbl-feature-pills">
+            <span class="pbl-feature-pill">邏輯架構簡報</span>
+            <span class="pbl-feature-pill">公眾表達口條</span>
+            <span class="pbl-feature-pill">自信回答提問</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         開學常態融入便箋 (Notebook Sheet with Binder Holes)
+         ======================================================== -->
     <section class="pbl-all-year-section">
-      <div class="pbl-all-year-box">
-        <h3>💡 全年貫穿的教育思維：開學期間如何融入？</h3>
-        <p style="text-align: center; color: var(--ink-soft); font-size: 13.5px; line-height: 1.6; margin: 0 0 16px;">
-          PBL 不只是寒暑假特定營隊的代名詞，更是尚學日常課後陪伴的<strong>核心底色</strong>！在平時每週的常態學期中，我們透過三種方式將探究思維自然融入生活：
+      <div class="notebook-sheet-mook">
+        <div class="washi-tape washi-tape-orange" style="top: -10px; left: 40px;"></div>
+        <div class="washi-tape washi-tape-green" style="top: -10px; right: 40px;"></div>
+        
+        <div class="binder-holes-row">
+          <span class="binder-hole"></span>
+          <span class="binder-hole"></span>
+          <span class="binder-hole"></span>
+          <span class="binder-hole"></span>
+        </div>
+
+        <div class="mook-badge" style="display: table; margin: 0 auto 12px;">ALL-YEAR-ROUND PHILOSOPHY</div>
+        <h2>全年貫穿的教育思維・非僅寒暑假限定</h2>
+        <p class="intro">
+          許多家長好奇：「PBL 專案探究聽起來很棒，但開學後孩子有學校課業，還能這樣學嗎？」<br/>
+          尚學的答案是：<strong>PBL 是一種教育的底層思維，它每天都在我們的課後輔導中自然發生！</strong>
         </p>
 
-        <ul class="pbl-routes-list">
-          <li>
-            <span class="route-badge">日常引導</span>
-            <div>
-              <strong>學校課業觀念的生活化連結</strong>：
-              寫完各科學校作業後，老師不只是打勾核對，更會就當日單元反思提問（例如自然科的水循環在下雨天怎麼發生？社會科的學區交通怎麼規劃？），引導孩子把課本文字連結到真實世界。
-            </div>
-          </li>
-          <li>
-            <span class="route-badge">思維整理</span>
-            <div>
-              <strong>心智圖與觀念結構拆解</strong>：
-              中年級開始面對自然與社會科的大量專有名詞，老師指導孩子運用關鍵字心智圖（Mind Map）自主歸納脈絡，取代機械式重複抄寫，鍛鍊邏輯整合力。
-            </div>
-          </li>
-          <li>
-            <span class="route-badge">自主探索</span>
-            <div>
-              <strong>課後閱讀角的微專題分享</strong>：
-              完成每日課業與訂正後，鼓勵孩子在班內圖書角自主選書閱讀，並在點心時間向老師或同儕簡短分享「我今天學到的一件有趣新知識」，讓表達成為日常習慣。
-            </div>
-          </li>
-        </ul>
+        <div class="notebook-cols-3">
+          <div class="notebook-col-card">
+            <h4><span>🧠</span> 課後心智圖整理</h4>
+            <p>
+              中年級與高年級在複習社會、自然時，導師引導孩子用樹狀圖抓取核心關鍵字、理清歷史事件因果。告別死背課本，建立長效理解。
+            </p>
+          </div>
+
+          <div class="notebook-col-card">
+            <h4><span>🌱</span> 生活情境提問引導</h4>
+            <p>
+              在每天寫完作業的空檔，導師透過新聞時事或校園生活拋出思考題，鼓勵孩子多想一步、多問一句，讓思考成為像呼吸一樣的習慣。
+            </p>
+          </div>
+
+          <div class="notebook-col-card">
+            <h4><span>🤝</span> 小組互助解題思維</h4>
+            <p>
+              遇到較難的數學題或長篇閱讀時，先讓孩子嘗試向同儕表達自己的解題思路。在「教懂同學」的過程中，自己的觀念也變得更加扎實。
+            </p>
+          </div>
+        </div>
+
+        <div class="notebook-disclaimer-box">
+          💡 <strong>個別化輔導溫馨說明</strong>：尚學在常態學期一律以<strong>「學校課業扎實完成、當日作業當日訂正搞懂」</strong>為最優先基石；專案思維是在課業常規扎實的前提下自然融入日常陪伴，兩者相輔相成，絕不本末倒置。
+        </div>
       </div>
     </section>
 
-    <!-- 實績見證：2026 暑期雙月探究軌跡 -->
-    <section class="pbl-showcase-section">
+    <!-- ========================================================
+         家長安心問答 (FAQ 对谈对话专栏)
+         ======================================================== -->
+    <section class="pbl-faq-section">
       <div class="mook-section-header">
-        <div class="mook-badge">PROOF OF GROWTH</div>
-        <h2 class="mook-section-title">真實看見蛻變：2026 探究實績精選</h2>
-        <p class="mook-section-subtitle">從大地農夫走讀、指尖色彩微縮世界到成果博覽會，完整記錄了孩子們發自內心的專注神采：</p>
+        <div class="mook-badge">PARENTS FAQ</div>
+        <h2 class="mook-section-title">關於 PBL 探究學習・家長最常問的三個問題</h2>
+        <p class="mook-section-subtitle">專任導師第一線溫暖解答，化解您對課業與特質的疑慮。</p>
       </div>
 
-      <div class="pbl-polaroids-row">
-        <div class="polaroid-card">
-          <div class="washi-tape washi-tape-orange" style="top:-8px; left:20px;"></div>
-          <img src="./photos/curated_mook/hero_expo_speaker.jpg" alt="孩子博覽會自信發表" loading="lazy"/>
-          <div class="polaroid-caption">成果博覽會・台風穩健發表</div>
+      <div class="faq-dialogue-wrap">
+        <!-- Q1 -->
+        <div class="faq-dialogue-card">
+          <div class="dialogue-q-row">
+            <span class="avatar-bubble-q">Q1</span>
+            <div class="dialogue-q-text">融入 PBL 探究學習，會不會耽誤孩子的學校課業進度或影響考試成績？</div>
+          </div>
+          <div class="dialogue-a-row">
+            <span class="avatar-bubble-a">導師</span>
+            <div class="dialogue-a-text">
+              <strong>完全不會！兩者相輔相成。</strong><br/>
+              尚學的常態學期作息中，<strong>「學校作業當日完成、評量練習扎實訂正」</strong>永遠是最優先的基底。PBL 思維並不是多塞額外的作業，而是改變孩子消化知識的方法。習慣探究因果的孩子，大腦具備更強的邏輯歸納力，到了學校期中、期末考出現靈活多變的素養情境題時，表現反而比死記題庫的孩子更沉著穩定！
+            </div>
+          </div>
         </div>
 
-        <div class="polaroid-card">
-          <div class="washi-tape washi-tape-green" style="top:-8px; right:20px;"></div>
-          <img src="./photos/curated_mook/course_middleschool.jpg" alt="孩子專注查閱資料" loading="lazy"/>
-          <div class="polaroid-caption">長篇資料閱讀與邏輯整理</div>
+        <!-- Q2 -->
+        <div class="faq-dialogue-card">
+          <div class="dialogue-q-row">
+            <span class="avatar-bubble-q">Q2</span>
+            <div class="dialogue-q-text">比較內向、害羞、不敢在大家面前講話的孩子，也適合這種學習方式嗎？</div>
+          </div>
+          <div class="dialogue-a-row">
+            <span class="avatar-bubble-a">導師</span>
+            <div class="dialogue-a-text">
+              <strong>非常適合，這正是我們堅持 1:15 小班的價值所在！</strong><br/>
+              如果是在 30 幾個人的大班級，害羞的孩子很容易縮在角落被忽略。但在尚學 1:15 的精緻環境裡，導師深刻理解每個孩子的心理節奏。我們絕不強迫孩子直接上台，而是從「跟旁邊同學一對一討論」➔「小組內分享一句話」➔「老師桌邊陪伴表達」循序漸進，用每一次微小的肯定，陪孩子慢慢長出安全感。
+            </div>
+          </div>
         </div>
 
-        <div class="polaroid-card">
-          <div class="washi-tape washi-tape-blue" style="top:-8px; left:25px;"></div>
-          <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="小班同儕探究討論" loading="lazy"/>
-          <div class="polaroid-caption">1:15 小組互助思維激盪</div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 36px;">
-        <a class="btn-hub-jump" href="./summer-2026.html" style="display: inline-block;">
-          🍉 前往瀏覽【2026 暑期成果誌完整特輯】➔
-        </a>
-      </div>
-    </section>
-
-    <!-- 家長最在乎的 FAQ -->
-    <section class="faq-mook-section">
-      <div class="mook-section-header">
-        <div class="mook-badge">PBL FAQ</div>
-        <h2 class="mook-section-title">關於 PBL 探究學習，家長最常問的三個問題</h2>
-      </div>
-
-      <div class="faq-mook-grid">
-        <div class="faq-mook-item">
-          <h4>Q1. 融入 PBL 探究，會不會耽誤孩子的學校課業或考試成績？</h4>
-          <p>
-            完全不會！尚學的常態學期以<strong>「學校課業扎實搞懂、當日作業當日訂正完成」為最優先基底</strong>。PBL 思維是在常規扎實的前提下，引導孩子把知識融會貫通。真正理解觀念的孩子，到了大考題型靈活變化時，反而比死記題庫的孩子表現更沉著穩定！
-          </p>
-        </div>
-
-        <div class="faq-mook-item">
-          <h4>Q2. 比較內向、害羞不敢在大家面前講話的孩子，適合嗎？</h4>
-          <p>
-            非常適合！正因為我們堅持 <strong>1:15 精緻黃金比</strong>，老師能細膩觀察每個孩子的心理節奏。我們絕不強迫孩子直接上台，而是從「跟鄰座同學討論」➔「小組內分享」➔「老師桌邊陪伴表達」循序漸進，用肯定建立孩子開口的心理安全感。
-          </p>
-        </div>
-
-        <div class="faq-mook-item">
-          <h4>Q3. 這跟學校一般的同樂會、美勞課或普通團體活動有什麼不同？</h4>
-          <p>
-            最大的不同在於<strong>「探究問題的深度與論點結構」</strong>。普通的勞作只是跟著步驟做完一把作品，而 PBL 強調「為什麼這樣做？」、「過程發現了什麼問題？」、「如果是你會怎麼改進？」，是有目標、有反思的高階思維訓練。
-          </p>
+        <!-- Q3 -->
+        <div class="faq-dialogue-card">
+          <div class="dialogue-q-row">
+            <span class="avatar-bubble-q">Q3</span>
+            <div class="dialogue-q-text">這跟一般學校的美勞課、同樂會或普通團體遊戲有什麼不同？</div>
+          </div>
+          <div class="dialogue-a-row">
+            <span class="avatar-bubble-a">導師</span>
+            <div class="dialogue-a-text">
+              <strong>關鍵差別在於「探究問題的深度與論點結構」。</strong><br/>
+              一般的勞作通常是老師發材料、大家照著範例剪貼完成；而 PBL 則是帶著「問題假設」出發。例如：「這個紙箱槓桿為什麼踩不開？如果我們把支點往前移 2 公分會怎樣？」孩子必須自己提出假設、動手測試、記錄失敗數據並修正。是有目標、有反思的高階思維訓練。
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 預約 CTA 橫幅 -->
-    <section class="booking-ticket-section" style="padding: 60px 6vw 80px;">
+    <!-- ========================================================
+         邀請票券預約卡 (Booking Ticket)
+         ======================================================== -->
+    <section class="booking-ticket-section" style="padding: 70px 6vw 90px;">
       <div class="booking-ticket-card">
-        <div class="mook-badge">WELCOME TO SANG SUEH</div>
-        <h2 class="mook-section-title" style="margin: 10px 0 12px;">走進尚學・看見孩子主動學習的光芒</h2>
-        <p class="mook-section-subtitle">
-          歡迎您帶著孩子預約到班了解，親自感受溫暖有愛的專注學習氛圍！
+        <div class="washi-tape washi-tape-orange" style="top:-10px; left:30px;"></div>
+        <div class="washi-tape washi-tape-green" style="top:-10px; right:30px;"></div>
+        
+        <div class="mook-badge">INVITATION TICKET</div>
+        <div style="font-family: 'Comfortaa', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--orange); margin-bottom: 6px;">
+          TICKET NO. SANGSUEH-PBL-2026
+        </div>
+        <h2 class="mook-section-title" style="margin: 6px 0 12px;">走進尚學・看見孩子主動學習的光芒</h2>
+        <p class="mook-section-subtitle" style="max-width: 680px; margin: 0 auto;">
+          百聞不如一見！誠摯邀請您帶孩子預約到班參觀，親身感受溫暖、專注且充滿探索熱情的課輔環境。由專任導師為您分析孩子的學習特質與習慣。
         </p>
-        <div style="margin-top: 24px;">
+        
+        <div style="margin-top: 28px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
           <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-            <span>👉 立即線上預約到班諮詢（免費學力習慣健檢）</span>
+            <span>📝 立即預約到班（免費學力與習慣健檢）</span>
+          </a>
+          <a class="btn-mook-ticket" href="tel:073646570" style="background: #FFF; color: var(--ink) !important; border: 2px solid var(--border-ink); box-shadow: 4px 4px 0 rgba(36,49,46,0.1);">
+            <span>📞 電話諮詢 (07) 364-6570</span>
           </a>
         </div>
-        <div style="font-size: 12px; color: var(--ink-soft); opacity: 0.85; margin-top: 10px; line-height: 1.5;">
+
+        <div style="font-size: 12.5px; color: var(--ink-soft); opacity: 0.85; margin-top: 14px; line-height: 1.5;">
           ※ 到班後導師將依孩子的學校年級與特質進行個別程度了解，為您量身規劃最合適的學習與作息安排。
         </div>
       </div>
@@ -1097,7 +1767,7 @@
     <div class="footer-container">
       <!-- Top Section: Brand Info & Social Media Hub -->
       <div class="footer-top-grid">
-        <!-- Brand Info -->
+        <!-- Brand Info (Strictly Left Aligned) -->
         <div class="footer-brand-col">
           <img class="footer-logo-clean" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教 Logo"/>
           <div class="footer-mission">
@@ -1106,13 +1776,13 @@
           </div>
           <div class="footer-badge">跨領域學習 · 多元發展 · 跳脫傳統框架</div>
           <div style="margin-top: 14px; font-size: 13px; color: #A3B8AF; line-height: 1.65;">
-            📍 <strong>校址</strong>：高雄市楠梓區軍校路880巷38號（右昌國小正對面靜巷）<br/>
-            📞 <strong>諮詢電話</strong>：(07) 364-6570<br/>
-            🏫 <strong>接送學區</strong>：右昌國小、莒光國小（老師步行導護帶隊）｜ 加昌國小、屏山國小、援中國小、油廠國小（車輛定點接送服務）
+            📍 校址：高雄市楠梓區軍校路880巷38號<br/>
+            📞 諮詢電話：(07) 364-6570<br/>
+            🏫 接送學區：右昌國小、莒光國小、加昌國小、屏山國小、援中國小、油廠國小
           </div>
         </div>
 
-        <!-- Social Media & Maps -->
+        <!-- Social Media & Maps (Real Official App Icons, Clean Borderless) -->
         <div class="footer-social-col">
           <h3 class="social-hub-title">關注尚學文教社群 · 探索更多活動花絮與即時動態</h3>
           <div class="social-links-clean-grid">
@@ -1167,29 +1837,16 @@
         </div>
       </div>
 
-      <!-- Sitemap Navigation Row (全站 7 大核心頁面導覽) -->
-      <div class="footer-sitemap-bar" style="margin-top: 36px; padding-top: 24px; border-top: 1px dashed rgba(255,255,255,0.18); display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; font-size: 13.5px; font-weight: 750;">
-        <a href="./index.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">🏠 招生首頁</a>
-        <a href="./courses.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">📚 全方位課程</a>
-        <a href="./pbl.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">💡 PBL 專案探究</a>
-        <a href="./grades.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">🎒 各年級指南</a>
-        <a href="./campus.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">🏫 校園環境實境</a>
-        <a href="./teachers.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">👩‍🏫 專任師資標準</a>
-        <a href="./journal.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s;">✍️ 尚學教育專欄</a>
-        <a href="./summer-2026.html" style="color: var(--yellow); text-decoration: none; font-weight: 850;">🍉 2026 暑期成果誌 ↗</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer" style="color: var(--orange-light); text-decoration: underline; font-weight: 850;">📝 立即線上預約</a>
-      </div>
-
-      <!-- Bottom Section: Copyright & Legal -->
-      <div class="footer-bottom-bar" style="margin-top: 20px;">
-        <p>© 2026 尚學文教 (SangSueh Education). All Rights Reserved. 立案登記・合法立案課後照顧與教學體系・版權所有</p>
+      <!-- Bottom Section: Copyright -->
+      <div class="footer-bottom-bar">
+        <p>© 2026 尚學文教 (SangSueh Education). All Rights Reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- 手機版底部常駐快捷條 (Mobile Sticky Bottom Bar) -->
   <div class="mobile-sticky-bar">
-    <a class="mobile-sticky-tel" href="tel:07073646570">
+    <a class="mobile-sticky-tel" href="tel:073646570">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
       <span>電話諮詢</span>
     </a>
