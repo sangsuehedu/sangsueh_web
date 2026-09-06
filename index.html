@@ -247,7 +247,7 @@
       white-space: nowrap;
     }
 
-    /* 手機版抽屜選單模組 (Drawer Sheet) */
+    /* 手機版抽屜選單模組 (Drawer Sheet: 50% 初始高度，往上滑展開為全螢幕) */
     .mobile-drawer-overlay {
       position: fixed;
       inset: 0;
@@ -270,25 +270,45 @@
       width: 100%;
       background: #FFFDF8;
       border-radius: 24px 24px 0 0;
-      max-height: 85vh;
+      height: 52vh;
+      max-height: 88vh;
       display: flex;
       flex-direction: column;
       transform: translateY(100%);
-      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
       box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
       box-sizing: border-box;
+      overflow: hidden;
     }
     .mobile-drawer-overlay.active .mobile-drawer {
       transform: translateY(0);
+    }
+    .mobile-drawer.expanded {
+      height: 88vh;
+    }
+    .drawer-drag-pill {
+      width: 42px;
+      height: 4.5px;
+      background: #D8D2C5;
+      border-radius: 999px;
+      margin: 10px auto 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .drawer-drag-pill:hover,
+    .mobile-drawer.expanded .drawer-drag-pill {
+      background: var(--orange);
+      width: 52px;
     }
     .drawer-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
+      padding: 10px 20px 12px;
       border-bottom: 1px solid var(--border-ink);
       background: #FFFDF8;
-      border-radius: 24px 24px 0 0;
+      flex-shrink: 0;
     }
     .drawer-title {
       display: flex;
@@ -1322,8 +1342,24 @@
       font-size: 12px;
       color: var(--ink-soft);
       opacity: 0.8;
-      line-height: 1.5;
+      line-height: 1.55;
       font-style: normal;
+      padding: 0 16px;
+    }
+    .courses-disclaimer-note {
+      max-width: 1200px;
+      margin: 20px auto 28px;
+      background: #FFFDF8;
+      border: 1px dashed var(--border-dashed);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+    .courses-disclaimer-note strong {
+      color: var(--ink);
     }
 
     /* 接送方式卡片 (明確劃分步行 vs 車輛接送) */
@@ -2653,6 +2689,11 @@
         </article>
       </div>
 
+      <!-- 核心學程彈性輔導溫馨備註 -->
+      <div class="courses-disclaimer-note">
+        <span>💡 <strong>個別化輔導溫馨說明</strong>：每位孩子的特質、專注起點與當日各科學校課業量皆有所不同。尚學堅持「以孩子真正扎實學會為核心原則」，各學程之進度節奏由專任導師視孩子個別吸收狀況彈性調配，循序漸進引導。</span>
+      </div>
+
       <!-- 全方位課程總覽引導橫幅 (合規用語) -->
       <div class="courses-hub-banner">
         <div class="courses-hub-text">
@@ -2739,7 +2780,7 @@
               <span class="flow-stamp">15:30 - 16:00</span>
               <h4 class="flow-title">午後活力點心時間</h4>
             </div>
-            <p class="flow-desc">新鮮水果與健康點心補給、多喝水上洗手間，起身伸展身心，同儕交流。</p>
+            <p class="flow-desc">享用美味營養的午後點心充電、多喝水上洗手間，適度起身伸展放鬆，同儕交流。</p>
           </div>
         </div>
 
@@ -2790,7 +2831,7 @@
               <span class="flow-stamp">16:00 入班</span>
               <h4 class="flow-title">放學接送與洗手點心</h4>
             </div>
-            <p class="flow-desc">步行或車輛安全接送回班，落實衛生洗手，享用午後新鮮水果點心充電。</p>
+            <p class="flow-desc">步行或車輛安全接送回班，落實衛生洗手，享用暖心午後活力點心充電。</p>
           </div>
         </div>
 
@@ -2839,9 +2880,9 @@
         </div>
       </div>
 
-      <!-- 溫馨提示：依現場狀況彈性調整 (輕柔低調) -->
+      <!-- 溫馨提示：依現場狀況彈性調整 (輕柔低調・保障教育彈性) -->
       <div class="routine-disclaimer-note">
-        <span>※ 各時段活動與課程安排將依各校實際放學作息及現場學習進度彈性微調</span>
+        <span>※ 上述作息時程為常態引導節奏，每日活動與輔導安排將依各校實際放學作息、學校作業份量及孩子當日學習吸收狀況個別化彈性微調。</span>
       </div>
 
       <!-- 接送方式明確劃分卡片 (步行接送 vs 車輛接送・低調合規) -->
@@ -3083,7 +3124,7 @@
               <span class="social-mag-tag">📍 每日生活 · 點心與作息常規</span>
               <h3 class="social-mag-title">【午後活力點心充電，靜心沉澱投入作業】</h3>
               <p class="social-mag-desc">
-                今天的水果是香甜蘋果與香蕉！放學回班脫鞋洗手、抄聯絡簿，在番茄鐘音樂中靜心完成各科作業。
+                放學回班享用美味現備的午後點心充電！洗手整理書包、抄聯絡簿，在番茄鐘音樂中靜心完成作業。
               </p>
             </div>
             <a class="social-mag-btn btn-fb-green" href="https://www.facebook.com/sunshueh.edu" target="_blank" rel="noopener noreferrer">
@@ -3145,6 +3186,9 @@
             <span>👉 立即填寫線上預約表單</span>
           </a>
         </div>
+        <div style="font-size: 12px; color: var(--ink-soft); opacity: 0.85; margin-top: 10px; line-height: 1.5;">
+          ※ 到班後導師將依孩子的學校年級與特質進行個別程度了解，為您量身規劃最合適的學習與作息安排。
+        </div>
 
         <div style="margin-top: 14px;">
           <button class="btn-toggle-embed" id="toggle-embed-form" type="button">▼ 或點此展開表單在頁面內填寫</button>
@@ -3203,6 +3247,13 @@
           <h4>除了國小安親，還有哪些專業延伸課程可以報名？</h4>
           <p>
             尚學文教建構完整的學習成長階梯，開設<strong>【珠心算思維】、【兒童生活美語】、【進階英語素養】、【文法閱讀精進】、【全民英檢 GEPT】與【多益 TOEIC】</strong>，歡迎點擊上方選單的【課程總覽】了解詳情。
+          </p>
+        </div>
+
+        <div class="faq-mook-item">
+          <h4>孩子每天在班的作息與課程輔導，是完全按表操課固定不變嗎？</h4>
+          <p>
+            不是死板按表操課！我們深知每個孩子的專注耐力、各年級各校放學時間，以及每日學校作業難易度皆有所不同。尚學以<strong>「把觀念真正弄懂、扎實完成」為核心原則</strong>，每日作息與輔導進度由專任導師依孩子當日身心狀態與作業量個別化彈性調配。若當日孩子遇到較多學習卡點，導師會花時間耐心引導直到弄懂，絕不為了趕時程而草率帶過，並會透過親師管道與您即時交班。
           </p>
         </div>
       </div>
@@ -3348,13 +3399,14 @@
     }
   </script>
 
-  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet) -->
+  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
   <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
     <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-drag-pill" id="drawer-drag-pill" title="向上滑動或點擊展開完整目錄"></div>
       <div class="drawer-header">
         <div class="drawer-title">
           <img src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教" style="height: 28px; width: auto;"/>
-          <span>尚學文教・導覽目錄</span>
+          <span>導覽目錄</span>
         </div>
         <button class="drawer-close" type="button" id="drawer-close-btn" aria-label="關閉目錄">✕</button>
       </div>
@@ -3381,27 +3433,39 @@
   </div>
 
   <script>
-    // Mobile Drawer Logic
+    // Mobile Drawer Logic (50% 初始高度 + 向上滑動全螢幕展開)
     (function() {
       const menuTrigger = document.getElementById('mobile-menu-trigger');
       const drawerOverlay = document.getElementById('drawer-overlay');
+      const drawer = document.getElementById('mobile-drawer');
       const drawerCloseBtn = document.getElementById('drawer-close-btn');
+      const dragPill = document.getElementById('drawer-drag-pill');
+      const drawerContent = drawer ? drawer.querySelector('.drawer-content') : null;
 
       function openDrawer(e) {
         if (e) e.preventDefault();
+        if (drawer) drawer.classList.remove('expanded');
         if (drawerOverlay) {
           drawerOverlay.classList.add('active');
           drawerOverlay.setAttribute('aria-hidden', 'false');
         }
         document.body.style.overflow = 'hidden';
       }
+
       function closeDrawer(e) {
         if (e) e.preventDefault();
         if (drawerOverlay) {
           drawerOverlay.classList.remove('active');
           drawerOverlay.setAttribute('aria-hidden', 'true');
         }
+        if (drawer) drawer.classList.remove('expanded');
         document.body.style.overflow = '';
+      }
+
+      function expandDrawer() {
+        if (drawer && !drawer.classList.contains('expanded')) {
+          drawer.classList.add('expanded');
+        }
       }
 
       if (menuTrigger) menuTrigger.addEventListener('click', openDrawer);
@@ -3410,6 +3474,36 @@
         drawerOverlay.addEventListener('click', function(e) {
           if (e.target === drawerOverlay) closeDrawer(e);
         });
+      }
+
+      if (dragPill) {
+        dragPill.addEventListener('click', function() {
+          if (drawer) drawer.classList.toggle('expanded');
+        });
+      }
+
+      // 觸控滑動：在抽屜向上滑動時展開
+      if (drawer) {
+        let touchStartY = 0;
+        drawer.addEventListener('touchstart', function(e) {
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        drawer.addEventListener('touchmove', function(e) {
+          const touchY = e.touches[0].clientY;
+          if (touchStartY - touchY > 25) {
+            expandDrawer();
+          }
+        }, { passive: true });
+      }
+
+      // 內容滾動：在抽屜滾動時自動展開至全螢幕
+      if (drawerContent) {
+        drawerContent.addEventListener('scroll', function() {
+          if (drawerContent.scrollTop > 10) {
+            expandDrawer();
+          }
+        }, { passive: true });
       }
 
       document.querySelectorAll('.drawer-link').forEach(function(link) {

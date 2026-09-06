@@ -187,7 +187,7 @@
       white-space: nowrap;
     }
 
-    /* 手機版抽屜選單模組 (Drawer Sheet) */
+    /* 手機版抽屜選單模組 (Drawer Sheet: 50% 初始高度，往上滑展開為全螢幕) */
     .mobile-drawer-overlay {
       position: fixed;
       inset: 0;
@@ -210,25 +210,45 @@
       width: 100%;
       background: #FFFDF8;
       border-radius: 24px 24px 0 0;
-      max-height: 85vh;
+      height: 52vh;
+      max-height: 88vh;
       display: flex;
       flex-direction: column;
       transform: translateY(100%);
-      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
       box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
       box-sizing: border-box;
+      overflow: hidden;
     }
     .mobile-drawer-overlay.active .mobile-drawer {
       transform: translateY(0);
+    }
+    .mobile-drawer.expanded {
+      height: 88vh;
+    }
+    .drawer-drag-pill {
+      width: 42px;
+      height: 4.5px;
+      background: #D8D2C5;
+      border-radius: 999px;
+      margin: 10px auto 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .drawer-drag-pill:hover,
+    .mobile-drawer.expanded .drawer-drag-pill {
+      background: var(--orange);
+      width: 52px;
     }
     .drawer-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
+      padding: 10px 20px 12px;
       border-bottom: 1px solid var(--border-ink);
       background: #FFFDF8;
-      border-radius: 24px 24px 0 0;
+      flex-shrink: 0;
     }
     .drawer-title {
       display: flex;
@@ -1262,8 +1282,24 @@
       font-size: 12px;
       color: var(--ink-soft);
       opacity: 0.8;
-      line-height: 1.5;
+      line-height: 1.55;
       font-style: normal;
+      padding: 0 16px;
+    }
+    .courses-disclaimer-note {
+      max-width: 1200px;
+      margin: 20px auto 28px;
+      background: #FFFDF8;
+      border: 1px dashed var(--border-dashed);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+    .courses-disclaimer-note strong {
+      color: var(--ink);
     }
 
     /* 接送方式卡片 (明確劃分步行 vs 車輛接送) */
@@ -2442,6 +2478,11 @@
         </article>
       </div>
 
+      <!-- 課程進度個別化彈性備註 -->
+      <div class="courses-disclaimer-note" style="margin: 24px auto 32px;">
+        <span>💡 <strong>個別化教學進度說明</strong>：每位孩子的起點、各校課業量與理解吸收速度皆有差異。各學程之教學進度由專任導師依班級學員實際吸收狀況彈性調配，以扎實理解、穩健內化為最高原則。</span>
+      </div>
+
       <!-- 溫馨教育理念引言框 (自然融入生活感) -->
       <div class="philosophy-quote-box">
         <h3>🌱 尚學文教・用心成就孩子的每一步</h3>
@@ -2539,13 +2580,14 @@
     </div>
   </aside>
 
-  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet) -->
+  <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet: 50% 初始高度 + 向上滑動全螢幕) -->
   <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
     <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-drag-pill" id="drawer-drag-pill" title="向上滑動或點擊展開完整目錄"></div>
       <div class="drawer-header">
         <div class="drawer-title">
           <img src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教" style="height: 28px; width: auto;"/>
-          <span>尚學文教・導覽目錄</span>
+          <span>導覽目錄</span>
         </div>
         <button class="drawer-close" type="button" id="drawer-close-btn" aria-label="關閉目錄">✕</button>
       </div>
@@ -2572,27 +2614,39 @@
   </div>
 
   <script>
-    // Mobile Drawer Logic
+    // Mobile Drawer Logic (50% 初始高度 + 向上滑動全螢幕展開)
     (function() {
       const menuTrigger = document.getElementById('mobile-menu-trigger');
       const drawerOverlay = document.getElementById('drawer-overlay');
+      const drawer = document.getElementById('mobile-drawer');
       const drawerCloseBtn = document.getElementById('drawer-close-btn');
+      const dragPill = document.getElementById('drawer-drag-pill');
+      const drawerContent = drawer ? drawer.querySelector('.drawer-content') : null;
 
       function openDrawer(e) {
         if (e) e.preventDefault();
+        if (drawer) drawer.classList.remove('expanded');
         if (drawerOverlay) {
           drawerOverlay.classList.add('active');
           drawerOverlay.setAttribute('aria-hidden', 'false');
         }
         document.body.style.overflow = 'hidden';
       }
+
       function closeDrawer(e) {
         if (e) e.preventDefault();
         if (drawerOverlay) {
           drawerOverlay.classList.remove('active');
           drawerOverlay.setAttribute('aria-hidden', 'true');
         }
+        if (drawer) drawer.classList.remove('expanded');
         document.body.style.overflow = '';
+      }
+
+      function expandDrawer() {
+        if (drawer && !drawer.classList.contains('expanded')) {
+          drawer.classList.add('expanded');
+        }
       }
 
       if (menuTrigger) menuTrigger.addEventListener('click', openDrawer);
@@ -2601,6 +2655,36 @@
         drawerOverlay.addEventListener('click', function(e) {
           if (e.target === drawerOverlay) closeDrawer(e);
         });
+      }
+
+      if (dragPill) {
+        dragPill.addEventListener('click', function() {
+          if (drawer) drawer.classList.toggle('expanded');
+        });
+      }
+
+      // 觸控滑動：在抽屜向上滑動時展開
+      if (drawer) {
+        let touchStartY = 0;
+        drawer.addEventListener('touchstart', function(e) {
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        drawer.addEventListener('touchmove', function(e) {
+          const touchY = e.touches[0].clientY;
+          if (touchStartY - touchY > 25) {
+            expandDrawer();
+          }
+        }, { passive: true });
+      }
+
+      // 內容滾動：在抽屜滾動時自動展開至全螢幕
+      if (drawerContent) {
+        drawerContent.addEventListener('scroll', function() {
+          if (drawerContent.scrollTop > 10) {
+            expandDrawer();
+          }
+        }, { passive: true });
       }
 
       document.querySelectorAll('.drawer-link').forEach(function(link) {
