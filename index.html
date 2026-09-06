@@ -1139,19 +1139,6 @@
     .feat-content span {
       color: var(--ink-soft);
     }
-    .course-features-list li {
-      font-size: 13px;
-      color: var(--ink);
-      line-height: 1.55;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .course-features-list li::before {
-      content: "🌱";
-      font-size: 12px;
-      flex-shrink: 0;
-    }
     .btn-course-reserve {
       background: var(--paper);
       color: var(--ink);
@@ -1327,6 +1314,16 @@
       color: var(--ink-soft);
       line-height: 1.5;
       margin: 0;
+    }
+    .routine-disclaimer-note {
+      max-width: 860px;
+      margin: -16px auto 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-soft);
+      opacity: 0.8;
+      line-height: 1.5;
+      font-style: normal;
     }
 
     /* 接送方式卡片 (明確劃分步行 vs 車輛接送) */
@@ -2842,6 +2839,11 @@
         </div>
       </div>
 
+      <!-- 溫馨提示：依現場狀況彈性調整 (輕柔低調) -->
+      <div class="routine-disclaimer-note">
+        <span>※ 各時段活動與課程安排將依各校實際放學作息及現場學習進度彈性微調</span>
+      </div>
+
       <!-- 接送方式明確劃分卡片 (步行接送 vs 車輛接送・低調合規) -->
       <div class="escort-mook-box">
         <div class="escort-group escort-walk">
@@ -3344,6 +3346,7 @@
         }
       });
     }
+  </script>
 
   <!-- 手機版現代化抽屜選單 (Mobile Drawer Menu Sheet) -->
   <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
