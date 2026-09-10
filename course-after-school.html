@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>國小課後安親特輯｜1:15精緻常規引導・握筆坐姿與作業細緻輔導｜尚學文教</title>
-  <meta name="description" content="高雄楠梓國小課後安親推薦首選！尚學文教堅持嚴格 1:15 精緻師生比與專職資深導師。著重幼小銜接常規、握筆坐姿雕琢、當日作業逐字審核訂正。莒光、右昌國小老師步行導護；加昌、屏山、援中、油廠國小專車接送。下班接回彈性，可代訂晚餐。"/>
+  <title>國小課後安親專頁｜探究式概念理解與問題導向思考・精緻小班常規引導與扎實課後輔導｜尚學文教</title>
+  <meta name="description" content="高雄楠梓國小課後安親推薦首選！尚學文教堅持精緻小班專職專任導師全程引導。將探究式概念理解與問題導向思維（PBL）融入日常教學，拒絕死記硬背；落實雙向商量與批判式思維引導、握筆坐姿細緻雕琢、當日作業逐字審核訂正。莒光、右昌國小老師步行導護；加昌、屏山、援中、油廠國小車輛接送。下班接回彈性，可代訂熱食晚餐。"/>
   <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/course-after-school.html"/>
   
   <!-- Open Graph -->
   <meta property="og:type" content="article"/>
-  <meta property="og:title" content="國小課後安親特輯｜不只完成作業，更培養受用一生的自律作息｜尚學文教"/>
-  <meta property="og:description" content="堅持 1:15 精緻師生比，專職導師逐字審核作業、雕琢握筆坐姿。分齡引導低年級常規奠基與中高年級自主複習，高雄楠梓雙薪家庭最安心的課後後盾。"/>
-  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/curated_mook/course_lowgrade.jpg"/>
+  <meta property="og:title" content="國小課後安親特輯｜不只完成作業，更從邏輯本質學會思考｜尚學文教"/>
+  <meta property="og:description" content="堅持精緻小班專職導師，融入探究式概念理解與問題導向思考（PBL），逐字審核作業、雕琢握筆坐姿、啟發批判式思維。分齡引導低年級常規奠基與中高年級自主複習，高雄楠梓雙薪家庭最安心的課後後盾。"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/curated_mook/course_pbl_inquiry.jpg"/>
   
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260906_v2"/>
@@ -354,6 +354,50 @@
       color: var(--mook-ink-light);
       max-width: 680px;
       margin: 0 auto;
+    }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .inquiry-card {
+      background: #FFF;
+      border: 2px solid var(--mook-border-dark);
+      border-radius: 12px;
+      padding: 24px 26px;
+      box-shadow: 4px 4px 0 rgba(36,49,46,0.08);
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+    .inquiry-card:hover {
+      transform: translateY(-2px);
+    }
+    .inquiry-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--mook-green-soft);
+      border: 1.5px solid var(--mook-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .inquiry-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: var(--mook-ink);
+    }
+    .inquiry-desc {
+      font-size: 14px;
+      color: var(--mook-ink-light);
+      line-height: 1.75;
+      margin: 0;
     }
 
     .pillars-grid {
@@ -924,6 +968,9 @@
       .stat-item:nth-child(2) {
         border-right: none;
       }
+      .inquiry-grid {
+        grid-template-columns: 1fr;
+      }
       .pillars-grid {
         grid-template-columns: 1fr;
       }
@@ -975,9 +1022,9 @@
 </head>
 <body>
 
-  <!-- 頂部通知導航條 (官方正確電話 07-3646570) -->
+  <!-- 頂部通知導航條 (官方唯一正確電話 07-3646570) -->
   <div class="top-notice-bar">
-    <span>💡 專注常規勝過考卷刷題・1:15 精緻師生比・諮詢專線 (07) 364-6570</span>
+    <span>💡 專注常規勝過考卷刷題・精緻小班專職專任導師・諮詢專線 (07) 364-6570</span>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班健檢 →</a>
   </div>
 
@@ -989,8 +1036,10 @@
       </a>
       <nav class="mook-nav-links">
         <a class="mook-nav-link" href="./courses.html">← 返回課程總覽</a>
+        <a class="mook-nav-link" href="#inquiry">探究式理解</a>
+        <a class="mook-nav-link" href="#pillars">常規堅持</a>
+        <a class="mook-nav-link" href="#grades">年級分流</a>
         <a class="mook-nav-link" href="#routine">一日作息</a>
-        <a class="mook-nav-link" href="#grades">低中高年級</a>
         <a class="mook-nav-link" href="#escort">接送學區</a>
         <a class="mook-nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
           📝 預約參觀了解
@@ -1012,30 +1061,31 @@
           
           <div class="hero-feature-text">
             <div class="hero-feature-badge">
-              <span>SPECIAL FEATURE</span> • <span>VOL. 01 課後安親</span>
+              <span>SPECIAL FOCUS</span> • <span>VOL. 01 國小課後安親</span>
             </div>
             <h1 class="hero-feature-title">
-              不只陪孩子完成作業，<br/>
-              更雕琢能受用一生的<span class="highlight">自律生活常規</span>。
+              不只完成作業，<br/>
+              更從<span class="highlight">邏輯本質學會思考</span>。
             </h1>
             <p class="hero-feature-lead">
-              告別坊間動輒 30 人大拜拜的評量刷題模式。尚學文教堅持 <strong>1:15 精緻師生比</strong> 與資深專職導師，逐字逐行檢視訂正、雕琢端正坐姿與握筆力道，讓孩子在溫暖有愛的節奏中，找到主動學習的成就感。
+              跳脫坊間機械式刷題與死記硬背的舊思維！尚學文教堅持<strong>精緻小班專職專任導師全程引導</strong>，將「探究式概念理解」與「問題導向思維（PBL）」自然融入日常課業討論。落實雙向商量與批判式思維引導、細緻雕琢握筆坐姿、當日作業逐字審核訂正，為孩子奠定小學穩固的學力護城河與終身自律常規。
             </p>
 
             <div class="hero-pills">
-              <span class="hero-pill">🛡️ 1:15 精緻師生比</span>
-              <span class="hero-pill">✍️ 握筆坐姿手把手雕琢</span>
-              <span class="hero-pill">📖 當日作業逐字訂正完成</span>
-              <span class="hero-pill">🚗 楠梓 6 大國小安全接送</span>
-              <span class="hero-pill">🌙 最晚可陪伴至 20:00（可代訂晚餐）</span>
+              <span class="hero-pill">🌱 精緻小班制・專職專任導師</span>
+              <span class="hero-pill">💡 探究式邏輯理解・融入日常引導</span>
+              <span class="hero-pill">🗣️ 民主溝通商量・啟發批判式思維</span>
+              <span class="hero-pill">✍️ 握筆坐姿雕琢・作業逐字審核訂正</span>
+              <span class="hero-pill">🏫 楠梓六校放學安心接送</span>
+              <span class="hero-pill">🌙 彈性延長至 20:00・可代訂熱食晚餐</span>
             </div>
           </div>
 
           <div class="hero-collage">
             <div class="hero-polaroid-main">
               <div class="washi-tape-top"></div>
-              <img src="./photos/curated_mook/course_lowgrade.jpg" alt="尚學國小課後安親課堂專注神情"/>
-              <div class="hero-polaroid-caption">安靜沉澱・一字一劃耐心書寫</div>
+              <img src="./photos/curated_mook/course_pbl_inquiry.jpg" alt="尚學國小課後安親・融入日常的探究式概念理解與思維引導"/>
+              <div class="hero-polaroid-caption">探究思維・知其然更知其所以然</div>
               <div class="vintage-stamp">SANG SUEH<br/>SINCE 1986</div>
             </div>
           </div>
@@ -1045,24 +1095,24 @@
         <!-- 辦學指標牌 -->
         <div class="stats-card-row">
           <div class="stat-item">
-            <div class="stat-num">1:15</div>
-            <div class="stat-label">嚴格精緻師生比</div>
-            <div class="stat-sub">每班名額上限・充分關照</div>
+            <div class="stat-num">小班制</div>
+            <div class="stat-label">專職專任專任導師</div>
+            <div class="stat-sub">穩定專業・拒絕流動工讀</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">100%</div>
-            <div class="stat-label">當日作業逐字訂正</div>
-            <div class="stat-sub">不留疑惑回家的紮實審核</div>
+            <div class="stat-label">當日作業當日搞懂</div>
+            <div class="stat-sub">逐字審核・扎實訂正不留疑惑</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">PBL</div>
+            <div class="stat-label">探究式概念邏輯</div>
+            <div class="stat-sub">融入日常討論・拒絕死背硬記</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">6 所</div>
-            <div class="stat-label">學區專屬安心接送</div>
-            <div class="stat-sub">步行導護帶隊 ＋ 安全專車</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">20:00</div>
-            <div class="stat-label">晚間彈性陪伴上限</div>
-            <div class="stat-sub">雙薪加班免焦慮・代訂晚餐</div>
+            <div class="stat-label">學區放學安心網絡</div>
+            <div class="stat-sub">步行導護牽回 ＋ 安全車輛接送</div>
           </div>
         </div>
 
@@ -1070,49 +1120,100 @@
     </section>
 
     <!-- =========================================================
-         2. 四大常規堅持 (WHY SANG SUEH)
+         2. 核心靈魂：探究式概念理解 × 問題導向思維 (打造學力護城河)
          ========================================================= -->
-    <section class="mook-container">
+    <section class="mook-container" id="inquiry">
+      <div class="section-title-wrap">
+        <div class="section-kicker">INQUIRY & CONCEPTUAL LOGIC</div>
+        <h2 class="section-title">為什麼很多孩子評量刷了十幾本，段考稍微變形依然不會寫？</h2>
+        <p class="section-subtitle">
+          探究與理解不是額外排滿的生硬課表，而是「完全融入在孩子每一天的作業討論與觀念引導中」。在尚學，我們教孩子如何拆解問題本質，而不是死背解法。
+        </p>
+      </div>
+
+      <div class="inquiry-grid">
+        <!-- 探究 1 -->
+        <div class="inquiry-card">
+          <div class="inquiry-icon-box">🔍</div>
+          <h3 class="inquiry-title">1. 情境問題導向思維（Problem-Based Thinking）</h3>
+          <p class="inquiry-desc">
+            面對 108 課綱常見的長篇情境素養題，死背公式的孩子往往連題目都讀不懂。導師引導孩子從生活情境出發，學會「劃線抓題眼、拆解已知與未知」，把複雜的題目拆成清晰步驟，不再對應用題心生恐懼。
+          </p>
+        </div>
+
+        <!-- 探究 2 -->
+        <div class="inquiry-card">
+          <div class="inquiry-icon-box">🌱</div>
+          <h3 class="inquiry-title">2. 層層提問引導（Inquiry-Based Learning）</h3>
+          <p class="inquiry-desc">
+            當孩子遇到卡關時，尚學老師絕不直接給出答案或套公式。我們像思維鷹架般拋出引導式問題：「如果數字變小你會怎麼算？」、「這個公式的由來是什麼？」，引導孩子自己推導出核心邏輯，建立自信思考迴路。
+          </p>
+        </div>
+
+        <!-- 探究 3 -->
+        <div class="inquiry-card">
+          <div class="inquiry-icon-box">🗺️</div>
+          <h3 class="inquiry-title">3. 觀念圖解與邏輯架構脈絡化</h3>
+          <p class="inquiry-desc">
+            不論是國語文章的起承轉合、數學幾何的空間因果，還是自然社會的單元關聯，導師都鼓勵孩子以心智圖與邏輯圖解整理重點。將破碎的記憶點串成完整的思維地圖，知識才能真正內化入腦。
+          </p>
+        </div>
+
+        <!-- 探究 4 -->
+        <div class="inquiry-card">
+          <div class="inquiry-icon-box">🎯</div>
+          <h3 class="inquiry-title">4. 錯題深度複盤・徹底根除重複盲點</h3>
+          <p class="inquiry-desc">
+            與其做十張考卷，不如徹底搞懂錯的一題！每天針對作業與測驗中的錯題，引導孩子診斷出錯的本質原因：是粗心算錯、題目條件漏看，還是底層概念模糊？精準對症下藥，段考前不再需要熬夜填鴨。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. 四大常規與教育堅持 (WHY SANG SUEH)
+         ========================================================= -->
+    <section class="mook-container" id="pillars">
       <div class="section-title-wrap">
         <div class="section-kicker">OUR FOUR PILLARS</div>
-        <h2 class="section-title">為什麼我們堅持「生活常規勝過考卷刷題」？</h2>
-        <p class="section-subtitle">小學階段是學習習慣定型的黃金期。把坐姿、專注節奏與主動負責的態度養好，國高中課業自然水到渠成。</p>
+        <h2 class="section-title">為什麼我們堅持「生活常規與思維素養勝過考卷刷題」？</h2>
+        <p class="section-subtitle">小學階段是學習習慣與人格思維定型的黃金期。把坐姿、思辨能力與主動負責的態度養好，未來的課業自然水到渠成。</p>
       </div>
 
       <div class="pillars-grid">
         <!-- 堅持 1 -->
         <div class="pillar-card">
           <div class="pillar-icon-box">✍️</div>
-          <h3 class="pillar-title">1. 坐姿與握筆肌耐力細緻雕琢</h3>
+          <h3 class="pillar-title">1. 坐姿挺拔與握筆肌耐力細緻雕琢</h3>
           <p class="pillar-desc">
-            很多孩子字跡潦草或寫作業拖拉，根本原因是「握筆姿勢不對、手部肌耐力不足」。尚學導師一對一引導握筆三角角度與挺拔坐姿，不僅字體端正，更有效保護視力與脊椎。
+            很多孩子字跡潦草或寫作業拖拉，根本原因是「握筆姿勢不對、手部肌耐力不足」。尚學導師一對一引導握筆三角角度與挺拔坐姿，不僅字體端正工整，更有效保護視力健康與脊椎發育。
           </p>
         </div>
 
         <!-- 堅持 2 -->
         <div class="pillar-card">
           <div class="pillar-icon-box">🔍</div>
-          <h3 class="pillar-title">2. 學校作業「逐字逐行耐心審核」</h3>
+          <h3 class="pillar-title">2. 學校作業「逐字逐行耐心審核與當日訂正」</h3>
           <p class="pillar-desc">
-            絕不只快速勾「閱」或敷衍對答案。導師嚴謹核對每一題的筆畫、標點符號與計算步驟，引導孩子以「自主檢查清單」先自行覆核，養成認真負責的完成標準。
+            絕不敷衍打勾或只對答案。導師嚴謹核對每一題的筆畫、標點符號與計算步驟，引導孩子以「自主檢查清單」先自行覆核，當天作業有疑問當天在班內弄懂訂正，回家無課業負擔。
           </p>
         </div>
 
-        <!-- 堅持 3 -->
+        <!-- 堅持 3 (批判式思維與民主商量) -->
         <div class="pillar-card">
-          <div class="pillar-icon-box">⏱️</div>
-          <h3 class="pillar-title">3. 番茄鐘專注節奏訓練・告別拖延</h3>
+          <div class="pillar-icon-box">🗣️</div>
+          <h3 class="pillar-title">3. 雙向商量與民主常規・啟發批判式思維</h3>
           <p class="pillar-desc">
-            導入 25 分鐘高度專注作業 ＋ 5 分鐘喝水沉澱節奏。將厚重作業拆解成小目標，讓孩子體驗「全神貫注高效完成」的爽快感，徹底告別發呆咬筆桿的壞習慣。
+            打破傳統權威式「說一就是一、不可質疑」的死板教條！在尚學，老師與孩子像合作夥伴一樣，許多生活常規與學習節奏都可以理性商量。我們鼓勵孩子勇敢發問、表達不同見解、探討規則由來，在尊重與共識中建立真正由內而外的自律。
           </p>
         </div>
 
-        <!-- 堅持 4 -->
+        <!-- 堅持 4 (精緻小班專職專任導師) -->
         <div class="pillar-card">
           <div class="pillar-icon-box">🛡️</div>
-          <h3 class="pillar-title">4. 1:15 專職導師制度・拒絕兼差工讀</h3>
+          <h3 class="pillar-title">4. 精緻小班制 × 專職專任導師全程引導</h3>
           <p class="pillar-desc">
-            每班固定由資深穩定之全職專任導師全程帶班，不把孩子交給頻繁流動的時薪工讀生。深入掌握每個孩子的脾氣、弱科與家庭節奏，是雙薪家庭最值得信賴的後盾。
+            堅持由資深穩定之全職專任導師全程帶班，不把孩子交給頻繁流動的時薪工讀生。導師深入掌握每個孩子的脾氣特質、學科盲點與思維節奏，是雙薪家庭最值得信賴的專業堅實後盾。
           </p>
         </div>
       </div>
@@ -1147,7 +1248,7 @@
                 <span class="tab-point-badge">1</span>
                 <div class="tab-point-text">
                   <strong>注音拼讀與生字筆順手把手引導</strong>
-                  <p>耐性陪伴小一新生跨越注音二拼、三拼門檻；嚴格把關生字筆順與十字格位置，讓孩子一開始就寫出一手工整自信好字。</p>
+                  <p>耐心引導小一新生跨越注音二拼、三拼門檻；嚴格把關生字筆順與十字格位置，讓孩子一開始就寫出一手工整自信好字。</p>
                 </div>
               </li>
               <li class="tab-point-item">
@@ -1230,7 +1331,7 @@
             <div class="timeline-time-badge">12:00 / 16:00</div>
             <div class="timeline-body-card">
               <h4>🏫 放學安全接送・整隊帶班回班</h4>
-              <p>莒光、右昌國小由專任老師親自步行導護帶隊；加昌、屏山、援中、油廠國小安排專屬安全車輛定點接回，第一時間確保交通安全。</p>
+              <p>莒光、右昌國小由專任老師親自步行導護帶隊；加昌、屏山、援中、油廠國小安排定點車輛安全接回，第一時間確保交通安全。</p>
             </div>
           </div>
 
@@ -1238,8 +1339,8 @@
           <div class="timeline-row">
             <div class="timeline-time-badge">12:30 / 16:15</div>
             <div class="timeline-body-card">
-              <h4>🥪 衛生洗手消毒・暖心點心充電</h4>
-              <p>回班第一步落實洗手更鞋，整頓儀容。下午備有健康飽足活力點心（吐司、麵包、餅乾、熱騰騰紅豆餅等），為大腦與體力充電。</p>
+              <h4>🥪 衛生洗手更鞋・暖心點心充電</h4>
+              <p>回班第一步落實洗手更鞋，整頓個人儀容。午後備有暖心點心充電，及時補充大腦與體能活力。</p>
             </div>
           </div>
 
@@ -1247,8 +1348,8 @@
           <div class="timeline-row">
             <div class="timeline-time-badge">13:00 / 16:30</div>
             <div class="timeline-body-card">
-              <h4>📖 靜心專注作業・逐字審核訂正</h4>
-              <p>番茄鐘專注循環啟動！孩子安靜書寫學校聯絡簿與作業，導師在旁隨時觀察握筆坐姿，逐題批閱、輔導當日完成訂正。</p>
+              <h4>📖 靜心自主作業・專職導師細緻指導</h4>
+              <p>啟動靜心專注節奏！孩子專注書寫學校聯絡簿與作業，導師在旁隨時觀察握筆坐姿，逐題逐字批閱、輔導當日完成訂正，不拖延。</p>
             </div>
           </div>
 
@@ -1256,8 +1357,8 @@
           <div class="timeline-row">
             <div class="timeline-time-badge">17:30</div>
             <div class="timeline-body-card">
-              <h4>🧩 觀念補強統整・課外閱讀與靜心</h4>
-              <p>作業完成後，針對當日學校課業薄弱處進行 10～15 分鐘小觀念提點；剩餘時間引導自主閱讀經典課外繪本或益智益腦桌遊。</p>
+              <h4>🧩 日常探究提點・自主閱讀與靜心思考</h4>
+              <p>作業完成後，導師融入日常對話進行概念引導與觀念釐清；剩餘時間引導自主閱讀經典課外繪本或益智思考，充實心靈視野。</p>
             </div>
           </div>
 
@@ -1266,7 +1367,7 @@
             <div class="timeline-time-badge">18:00～18:30</div>
             <div class="timeline-body-card">
               <h4>🚗 常態接回時段・親師交流回饋</h4>
-              <p>家長下班至班部接回。導師當面或透過聯絡手冊簡要反饋孩子當天作業效率、情緒與常規表現，攜手家長同心陪伴。</p>
+              <p>家長下班至班部接回。導師當面或透過聯絡手冊簡要反饋孩子當天作業效率、情緒與常規表現，攜手家長同心引導。</p>
             </div>
           </div>
 
@@ -1274,8 +1375,8 @@
           <div class="timeline-row">
             <div class="timeline-time-badge">18:30～20:00</div>
             <div class="timeline-body-card" style="border-left: 4px solid var(--mook-orange);">
-              <h4>🌙 晚間彈性陪伴時段・可代訂營養晚餐</h4>
-              <p>針對雙薪家庭臨時加班或塞車情況，尚學備有老師溫暖留班守護至 20:00；若需在班用餐，可提前告知協助代訂安心熱食晚餐。</p>
+              <h4>🌙 晚間彈性留班時段・可代訂熱食晚餐</h4>
+              <p>針對雙薪家庭臨時加班或塞車情況，尚學備有老師溫暖留班照料至 20:00；若需在班用餐，可提前告知協助代訂安心熱食晚餐。</p>
             </div>
           </div>
 
@@ -1347,9 +1448,9 @@
 
           <blockquote class="binder-quote">
             「很多家長一開始會問：『老師，你們安親班一天給孩子寫幾張考卷？』<br/><br/>
-            我們總會笑著回答：<strong>『我們重視的是孩子搞懂沒有，而不是刷了多少張紙。』</strong><br/>
-            一張考卷如果錯了五題，只是罰寫或打手心，孩子只會學會對作業心生恐懼；但如果花十分鐘帶著他看懂題目到底在問什麼、筆順為什麼寫錯、握筆姿勢為什麼會手痠，他所獲得的，是能夠陪伴他二十年的自學韌性與自信。<br/><br/>
-            教育是慢工出細活的沉澱，在尚學，我們願意陪每個孩子把每一步踩踏得扎扎實實。」
+            我們總會微笑著回答：<strong>『我們重視的是孩子搞懂了沒有，而不是刷了多少張紙。』</strong><br/>
+            一張考卷如果錯了五題，只是罰寫或打手心，孩子只會學會對作業心生恐懼；但如果花十分鐘帶著他看懂題目到底在問什麼、筆順為什麼寫錯、握筆姿勢為什麼會手痠，他所獲得的，是能夠受用二十年的自學韌性與自信。<br/><br/>
+            教育是慢工出細活的沉澱，在尚學，我們願意引導每個孩子把每一步踩踏得扎扎實實。」
           </blockquote>
 
           <div class="binder-sign">
@@ -1385,11 +1486,11 @@
             </div>
           </div>
 
-          <!-- 專車接送 -->
+          <!-- 車輛接送 (合規低調) -->
           <div class="escort-type-box">
-            <h4 class="escort-type-title">🚗 專屬安全車輛定點接送學區</h4>
+            <h4 class="escort-type-title">🚗 定點安全車輛接送學區</h4>
             <p style="font-size: 13.5px; color: var(--mook-ink-light); margin-bottom: 12px;">
-              配合各校不同年級下課鐘響，安排定點專屬車輛安全接送，第一時間平安返抵教室：
+              配合各校不同年級下課鐘響，安排定點車輛安全接送，第一時間平安返抵教室：
             </p>
             <div class="school-tag-list">
               <span class="school-tag">🏫 加昌國小</span>
@@ -1415,7 +1516,7 @@
         <div class="ticket-body">
           <h3 class="ticket-title">預約參觀課堂環境・免費學力與常規健檢</h3>
           <p class="ticket-desc">
-            每班嚴格維持 1:15 精緻名額，名額有限。誠摯邀請爸爸媽媽帶著孩子親臨現場，感受整潔通風的班部空間與老師溫暖專業的引導氛圍！
+            全班堅持小班制專職專任導師全程引導。誠摯邀請爸爸媽媽帶著孩子親臨現場，感受整潔通風的班部空間與老師溫暖專業的引導氛圍！
           </p>
           <div class="ticket-actions">
             <a class="btn-ticket-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
@@ -1536,9 +1637,11 @@
       <div class="drawer-content">
         <div class="drawer-group">
           <div class="drawer-group-title">🎒 課後安親專題導覽</div>
-          <a class="drawer-link" href="#grades"><span class="d-num">01</span>低中高年級分流</a>
-          <a class="drawer-link" href="#routine"><span class="d-num">02</span>一日精緻作息走讀</a>
-          <a class="drawer-link" href="#escort"><span class="d-num">03</span>楠梓學區安心接送</a>
+          <a class="drawer-link" href="#inquiry"><span class="d-num">01</span>探究式概念理解與PBL</a>
+          <a class="drawer-link" href="#pillars"><span class="d-num">02</span>生活常規四大堅持</a>
+          <a class="drawer-link" href="#grades"><span class="d-num">03</span>低中高年級分流</a>
+          <a class="drawer-link" href="#routine"><span class="d-num">04</span>一日精緻作息走讀</a>
+          <a class="drawer-link" href="#escort"><span class="d-num">05</span>楠梓學區安心接送</a>
         </div>
         <div class="drawer-group">
           <div class="drawer-group-title">🌱 官方全站導覽</div>
