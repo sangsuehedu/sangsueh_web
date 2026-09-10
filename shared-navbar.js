@@ -149,6 +149,15 @@
     }
 
     @media (max-width: 900px) {
+      .mook-header {
+        height: 54px !important;
+        padding: 0 14px !important;
+      }
+      .mook-brand-logo {
+        height: 30px !important;
+        max-height: 30px !important;
+        width: auto !important;
+      }
       .mook-nav {
         display: none !important;
       }
@@ -156,6 +165,48 @@
         display: flex !important;
         align-items: center !important;
         gap: 8px !important;
+        flex-shrink: 0 !important;
+      }
+      .mobile-menu-btn {
+        background: #24312E !important;
+        color: #FFF !important;
+        border: 0 !important;
+        font-size: 12.5px !important;
+        font-weight: 850 !important;
+        padding: 6px 13px !important;
+        border-radius: 999px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        cursor: pointer !important;
+        white-space: nowrap !important;
+        box-shadow: 2px 2px 0 rgba(36,49,46,0.15) !important;
+      }
+      .mobile-cta-btn {
+        background: #C96D45 !important;
+        color: #FFF !important;
+        font-size: 12px !important;
+        font-weight: 850 !important;
+        padding: 6px 11px !important;
+        border-radius: 999px !important;
+        text-decoration: none !important;
+        box-shadow: 0 2px 6px rgba(201, 109, 69, 0.3) !important;
+        white-space: nowrap !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .top-mook-bar {
+        font-size: 11.5px !important;
+        padding: 6px 10px !important;
+      }
+      .mook-header {
+        padding: 0 12px !important;
+      }
+      .mook-brand-logo {
+        height: 34px !important;
+      }
+      .mobile-cta-btn {
+        display: none !important; /* 在極小手機寬度隱藏頂部預約按鈕，確保目錄鈕完整顯眼不被擠壓，下方已有常駐吸底預約列 */
       }
     }
   `;
@@ -253,17 +304,76 @@
       </nav>
 
       <div class="mobile-header-actions">
-        <a class="mobile-cta-btn" href="${mobileActions.bookingHref}" target="_blank" rel="noopener noreferrer">
-          ${mobileActions.bookingText}
-        </a>
-        <button class="mobile-menu-btn" type="button" id="${mobileActions.menuId}" aria-label="展開導覽目錄">
-          ${mobileActions.menuText}
+        <button class="mobile-menu-btn" type="button" id="${mobileActions.menuId}" onclick="window.openSangSuehDrawer && window.openSangSuehDrawer(event)" aria-label="展開導覽目錄">
+          <span>☰</span> <span>${mobileActions.menuText.replace('☰ ', '')}</span>
         </button>
       </div>
     </header>`;
 
     return topNoticeHtml + headerHtml;
   }
+
+  // ========================================================
+  // 全域抽屜控制函數 (保證行動端 100% 能即時開闔目錄)
+  // ========================================================
+  global.openSangSuehDrawer = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const overlay = document.getElementById('drawer-overlay');
+    const drawer = document.getElementById('mobile-drawer');
+    if (overlay) {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+    if (drawer) drawer.classList.remove('expanded');
+    document.body.style.overflow = 'hidden';
+  };
+
+  global.closeSangSuehDrawer = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const overlay = document.getElementById('drawer-overlay');
+    const drawer = document.getElementById('mobile-drawer');
+    if (overlay) {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+    if (drawer) drawer.classList.remove('expanded');
+    document.body.style.overflow = '';
+  };
+
+  global.toggleSangSuehDrawerExpanded = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const drawer = document.getElementById('mobile-drawer');
+    if (drawer) drawer.classList.toggle('expanded');
+  };
+
+  // 全域委派監聽：支援所有按鈕與滑動交互
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('#mobile-menu-trigger, .mobile-menu-btn');
+    if (trigger) {
+      global.openSangSuehDrawer(e);
+      return;
+    }
+    const closeBtn = e.target.closest('#drawer-close-btn, .drawer-close');
+    if (closeBtn) {
+      global.closeSangSuehDrawer(e);
+      return;
+    }
+    const overlay = document.getElementById('drawer-overlay');
+    if (e.target === overlay) {
+      global.closeSangSuehDrawer(e);
+      return;
+    }
+    const dragPill = e.target.closest('#drawer-drag-pill, .drawer-drag-pill');
+    if (dragPill) {
+      global.toggleSangSuehDrawerExpanded(e);
+      return;
+    }
+    const link = e.target.closest('.drawer-link');
+    if (link) {
+      global.closeSangSuehDrawer(e);
+      return;
+    }
+  });
 
   /**
    * 全域通用函數：將官方導覽列注入至指定容器

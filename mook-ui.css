@@ -1217,27 +1217,183 @@
 }
 
 /* ========================================================
-   13. 四大常規立體基石卡 (Four Pillars Distinct Cards) - Section 2
-   全新視覺架構：區隔活頁紙，採用立體厚卡紙與徽章印章
+/* ========================================================
+   12. 學力護城河・一問一答痛點診斷手帳 (Q&A Diagnostic Sheets) - Section 1
    ======================================================== */
-.pillars-section-mook {
-  padding: 85px 6vw;
-  background: #EFE8DC; /* 溫潤古樸大地暖灰米色，與白色活頁紙強烈區隔 */
-  border-bottom: 2px dashed var(--border-dashed);
-}
-.pillars-mook-grid {
-  max-width: 1200px;
+.qa-diagnostic-grid {
+  max-width: 1240px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  gap: 32px 28px;
 }
-.pillar-mook-card {
+.qa-diagnostic-sheet {
   background: #FFFDF8;
-  border: 2px solid var(--ink);
+  border: 1.5px solid #DCD4C7;
   border-radius: 18px;
-  padding: 30px 28px 24px;
-  box-shadow: 6px 7px 0 var(--ink);
+  padding: 30px 24px 24px 44px;
+  box-shadow: 4px 7px 0 rgba(36, 49, 46, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+.qa-diagnostic-sheet:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 11px 0 rgba(36, 49, 46, 0.12);
+}
+.qa-diagnostic-sheet .binder-holes {
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 14px;
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+}
+.qa-diagnostic-sheet .binder-hole {
+  width: 12px;
+  height: 12px;
+  background: #EFE8DC;
+  border: 1.5px solid #C4BCAD;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.18);
+}
+.qa-diagnostic-sheet .sheet-tape {
+  position: absolute;
+  top: -11px;
+  left: 55px;
+  width: 75px;
+  height: 22px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  z-index: 5;
+}
+.qa-box-q {
+  background: #FFF5F2;
+  border: 1.5px solid #F0C4BC;
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+}
+.badge-q-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #C0392B;
+  color: #FFF;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 11.5px;
+  font-weight: 900;
+  padding: 2.5px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.qa-q-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17.5px;
+  font-weight: 900;
+  color: #8C2D19;
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+.qa-q-desc {
+  font-size: 13px;
+  color: #636D69;
+  line-height: 1.65;
+  margin: 0;
+}
+.qa-transition-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #477B65;
+  margin: -4px 0;
+}
+.qa-transition-bar::before,
+.qa-transition-bar::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  border-top: 1px dashed rgba(71, 123, 101, 0.4);
+}
+.qa-box-a {
+  background: #F3F8F5;
+  border: 1.5px solid #C4DED1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 16px;
+  align-items: center;
+}
+.badge-a-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #477B65;
+  color: #FFF;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 11.5px;
+  font-weight: 900;
+  padding: 2.5px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.qa-a-method {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14.5px;
+  font-weight: 850;
+  color: #2D5846;
+  margin-bottom: 6px;
+}
+.qa-a-desc {
+  font-size: 13px;
+  color: #24312E;
+  line-height: 1.65;
+  margin: 0;
+  font-weight: 500;
+}
+.qa-polaroid {
+  width: 130px;
+  height: 150px;
+  margin: 0 auto;
+  transform: rotate(2deg);
+  position: relative;
+}
+
+/* ========================================================
+   13. 四大常規堅持・立體教育基石牌 (The Four Architectural Pillars) - Section 2
+   全新視覺架構：古樸大地灰米色、四柱並立、厚磅復古卡紙、核心承諾亮點
+   ======================================================== */
+.pillars-section-mook {
+  padding: 90px 6vw;
+  background: #E5DDD0 !important;
+  border-top: 3px double #24312E;
+  border-bottom: 3px double #24312E;
+}
+.pillars-pedestal-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.pillar-monument-card {
+  background: #FFFDF8;
+  border: 2px solid #24312E;
+  border-radius: 16px;
+  padding: 26px 20px 22px;
+  box-shadow: 6px 7px 0 #24312E;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1245,117 +1401,144 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-sizing: border-box;
 }
-.pillar-mook-card:hover {
+.pillar-monument-card:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 9px 10px 0 var(--ink);
+  box-shadow: 9px 10px 0 #24312E;
 }
-.pillar-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-.pillar-card-badge {
+.pillar-monument-top {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
-.pillar-icon-circle {
-  width: 50px;
-  height: 50px;
-  background: var(--green-light);
-  border: 2px solid var(--green);
+.pillar-circle-seal {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 22px;
-  box-shadow: 2px 2px 0 var(--green);
+  border: 2px solid #24312E;
+  box-shadow: 2px 2px 0 #24312E;
   flex-shrink: 0;
 }
-.pillar-card-meta {
-  display: flex;
-  flex-direction: column;
-}
-.pillar-card-number {
+.seal-orange { background: #FCEFE9; color: #C96D45; border-color: #C96D45; box-shadow: 2px 2px 0 #C96D45; }
+.seal-blue { background: #E4EFF1; color: #3B7684; border-color: #3B7684; box-shadow: 2px 2px 0 #3B7684; }
+.seal-green { background: #EBF2EC; color: #477B65; border-color: #477B65; box-shadow: 2px 2px 0 #477B65; }
+.seal-ink { background: #F2EFE9; color: #24312E; border-color: #24312E; box-shadow: 2px 2px 0 #24312E; }
+
+.pillar-stamp-tag {
   font-family: 'Comfortaa', sans-serif;
   font-size: 11px;
   font-weight: 850;
-  color: var(--green);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  border: 1.5px dashed rgba(36,49,46,0.5);
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  transform: rotate(2deg);
+  background: rgba(255,255,255,0.7);
 }
-.pillar-card-tag {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 14px;
-  font-weight: 900;
-  color: var(--ink);
-}
-.pillar-card-stamp {
-  border: 1.5px dashed var(--orange);
-  color: var(--orange);
+.pillar-num-label {
   font-family: 'Comfortaa', sans-serif;
   font-size: 11px;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 4px;
-  transform: rotate(3deg);
-  background: var(--orange-light);
-  white-space: nowrap;
+  font-weight: 850;
+  color: #8C5950;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+  text-transform: uppercase;
 }
-.pillar-card-title {
+.pillar-headline {
   font-family: 'Noto Serif TC', serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
-  color: var(--ink);
+  color: #24312E;
   line-height: 1.35;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
-.pillar-contrast-box {
-  background: #F8F4EC;
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-bottom: 14px;
+.pillar-creed-quote {
+  background: #FAF2D2;
+  border-left: 3px solid #E8C968;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #7A5B10;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.pillar-contrast-strip {
+  background: #F3EEE4;
+  border-radius: 8px;
+  padding: 9px 11px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 12.5px;
-  border-left: 3px solid var(--green);
+  gap: 5px;
+  font-size: 12px;
+  border: 1px dashed rgba(36,49,46,0.18);
 }
-.contrast-row-old {
+.contrast-strip-old {
   color: #8C5950;
   text-decoration: line-through;
   opacity: 0.85;
+  line-height: 1.35;
 }
-.contrast-row-new {
-  color: var(--green);
-  font-weight: 800;
+.contrast-strip-new {
+  color: #477B65;
+  font-weight: 850;
+  line-height: 1.35;
 }
-.pillar-card-desc {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.75;
-  margin: 0 0 16px;
+.pillar-body-text {
+  font-size: 13px;
+  color: #4F5B57;
+  line-height: 1.65;
+  margin: 0 0 14px;
 }
-.pillar-card-footer {
-  border-top: 1px dashed var(--border-dashed);
-  padding-top: 12px;
+.pillar-card-bottom {
+  border-top: 1px dashed rgba(36, 49, 46, 0.2);
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
-  color: var(--ink-soft);
+  font-size: 11.5px;
+  color: #4F5B57;
   font-weight: 700;
 }
-.pillar-card-footer span.highlight-pill {
-  color: var(--green);
-  background: var(--green-light);
-  padding: 2px 8px;
+.pillar-bottom-tag {
+  background: #EBF2EC;
+  color: #477B65;
+  padding: 2px 7px;
   border-radius: 999px;
   font-weight: 800;
+  font-size: 11px;
 }
 
-@media (max-width: 900px) {
-  .pillars-mook-grid {
+@media (max-width: 1080px) {
+  .pillars-pedestal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .qa-diagnostic-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 680px) {
+  .pillars-pedestal-grid {
+    grid-template-columns: 1fr;
+  }
+  .qa-diagnostic-sheet {
+    padding: 26px 18px 20px 36px;
+  }
+  .qa-box-a {
+    grid-template-columns: 1fr;
+  }
+  .qa-polaroid {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+  .qa-polaroid img {
+    height: 160px;
   }
 }
