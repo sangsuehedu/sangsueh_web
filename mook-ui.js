@@ -43,6 +43,104 @@
   }
 
   /**
+   * 0. 旗艦導覽系統 (Universal NavBar & Top Notice Bar)
+   * @param {Object} opts {
+   *   topNotice: { text, linkText, linkHref, show },
+   *   brand: { logo, alt, href },
+   *   navLinks: [ { text, href, className } ],
+   *   summerBtn: { text, href, show },
+   *   bookingBtn: { text, href, show },
+   *   mobileActions: { bookingText, bookingHref, menuText, menuId }
+   * }
+   * @param {string|HTMLElement} container (可選)
+   */
+  MookUI.navbar = function (opts, container) {
+    if (typeof global.getSangSuehNavbarHTML === 'function') {
+      return mountOrReturn(global.getSangSuehNavbarHTML(opts), container);
+    }
+    opts = opts || {};
+    var topNotice = opts.topNotice || {
+      show: true,
+      text: '💡 專注常規勝過考卷刷題・精緻小班專職專任導師・諮詢專線 (07) 364-6570',
+      linkText: '預約到班健檢 →',
+      linkHref: 'https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform'
+    };
+
+    var topNoticeHtml = '';
+    if (topNotice.show !== false) {
+      topNoticeHtml = '<div class="top-mook-bar">' +
+        '<span>' + topNotice.text + '</span>' +
+        (topNotice.linkHref ? '<a href="' + topNotice.linkHref + '" target="_blank" rel="noopener noreferrer">' + topNotice.linkText + '</a>' : '') +
+      '</div>';
+    }
+
+    var brand = opts.brand || {
+      logo: './shangxue-logo-transparent.png?v=20260906_v2',
+      alt: '尚學文教 Logo',
+      href: './index.html'
+    };
+
+    var navLinks = opts.navLinks || [
+      { text: '← 返回課程總覽', href: './courses.html', className: 'nav-courses-link' },
+      { text: '探究式理解', href: '#inquiry' },
+      { text: '常規堅持', href: '#pillars' },
+      { text: '年級分流', href: '#grades' },
+      { text: '一日作息', href: '#routine' },
+      { text: '接送學區', href: '#escort' }
+    ];
+
+    var navItemsHtml = '';
+    navLinks.forEach(function (l) {
+      var cls = l.className ? ' class="' + l.className + '"' : '';
+      navItemsHtml += '<a href="' + l.href + '"' + cls + '>' + l.text + '</a>\n';
+    });
+
+    var summerBtn = opts.summerBtn || {
+      show: true,
+      text: '🍉 2026 成果誌',
+      href: './summer-2026.html'
+    };
+    if (summerBtn.show !== false) {
+      navItemsHtml += '<a class="btn-mook-summer" href="' + summerBtn.href + '">' + summerBtn.text + '</a>\n';
+    }
+
+    var bookingBtn = opts.bookingBtn || {
+      show: true,
+      text: '📝 預約參觀了解',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform'
+    };
+    if (bookingBtn.show !== false) {
+      navItemsHtml += '<a class="btn-mook-booking" href="' + bookingBtn.href + '" target="_blank" rel="noopener noreferrer">' + bookingBtn.text + '</a>\n';
+    }
+
+    var mobileActions = opts.mobileActions || {
+      bookingText: '📝 預約參觀',
+      bookingHref: 'https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform',
+      menuText: '☰ 目錄',
+      menuId: 'mobile-menu-trigger'
+    };
+
+    var headerHtml = '<header class="mook-header">' +
+      '<a class="mook-brand" href="' + brand.href + '" title="尚學文教官方首頁">' +
+        '<img class="mook-brand-logo" src="' + brand.logo + '" alt="' + brand.alt + '"/>' +
+      '</a>' +
+      '<nav class="mook-nav">' +
+        navItemsHtml +
+      '</nav>' +
+      '<div class="mobile-header-actions">' +
+        '<a class="mobile-cta-btn" href="' + mobileActions.bookingHref + '" target="_blank" rel="noopener noreferrer">' +
+          mobileActions.bookingText +
+        '</a>' +
+        '<button class="mobile-menu-btn" type="button" id="' + mobileActions.menuId + '" aria-label="展開導覽目錄">' +
+          mobileActions.menuText +
+        '</button>' +
+      '</div>' +
+    '</header>';
+
+    return mountOrReturn(topNoticeHtml + headerHtml, container);
+  };
+
+  /**
    * 1. 膠囊章標籤 (Badge Pill)
    * @param {Object} opts { icon, text, year, theme }
    */

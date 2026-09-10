@@ -13,10 +13,10 @@
   <meta property="og:description" content="堅持精緻小班專職專任導師，融入探究式概念理解與問題導向思考（PBL），逐字審核作業、雕琢握筆坐姿、啟發批判式思維。分齡引導低年級常規奠基與中高年級自主複習，高雄楠梓雙薪家庭最安心的課後後盾。"/>
   <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/curated_mook/course_pbl_inquiry.jpg"/>
   
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260906_v2"/>
-  <link rel="icon" type="image/png" href="./favicon.png?v=20260906_v2"/>
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260911_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260911_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260911_v2"/>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -215,41 +215,42 @@
 </head>
 <body>
 
-  <!-- 頂部通知條 (承襲 index.html) -->
-  <div class="top-mook-bar">
-    <span>💡 專注常規勝過考卷刷題・精緻小班專職專任導師・諮詢專線 (07) 364-6570</span>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班健檢 →</a>
-  </div>
-
-  <!-- 旗艦導覽列 (承襲 index.html) -->
-  <header class="mook-header">
-    <a class="mook-brand" href="./index.html" title="尚學文教官方首頁">
-      <img class="mook-brand-logo" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教 Logo"/>
-    </a>
-
-    <nav class="mook-nav">
-      <a class="nav-courses-link" href="./courses.html">← 返回課程總覽</a>
-      <a href="#inquiry">探究式理解</a>
-      <a href="#pillars">常規堅持</a>
-      <a href="#grades">年級分流</a>
-      <a href="#routine">一日作息</a>
-      <a href="#escort">接送學區</a>
-      <a class="btn-mook-summer" href="./summer-2026.html">🍉 2026 成果誌</a>
-      <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-        📝 預約參觀了解
-      </a>
-    </nav>
-
-    <!-- 手機版導覽操作 -->
-    <div class="mobile-header-actions">
-      <a class="mobile-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-        📝 預約參觀
-      </a>
-      <button class="mobile-menu-btn" type="button" id="mobile-menu-trigger" aria-label="展開導覽目錄">
-        ☰ 目錄
-      </button>
+  <!-- 全站旗艦導覽列 (由 shared-navbar.js 自動渲染與管理) -->
+  <div id="site-navbar-container">
+    <div class="top-mook-bar">
+      <span>💡 專注常規勝過考卷刷題・精緻小班專職專任導師・諮詢專線 (07) 364-6570</span>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">預約到班健檢 →</a>
     </div>
-  </header>
+
+    <header class="mook-header">
+      <a class="mook-brand" href="./index.html" title="尚學文教官方首頁">
+        <img class="mook-brand-logo" src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教 Logo"/>
+      </a>
+
+      <nav class="mook-nav">
+        <a class="nav-courses-link" href="./courses.html">← 返回課程總覽</a>
+        <a href="#inquiry">探究式理解</a>
+        <a href="#pillars">常規堅持</a>
+        <a href="#grades">年級分流</a>
+        <a href="#routine">一日作息</a>
+        <a href="#escort">接送學區</a>
+        <a class="btn-mook-summer" href="./summer-2026.html">🍉 2026 成果誌</a>
+        <a class="btn-mook-booking" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          📝 預約參觀了解
+        </a>
+      </nav>
+
+      <!-- 手機版導覽操作 -->
+      <div class="mobile-header-actions">
+        <a class="mobile-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+          📝 預約參觀
+        </a>
+        <button class="mobile-menu-btn" type="button" id="mobile-menu-trigger" aria-label="展開導覽目錄">
+          ☰ 目錄
+        </button>
+      </div>
+    </header>
+  </div>
 
   <main>
     <!-- ========================================================
@@ -1333,7 +1334,8 @@
     </div>
   </div>
 
-  <!-- 引入模組化組件與全站共用頁尾 -->
+  <!-- 引入模組化組件與全站共用導覽/頁尾 -->
+  <script src="./shared-navbar.js?v=20260911_v1"></script>
   <script src="./mook-ui.js?v=20260911_v1"></script>
   <script src="./shared-footer.js?v=20260911_v1"></script>
 </body>
