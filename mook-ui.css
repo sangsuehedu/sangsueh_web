@@ -1030,3 +1030,332 @@
     display: block;
   }
 }
+
+/* ========================================================
+   11. 手機版抽屜選單模組 (Mobile Drawer Sheet)
+   ======================================================== */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.mobile-drawer-overlay.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.mobile-drawer {
+  width: 100%;
+  background: #FFFDF8;
+  border-radius: 24px 24px 0 0;
+  height: 52vh;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.mobile-drawer-overlay.active .mobile-drawer {
+  transform: translateY(0) !important;
+}
+.mobile-drawer.expanded {
+  height: 88vh !important;
+}
+.drawer-drag-pill {
+  width: 42px;
+  height: 4.5px;
+  background: #D8D2C5;
+  border-radius: 999px;
+  margin: 10px auto 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.drawer-drag-pill:hover,
+.mobile-drawer.expanded .drawer-drag-pill {
+  background: var(--orange);
+  width: 52px;
+}
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 12px;
+  border-bottom: 1px solid var(--border-ink);
+  background: #FFFDF8;
+  flex-shrink: 0;
+}
+.drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 850;
+  font-size: 16px;
+  color: var(--ink);
+}
+.drawer-close {
+  background: rgba(36, 49, 46, 0.08);
+  border: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.drawer-content {
+  padding: 16px 20px 36px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.drawer-group-title {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--border-dashed);
+}
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+  background: #FFF;
+  border: 1px solid var(--border-ink);
+  transition: all 0.2s;
+  margin-bottom: 6px;
+}
+.drawer-link:hover {
+  background: var(--paper);
+  color: var(--orange);
+}
+.drawer-link .d-num {
+  color: var(--orange);
+  font-weight: 900;
+  font-size: 13px;
+  min-width: 22px;
+}
+.drawer-link.drawer-highlight {
+  background: var(--yellow-light);
+  border-color: var(--yellow);
+  color: var(--ink);
+  font-weight: 850;
+}
+.drawer-link.drawer-reserve-link {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #FFF !important;
+  font-weight: 850;
+}
+.drawer-link.drawer-reserve-link .d-num {
+  color: #FFF;
+}
+
+/* ========================================================
+   12. 一問一答診斷手帳 (Q&A Diagnostic Mook Sheet) - Section 1
+   ======================================================== */
+.qa-badge-q {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #C0392B;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.qa-badge-a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--green);
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.sheet-qa-box-q {
+  border-left: 3px solid #C0392B;
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+.sheet-qa-box-a {
+  border-left: 3px solid var(--green);
+  padding-left: 12px;
+}
+
+/* ========================================================
+   13. 四大常規立體基石卡 (Four Pillars Distinct Cards) - Section 2
+   全新視覺架構：區隔活頁紙，採用立體厚卡紙與徽章印章
+   ======================================================== */
+.pillars-section-mook {
+  padding: 85px 6vw;
+  background: #EFE8DC; /* 溫潤古樸大地暖灰米色，與白色活頁紙強烈區隔 */
+  border-bottom: 2px dashed var(--border-dashed);
+}
+.pillars-mook-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+.pillar-mook-card {
+  background: #FFFDF8;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: 30px 28px 24px;
+  box-shadow: 6px 7px 0 var(--ink);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+.pillar-mook-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 10px 0 var(--ink);
+}
+.pillar-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.pillar-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pillar-icon-circle {
+  width: 50px;
+  height: 50px;
+  background: var(--green-light);
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  box-shadow: 2px 2px 0 var(--green);
+  flex-shrink: 0;
+}
+.pillar-card-meta {
+  display: flex;
+  flex-direction: column;
+}
+.pillar-card-number {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 11px;
+  font-weight: 850;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pillar-card-tag {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--ink);
+}
+.pillar-card-stamp {
+  border: 1.5px dashed var(--orange);
+  color: var(--orange);
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transform: rotate(3deg);
+  background: var(--orange-light);
+  white-space: nowrap;
+}
+.pillar-card-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.35;
+  margin: 0 0 14px;
+}
+.pillar-contrast-box {
+  background: #F8F4EC;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  border-left: 3px solid var(--green);
+}
+.contrast-row-old {
+  color: #8C5950;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+.contrast-row-new {
+  color: var(--green);
+  font-weight: 800;
+}
+.pillar-card-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin: 0 0 16px;
+}
+.pillar-card-footer {
+  border-top: 1px dashed var(--border-dashed);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.pillar-card-footer span.highlight-pill {
+  color: var(--green);
+  background: var(--green-light);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .pillars-mook-grid {
+    grid-template-columns: 1fr;
+  }
+}

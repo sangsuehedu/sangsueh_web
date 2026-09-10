@@ -350,6 +350,71 @@
   };
 
   /**
+   * 4b. 四大常規立體基石卡 (Four Pillars Distinct Cards)
+   * 專為辦學基石打造，與活頁紙便箋形成截然不同之立體厚卡視覺
+   * @param {Object} opts {
+   *   header: { badgeText, badgeYear, title, subtitle },
+   *   pillars: [
+   *     {
+   *       icon: string,
+   *       number: string,
+   *       tag: string,
+   *       stamp: string,
+   *       title: string,
+   *       contrast: { oldWay: string, newWay: string },
+   *       desc: string,
+   *       footerTag: string
+   *     }
+   *   ]
+   * }
+   * @param {string|HTMLElement} container
+   */
+  MookUI.pillars = function (opts, container) {
+    opts = opts || {};
+    var headerHtml = opts.header ? MookUI.sectionHeader(opts.header) : '';
+
+    var gridHtml = '<div class="pillars-mook-grid">';
+    (opts.pillars || []).forEach(function (p) {
+      gridHtml += '<div class="pillar-mook-card">' +
+        '<div>' +
+          '<div class="pillar-card-top">' +
+            '<div class="pillar-card-badge">' +
+              '<div class="pillar-icon-circle">' + (p.icon || '🌱') + '</div>' +
+              '<div class="pillar-card-meta">' +
+                '<span class="pillar-card-number">' + (p.number || 'PILLAR') + '</span>' +
+                '<span class="pillar-card-tag">' + (p.tag || '') + '</span>' +
+              '</div>' +
+            '</div>' +
+            (p.stamp ? '<div class="pillar-card-stamp">' + p.stamp + '</div>' : '') +
+          '</div>' +
+          '<h3 class="pillar-card-title">' + p.title + '</h3>' +
+          (p.contrast ? (
+            '<div class="pillar-contrast-box">' +
+              '<div class="contrast-row-old">✕ 傳統做法：' + p.contrast.oldWay + '</div>' +
+              '<div class="contrast-row-new">✓ 尚學堅持：' + p.contrast.newWay + '</div>' +
+            '</div>'
+          ) : '') +
+          '<p class="pillar-card-desc">' + p.desc + '</p>' +
+        '</div>' +
+        '<div class="pillar-card-footer">' +
+          '<span>尚學辦學核心堅持</span>' +
+          (p.footerTag ? '<span class="highlight-pill">' + p.footerTag + '</span>' : '') +
+        '</div>' +
+      '</div>';
+    });
+    gridHtml += '</div>';
+
+    var html = '<section class="pillars-section-mook" id="pillars">' +
+      '<div style="max-width:1240px; margin:0 auto;">' +
+        headerHtml +
+        gridHtml +
+      '</div>' +
+    '</section>';
+
+    return mountOrReturn(html, container);
+  };
+
+  /**
    * 5. 流程圖作息時間軸 (Flowchart Timeline)
    * @param {Object} opts {
    *   header: { badgeText, badgeYear, title, subtitle },
@@ -780,80 +845,85 @@
   };
 
   MookUI.initDrawer = function () {
-    var menuTrigger = document.getElementById('mobile-menu-trigger');
-    var drawerOverlay = document.getElementById('drawer-overlay');
-    var drawer = document.getElementById('mobile-drawer');
-    var drawerCloseBtn = document.getElementById('drawer-close-btn');
-    var dragPill = document.getElementById('drawer-drag-pill');
-    var drawerContent = drawer ? drawer.querySelector('.drawer-content') : null;
+    function getOverlay() { return document.getElementById('drawer-overlay'); }
+    function getDrawer() { return document.getElementById('mobile-drawer'); }
 
     function openDrawer(e) {
-      if (e) e.preventDefault();
+      if (e && e.preventDefault) e.preventDefault();
+      var drawer = getDrawer();
+      var overlay = getOverlay();
       if (drawer) drawer.classList.remove('expanded');
-      if (drawerOverlay) {
-        drawerOverlay.classList.add('active');
-        drawerOverlay.setAttribute('aria-hidden', 'false');
+      if (overlay) {
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
       }
       document.body.style.overflow = 'hidden';
     }
 
     function closeDrawer(e) {
-      if (e) e.preventDefault();
-      if (drawerOverlay) {
-        drawerOverlay.classList.remove('active');
-        drawerOverlay.setAttribute('aria-hidden', 'true');
+      if (e && e.preventDefault) e.preventDefault();
+      var drawer = getDrawer();
+      var overlay = getOverlay();
+      if (overlay) {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
       }
       if (drawer) drawer.classList.remove('expanded');
       document.body.style.overflow = '';
     }
 
     function expandDrawer() {
+      var drawer = getDrawer();
       if (drawer && !drawer.classList.contains('expanded')) {
         drawer.classList.add('expanded');
       }
     }
 
-    if (menuTrigger) menuTrigger.addEventListener('click', openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
-    if (drawerOverlay) {
-      drawerOverlay.addEventListener('click', function (e) {
-        if (e.target === drawerOverlay) closeDrawer(e);
-      });
-    }
-
-    if (dragPill) {
-      dragPill.addEventListener('click', function () {
+    // 點擊事件委派 (保證無論何時渲染 Navbar 都能 100% 響應點擊)
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('#mobile-menu-trigger, .mobile-menu-btn');
+      if (trigger) {
+        openDrawer(e);
+        return;
+      }
+      var closeBtn = e.target.closest('#drawer-close-btn, .drawer-close');
+      if (closeBtn) {
+        closeDrawer(e);
+        return;
+      }
+      var dragPill = e.target.closest('#drawer-drag-pill, .drawer-drag-pill');
+      if (dragPill) {
+        var drawer = getDrawer();
         if (drawer) drawer.classList.toggle('expanded');
-      });
-    }
-
-    if (drawer) {
-      var touchStartY = 0;
-      drawer.addEventListener('touchstart', function (e) {
-        touchStartY = e.touches[0].clientY;
-      }, { passive: true });
-
-      drawer.addEventListener('touchmove', function (e) {
-        var touchY = e.touches[0].clientY;
-        if (touchStartY - touchY > 25) {
-          expandDrawer();
-        }
-      }, { passive: true });
-    }
-
-    if (drawerContent) {
-      drawerContent.addEventListener('scroll', function () {
-        if (drawerContent.scrollTop > 10) {
-          expandDrawer();
-        }
-      }, { passive: true });
-    }
-
-    document.querySelectorAll('.drawer-link').forEach(function (link) {
-      link.addEventListener('click', function () {
+        return;
+      }
+      var overlay = getOverlay();
+      if (e.target === overlay) {
+        closeDrawer(e);
+        return;
+      }
+      var link = e.target.closest('.drawer-link');
+      if (link) {
         closeDrawer();
-      });
+        return;
+      }
     });
+
+    // 觸控滑動：在抽屜向上滑動時展開
+    document.addEventListener('touchstart', function (e) {
+      var drawer = getDrawer();
+      if (!drawer || !drawer.contains(e.target)) return;
+      drawer._touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function (e) {
+      var drawer = getDrawer();
+      if (!drawer || !drawer.contains(e.target) || typeof drawer._touchStartY !== 'number') return;
+      var touchY = e.touches[0].clientY;
+      if (drawer._touchStartY - touchY > 25) {
+        expandDrawer();
+      }
+    }, { passive: true });
   };
 
   MookUI.initLightbox = function () {
