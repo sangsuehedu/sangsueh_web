@@ -224,7 +224,7 @@
    * 根據配置產生完整導覽列 HTML
    */
   function generateNavbarHTML(opts) {
-    opts = opts || {};
+    opts = opts || (typeof window !== 'undefined' && window.sangSuehNavbarOptions) || {};
 
     // 頂部通知條
     const topNotice = opts.topNotice || {
