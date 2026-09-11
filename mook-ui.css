@@ -1219,181 +1219,175 @@
 /* ========================================================
 /* ========================================================
    12. 學力護城河・一問一答痛點診斷手帳 (Q&A Diagnostic Sheets) - Section 1
+   清新輕量：透氣日系手帳、柔和白底細邊框、呼吸感留白
    ======================================================== */
 .qa-diagnostic-grid {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px 28px;
+  gap: 28px 24px;
 }
 .qa-diagnostic-sheet {
-  background: #FFFDF8;
-  border: 1.5px solid #DCD4C7;
-  border-radius: 18px;
-  padding: 30px 24px 24px 44px;
-  box-shadow: 4px 7px 0 rgba(36, 49, 46, 0.08);
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 49, 46, 0.11);
+  border-radius: 14px;
+  padding: 26px 20px 20px 42px;
+  box-shadow: 0 4px 16px rgba(36, 49, 46, 0.04);
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-sizing: border-box;
 }
 .qa-diagnostic-sheet:hover {
-  transform: translateY(-4px);
-  box-shadow: 6px 11px 0 rgba(36, 49, 46, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(36, 49, 46, 0.08);
 }
 .qa-diagnostic-sheet .binder-holes {
   position: absolute;
-  top: 24px;
-  bottom: 24px;
+  top: 22px;
+  bottom: 22px;
   left: 14px;
-  width: 16px;
+  width: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   pointer-events: none;
 }
 .qa-diagnostic-sheet .binder-hole {
-  width: 12px;
-  height: 12px;
-  background: #EFE8DC;
-  border: 1.5px solid #C4BCAD;
+  width: 9px;
+  height: 9px;
+  background: #F4EFE6;
+  border: 1px solid #D6CEBE;
   border-radius: 50%;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.18);
 }
 .qa-diagnostic-sheet .sheet-tape {
   position: absolute;
-  top: -11px;
-  left: 55px;
-  width: 75px;
-  height: 22px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  top: -10px;
+  left: 50px;
+  width: 65px;
+  height: 18px;
+  opacity: 0.85;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   z-index: 5;
 }
-.qa-box-q {
-  background: #FFF5F2;
-  border: 1.5px solid #F0C4BC;
-  border-radius: 12px;
-  padding: 16px 18px;
+
+.sheet-q-section {
   position: relative;
 }
-.badge-q-pill {
+.sheet-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.badge-q-subtle {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: #C0392B;
-  color: #FFF;
+  background: #FDF2F0;
+  color: #C0392B;
   font-family: 'Comfortaa', sans-serif;
-  font-size: 11.5px;
-  font-weight: 900;
-  padding: 2.5px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
   border-radius: 4px;
-  margin-bottom: 8px;
   letter-spacing: 0.04em;
+}
+.sheet-case-tag {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #8C5950;
+  letter-spacing: 0.06em;
 }
 .qa-q-title {
   font-family: 'Noto Serif TC', serif;
-  font-size: 17.5px;
-  font-weight: 900;
-  color: #8C2D19;
-  line-height: 1.4;
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #24312E;
+  line-height: 1.45;
   margin: 0 0 6px;
 }
 .qa-q-desc {
-  font-size: 13px;
-  color: #636D69;
+  font-size: 12.8px;
+  color: #626F6A;
   line-height: 1.65;
   margin: 0;
 }
-.qa-transition-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: 'Noto Serif TC', serif;
-  font-size: 12.5px;
-  font-weight: 800;
-  color: #477B65;
-  margin: -4px 0;
+
+.sheet-light-divider {
+  border: none;
+  border-top: 1px dashed rgba(36, 49, 46, 0.12);
+  margin: 2px 0;
 }
-.qa-transition-bar::before,
-.qa-transition-bar::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  border-top: 1px dashed rgba(71, 123, 101, 0.4);
-}
-.qa-box-a {
-  background: #F3F8F5;
-  border: 1.5px solid #C4DED1;
-  border-radius: 12px;
-  padding: 16px 18px;
+
+.sheet-a-section {
   display: grid;
-  grid-template-columns: 1fr 130px;
-  gap: 16px;
+  grid-template-columns: 1fr 125px;
+  gap: 14px;
   align-items: center;
 }
-.badge-a-pill {
+.badge-a-subtle {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: #477B65;
-  color: #FFF;
+  gap: 4px;
+  background: #EAF4EE;
+  color: #356852;
   font-family: 'Comfortaa', sans-serif;
-  font-size: 11.5px;
-  font-weight: 900;
-  padding: 2.5px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
   border-radius: 4px;
-  margin-bottom: 8px;
-  letter-spacing: 0.04em;
+  margin-bottom: 5px;
+  letter-spacing: 0.03em;
 }
 .qa-a-method {
   font-family: 'Noto Serif TC', serif;
-  font-size: 14.5px;
-  font-weight: 850;
+  font-size: 14px;
+  font-weight: 800;
   color: #2D5846;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .qa-a-desc {
-  font-size: 13px;
-  color: #24312E;
+  font-size: 12.6px;
+  color: #465450;
   line-height: 1.65;
   margin: 0;
-  font-weight: 500;
 }
 .qa-polaroid {
-  width: 130px;
-  height: 150px;
+  width: 125px;
+  height: 140px;
   margin: 0 auto;
-  transform: rotate(2deg);
+  transform: rotate(1.5deg);
   position: relative;
 }
 
 /* ========================================================
-   13. 四大常規堅持・立體教育基石牌 (The Four Architectural Pillars) - Section 2
-   全新視覺架構：古樸大地灰米色、四柱並立、厚磅復古卡紙、核心承諾亮點
+   13. 四大常規堅持・日系雜誌專欄 (The Four Architectural Pillars) - Section 2
+   全新視覺：淡雅和紙底色、白底超輕卡片、精緻無厚重黑影
    ======================================================== */
 .pillars-section-mook {
-  padding: 90px 6vw;
-  background: #E5DDD0 !important;
-  border-top: 3px double #24312E;
-  border-bottom: 3px double #24312E;
+  padding: 85px 6vw;
+  background: #F9F7F2 !important;
+  border-top: 1px dashed rgba(36, 49, 46, 0.16);
+  border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
 }
 .pillars-pedestal-grid {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 20px;
 }
 .pillar-monument-card {
-  background: #FFFDF8;
-  border: 2px solid #24312E;
-  border-radius: 16px;
-  padding: 26px 20px 22px;
-  box-shadow: 6px 7px 0 #24312E;
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 49, 46, 0.11);
+  border-radius: 14px;
+  padding: 22px 18px 18px;
+  box-shadow: 0 4px 14px rgba(36, 49, 46, 0.04);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1402,122 +1396,107 @@
   box-sizing: border-box;
 }
 .pillar-monument-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 10px 0 #24312E;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(36, 49, 46, 0.08);
 }
-.pillar-monument-top {
+
+.pillar-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
-.pillar-circle-seal {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  border: 2px solid #24312E;
-  box-shadow: 2px 2px 0 #24312E;
-  flex-shrink: 0;
+.pillar-num-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #477B65;
+  letter-spacing: 0.04em;
 }
-.seal-orange { background: #FCEFE9; color: #C96D45; border-color: #C96D45; box-shadow: 2px 2px 0 #C96D45; }
-.seal-blue { background: #E4EFF1; color: #3B7684; border-color: #3B7684; box-shadow: 2px 2px 0 #3B7684; }
-.seal-green { background: #EBF2EC; color: #477B65; border-color: #477B65; box-shadow: 2px 2px 0 #477B65; }
-.seal-ink { background: #F2EFE9; color: #24312E; border-color: #24312E; box-shadow: 2px 2px 0 #24312E; }
+.pillar-num-badge .p-icon {
+  font-size: 17px;
+}
+.pillar-category-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #697773;
+  background: #F3EFE7;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
 
-.pillar-stamp-tag {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 11px;
-  font-weight: 850;
-  border: 1.5px dashed rgba(36,49,46,0.5);
-  padding: 3px 7px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  transform: rotate(2deg);
-  background: rgba(255,255,255,0.7);
-}
-.pillar-num-label {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 11px;
-  font-weight: 850;
-  color: #8C5950;
-  letter-spacing: 0.08em;
-  margin-bottom: 3px;
-  text-transform: uppercase;
-}
 .pillar-headline {
   font-family: 'Noto Serif TC', serif;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 16.5px;
+  font-weight: 800;
   color: #24312E;
-  line-height: 1.35;
-  margin: 0 0 12px;
+  line-height: 1.4;
+  margin: 0 0 10px;
 }
-.pillar-creed-quote {
-  background: #FAF2D2;
-  border-left: 3px solid #E8C968;
-  border-radius: 6px;
-  padding: 7px 10px;
+.pillar-light-creed {
+  border-left: 2.5px solid #477B65;
+  padding: 3px 0 3px 9px;
   font-family: 'Noto Serif TC', serif;
   font-size: 12px;
-  font-weight: 800;
-  color: #7A5B10;
+  font-weight: 750;
+  color: #2D5B49;
   margin-bottom: 12px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
-.pillar-contrast-strip {
-  background: #F3EEE4;
-  border-radius: 8px;
-  padding: 9px 11px;
+.pillar-light-contrast {
+  padding: 8px 0;
+  border-top: 1px dashed rgba(36, 49, 46, 0.11);
+  border-bottom: 1px dashed rgba(36, 49, 46, 0.11);
   margin-bottom: 12px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  font-size: 12px;
-  border: 1px dashed rgba(36,49,46,0.18);
+  gap: 4px;
+  font-size: 11.5px;
 }
-.contrast-strip-old {
-  color: #8C5950;
+.contrast-line-old {
+  color: #966C63;
   text-decoration: line-through;
   opacity: 0.85;
   line-height: 1.35;
 }
-.contrast-strip-new {
-  color: #477B65;
-  font-weight: 850;
+.contrast-line-new {
+  color: #356E56;
+  font-weight: 750;
   line-height: 1.35;
 }
 .pillar-body-text {
-  font-size: 13px;
-  color: #4F5B57;
-  line-height: 1.65;
-  margin: 0 0 14px;
+  font-size: 12.8px;
+  color: #55625E;
+  line-height: 1.68;
+  margin: 0 0 12px;
 }
 .pillar-card-bottom {
-  border-top: 1px dashed rgba(36, 49, 46, 0.2);
+  border-top: 1px solid rgba(36, 49, 46, 0.08);
   padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 11.5px;
-  color: #4F5B57;
-  font-weight: 700;
+  font-size: 11px;
+  color: #72807C;
+  font-weight: 600;
 }
 .pillar-bottom-tag {
-  background: #EBF2EC;
-  color: #477B65;
-  padding: 2px 7px;
+  background: #EBF3EE;
+  color: #386F5B;
+  padding: 2px 8px;
   border-radius: 999px;
-  font-weight: 800;
-  font-size: 11px;
+  font-weight: 700;
+  font-size: 10.5px;
 }
 
 @media (max-width: 1080px) {
   .pillars-pedestal-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
   .qa-diagnostic-grid {
     grid-template-columns: 1fr;
@@ -1528,17 +1507,17 @@
     grid-template-columns: 1fr;
   }
   .qa-diagnostic-sheet {
-    padding: 26px 18px 20px 36px;
+    padding: 24px 16px 18px 36px;
   }
-  .qa-box-a {
+  .sheet-a-section {
     grid-template-columns: 1fr;
   }
   .qa-polaroid {
     width: 100%;
-    max-width: 220px;
+    max-width: 200px;
     height: auto;
   }
   .qa-polaroid img {
-    height: 160px;
+    height: 150px;
   }
 }

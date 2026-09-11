@@ -25,7 +25,7 @@
 
   <!-- Core Styles -->
   <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
-  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v11"/>
 
   <!-- Page-specific fine-tuning -->
   <style>
@@ -214,193 +214,184 @@
 
     /* ========================================================
        【學力護城河・一問一答痛點診斷手帳】專屬樣式 (Section 1)
+       清新輕量：透氣日系手帳、柔和白底細邊框、呼吸感留白
        ======================================================== */
     .pain-section-mook {
       padding: 85px 6vw;
-      background: #FBF7EE; /* 溫暖日本和紙米色 */
-      border-bottom: 2px dashed rgba(36, 49, 46, 0.28);
+      background: #FAF8F4; /* 溫和日本和紙米白，透氣輕盈 */
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
     }
     .qa-diagnostic-grid {
       max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px 28px;
+      gap: 28px 24px;
     }
     .qa-diagnostic-sheet {
-      background: #FFFDF8;
-      border: 1.5px solid #DCD4C7;
-      border-radius: 18px;
-      padding: 30px 24px 24px 44px; /* 留出左側打孔空間 */
-      box-shadow: 4px 7px 0 rgba(36, 49, 46, 0.08);
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.11);
+      border-radius: 14px;
+      padding: 26px 20px 20px 42px; /* 留出左側打孔空間 */
+      box-shadow: 0 4px 16px rgba(36, 49, 46, 0.04);
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      justify-content: space-between;
+      gap: 12px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       box-sizing: border-box;
     }
     .qa-diagnostic-sheet:hover {
-      transform: translateY(-4px);
-      box-shadow: 6px 11px 0 rgba(36, 49, 46, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(36, 49, 46, 0.08);
     }
-    /* 活頁紙打孔與膠帶 */
+    /* 活頁紙打孔與膠帶 (輕巧化) */
     .qa-diagnostic-sheet .binder-holes {
       position: absolute;
-      top: 24px;
-      bottom: 24px;
+      top: 22px;
+      bottom: 22px;
       left: 14px;
-      width: 16px;
+      width: 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       pointer-events: none;
     }
     .qa-diagnostic-sheet .binder-hole {
-      width: 12px;
-      height: 12px;
-      background: #EFE8DC;
-      border: 1.5px solid #C4BCAD;
+      width: 9px;
+      height: 9px;
+      background: #F4EFE6;
+      border: 1px solid #D6CEBE;
       border-radius: 50%;
-      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.18);
     }
     .qa-diagnostic-sheet .sheet-tape {
       position: absolute;
-      top: -11px;
-      left: 55px;
-      width: 75px;
-      height: 22px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      top: -10px;
+      left: 50px;
+      width: 65px;
+      height: 18px;
+      opacity: 0.85;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       z-index: 5;
     }
 
-    /* Q 痛點盲點診斷盒 (上方暖粉紅警示色) */
-    .qa-box-q {
-      background: #FFF5F2;
-      border: 1.5px solid #F0C4BC;
-      border-radius: 12px;
-      padding: 16px 18px;
+    /* Q 痛點盲點診斷 (輕量化無厚重內框，優雅排版) */
+    .sheet-q-section {
       position: relative;
     }
-    .badge-q-pill {
+    .sheet-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .badge-q-subtle {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: #C0392B;
-      color: #FFF;
+      background: #FDF2F0;
+      color: #C0392B;
       font-family: 'Comfortaa', sans-serif;
-      font-size: 11.5px;
-      font-weight: 900;
-      padding: 2.5px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
       border-radius: 4px;
-      margin-bottom: 8px;
       letter-spacing: 0.04em;
+    }
+    .sheet-case-tag {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: #8C5950;
+      letter-spacing: 0.06em;
     }
     .qa-q-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 17.5px;
-      font-weight: 900;
-      color: #8C2D19;
-      line-height: 1.4;
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #24312E;
+      line-height: 1.45;
       margin: 0 0 6px;
     }
     .qa-q-desc {
-      font-size: 13px;
-      color: #636D69;
+      font-size: 12.8px;
+      color: #626F6A;
       line-height: 1.65;
       margin: 0;
     }
 
-    /* 思維轉向指示條 */
-    .qa-transition-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 12.5px;
-      font-weight: 800;
-      color: #477B65;
-      margin: -4px 0;
-    }
-    .qa-transition-bar::before,
-    .qa-transition-bar::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      border-top: 1px dashed rgba(71, 123, 101, 0.4);
+    /* 輕盈分隔線 */
+    .sheet-light-divider {
+      border: none;
+      border-top: 1px dashed rgba(36, 49, 46, 0.12);
+      margin: 2px 0;
     }
 
-    /* A 尚學 PBL 解方盒 (下方森林綠/青竹色) */
-    .qa-box-a {
-      background: #F3F8F5;
-      border: 1.5px solid #C4DED1;
-      border-radius: 12px;
-      padding: 16px 18px;
+    /* A 尚學 PBL 解方區 (輕柔白底網格，精緻拍立得) */
+    .sheet-a-section {
       display: grid;
-      grid-template-columns: 1fr 130px;
-      gap: 16px;
+      grid-template-columns: 1fr 125px;
+      gap: 14px;
       align-items: center;
     }
-    .badge-a-pill {
+    .badge-a-subtle {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: #477B65;
-      color: #FFF;
+      gap: 4px;
+      background: #EAF4EE;
+      color: #356852;
       font-family: 'Comfortaa', sans-serif;
-      font-size: 11.5px;
-      font-weight: 900;
-      padding: 2.5px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
       border-radius: 4px;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
+      margin-bottom: 5px;
+      letter-spacing: 0.03em;
     }
     .qa-a-method {
       font-family: 'Noto Serif TC', serif;
-      font-size: 14.5px;
-      font-weight: 850;
+      font-size: 14px;
+      font-weight: 800;
       color: #2D5846;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .qa-a-desc {
-      font-size: 13px;
-      color: #24312E;
+      font-size: 12.6px;
+      color: #465450;
       line-height: 1.65;
       margin: 0;
-      font-weight: 500;
     }
     .qa-polaroid {
-      width: 130px;
-      height: 150px;
+      width: 125px;
+      height: 140px;
       margin: 0 auto;
-      transform: rotate(2deg);
+      transform: rotate(1.5deg);
       position: relative;
     }
 
     /* ========================================================
-       【四大常規堅持・立體教育基石牌】專屬樣式 (Section 2)
-       全新視覺：厚磅復古卡紙、四柱並立、古樸大地色、對比條
+       【四大常規堅持・日系雜誌專欄】專屬樣式 (Section 2)
+       全新視覺：淡雅和紙底色、白底超輕卡片、精緻無厚重黑影
        ======================================================== */
     .pillars-section-mook {
-      padding: 90px 6vw;
-      background: #E5DDD0 !important; /* 古樸大地灰米色，與前後活頁紙形成鮮明對比 */
-      border-top: 3px double #24312E;
-      border-bottom: 3px double #24312E;
+      padding: 85px 6vw;
+      background: #F9F7F2 !important; /* 清新柔和暖米和紙色，告別泥土深灰 */
+      border-top: 1px dashed rgba(36, 49, 46, 0.16);
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
     }
     .pillars-pedestal-grid {
       max-width: 1240px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 四根立柱並立 */
-      gap: 22px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
     .pillar-monument-card {
-      background: #FFFDF8;
-      border: 2px solid #24312E;
-      border-radius: 16px;
-      padding: 26px 20px 22px;
-      box-shadow: 6px 7px 0 #24312E;
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.11);
+      border-radius: 14px;
+      padding: 22px 18px 18px;
+      box-shadow: 0 4px 14px rgba(36, 49, 46, 0.04);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -409,125 +400,111 @@
       box-sizing: border-box;
     }
     .pillar-monument-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 9px 10px 0 #24312E;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(36, 49, 46, 0.08);
     }
-    .pillar-monument-top {
+    
+    /* 頂部輕量化標籤列 */
+    .pillar-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
-    .pillar-circle-seal {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      border: 2px solid #24312E;
-      box-shadow: 2px 2px 0 #24312E;
-      flex-shrink: 0;
+    .pillar-num-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: #477B65;
+      letter-spacing: 0.04em;
     }
-    .seal-orange { background: #FCEFE9; color: #C96D45; border-color: #C96D45; box-shadow: 2px 2px 0 #C96D45; }
-    .seal-blue { background: #E4EFF1; color: #3B7684; border-color: #3B7684; box-shadow: 2px 2px 0 #3B7684; }
-    .seal-green { background: #EBF2EC; color: #477B65; border-color: #477B65; box-shadow: 2px 2px 0 #477B65; }
-    .seal-ink { background: #F2EFE9; color: #24312E; border-color: #24312E; box-shadow: 2px 2px 0 #24312E; }
+    .pillar-num-badge .p-icon {
+      font-size: 17px;
+    }
+    .pillar-category-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: #697773;
+      background: #F3EFE7;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
 
-    .pillar-stamp-tag {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 11px;
-      font-weight: 850;
-      border: 1.5px dashed rgba(36,49,46,0.5);
-      padding: 3px 7px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-      transform: rotate(2deg);
-      background: rgba(255,255,255,0.7);
-    }
-    .pillar-num-label {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 11px;
-      font-weight: 850;
-      color: #8C5950;
-      letter-spacing: 0.08em;
-      margin-bottom: 3px;
-      text-transform: uppercase;
-    }
     .pillar-headline {
       font-family: 'Noto Serif TC', serif;
-      font-size: 18px;
-      font-weight: 900;
+      font-size: 16.5px;
+      font-weight: 800;
       color: #24312E;
-      line-height: 1.35;
-      margin: 0 0 12px;
+      line-height: 1.4;
+      margin: 0 0 10px;
     }
-    /* 核心承諾金色亮點框 */
-    .pillar-creed-quote {
-      background: #FAF2D2;
-      border-left: 3px solid #E8C968;
-      border-radius: 6px;
-      padding: 7px 10px;
+    /* 核心承諾輕雅亮點引用 (取代粗重黃框) */
+    .pillar-light-creed {
+      border-left: 2.5px solid #477B65;
+      padding: 3px 0 3px 9px;
       font-family: 'Noto Serif TC', serif;
       font-size: 12px;
-      font-weight: 800;
-      color: #7A5B10;
+      font-weight: 750;
+      color: #2D5B49;
       margin-bottom: 12px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
-    /* 新舊對照條 */
-    .pillar-contrast-strip {
-      background: #F3EEE4;
-      border-radius: 8px;
-      padding: 9px 11px;
+    /* 輕量新舊對照 (取代粗重灰色大框) */
+    .pillar-light-contrast {
+      padding: 8px 0;
+      border-top: 1px dashed rgba(36, 49, 46, 0.11);
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.11);
       margin-bottom: 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      font-size: 12px;
-      border: 1px dashed rgba(36,49,46,0.18);
+      gap: 4px;
+      font-size: 11.5px;
     }
-    .contrast-strip-old {
-      color: #8C5950;
+    .contrast-line-old {
+      color: #966C63;
       text-decoration: line-through;
       opacity: 0.85;
       line-height: 1.35;
     }
-    .contrast-strip-new {
-      color: #477B65;
-      font-weight: 850;
+    .contrast-line-new {
+      color: #356E56;
+      font-weight: 750;
       line-height: 1.35;
     }
     .pillar-body-text {
-      font-size: 13px;
-      color: #4F5B57;
-      line-height: 1.65;
-      margin: 0 0 14px;
+      font-size: 12.8px;
+      color: #55625E;
+      line-height: 1.68;
+      margin: 0 0 12px;
     }
     .pillar-card-bottom {
-      border-top: 1px dashed rgba(36, 49, 46, 0.2);
+      border-top: 1px solid rgba(36, 49, 46, 0.08);
       padding-top: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 11.5px;
-      color: #4F5B57;
-      font-weight: 700;
+      font-size: 11px;
+      color: #72807C;
+      font-weight: 600;
     }
     .pillar-bottom-tag {
-      background: #EBF2EC;
-      color: #477B65;
-      padding: 2px 7px;
+      background: #EBF3EE;
+      color: #386F5B;
+      padding: 2px 8px;
       border-radius: 999px;
-      font-weight: 800;
-      font-size: 11px;
+      font-weight: 700;
+      font-size: 10.5px;
     }
 
     /* 響應式斷點調整 */
     @media (max-width: 1080px) {
       .pillars-pedestal-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        gap: 20px;
       }
       .qa-diagnostic-grid {
         grid-template-columns: 1fr;
@@ -538,18 +515,18 @@
         grid-template-columns: 1fr;
       }
       .qa-diagnostic-sheet {
-        padding: 26px 18px 20px 36px;
+        padding: 24px 16px 18px 36px;
       }
-      .qa-box-a {
+      .sheet-a-section {
         grid-template-columns: 1fr;
       }
       .qa-polaroid {
         width: 100%;
-        max-width: 220px;
+        max-width: 200px;
         height: auto;
       }
       .qa-polaroid img {
-        height: 160px;
+        height: 150px;
       }
     }
 
@@ -773,7 +750,7 @@
     <section class="pain-section-mook" id="inquiry">
       <div style="max-width:1240px; margin:0 auto;">
         <div class="mook-section-header">
-          <div class="mook-badge" style="background:#8C2D19; box-shadow:3px 3px 0 var(--yellow);">
+          <div class="mook-badge" style="background:#8C2D19; box-shadow:0 2px 8px rgba(140,45,25,0.25);">
             <span>INQUIRY & PBL</span>
             <span class="year">• 學力思維診斷</span>
           </div>
@@ -794,25 +771,25 @@
             </div>
             <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-2deg);"></div>
             
-            <!-- 上方 Q 痛點診斷盒 -->
-            <div class="qa-box-q">
-              <div class="badge-q-pill">Q 痛點盲點</div>
+            <!-- 上方 Q 痛點診斷 -->
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">Q 盲點診斷</span>
+                <span class="sheet-case-tag">CASE 01</span>
+              </div>
               <h3 class="qa-q-title">01. 應用題讀不懂？死背公式無法因應情境變化</h3>
               <p class="qa-q-desc">
                 面對長篇情境素養題，孩子往往抓不到題旨關鍵，公式亂套一通，容易對應用題心生退縮恐懼。
               </p>
             </div>
 
-            <!-- 中間思維轉向指示條 -->
-            <div class="qa-transition-bar">
-              <span>↳ 尚學 PBL 探究解方</span>
-            </div>
+            <div class="sheet-light-divider"></div>
 
             <!-- 下方 A 解方與實境照片並排 -->
-            <div class="qa-box-a">
+            <div class="sheet-a-section">
               <div>
-                <div class="badge-a-pill">A 尚學 PBL 解方</div>
-                <div class="qa-a-method">✦ 情境題眼拆解法</div>
+                <div class="badge-a-subtle">✦ 尚學 PBL 解方</div>
+                <div class="qa-a-method">情境題眼拆解法</div>
                 <p class="qa-a-desc">
                   導師引導孩子從生活情境出發，學會「劃線抓題眼、拆解已知與未知」，把複雜的題目拆成清晰步驟，不再對應用題心生恐懼。
                 </p>
@@ -835,25 +812,25 @@
             </div>
             <div class="washi-tape washi-tape-green sheet-tape" style="transform:rotate(2deg);"></div>
             
-            <!-- 上方 Q 痛點診斷盒 -->
-            <div class="qa-box-q">
-              <div class="badge-q-pill">Q 痛點盲點</div>
+            <!-- 上方 Q 痛點診斷 -->
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">Q 盲點診斷</span>
+                <span class="sheet-case-tag">CASE 02</span>
+              </div>
               <h3 class="qa-q-title">02. 遇到卡關就發呆？過度依賴解答餵養解法</h3>
               <p class="qa-q-desc">
                 當遇到不會的題目，許多傳統教學直接給答案或強塞解題步驟，剝奪了孩子自我推導思考的寶貴迴路。
               </p>
             </div>
 
-            <!-- 中間思維轉向指示條 -->
-            <div class="qa-transition-bar">
-              <span>↳ 尚學 PBL 探究解方</span>
-            </div>
+            <div class="sheet-light-divider"></div>
 
             <!-- 下方 A 解方與實境照片並排 -->
-            <div class="qa-box-a">
+            <div class="sheet-a-section">
               <div>
-                <div class="badge-a-pill">A 尚學 PBL 解方</div>
-                <div class="qa-a-method">✦ 層層提問鷹架</div>
+                <div class="badge-a-subtle">✦ 尚學 PBL 解方</div>
+                <div class="qa-a-method">層層提問鷹架</div>
                 <p class="qa-a-desc">
                   尚學導師絕不直接給答案。我們像思維鷹架般拋出啟發問題：「如果數字變小你會怎麼算？」、「這個公式的由來是什麼？」，引導孩子自己推導出核心邏輯。
                 </p>
@@ -876,25 +853,25 @@
             </div>
             <div class="washi-tape washi-tape-yellow sheet-tape" style="transform:rotate(-1.5deg);"></div>
             
-            <!-- 上方 Q 痛點診斷盒 -->
-            <div class="qa-box-q">
-              <div class="badge-q-pill">Q 痛點盲點</div>
+            <!-- 上方 Q 痛點診斷 -->
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">Q 盲點診斷</span>
+                <span class="sheet-case-tag">CASE 03</span>
+              </div>
               <h3 class="qa-q-title">03. 考前死記硬背？考完就忘且科目彼此割裂</h3>
               <p class="qa-q-desc">
                 段考前孩子死背零碎重點，缺乏知識脈絡，稍微遇到跨單元整合題就無法融會貫通。
               </p>
             </div>
 
-            <!-- 中間思維轉向指示條 -->
-            <div class="qa-transition-bar">
-              <span>↳ 尚學 PBL 探究解方</span>
-            </div>
+            <div class="sheet-light-divider"></div>
 
             <!-- 下方 A 解方與實境照片並排 -->
-            <div class="qa-box-a">
+            <div class="sheet-a-section">
               <div>
-                <div class="badge-a-pill">A 尚學 PBL 解方</div>
-                <div class="qa-a-method">✦ 觀念脈絡地圖</div>
+                <div class="badge-a-subtle">✦ 尚學 PBL 解方</div>
+                <div class="qa-a-method">觀念脈絡地圖</div>
                 <p class="qa-a-desc">
                   不論是國語文章的起承轉合、數學幾何的空間因果，還是自然社會的單元關聯，導師都鼓勵孩子以心智圖與邏輯圖解整理重點，將碎皮記憶轉化為穩固思考地圖。
                 </p>
@@ -917,25 +894,25 @@
             </div>
             <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(1.5deg);"></div>
             
-            <!-- 上方 Q 痛點診斷盒 -->
-            <div class="qa-box-q">
-              <div class="badge-q-pill">Q 痛點盲點</div>
+            <!-- 上方 Q 痛點診斷 -->
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">Q 盲點診斷</span>
+                <span class="sheet-case-tag">CASE 04</span>
+              </div>
               <h3 class="qa-q-title">04. 刷了十張考卷？重複錯誤依然一錯再錯</h3>
               <p class="qa-q-desc">
                 題海戰術刷完厚厚評量，卻沒搞懂為什麼錯，下次段考題型變形依然掉入相同陷阱。
               </p>
             </div>
 
-            <!-- 中間思維轉向指示條 -->
-            <div class="qa-transition-bar">
-              <span>↳ 尚學 PBL 探究解方</span>
-            </div>
+            <div class="sheet-light-divider"></div>
 
             <!-- 下方 A 解方與實境照片並排 -->
-            <div class="qa-box-a">
+            <div class="sheet-a-section">
               <div>
-                <div class="badge-a-pill">A 尚學 PBL 解方</div>
-                <div class="qa-a-method">✦ 錯題深度複盤</div>
+                <div class="badge-a-subtle">✦ 尚學 PBL 解方</div>
+                <div class="qa-a-method">錯題深度複盤</div>
                 <p class="qa-a-desc">
                   每天針對作業與測驗中的錯題，引導孩子診斷出錯的本質原因：是粗心算錯、題目條件漏看，還是底層概念模糊？精準對症下藥，段考前不再需要熬夜填鴨。
                 </p>
@@ -953,12 +930,12 @@
 
     <!-- ========================================================
          3. 四大教育基石：常規與思維素養 (The Four Architectural Pillars)
-         全新視覺：厚磅復古卡紙、四柱並立、古樸大地色、新舊對比條
+         全新視覺：淡雅和紙底色、白底超輕卡片、精緻無厚重黑影
          ======================================================== -->
     <section class="pillars-section-mook" id="pillars">
       <div style="max-width:1240px; margin:0 auto;">
         <div class="mook-section-header">
-          <div class="mook-badge" style="background:var(--green); box-shadow:3px 3px 0 var(--ink);">
+          <div class="mook-badge" style="background:var(--green); box-shadow:0 2px 8px rgba(71,123,101,0.25);">
             <span>FOUR PILLARS</span>
             <span class="year">• 尚學辦學基石</span>
           </div>
@@ -972,20 +949,22 @@
           <!-- 立柱 1 -->
           <div class="pillar-monument-card">
             <div>
-              <div class="pillar-monument-top">
-                <div class="pillar-circle-seal seal-orange">✍️</div>
-                <div class="pillar-stamp-tag">POSTURE</div>
+              <div class="pillar-card-header">
+                <div class="pillar-num-badge">
+                  <span class="p-icon">✍️</span>
+                  <span>01</span>
+                </div>
+                <span class="pillar-category-pill">常規奠基</span>
               </div>
-              <div class="pillar-num-label">PILLAR 01 • 常規奠基</div>
               <h3 class="pillar-headline">坐姿挺拔與握筆肌耐力細緻雕琢</h3>
               
-              <div class="pillar-creed-quote">
-                「挺拔坐姿護眼防近視，正確握筆終身少手痠」
+              <div class="pillar-light-creed">
+                “挺拔坐姿護眼防近視，正確握筆終身少手痠”
               </div>
 
-              <div class="pillar-contrast-strip">
-                <div class="contrast-strip-old">✕ 傳統做法：只催趕快寫完、趴著寫字也不管</div>
-                <div class="contrast-strip-new">✓ 尚學堅持：一對一雕琢握筆黃金三角、坐姿挺拔</div>
+              <div class="pillar-light-contrast">
+                <div class="contrast-line-old">✕ 傳統做法：只催趕快寫完、趴著寫字也不管</div>
+                <div class="contrast-line-new">✓ 尚學堅持：一對一雕琢握筆黃金三角、挺拔坐姿</div>
               </div>
 
               <p class="pillar-body-text">
@@ -1001,20 +980,22 @@
           <!-- 立柱 2 -->
           <div class="pillar-monument-card">
             <div>
-              <div class="pillar-monument-top">
-                <div class="pillar-circle-seal seal-blue">🔍</div>
-                <div class="pillar-stamp-tag">ACCURACY</div>
+              <div class="pillar-card-header">
+                <div class="pillar-num-badge">
+                  <span class="p-icon">🔍</span>
+                  <span>02</span>
+                </div>
+                <span class="pillar-category-pill">扎實課輔</span>
               </div>
-              <div class="pillar-num-label">PILLAR 02 • 扎實課輔</div>
               <h3 class="pillar-headline">學校作業「逐字逐行耐心審核與當日訂正」</h3>
               
-              <div class="pillar-creed-quote">
-                「絕不敷衍整頁大打勾，當日疑點當日在班徹底搞懂」
+              <div class="pillar-light-creed">
+                “絕不敷衍整頁大打勾，當日疑點當日在班徹底搞懂”
               </div>
 
-              <div class="pillar-contrast-strip">
-                <div class="contrast-strip-old">✕ 傳統做法：整頁大筆一揮打勾、盲點悄悄帶回家</div>
-                <div class="contrast-strip-new">✓ 尚學堅持：逐字逐行核對審核、當天有疑當天弄懂</div>
+              <div class="pillar-light-contrast">
+                <div class="contrast-line-old">✕ 傳統做法：整頁大筆一揮打勾、盲點悄悄帶回家</div>
+                <div class="contrast-line-new">✓ 尚學堅持：逐字逐行核對審核、當天有疑當天弄懂</div>
               </div>
 
               <p class="pillar-body-text">
@@ -1030,20 +1011,22 @@
           <!-- 立柱 3 -->
           <div class="pillar-monument-card">
             <div>
-              <div class="pillar-monument-top">
-                <div class="pillar-circle-seal seal-green">🗣️</div>
-                <div class="pillar-stamp-tag">CRITICAL</div>
+              <div class="pillar-card-header">
+                <div class="pillar-num-badge">
+                  <span class="p-icon">🗣️</span>
+                  <span>03</span>
+                </div>
+                <span class="pillar-category-pill">思辨啟發</span>
               </div>
-              <div class="pillar-num-label">PILLAR 03 • 思辨啟發</div>
               <h3 class="pillar-headline">雙向商量與民主常規・啟發批判式思維</h3>
               
-              <div class="pillar-creed-quote">
-                「打破不可質疑威權教條，在講道理中建立真自律」
+              <div class="pillar-light-creed">
+                “打破不可質疑威權教條，在講道理中建立真自律”
               </div>
 
-              <div class="pillar-contrast-strip">
-                <div class="contrast-strip-old">✕ 傳統威權：說一就是一、壓抑質疑與主動發問</div>
-                <div class="contrast-strip-new">✓ 尚學尊重：平等商量生活規則、啟發獨立批判思考</div>
+              <div class="pillar-light-contrast">
+                <div class="contrast-line-old">✕ 傳統威權：說一就是一、壓抑質疑與主動發問</div>
+                <div class="contrast-line-new">✓ 尚學尊重：平等商量生活規則、啟發獨立批判思考</div>
               </div>
 
               <p class="pillar-body-text">
@@ -1059,20 +1042,22 @@
           <!-- 立柱 4 -->
           <div class="pillar-monument-card">
             <div>
-              <div class="pillar-monument-top">
-                <div class="pillar-circle-seal seal-ink">🛡️</div>
-                <div class="pillar-stamp-tag">MENTOR</div>
+              <div class="pillar-card-header">
+                <div class="pillar-num-badge">
+                  <span class="p-icon">🛡️</span>
+                  <span>04</span>
+                </div>
+                <span class="pillar-category-pill">師資承諾</span>
               </div>
-              <div class="pillar-num-label">PILLAR 04 • 師資承諾</div>
               <h3 class="pillar-headline">精緻小班制 × 專職專任導師全程引導</h3>
               
-              <div class="pillar-creed-quote">
-                「拒用頻繁更換的時薪工讀生，資深專職導師長期深耕」
+              <div class="pillar-light-creed">
+                “拒用頻繁更換的時薪工讀生，資深專職導師長期深耕”
               </div>
 
-              <div class="pillar-contrast-strip">
-                <div class="contrast-strip-old">✕ 坊間常態：兼職時薪工讀生頻繁更換、流動率高</div>
-                <div class="contrast-strip-new">✓ 尚學堅持：資深全職專任導師全程帶班、長期深耕</div>
+              <div class="pillar-light-contrast">
+                <div class="contrast-line-old">✕ 坊間常態：兼職時薪工讀生頻繁更換、流動率高</div>
+                <div class="contrast-line-new">✓ 尚學堅持：資深全職專任導師全程帶班、長期深耕</div>
               </div>
 
               <p class="pillar-body-text">
