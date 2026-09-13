@@ -209,6 +209,75 @@
         display: none !important; /* 在極小手機寬度隱藏頂部預約按鈕，確保目錄鈕完整顯眼不被擠壓，下方已有常駐吸底預約列 */
       }
     }
+
+    /* ========================================================
+       手機版抽屜式目錄 (支援 40% / 70% 雙視窗與自由手勢拖曳)
+       ======================================================== */
+    .mobile-drawer-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.65) !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease, visibility 0.25s ease !important;
+    }
+    .mobile-drawer-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    .mobile-drawer {
+      width: 100% !important;
+      background: #FFFDF8 !important;
+      border-radius: 24px 24px 0 0 !important;
+      height: 40vh;
+      min-height: 180px !important;
+      max-height: 75vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transform: translateY(100%) !important;
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      touch-action: pan-y !important;
+    }
+    .mobile-drawer-overlay.active .mobile-drawer {
+      transform: translateY(0) !important;
+    }
+    .mobile-drawer.snap-40 {
+      height: 40vh;
+    }
+    .mobile-drawer.snap-70,
+    .mobile-drawer.expanded {
+      height: 70vh;
+    }
+    .drawer-drag-pill {
+      width: 44px !important;
+      height: 5px !important;
+      background: #D8D2C5 !important;
+      border-radius: 999px !important;
+      margin: 10px auto 4px !important;
+      cursor: grab !important;
+      flex-shrink: 0 !important;
+      transition: background 0.2s, width 0.2s !important;
+      touch-action: none !important;
+    }
+    .drawer-drag-pill:active {
+      cursor: grabbing !important;
+      background: #C96D45 !important;
+      width: 52px !important;
+    }
+    .drawer-drag-pill:hover,
+    .mobile-drawer.expanded .drawer-drag-pill,
+    .mobile-drawer.snap-70 .drawer-drag-pill {
+      background: #C96D45 !important;
+    }
   `;
 
   function injectStyles() {
@@ -314,39 +383,207 @@
   }
 
   // ========================================================
-  // 全域抽屜控制函數 (保證行動端 100% 能即時開闔目錄)
+  // 全域抽屜控制與手勢引擎 (支援自由手勢拖曳與 40% / 70% 雙視窗停靠)
   // ========================================================
   global.openSangSuehDrawer = function (e) {
     if (e && e.preventDefault) e.preventDefault();
     const overlay = document.getElementById('drawer-overlay');
-    const drawer = document.getElementById('mobile-drawer');
+    const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
     if (overlay) {
       overlay.classList.add('active');
       overlay.setAttribute('aria-hidden', 'false');
     }
-    if (drawer) drawer.classList.remove('expanded');
+    if (drawer) {
+      drawer.classList.remove('expanded', 'snap-70');
+      drawer.classList.add('snap-40');
+      drawer.style.transition = 'transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1)';
+      drawer.style.setProperty('height', '40vh', 'important');
+      initDrawerGestures();
+    }
     document.body.style.overflow = 'hidden';
   };
 
   global.closeSangSuehDrawer = function (e) {
     if (e && e.preventDefault) e.preventDefault();
     const overlay = document.getElementById('drawer-overlay');
-    const drawer = document.getElementById('mobile-drawer');
+    const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
     if (overlay) {
       overlay.classList.remove('active');
       overlay.setAttribute('aria-hidden', 'true');
     }
-    if (drawer) drawer.classList.remove('expanded');
+    if (drawer) {
+      drawer.classList.remove('expanded', 'snap-70');
+      drawer.classList.add('snap-40');
+      drawer.style.removeProperty('height');
+    }
     document.body.style.overflow = '';
+  };
+
+  global.snapSangSuehDrawer = function (percent) {
+    const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
+    if (!drawer) return;
+    drawer.style.transition = 'height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1)';
+    drawer.classList.remove('snap-40', 'snap-70', 'expanded');
+    if (percent === 70) {
+      drawer.classList.add('snap-70', 'expanded');
+      drawer.style.setProperty('height', '70vh', 'important');
+    } else {
+      drawer.classList.add('snap-40');
+      drawer.style.setProperty('height', '40vh', 'important');
+    }
   };
 
   global.toggleSangSuehDrawerExpanded = function (e) {
     if (e && e.preventDefault) e.preventDefault();
-    const drawer = document.getElementById('mobile-drawer');
-    if (drawer) drawer.classList.toggle('expanded');
+    const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
+    if (!drawer) return;
+    if (drawer._justDragged) return; // 避免手勢放開瞬間觸發點擊事件導致狀態回彈
+    const currentPct = drawer.getBoundingClientRect().height / window.innerHeight;
+    if (currentPct >= 0.54) {
+      global.snapSangSuehDrawer(40);
+    } else {
+      global.snapSangSuehDrawer(70);
+    }
   };
 
-  // 全域委派監聽：支援所有按鈕與滑動交互
+  /**
+   * 手勢拖曳引擎：支援即時 1:1 跟手滑動、邊界阻尼與 40% / 70% 雙視窗停靠
+   */
+  function initDrawerGestures() {
+    const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
+    if (!drawer || drawer._gesturesInitialized) return;
+    drawer._gesturesInitialized = true;
+
+    let startY = 0;
+    let startHeight = 0;
+    let isDragging = false;
+    let dragMode = null; // 'handle' | 'content'
+    let lastY = 0;
+    let lastTime = 0;
+    let velocityY = 0;
+
+    const content = drawer.querySelector('.drawer-content') || drawer;
+
+    function onTouchStart(e) {
+      if (e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      const target = e.target;
+
+      const isHandle = target.closest('.drawer-drag-pill') || target.closest('.drawer-header');
+      if (isHandle) {
+        dragMode = 'handle';
+      } else if (content && content.contains(target)) {
+        dragMode = 'content';
+      } else {
+        dragMode = 'handle';
+      }
+
+      startY = touch.clientY;
+      lastY = touch.clientY;
+      lastTime = Date.now();
+      startHeight = drawer.getBoundingClientRect().height;
+      isDragging = false;
+      velocityY = 0;
+    }
+
+    function onTouchMove(e) {
+      if (dragMode === null || e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      const currentY = touch.clientY;
+      const deltaY = currentY - startY; // > 0: 向下拉, < 0: 向上拉
+      const contentScrollTop = content ? (content.scrollTop || 0) : 0;
+
+      if (!isDragging) {
+        if (dragMode === 'handle') {
+          if (Math.abs(deltaY) > 4) {
+            isDragging = true;
+          }
+        } else if (dragMode === 'content') {
+          // 內容在頂部且向下拉，啟動抽屜滑動
+          if (deltaY > 6 && contentScrollTop <= 0) {
+            isDragging = true;
+          }
+          // 在 40% 視窗向上拉，啟動展開抽屜
+          const currentPct = drawer.getBoundingClientRect().height / window.innerHeight;
+          if (deltaY < -6 && currentPct < 0.60) {
+            isDragging = true;
+          }
+        }
+      }
+
+      if (isDragging) {
+        if (e.cancelable) e.preventDefault();
+
+        const now = Date.now();
+        const dt = now - lastTime;
+        if (dt > 10) {
+          velocityY = (currentY - lastY) / dt;
+          lastY = currentY;
+          lastTime = now;
+        }
+
+        drawer.style.transition = 'none';
+        drawer.classList.remove('snap-40', 'snap-70', 'expanded');
+
+        const vh = window.innerHeight;
+        let newHeight = startHeight - deltaY;
+
+        // 邊界阻尼手感 (16vh ~ 75vh 區間)
+        const maxH = vh * 0.75;
+        const minH = vh * 0.16;
+        if (newHeight > maxH) {
+          newHeight = maxH + (newHeight - maxH) * 0.22;
+        } else if (newHeight < minH) {
+          newHeight = minH - (minH - newHeight) * 0.3;
+        }
+
+        drawer.style.setProperty('height', Math.round(newHeight) + 'px', 'important');
+      }
+    }
+
+    function onTouchEnd(e) {
+      if (!isDragging) {
+        dragMode = null;
+        return;
+      }
+      isDragging = false;
+      dragMode = null;
+      drawer._justDragged = true;
+      setTimeout(function () { drawer._justDragged = false; }, 260);
+
+      const vh = window.innerHeight;
+      const currentHeight = drawer.getBoundingClientRect().height;
+      const currentPct = currentHeight / vh;
+
+      drawer.style.transition = 'height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1)';
+
+      // 1. 快速向下滑甩或拉低至 22% 以下：關閉抽屜
+      if (velocityY > 0.45 || currentPct < 0.22) {
+        global.closeSangSuehDrawer();
+        return;
+      }
+
+      // 2. 快速向上滑甩：直接吸附至 70%
+      if (velocityY < -0.45) {
+        global.snapSangSuehDrawer(70);
+        return;
+      }
+
+      // 3. 停靠點吸附 (40% vs 70%，以 54% 為閥值)
+      if (currentPct >= 0.54) {
+        global.snapSangSuehDrawer(70);
+      } else {
+        global.snapSangSuehDrawer(40);
+      }
+    }
+
+    drawer.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', onTouchEnd, { passive: true });
+  }
+
+  // 全域委派監聽：支援所有按鈕與點擊交互
   document.addEventListener('click', function (e) {
     const trigger = e.target.closest('#mobile-menu-trigger, .mobile-menu-btn');
     if (trigger) {
@@ -374,6 +611,28 @@
       return;
     }
   });
+
+  // DOM 載入完成後自動初始化手勢監聽與支援網址 hash 快速預覽
+  if (typeof window !== 'undefined') {
+    function setupDrawer() {
+      initDrawerGestures();
+      if (window.location) {
+        if (window.location.hash === '#open-drawer' || window.location.hash === '#drawer-40') {
+          setTimeout(function() { global.openSangSuehDrawer(); }, 120);
+        } else if (window.location.hash === '#open-drawer-70' || window.location.hash === '#drawer-70') {
+          setTimeout(function() {
+            global.openSangSuehDrawer();
+            global.snapSangSuehDrawer(70);
+          }, 120);
+        }
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupDrawer);
+    } else {
+      setupDrawer();
+    }
+  }
 
   /**
    * 全域通用函數：將官方導覽列注入至指定容器

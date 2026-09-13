@@ -553,21 +553,27 @@
       width: 100%;
       background: #FFFDF8;
       border-radius: 24px 24px 0 0;
-      height: 55vh;
-      max-height: 88vh;
+      height: 40vh;
+      min-height: 180px;
+      max-height: 75vh;
       display: flex;
       flex-direction: column;
       transform: translateY(100%);
-      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
       box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
       box-sizing: border-box;
       overflow: hidden;
+      touch-action: pan-y;
     }
     .mobile-drawer-overlay.active .mobile-drawer {
       transform: translateY(0) !important;
     }
+    .mobile-drawer.snap-40 {
+      height: 40vh !important;
+    }
+    .mobile-drawer.snap-70,
     .mobile-drawer.expanded {
-      height: 88vh !important;
+      height: 70vh !important;
     }
 
     /* 手機版頂部導覽列優化 (保證目錄按鈕完整呈現不被擠壓) */
@@ -1778,7 +1784,7 @@
   <!-- 手機版抽屜選單 (Drawer Sheet) -->
   <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true" onclick="if(event.target===this)window.closeMookDrawer(event)">
     <div class="mobile-drawer" id="mobile-drawer">
-      <div class="drawer-drag-pill" id="drawer-drag-pill" onclick="var d=document.getElementById('mobile-drawer');if(d)d.classList.toggle('expanded');" title="向上滑動或點擊展開完整目錄"></div>
+      <div class="drawer-drag-pill" id="drawer-drag-pill" onclick="window.toggleSangSuehDrawerExpanded ? window.toggleSangSuehDrawerExpanded(event) : (function(){var d=document.getElementById('mobile-drawer');if(d)d.classList.toggle('expanded');})()" title="上下滑動或點擊切換視窗高度 (40% / 70%)"></div>
       <div class="drawer-header">
         <div class="drawer-title">
           <img src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教" style="height:28px; width:auto;"/>
@@ -1814,8 +1820,9 @@
   </div>
 
   <script>
-    // 全域抽屜保證開啟/關閉函數
+    // 全域抽屜保證開啟/關閉函數（委派給全站核心 shared-navbar.js）
     window.openMookDrawer = function(e) {
+      if (window.openSangSuehDrawer) return window.openSangSuehDrawer(e);
       if (e && e.preventDefault) e.preventDefault();
       var overlay = document.getElementById('drawer-overlay');
       var drawer = document.getElementById('mobile-drawer');
@@ -1823,10 +1830,14 @@
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
       }
-      if (drawer) drawer.classList.remove('expanded');
+      if (drawer) {
+        drawer.classList.remove('expanded', 'snap-70');
+        drawer.classList.add('snap-40');
+      }
       document.body.style.overflow = 'hidden';
     };
     window.closeMookDrawer = function(e) {
+      if (window.closeSangSuehDrawer) return window.closeSangSuehDrawer(e);
       if (e && e.preventDefault) e.preventDefault();
       var overlay = document.getElementById('drawer-overlay');
       var drawer = document.getElementById('mobile-drawer');
@@ -1834,7 +1845,10 @@
         overlay.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
       }
-      if (drawer) drawer.classList.remove('expanded');
+      if (drawer) {
+        drawer.classList.remove('expanded', 'snap-70');
+        drawer.classList.add('snap-40');
+      }
       document.body.style.overflow = '';
     };
     window.openSangSuehDrawer = window.openMookDrawer;

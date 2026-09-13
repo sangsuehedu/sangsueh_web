@@ -845,14 +845,38 @@
   };
 
   MookUI.initDrawer = function () {
+    // 若已加載全站共用導覽核心 shared-navbar.js，直接委派共用引擎
+    if (window.openSangSuehDrawer && window.snapSangSuehDrawer) {
+      return;
+    }
+
     function getOverlay() { return document.getElementById('drawer-overlay'); }
     function getDrawer() { return document.getElementById('mobile-drawer'); }
+
+    function snapDrawer(pct) {
+      var drawer = getDrawer();
+      if (!drawer) return;
+      drawer.style.transition = 'height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1)';
+      drawer.classList.remove('snap-40', 'snap-70', 'expanded');
+      if (pct === 70) {
+        drawer.classList.add('snap-70', 'expanded');
+        drawer.style.setProperty('height', '70vh', 'important');
+      } else {
+        drawer.classList.add('snap-40');
+        drawer.style.setProperty('height', '40vh', 'important');
+      }
+    }
 
     function openDrawer(e) {
       if (e && e.preventDefault) e.preventDefault();
       var drawer = getDrawer();
       var overlay = getOverlay();
-      if (drawer) drawer.classList.remove('expanded');
+      if (drawer) {
+        drawer.classList.remove('expanded', 'snap-70');
+        drawer.classList.add('snap-40');
+        drawer.style.transition = 'transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), height 0.28s cubic-bezier(0.2, 0.9, 0.3, 1)';
+        drawer.style.setProperty('height', '40vh', 'important');
+      }
       if (overlay) {
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
@@ -868,18 +892,27 @@
         overlay.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
       }
-      if (drawer) drawer.classList.remove('expanded');
+      if (drawer) {
+        drawer.classList.remove('expanded', 'snap-70');
+        drawer.classList.add('snap-40');
+        drawer.style.removeProperty('height');
+      }
       document.body.style.overflow = '';
     }
 
-    function expandDrawer() {
+    function toggleDrawer(e) {
+      if (e && e.preventDefault) e.preventDefault();
       var drawer = getDrawer();
-      if (drawer && !drawer.classList.contains('expanded')) {
-        drawer.classList.add('expanded');
+      if (!drawer) return;
+      var currentPct = drawer.getBoundingClientRect().height / window.innerHeight;
+      if (currentPct >= 0.54) {
+        snapDrawer(40);
+      } else {
+        snapDrawer(70);
       }
     }
 
-    // 點擊事件委派 (保證無論何時渲染 Navbar 都能 100% 響應點擊)
+    // 點擊事件委派
     document.addEventListener('click', function (e) {
       var trigger = e.target.closest('#mobile-menu-trigger, .mobile-menu-btn');
       if (trigger) {
@@ -893,8 +926,7 @@
       }
       var dragPill = e.target.closest('#drawer-drag-pill, .drawer-drag-pill');
       if (dragPill) {
-        var drawer = getDrawer();
-        if (drawer) drawer.classList.toggle('expanded');
+        toggleDrawer(e);
         return;
       }
       var overlay = getOverlay();
@@ -908,22 +940,6 @@
         return;
       }
     });
-
-    // 觸控滑動：在抽屜向上滑動時展開
-    document.addEventListener('touchstart', function (e) {
-      var drawer = getDrawer();
-      if (!drawer || !drawer.contains(e.target)) return;
-      drawer._touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-
-    document.addEventListener('touchmove', function (e) {
-      var drawer = getDrawer();
-      if (!drawer || !drawer.contains(e.target) || typeof drawer._touchStartY !== 'number') return;
-      var touchY = e.touches[0].clientY;
-      if (drawer._touchStartY - touchY > 25) {
-        expandDrawer();
-      }
-    }, { passive: true });
   };
 
   MookUI.initLightbox = function () {
