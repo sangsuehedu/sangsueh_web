@@ -29,35 +29,64 @@
 
   <!-- Page-specific fine-tuning -->
   <style>
-    /* Tab 切換相關樣式 */
-    .tab-nav {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
+    /* ========================================================
+       【年級因齡分流・日系手帳特輯】(Section 3 #grades)
+       ======================================================== */
+    .grades-section-mook {
+      padding: 85px 6vw;
+      background: #FAF8F4;
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
     }
-    .tab-btn {
-      background: var(--paper);
-      border: 1.5px solid var(--border-ink);
-      padding: 10px 20px;
-      border-radius: 30px;
+    .grades-segmented-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .grades-segmented-wrapper {
+      display: inline-flex;
+      background: #EDE8DE;
+      border: 1px solid rgba(36, 49, 46, 0.10);
+      border-radius: 999px;
+      padding: 5px;
+      gap: 6px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .grades-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 11px 24px;
+      border-radius: 999px;
       font-size: 14.5px;
       font-weight: 800;
-      color: var(--ink-soft);
+      color: #63716D;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .tab-btn:hover {
-      background: var(--paper-warm);
+    .grades-tab-btn:hover {
       color: var(--ink);
     }
-    .tab-btn.active {
-      background: var(--ink);
-      color: #FFF;
-      border-color: var(--ink);
-      box-shadow: 3px 3px 0 var(--orange);
+    .grades-tab-btn.active {
+      background: #FFFFFF;
+      color: #24312E;
+      box-shadow: 0 3px 12px rgba(36, 49, 46, 0.08);
     }
+    .grades-tab-btn .g-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(36, 49, 46, 0.06);
+      color: #72807C;
+      transition: all 0.2s ease;
+    }
+    .grades-tab-btn.active .g-tag {
+      background: #EBF3EE;
+      color: #386F5B;
+    }
+
     .tab-pane {
       display: none;
     }
@@ -69,80 +98,536 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .tab-content-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: center;
-      background: #FFF;
-      border: 1px solid var(--border-ink);
+
+    .grades-mook-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.11);
       border-radius: 16px;
-      padding: 28px;
-      box-shadow: 4px 6px 0 rgba(36,49,46,0.06);
+      padding: 34px 36px;
+      box-shadow: 0 4px 18px rgba(36, 49, 46, 0.04);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+      box-sizing: border-box;
     }
-    .tab-points-list {
+    .grades-milestone-banner {
+      grid-column: 1 / -1;
+      background: #F8F6F0;
+      border: 1px dashed rgba(36, 49, 46, 0.14);
+      border-radius: 10px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .milestone-badge {
+      font-size: 12px;
+      font-weight: 800;
+      background: #477B65;
+      color: #FFF;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .milestone-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13.5px;
+      font-weight: 750;
+      color: #2D5846;
+      margin: 0;
+    }
+    .grades-points-list {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
-    .tab-point-item {
+    .grades-point-item {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: flex-start;
     }
-    .tab-point-badge {
-      background: var(--orange-light);
-      color: var(--orange);
-      border: 1px solid var(--orange);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
+    .point-step-tag {
+      display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 13.5px;
+      background: #F3EFE7;
+      border: 1px solid rgba(36, 49, 46, 0.12);
+      border-radius: 8px;
+      padding: 4px 8px;
+      min-width: 58px;
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .tab-point-text strong {
+    .point-step-label {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 9.5px;
+      font-weight: 850;
+      color: #7A8984;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .point-step-num {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      color: #386F5B;
+      line-height: 1.2;
+    }
+    .point-content strong {
       display: block;
       font-family: 'Noto Serif TC', serif;
-      font-size: 15px;
-      color: var(--ink);
-      margin-bottom: 4px;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #24312E;
+      margin-bottom: 5px;
+      line-height: 1.4;
     }
-    .tab-point-text p {
+    .point-content p {
       font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.65;
+      color: #55625E;
+      line-height: 1.7;
       margin: 0;
     }
-    .tab-visual-side {
-      background: #FFF;
-      border: 1px solid var(--border-ink);
+    .grades-photo-frame {
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.12);
       border-radius: 12px;
-      padding: 10px 10px 14px;
-      box-shadow: 3px 3px 0 rgba(36,49,46,0.08);
-      transform: rotate(1deg);
+      padding: 12px 12px 16px;
+      box-shadow: 0 6px 20px rgba(36, 49, 46, 0.07);
+      transform: rotate(1.2deg);
+      position: relative;
     }
-    .tab-visual-side img {
+    .photo-washi-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 80px;
+      height: 20px;
+      background: rgba(232, 201, 104, 0.65);
+      border-left: 2px dashed rgba(255,255,255,0.7);
+      border-right: 2px dashed rgba(255,255,255,0.7);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      z-index: 2;
+    }
+    .grades-photo-frame img {
       width: 100%;
-      height: 240px;
+      height: 250px;
       object-fit: cover;
       border-radius: 6px;
       display: block;
     }
-    .tab-visual-caption {
+    .grades-photo-caption {
       font-family: 'Noto Serif TC', serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 750;
+      color: #697773;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 10px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ========================================================
+       【一日精緻作息走讀・日系時刻表】(Section 4 #routine)
+       ======================================================== */
+    .routine-mook-section {
+      padding: 85px 6vw;
+      background: #F9F7F2;
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
+    }
+    .routine-switcher-container {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+    .routine-switcher-bar {
+      display: inline-flex;
+      background: #EDE8DE;
+      border: 1px solid rgba(36, 49, 46, 0.10);
+      border-radius: 999px;
+      padding: 5px;
+      gap: 6px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .routine-track-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 750;
+      color: #63716D;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .routine-track-btn:hover {
+      color: var(--ink);
+    }
+    .routine-track-btn.active {
+      background: #FFFFFF;
+      color: #24312E;
+      box-shadow: 0 3px 12px rgba(36, 49, 46, 0.08);
+    }
+    .routine-track-btn .t-tag {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(36, 49, 46, 0.06);
+      color: #72807C;
+      transition: all 0.2s ease;
+    }
+    .routine-track-btn.active .t-tag {
+      background: #FCEFE9;
+      color: #C96D45;
+    }
+    .routine-track-btn.track-blue-btn.active .t-tag {
+      background: #EBF4F6;
+      color: #3B7684;
+    }
+
+    .routine-timeline-pane {
+      display: none;
+    }
+    .routine-timeline-pane.active {
+      display: block;
+      animation: tabFadeIn 0.3s ease;
+    }
+
+    .station-timeline {
+      max-width: 860px;
+      margin: 0 auto 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .station-step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .station-step:last-child {
+      padding-bottom: 0;
+    }
+    .station-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .station-icon {
+      width: 38px;
+      height: 38px;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(36, 49, 46, 0.16);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      box-shadow: 0 2px 8px rgba(36, 49, 46, 0.06);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .track-orange-wrap .station-icon {
+      border-color: #E2865B;
+    }
+    .track-blue-wrap .station-icon {
+      border-color: #5D9AA8;
+    }
+    .station-line {
+      width: 2px;
+      flex-grow: 1;
+      background: #DDD8CD;
+      margin: 6px 0;
+    }
+    .station-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.10);
+      border-left: 3.5px solid #E2865B;
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 10px rgba(36, 49, 46, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+    }
+    .station-card:hover {
+      transform: translateX(3px);
+      box-shadow: 0 4px 14px rgba(36, 49, 46, 0.06);
+    }
+    .track-blue-wrap .station-card {
+      border-left-color: #5D9AA8;
+    }
+    .station-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .station-stamp {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 12px;
+      font-weight: 850;
+      color: #C96D45;
+      background: #FDF3EE;
+      border: 1px solid rgba(201, 109, 69, 0.2);
+      padding: 2px 9px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .track-blue-wrap .station-stamp {
+      color: #3B7684;
+      background: #EBF4F6;
+      border-color: rgba(59, 118, 132, 0.2);
+    }
+    .station-phase-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: #697773;
+      background: #F3EFE7;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .station-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #24312E;
+      margin: 0;
+    }
+    .station-desc {
+      font-size: 12.8px;
+      color: #55625E;
+      line-height: 1.65;
+      margin: 0;
+    }
+    /* 晚間安心留班專屬高亮卡 */
+    .station-card-evening {
+      background: #FFFDF7 !important;
+      border-left: 3.5px solid #E89E38 !important;
+      box-shadow: 0 4px 14px rgba(232, 158, 56, 0.08) !important;
+    }
+    .station-card-evening .station-stamp {
+      background: #FEF6E9;
+      color: #B57418;
+      border-color: rgba(232, 158, 56, 0.3);
+    }
+    .station-dinner-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      background: #FFF3DE;
+      color: #8C5812;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 750;
+    }
+    .routine-disclaimer-note-mook {
+      max-width: 860px;
+      margin: 10px auto 0;
+      text-align: center;
+      font-size: 12px;
+      color: #7A8984;
+      line-height: 1.6;
+    }
+
+    /* ========================================================
+       【放學安心接送網絡・日系專屬卡】(Section 5 #escort)
+       ======================================================== */
+    .escort-section-mook {
+      padding: 85px 6vw;
+      background: #FAF8F4;
+      border-bottom: 1px dashed rgba(36, 49, 46, 0.16);
+    }
+    .escort-cards-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .escort-route-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 49, 46, 0.11);
+      border-radius: 16px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 4px 16px rgba(36, 49, 46, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+    .escort-route-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(36, 49, 46, 0.08);
+    }
+    .escort-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .escort-route-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .icon-walk {
+      background: #EBF3EE;
+      color: #386F5B;
+      border: 1px solid rgba(56, 111, 91, 0.2);
+    }
+    .icon-car {
+      background: #EAF2F5;
+      color: #326977;
+      border: 1px solid rgba(50, 105, 119, 0.2);
+    }
+    .escort-route-titles h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: #24312E;
+      margin: 0 0 6px;
+      line-height: 1.35;
+    }
+    .escort-route-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .escort-badge-item {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+    .badge-walk {
+      background: #F0F6F2;
+      color: #2D5846;
+      border: 1px solid rgba(45, 88, 70, 0.15);
+    }
+    .badge-car {
+      background: #EDF4F6;
+      color: #2D5D6A;
+      border: 1px solid rgba(45, 93, 106, 0.15);
+    }
+    .escort-route-desc {
+      font-size: 13px;
+      color: #55625E;
+      line-height: 1.7;
+      margin: 0 0 16px;
+    }
+    .escort-schools-box {
+      border-top: 1px dashed rgba(36, 49, 46, 0.11);
+      padding-top: 14px;
+    }
+    .escort-schools-title {
+      font-size: 11.5px;
+      font-weight: 750;
+      color: #72807C;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+    .escort-schools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .escort-school-pill {
+      background: #F6F4EE;
+      border: 1px solid rgba(36, 49, 46, 0.10);
+      color: #24312E;
+      padding: 5px 12px;
+      font-size: 12.5px;
+      font-weight: 750;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .pill-walk {
+      background: #F1F6F3;
+      border-color: rgba(56, 111, 91, 0.18);
+      color: #244638;
+    }
+    .pill-car {
+      background: #F0F5F7;
+      border-color: rgba(50, 105, 119, 0.18);
+      color: #204650;
+    }
+    .escort-bottom-note {
+      max-width: 1180px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: 12px;
+      color: #7A8984;
+      line-height: 1.6;
+    }
+
+    /* 課程導流橫幅輕量化 */
+    .courses-hub-banner-mook {
+      max-width: 1180px;
+      margin: 32px auto 0;
+      background: linear-gradient(135deg, #FFF9F2 0%, #FFF4E6 100%);
+      border: 1px solid rgba(201, 109, 69, 0.22);
+      border-radius: 14px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 4px 16px rgba(201, 109, 69, 0.05);
+    }
+    .courses-hub-text h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #24312E;
+      margin: 0 0 4px;
+    }
+    .courses-hub-text p {
+      font-size: 12.8px;
+      color: #5B6864;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .btn-hub-jump-mook {
+      background: #C96D45;
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(201, 109, 69, 0.25);
+    }
+    .btn-hub-jump-mook:hover {
+      background: #B45B34;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(201, 109, 69, 0.32);
     }
 
     /* 多元加選卡片 */
@@ -209,6 +694,43 @@
       }
       .bundling-grid {
         grid-template-columns: 1fr;
+      }
+      .grades-mook-card {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+        gap: 24px;
+      }
+      .grades-photo-frame {
+        max-width: 320px;
+        margin: 0 auto;
+        transform: none;
+      }
+      .grades-photo-frame img {
+        height: 200px;
+      }
+      .escort-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .courses-hub-banner-mook {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+      .btn-hub-jump-mook {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+    @media (max-width: 600px) {
+      .grades-segmented-wrapper, .routine-switcher-bar {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 16px;
+      }
+      .grades-tab-btn, .routine-track-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -1080,9 +1602,9 @@
     </section>
 
     <!-- ========================================================
-         4. 年級分流 TAB 互動切換卡 (Grade Differentiation)
+         3. 年級因齡分流・日系手帳特輯 (Grade Differentiation)
          ======================================================== -->
-    <section class="mook-section-tab" style="padding:80px 6vw; background:var(--paper-warm); border-bottom:2px dashed var(--border-dashed);" id="grades">
+    <section class="grades-section-mook mook-section-tab" id="grades">
       <div style="max-width:1180px; margin:0 auto;">
         <div class="mook-section-header">
           <div class="mook-badge">
@@ -1091,83 +1613,117 @@
           </div>
           <h2 class="mook-section-title">低年級常規奠基 vs 中高年級自主探究</h2>
           <p class="mook-section-subtitle">
-            小一的適應焦慮和小五的段考挑戰完全不同！尚學針對不同學齡階段，規劃差異化引導策略：
+            小一的適應焦慮和小五的段考挑戰截然不同！尚學針對不同學齡心智與課業發展，規劃精準差異化引導策略：
           </p>
         </div>
 
-        <div class="tab-nav">
-          <button class="tab-btn active" type="button" data-target="tab-low">
-            🎒 低年級（小一・小二）：幼小銜接與常規奠基
-          </button>
-          <button class="tab-btn" type="button" data-target="tab-high">
-            📚 中高年級（小三～小六）：課業自主與觀念複盤
-          </button>
+        <div class="grades-segmented-container">
+          <div class="grades-segmented-wrapper">
+            <button class="tab-btn grades-tab-btn active" type="button" data-target="tab-low">
+              <span>🎒 低年級（小一・小二）</span>
+              <span class="g-tag">幼小銜接・常規奠基</span>
+            </button>
+            <button class="tab-btn grades-tab-btn" type="button" data-target="tab-high">
+              <span>📚 中高年級（小三～小六）</span>
+              <span class="g-tag">課業自主・觀念複盤</span>
+            </button>
+          </div>
         </div>
 
         <!-- 低年級 Tab -->
         <div class="tab-pane active" id="tab-low">
-          <div class="tab-content-grid">
-            <ul class="tab-points-list">
-              <li class="tab-point-item">
-                <span class="tab-point-badge">1</span>
-                <div class="tab-point-text">
-                  <strong>注音拼讀與生字筆順手把手引導</strong>
+          <div class="grades-mook-card">
+            <div class="grades-milestone-banner">
+              <span class="milestone-badge">🌱 低年級適應關鍵</span>
+              <p class="milestone-text">由動轉靜的黃金適應期：重視手肌肌力協調、坐姿工整與生活秩序內化，為小學六年奠定堅實好習慣。</p>
+            </div>
+
+            <ul class="grades-points-list">
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num">01</span>
+                </div>
+                <div class="point-content">
+                  <strong>注音拼讀與生字筆順手把手細緻雕琢</strong>
                   <p>耐心引導小一新生跨越注音二拼、三拼門檻；嚴格把關生字筆順與十字格位置，讓孩子一開始就寫出一手工整自信好字。</p>
                 </div>
               </li>
-              <li class="tab-point-item">
-                <span class="tab-point-badge">2</span>
-                <div class="tab-point-text">
-                  <strong>生活自理習慣：脫鞋擺正、整理書包</strong>
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num">02</span>
+                </div>
+                <div class="point-content">
+                  <strong>生活自理常規：脫鞋擺正、書包依序整理</strong>
                   <p>入班後自主洗手、將鞋子鞋頭朝外擺齊、聯絡簿書本依序排列。把生活秩序內化，養成對自己物品負責的生活態度。</p>
                 </div>
               </li>
-              <li class="tab-point-item">
-                <span class="tab-point-badge">3</span>
-                <div class="tab-point-text">
-                  <strong>半天下課・充足午後沉澱休息</strong>
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num">03</span>
+                </div>
+                <div class="point-content">
+                  <strong>半天下課・充足午後閉目沉澱與體能修復</strong>
                   <p>低年級多半天下課，回班享用完營養午餐後，安排 40～50 分鐘安靜午休或閉目沉澱，確保下午精神飽滿、情緒安穩。</p>
                 </div>
               </li>
             </ul>
 
-            <div class="tab-visual-side">
+            <div class="grades-photo-frame">
+              <div class="photo-washi-tape"></div>
               <img src="./photos/curated_mook/pain_lowgrade_writing.jpg" alt="低年級握筆坐姿與生字手把手輔導" loading="lazy"/>
-              <div class="tab-visual-caption">低年級・握筆坐姿與生字手把手輔導</div>
+              <div class="grades-photo-caption">低年級・握筆坐姿與生字手把手輔導</div>
             </div>
           </div>
         </div>
 
         <!-- 中高年級 Tab -->
         <div class="tab-pane" id="tab-high">
-          <div class="tab-content-grid">
-            <ul class="tab-points-list">
-              <li class="tab-point-item">
-                <span class="tab-point-badge">1</span>
-                <div class="tab-point-text">
-                  <strong>自主時間管理：排列作業優先順序</strong>
+          <div class="grades-mook-card">
+            <div class="grades-milestone-banner">
+              <span class="milestone-badge" style="background:#3B7684;">🌿 中高年級自律關鍵</span>
+              <p class="milestone-text" style="color:#204650;">課業自主與思維深化的關鍵轉折：落實大石塊時間管理、數學幾何脈絡心智圖，告別盲目刷題。</p>
+            </div>
+
+            <ul class="grades-points-list">
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num" style="color:#3B7684;">01</span>
+                </div>
+                <div class="point-content">
+                  <strong>自主時間管理：大石塊優先順序原則</strong>
                   <p>引導孩子學習「大石塊原則」，先完成耗腦力的數學與寫作，再進行抄寫與朗讀。學會抵禦同儕分心，高效自律。</p>
                 </div>
               </li>
-              <li class="tab-point-item">
-                <span class="tab-point-badge">2</span>
-                <div class="tab-point-text">
-                  <strong>數學幾何思維與錯題複盤筆記</strong>
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num" style="color:#3B7684;">02</span>
+                </div>
+                <div class="point-content">
+                  <strong>數學幾何思維與錯題深度複盤筆記</strong>
                   <p>中高年級數學應用題變長、幾何概念變深。導師引導孩子劃線分析題意，釐清「為什麼錯」，而不只是重算一遍把答案改對。</p>
                 </div>
               </li>
-              <li class="tab-point-item">
-                <span class="tab-point-badge">3</span>
-                <div class="tab-point-text">
-                  <strong>段考前觀念統整・拒絕盲目填鴨刷題</strong>
+              <li class="grades-point-item">
+                <div class="point-step-tag">
+                  <span class="point-step-label">STEP</span>
+                  <span class="point-step-num" style="color:#3B7684;">03</span>
+                </div>
+                <div class="point-content">
+                  <strong>段考前單元觀念梳理・拒絕盲目填鴨刷題</strong>
                   <p>考前依據各校版本進度精要梳理各單元核心概念，以少量質優的精選題檢測盲點，維護孩子的睡眠作息與應試自信。</p>
                 </div>
               </li>
             </ul>
 
-            <div class="tab-visual-side">
+            <div class="grades-photo-frame">
+              <div class="photo-washi-tape" style="background:rgba(93,154,168,0.65);"></div>
               <img src="./photos/curated_mook/hero_focus_mindmap_noface.jpg" alt="中高年級心智圖與自主思考整理" loading="lazy"/>
-              <div class="tab-visual-caption">中高年級・概念筆記梳理與自主思考</div>
+              <div class="grades-photo-caption">中高年級・概念筆記梳理與自主思考</div>
             </div>
           </div>
         </div>
@@ -1175,7 +1731,7 @@
     </section>
 
     <!-- ========================================================
-         5. 一日作息走讀 (Flowchart Timeline)
+         4. 一日精緻作息走讀・日系時刻表 (Daily Routine)
          ======================================================== -->
     <section class="routine-mook-section" id="routine">
       <div style="max-width:1240px; margin:0 auto;">
@@ -1186,217 +1742,251 @@
           </div>
           <h2 class="mook-section-title">尚學孩子的一天：有序、充實而從容的生活節奏</h2>
           <p class="mook-section-subtitle">
-            從學校放學接回到傍晚家長溫馨接回，每個時段皆有專屬生活節奏，讓孩子在規律中獲得踏實的安全感。
+            從學校放學接回到傍晚家長溫馨接回，每個時段皆有專屬節奏，讓孩子在規律中獲得踏實的安全感。
           </p>
         </div>
 
-        <!-- 軌道 1：半天作息 (橙色軌道) -->
-        <div class="flowchart-track-header track-orange">
-          <span>📙</span> 半天作息流程（低年級為主 / 週二除外各半天時段）
+        <!-- 雙軌作息切換器 -->
+        <div class="routine-switcher-container">
+          <div class="routine-switcher-bar">
+            <button class="routine-track-btn active" type="button" data-track="track-half">
+              <span>📙 半天課作息流程</span>
+              <span class="t-tag">低年級為主 / 週二除外</span>
+            </button>
+            <button class="routine-track-btn track-blue-btn" type="button" data-track="track-full">
+              <span>📘 整天課作息流程</span>
+              <span class="t-tag">中高年級 / 週二整天課</span>
+            </button>
+          </div>
         </div>
-        <div class="flowchart-timeline track-orange">
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🏫</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">12:00</span>
-                <h4 class="flow-title">學校放學・安全接送導護回班</h4>
-              </div>
-              <p class="flow-desc">莒光、右昌國小由專任老師親自步行導護帶隊；加昌、屏山、援中、油廠國小安排定點車輛安全接回，第一時間確保交通安全。</p>
-            </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🍱</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">12:30</span>
-                <h4 class="flow-title">生活自理・享用營養午餐</h4>
+        <!-- 軌道 1：半天作息 (橙色軌道) -->
+        <div class="routine-timeline-pane active track-orange-wrap" id="track-half">
+          <div class="station-timeline">
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🏫</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">落實自主洗手、更換室內拖鞋並擺放整齊。在乾淨衛生的環境中享用溫暖餐點，培養良好飲食禮儀與生活自理習慣。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">12:00</span>
+                  <span class="station-phase-pill">放學接回</span>
+                  <h4 class="station-title">學校放學・專任老師安全接送返班</h4>
+                </div>
+                <p class="station-desc">莒光、右昌國小由專任老師親自步行導護帶隊；加昌、屏山、援中、油廠國小由專任老師親自駕駛專車接回，第一時間守護交通安全。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">💤</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">13:15</span>
-                <h4 class="flow-title">靜心沉澱・充足午後小憩</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🍱</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">安排 45 分鐘安靜午休或閉目沉澱，讓孩子在安靜通風的空間放鬆大腦與身心，補充足夠體能迎接下午充實的學習。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">12:30</span>
+                  <span class="station-phase-pill">生活常規</span>
+                  <h4 class="station-title">生活自理・享用衛生營養午餐</h4>
+                </div>
+                <p class="station-desc">落實自主洗手、更換室內拖鞋並擺放整齊。在乾淨衛生的環境中享用溫暖餐點，培養良好飲食禮儀與生活自理習慣。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">📖</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">14:15</span>
-                <h4 class="flow-title">專注作業・專職導師逐題指導</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">💤</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">孩子專注完成學校聯絡簿與各科作業。導師在旁隨時觀察握筆坐姿，逐題逐行審核訂正，當天有疑問當天在班搞懂，不留疑惑。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">13:15</span>
+                  <span class="station-phase-pill">身心修復</span>
+                  <h4 class="station-title">靜心沉澱・充足午後小憩</h4>
+                </div>
+                <p class="station-desc">安排 45 分鐘安靜午休或閉目沉澱，讓孩子在安靜通風的空間放鬆大腦與身心，補充足夠體能迎接下午充實的學習。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🥪</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">16:00</span>
-                <h4 class="flow-title">暖心點心充電</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">📖</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">午後備有暖心點心充電，及時補充大腦與體能活力，在愉快的氛圍中為傍晚的閱讀與思考充飽電量。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">14:15</span>
+                  <span class="station-phase-pill">專注作業</span>
+                  <h4 class="station-title">專注作業・專職導師逐題指導</h4>
+                </div>
+                <p class="station-desc">孩子專注完成學校聯絡簿與各科作業。導師在旁隨時觀察握筆坐姿，逐題逐行審核訂正，當天有疑問當天在班搞懂，不留疑惑。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🧩</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">16:45</span>
-                <h4 class="flow-title">PBL 探究引導・自主閱讀充實</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🥪</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">作業完成後，導師融入生活情境對話進行觀念啟發；引導孩子自主閱讀經典課外繪本或益智思考，拓展視野心智。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">16:00</span>
+                  <span class="station-phase-pill">能量補給</span>
+                  <h4 class="station-title">暖心點心充電時間</h4>
+                </div>
+                <p class="station-desc">午後備有暖心點心充電，及時補充大腦與體能活力，在愉快的氛圍中為傍晚的閱讀與思考充飽電量。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🚗</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">18:00～18:30</span>
-                <h4 class="flow-title">常態接回時段・親師雙向交流</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🧩</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">家長下班至班部接回。導師當面或透過聯絡手冊簡要反饋孩子當天作業效率、情緒與常規表現，攜手家長同心引導。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">16:45</span>
+                  <span class="station-phase-pill">思維探究</span>
+                  <h4 class="station-title">PBL 概念探究・自主課外閱讀</h4>
+                </div>
+                <p class="station-desc">作業完成後，導師融入生活情境對話進行觀念啟發；引導孩子自主閱讀經典課外繪本或益智思考，拓展視野心智。</p>
+              </div>
             </div>
-          </div>
 
-          <div class="flow-step flow-step-last">
-            <div class="flow-node">
-              <div class="flow-icon">🌙</div>
-            </div>
-            <div class="flow-card" style="border-left:4px solid var(--orange);">
-              <div class="flow-head">
-                <span class="flow-stamp">18:30～20:00</span>
-                <h4 class="flow-title">晚間彈性留班時段・可代訂熱食晚餐</h4>
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🚗</div>
+                <div class="station-line"></div>
               </div>
-              <p class="flow-desc">針對雙薪家庭臨時加班或塞車情況，尚學備有老師溫暖留班照料至 20:00；若需在班用餐，可提前告知協助代訂安心熱食晚餐。</p>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">18:00～18:30</span>
+                  <span class="station-phase-pill">溫馨接回</span>
+                  <h4 class="station-title">常態接回時段・親師雙向交流</h4>
+                </div>
+                <p class="station-desc">家長下班至班部接回。導師當面或透過聯絡手冊簡要反饋孩子當天作業效率、情緒與常規表現，攜手家長同心引導。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon" style="border-color:#E89E38; color:#B57418;">🌙</div>
+              </div>
+              <div class="station-card station-card-evening">
+                <div class="station-head">
+                  <span class="station-stamp">18:30～20:00</span>
+                  <span class="station-phase-pill" style="background:#FFF0D4; color:#9E5F0E;">晚間彈性留班</span>
+                  <h4 class="station-title">晚間彈性留班照料・可協助代訂安心熱食晚餐</h4>
+                </div>
+                <p class="station-desc">針對雙薪家庭臨時加班或塞車情況，尚學備有老師溫暖留班照料至 20:00；若需在班用餐，可提前告知協助代訂安心熱食晚餐，孩子吃飽吃暖、安心閱讀。</p>
+                <div class="station-dinner-highlight">
+                  <span>🍱 貼心代訂晚餐服務</span>
+                  <span style="font-weight:500; color:#6B4B15;">• 雙薪家庭加班免擔憂，讓孩子準時享用熱騰騰晚餐</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 軌道 2：整天作息 (藍色軌道) -->
-        <div class="flowchart-track-header track-blue" style="margin-top:40px;">
-          <span>📘</span> 整天作息流程（中高年級 / 週二整天課時段）
+        <div class="routine-timeline-pane track-blue-wrap" id="track-full">
+          <div class="station-timeline">
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🏫</div>
+                <div class="station-line"></div>
+              </div>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">16:00</span>
+                  <span class="station-phase-pill">放學接回</span>
+                  <h4 class="station-title">學校整天課放學・專任老師安全接送返班</h4>
+                </div>
+                <p class="station-desc">各校整天課放學鐘響，由專任老師親自帶隊導護或由專任老師親自駕駛專屬車輛接回，第一時間平安抵達教室。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🥪</div>
+                <div class="station-line"></div>
+              </div>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">16:15</span>
+                  <span class="station-phase-pill">衛生補給</span>
+                  <h4 class="station-title">衛生洗手更鞋・暖心點心充電</h4>
+                </div>
+                <p class="station-desc">入班後洗手更鞋整頓個人儀容，隨即享用暖心點心充電，快速補充整天在校的腦力與體力消耗。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">📖</div>
+                <div class="station-line"></div>
+              </div>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">16:35</span>
+                  <span class="station-phase-pill">自主時間</span>
+                  <h4 class="station-title">高效作業・落實大石塊優先原則</h4>
+                </div>
+                <p class="station-desc">中高年級課業量增，導師引導自主規劃優先順序，集中精力攻克核心科目，並落實逐題審查與當日扎實訂正。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🎯</div>
+                <div class="station-line"></div>
+              </div>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">17:45</span>
+                  <span class="station-phase-pill">觀念深耕</span>
+                  <h4 class="station-title">錯題深度複盤・單元概念脈絡梳理</h4>
+                </div>
+                <p class="station-desc">針對學校當日作業與小考錯題進行複盤討論，抓出底層盲點並以心智圖梳理觀念，不把問題帶回家。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon">🚗</div>
+                <div class="station-line"></div>
+              </div>
+              <div class="station-card">
+                <div class="station-head">
+                  <span class="station-stamp">18:00～18:30</span>
+                  <span class="station-phase-pill">溫馨接回</span>
+                  <h4 class="station-title">常態接回時段・親師交流反饋</h4>
+                </div>
+                <p class="station-desc">家長溫馨接回，導師簡要溝通今日孩子學習專注度與作業吸收成效，親師攜手同行。</p>
+              </div>
+            </div>
+
+            <div class="station-step">
+              <div class="station-node">
+                <div class="station-icon" style="border-color:#E89E38; color:#B57418;">🌙</div>
+              </div>
+              <div class="station-card station-card-evening">
+                <div class="station-head">
+                  <span class="station-stamp">18:30～20:00</span>
+                  <span class="station-phase-pill" style="background:#FFF0D4; color:#9E5F0E;">晚間彈性留班</span>
+                  <h4 class="station-title">晚間彈性留班・專任老師留守至 20:00・可代訂熱食晚餐</h4>
+                </div>
+                <p class="station-desc">家長因公延遲接送最安心！老師留守照料至 20:00，可協助代訂熱騰騰晚餐，讓孩子吃飽吃暖、安心閱讀。</p>
+                <div class="station-dinner-highlight">
+                  <span>🍱 貼心代訂晚餐服務</span>
+                  <span style="font-weight:500; color:#6B4B15;">• 雙薪家庭加班免擔憂，讓孩子準時享用熱騰騰晚餐</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flowchart-timeline track-blue">
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🏫</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">16:00</span>
-                <h4 class="flow-title">學校整天放學・安全接送返班</h4>
-              </div>
-              <p class="flow-desc">各校整天課放學鐘響，由專任老師親自帶隊導護或安排安全車輛接回，第一時間平安抵達教室。</p>
-            </div>
-          </div>
 
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🥪</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">16:15</span>
-                <h4 class="flow-title">衛生洗手更鞋・暖心點心充電</h4>
-              </div>
-              <p class="flow-desc">入班後洗手更鞋整頓個人儀容，隨即享用暖心點心充電，快速補充整天在校的腦力與體力消耗。</p>
-            </div>
-          </div>
-
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">📖</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">16:35</span>
-                <h4 class="flow-title">高效作業・落實大石塊優先原則</h4>
-              </div>
-              <p class="flow-desc">中高年級課業量增，導師引導自主規劃優先順序，集中精力攻克核心科目，並落實逐題審查與當日扎實訂正。</p>
-            </div>
-          </div>
-
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🎯</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">17:45</span>
-                <h4 class="flow-title">錯題深度複盤・單元概念脈絡梳理</h4>
-              </div>
-              <p class="flow-desc">針對學校當日作業與小考錯題進行複盤討論，抓出底層盲點並以心智圖梳理觀念，不把問題帶回家。</p>
-            </div>
-          </div>
-
-          <div class="flow-step">
-            <div class="flow-node">
-              <div class="flow-icon">🚗</div>
-              <div class="flow-line"></div>
-            </div>
-            <div class="flow-card">
-              <div class="flow-head">
-                <span class="flow-stamp">18:00～18:30</span>
-                <h4 class="flow-title">常態接回時段・親師交流反饋</h4>
-              </div>
-              <p class="flow-desc">家長溫馨接回，導師簡要溝通今日孩子學習專注度與作業吸收成效，親師攜手同行。</p>
-            </div>
-          </div>
-
-          <div class="flow-step flow-step-last">
-            <div class="flow-node">
-              <div class="flow-icon">🌙</div>
-            </div>
-            <div class="flow-card" style="border-left:4px solid var(--blue);">
-              <div class="flow-head">
-                <span class="flow-stamp">18:30～20:00</span>
-                <h4 class="flow-title">晚間彈性留班・可代訂熱食晚餐</h4>
-              </div>
-              <p class="flow-desc">家長因公延遲接送最安心！老師留守照料至 20:00，可協助代訂熱騰騰晚餐，讓孩子吃飽吃暖、安心閱讀。</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="routine-disclaimer-note">
+        <p class="routine-disclaimer-note-mook">
           ※ 課程作息與接送時程將依各校實際放學時間、各年級課表與現場狀況靈活彈性微調。
         </p>
       </div>
@@ -1476,9 +2066,9 @@
     </section>
 
     <!-- ========================================================
-         8. 放學安心接送學區 (Escort Mook Box)
+         5. 放學安心接送學區 (Safe Transportation Mook)
          ======================================================== -->
-    <section style="padding:80px 6vw; background:var(--paper-cream); border-bottom:2px dashed var(--border-dashed);" id="escort">
+    <section class="escort-section-mook" id="escort">
       <div style="max-width:1180px; margin:0 auto;">
         <div class="mook-section-header">
           <div class="mook-badge">
@@ -1487,39 +2077,79 @@
           </div>
           <h2 class="mook-section-title">楠梓學區放學安心接送網絡</h2>
           <p class="mook-section-subtitle">
-            依據學校地理距離採取最嚴謹的安全導護方式，專人守護孩子從校門口到班部教室的每一公尺路程：
+            依據學校地理距離採取最嚴謹的安全導護方式，專任老師守護孩子從校門口到班部教室的每一公尺路程：
           </p>
         </div>
 
-        <div class="escort-mook-box">
-          <div class="escort-group escort-walk">
-            <h3>🚶‍♂️ 專任老師親自帶隊・步行導護學區</h3>
-            <p>放學時專任老師於校門口指定集合點整隊點名，穿戴安全導護反光背心，步行牽隊安全護送回班：</p>
-            <div class="school-tags-row">
-              <span class="school-tag-pill">🏫 右昌國小</span>
-              <span class="school-tag-pill">🏫 莒光國小</span>
+        <div class="escort-cards-grid">
+          <!-- 步行導護卡 -->
+          <div class="escort-route-card">
+            <div>
+              <div class="escort-card-header">
+                <div class="escort-route-icon icon-walk">🚶‍♂️</div>
+                <div class="escort-route-titles">
+                  <h3>專任老師親自帶隊・步行導護學區</h3>
+                  <div class="escort-route-badges">
+                    <span class="escort-badge-item badge-walk">專任老師親自帶隊</span>
+                    <span class="escort-badge-item badge-walk">安全導護反光背心</span>
+                    <span class="escort-badge-item badge-walk">路口定點安全引導</span>
+                  </div>
+                </div>
+              </div>
+              <p class="escort-route-desc">
+                放學鐘響時，專任老師準時於校門口指定集合點整隊點名。全員穿戴高辨識度安全導護反光背心，整隊牽引步行，全程走專用人行道與斑馬線，平安護送孩子返抵班部。
+              </p>
+            </div>
+            <div class="escort-schools-box">
+              <div class="escort-schools-title">🚶 步行導護服務學校</div>
+              <div class="escort-schools-row">
+                <span class="escort-school-pill pill-walk">🏫 右昌國小（約 3-5 分鐘步程）</span>
+                <span class="escort-school-pill pill-walk">🏫 莒光國小（約 6-8 分鐘步程）</span>
+              </div>
             </div>
           </div>
 
-          <div class="escort-group escort-bus">
-            <h3>🚗 定點安全車輛接送學區</h3>
-            <p>配合各校不同年級下課鐘響，安排定點車輛安全接送，第一時間平安返抵教室：</p>
-            <div class="school-tags-row">
-              <span class="school-tag-pill bus-pill">🏫 加昌國小</span>
-              <span class="school-tag-pill bus-pill">🏫 屏山國小</span>
-              <span class="school-tag-pill bus-pill">🏫 援中國小</span>
-              <span class="school-tag-pill bus-pill">🏫 油廠國小</span>
+          <!-- 車輛接送卡 -->
+          <div class="escort-route-card">
+            <div>
+              <div class="escort-card-header">
+                <div class="escort-route-icon icon-car">🚗</div>
+                <div class="escort-route-titles">
+                  <h3>定點安全車輛接送・專任老師親自出車</h3>
+                  <div class="escort-route-badges">
+                    <span class="escort-badge-item badge-car">專任老師親自接送</span>
+                    <span class="escort-badge-item badge-car">專屬安全用車</span>
+                    <span class="escort-badge-item badge-car">定點準時守候</span>
+                  </div>
+                </div>
+              </div>
+              <p class="escort-route-desc">
+                配合各校不同年級放學鐘響，由專任老師親自駕駛專屬接送車輛，準時前往各校門指定接送區定點等候，逐一核對確認上車，第一時間將孩子安全接回教室。
+              </p>
+            </div>
+            <div class="escort-schools-box">
+              <div class="escort-schools-title">🚗 定點專車接送服務學校</div>
+              <div class="escort-schools-row">
+                <span class="escort-school-pill pill-car">🏫 加昌國小</span>
+                <span class="escort-school-pill pill-car">🏫 屏山國小</span>
+                <span class="escort-school-pill pill-car">🏫 援中國小</span>
+                <span class="escort-school-pill pill-car">🏫 油廠國小</span>
+              </div>
             </div>
           </div>
         </div>
 
+        <p class="escort-bottom-note">
+          ※ 接送時程將依各校實際放學時間、各年級課表與現場狀況靈活彈性微調。若有特殊接送或跨校就讀需求，歡迎與我們諮詢確認。
+        </p>
+
         <!-- 課程總覽導流橫幅 -->
-        <div class="courses-hub-banner">
+        <div class="courses-hub-banner-mook">
           <div class="courses-hub-text">
-            <h3>探索更多學程：珠心算・兒童美語・文理精進</h3>
-            <p>除課後安親外，尚學亦提供全方位多元學力深耕學程，歡迎前往課程總覽頁面查看！</p>
+            <h3>探索更多學程：珠心算思維・兒童美語・文理精進</h3>
+            <p>除國小課後安親外，尚學亦提供全方位多元學力深耕學程，歡迎前往課程總覽頁面查看！</p>
           </div>
-          <a class="btn-hub-jump" href="./courses.html">瀏覽全方位課程總覽 →</a>
+          <a class="btn-hub-jump-mook" href="./courses.html">瀏覽全方位課程總覽 →</a>
         </div>
       </div>
     </section>
@@ -1853,6 +2483,22 @@
     };
     window.openSangSuehDrawer = window.openMookDrawer;
     window.closeSangSuehDrawer = window.closeMookDrawer;
+
+    // 一日作息雙軌切換器 (Routine Track Switcher)
+    (function() {
+      document.querySelectorAll('.routine-track-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var trackId = btn.getAttribute('data-track');
+          var container = btn.closest('.routine-mook-section');
+          if (!container) return;
+          container.querySelectorAll('.routine-track-btn').forEach(function(b) { b.classList.remove('active'); });
+          container.querySelectorAll('.routine-timeline-pane').forEach(function(p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          var targetPane = document.getElementById(trackId);
+          if (targetPane) targetPane.classList.add('active');
+        });
+      });
+    })();
   </script>
 
   <!-- 引入模組化組件與全站共用導覽/頁尾 -->
