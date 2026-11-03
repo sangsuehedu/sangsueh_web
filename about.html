@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>關於尚學｜教育理念・專職專任師資・合規安全班舍與常規堅持｜尚學文教</title>
+  <meta name="description" content="尚學文教（高雄楠梓）：深耕在地三十載，堅持「專注常規勝過考卷刷題・從邏輯本質學會思考」。全職資深專任導師全程引導、精緻小班、PBL探究式理解、合規安全班舍與每日清潔消毒。莒光、右昌國小步行導護；加昌、屏山、援中、油廠國小車輛接送。最晚接回彈性至19:30，可代訂熱食晚餐。"/>
+  <meta name="keywords" content="關於尚學, 尚學文教, 楠梓安親班, 楠梓補習班, 莒光國小安親, 右昌國小安親, 加昌國小安親, 屏山國小, 援中國小, 油廠國小, 專任導師, 探究式理解"/>
+  <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/about.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="關於尚學｜教育理念・專職專任師資・合規安全班舍與常規堅持｜尚學文教"/>
+  <meta property="og:description" content="學習不該只有反覆寫評量。楠梓在地精緻專屬小班，堅持專職專任導師、探究式思維、逐行作業審核與安全合規班舍。"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/curated_mook/pain_smallclass_team.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v12"/>
+
+  <style>
+    :root {
+      --ink: #24312E;
+      --ink-soft: #4F5B57;
+      --paper: #F7F2E8;
+      --paper-warm: #FFFDF8;
+      --paper-cream: #FFF8EE;
+      --orange: #C96D45;
+      --orange-light: #FCEFE9;
+      --green: #477B65;
+      --green-light: #EBF2EC;
+      --yellow: #E8C968;
+      --yellow-light: #FAF2D2;
+      --border-ink: rgba(36, 49, 46, 0.16);
+      --border-dashed: rgba(36, 49, 46, 0.28);
+    }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding-bottom: 74px;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 901px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    .about-pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      padding: clamp(28px, 4vw, 42px);
+      box-shadow: 0 4px 18px rgba(36, 49, 46, 0.05);
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    @media (max-width: 860px) {
+      .about-pillar-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .about-pillar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--orange-light);
+      color: var(--orange);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .about-pillar-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.35;
+      margin: 0 0 16px;
+    }
+
+    .about-pillar-desc {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: #4A5753;
+      margin-bottom: 20px;
+    }
+
+    .about-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .about-checklist li strong {
+      color: var(--orange);
+    }
+
+    .facility-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .facility-stat-card {
+      background: var(--paper-warm);
+      border: 1px dashed var(--border-dashed);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-align: left;
+    }
+
+    .facility-stat-card .stat-icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .facility-stat-card .stat-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .facility-stat-card .stat-text {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全站共用導覽列容器 -->
+  <div id="site-navbar-container"></div>
+
+  <main>
+    <!-- ========================================================
+         HERO 卷頭：關於尚學
+         ======================================================== -->
+    <section class="hero-mook">
+      <div class="hero-mook-grid">
+        <div class="hero-mook-text">
+          <div class="mook-badge">
+            <span>ABOUT SANG SUEH</span>
+            <span class="year">• 機構理念與環境安全</span>
+          </div>
+          <h1 class="hero-mook-title">
+            專注常規勝過考卷刷題，<br/>
+            陪伴孩子走向<span class="highlight">知其所以然的自律</span>。
+          </h1>
+          <p class="hero-mook-desc">
+            尚學文教立足高雄楠梓學區，我們深信：教育的本質不是拿厚厚的評量卷填滿孩子的童年，而是建立良好的一生學習常規、雕琢專注習慣，並透過「探究式概念理解（PBL）」喚醒對知識的好奇心。全職專任導師全程穩定帶班，給雙薪家長最踏實安心的依靠。
+          </p>
+
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <span>📝</span> 預約到班參觀諮詢
+            </a>
+            <a class="btn-mook-secondary" href="tel:073646570">
+              <span>📞</span> 專線 (07) 364-6570
+            </a>
+          </div>
+
+          <!-- 4 信任印章 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--orange); line-height:1.2;">小班制</div>
+              <strong>專職專任導師</strong>
+              <small>穩定帶班・拒絕兼職輪替</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--orange); line-height:1.2;">PBL</div>
+              <strong>探究式思維引導</strong>
+              <small>知其然更知其所以然</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--orange); line-height:1.2;">合規</div>
+              <strong>安全班舍嚴格把關</strong>
+              <small>公安消防・容留人數透明</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--orange); line-height:1.2;">19:30</div>
+              <strong>安心接送與晚間彈性</strong>
+              <small>學區專車/導護・熱食晚餐代訂</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mook-visual">
+          <div class="hero-collage-wrap">
+            <div class="hero-polaroid-main polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-11px; left:25px; width:75px; transform:rotate(-3deg);"></div>
+              <img src="./photos/curated_mook/pain_smallclass_team.jpg" alt="尚學文教專任師資用心引導" loading="eager"/>
+              <div class="polaroid-caption">用心陪伴・每一個眼神都不被忽略</div>
+              <div class="vintage-stamp">SANG SUEH<br/>SINCE 1986</div>
+            </div>
+            <div class="hero-polaroid-sub polaroid-card">
+              <div class="washi-tape washi-tape-green" style="top:-10px; right:20px; width:65px; transform:rotate(2deg);"></div>
+              <img src="./photos/curated_mook/hero_focus_hands_noface.jpg" alt="學生握筆坐姿細緻雕琢" loading="lazy"/>
+              <div class="polaroid-caption">細緻雕琢・握筆筆順認真扎根</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         四大信賴支柱 (Four Core Trust Pillars)
+         ======================================================== -->
+    <section style="padding: 70px 6vw 90px; background: var(--paper-warm);">
+      <div style="max-width: 1140px; margin: 0 auto;">
+        
+        <div class="mook-section-header" style="text-align: center; margin-bottom: 54px;">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>PILLARS OF TRUST</span>
+            <span class="year">• 四大辦學堅持</span>
+          </div>
+          <h2 class="mook-section-title">不浮誇、不虛假，用三十年日常細節堆疊的教育信賴</h2>
+          <p class="mook-section-subtitle" style="margin: 0 auto;">
+            補習班不是流水線工廠，教育需要時間慢火細熬。以下是尚學文教對每位孩子與家長永不妥協的辦學承諾：
+          </p>
+        </div>
+
+        <!-- 支柱 1: 辦學初心與哲學 -->
+        <article class="about-pillar-card" id="philosophy">
+          <div>
+            <span class="about-pillar-badge">支柱一｜教育哲學</span>
+            <h3 class="about-pillar-title">為什麼我們堅持「專注常規勝過考卷刷題」？</h3>
+            <p class="about-pillar-desc">
+              很多家長問：「別的安親班每天寫三四本評量，為什麼尚學強調先搞懂概念、先坐正握好筆？」因為我們看過太多靠刷題硬背換取短暫高分的孩子，升上國中遇到長篇素養與跨單元題型時，思維全面崩潰。在尚學，我們融入日常探究思考（PBL），引導孩子大方發問、推導因果，建立帶得走的自學能力。
+            </p>
+            <ul class="about-checklist">
+              <li><strong>✓ 雙向商量與批判思考：</strong>打破單向說教，遇到困惑引導學員拆解問題核心，養成思考主見。</li>
+              <li><strong>✓ 逐字逐行批閱訂正：</strong>不只對答案打勾，更耐心梳理思考盲點，確實當日搞懂。</li>
+              <li><strong>✓ 坐姿握筆與書寫常規：</strong>糾正低頭駝背與握筆錯誤，讓寫字不再是痛苦差事。</li>
+            </ul>
+          </div>
+          <div>
+            <div class="polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; left:30px; width:70px;"></div>
+              <img src="./photos/curated_mook/course_pbl_inquiry.jpg" alt="探究式概念理解日常引導" style="width:100%; height:260px; object-fit:cover; border-radius:4px;"/>
+              <div class="polaroid-caption">探究引導・培養知其所以然的底氣</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 支柱 2: 專任師資承諾 -->
+        <article class="about-pillar-card" id="teachers">
+          <div>
+            <span class="about-pillar-badge" style="background:#EBF2EC; color:#477B65;">支柱二｜師資承諾</span>
+            <h3 class="about-pillar-title">專職專任資深導師，拒絕頻繁更換的流動工讀</h3>
+            <p class="about-pillar-desc">
+              孩子的安全感建立在穩定的陪伴上。尚學文教課輔與各科才藝皆由經驗豐富的專職專任教師親自帶班，導師熟悉每位孩子的性格特質、各校各版本進度與學習瓶頸。老師與孩子亦師亦友，以愛心與嚴謹並重的態度，陪伴孩子度過每一個關鍵成長期。
+            </p>
+            <ul class="about-checklist">
+              <li><strong>✓ 師資流動率極低：</strong>穩定長期帶班，熟悉右昌、莒光、加昌等各校課業脈絡。</li>
+              <li><strong>✓ 親師透明雙向溝通：</strong>聯絡簿詳實記載每日學習心態與作業狀態，不隱瞞、不敷衍。</li>
+              <li><strong>✓ 尊重個別吸收節奏：</strong>快者引導延伸閱讀，慢者個別陪伴補足觀念。</li>
+            </ul>
+          </div>
+          <div>
+            <div class="polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-10px; right:30px; width:70px;"></div>
+              <img src="./photos/curated_mook/course_highgrade_mindmap.jpg" alt="專任導師引導自主心智圖" style="width:100%; height:260px; object-fit:cover; border-radius:4px;"/>
+              <div class="polaroid-caption">深度研討・專任師資專業帶班</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 支柱 3: 合規安全班舍與衛生規範 -->
+        <article class="about-pillar-card" id="facility">
+          <div>
+            <span class="about-pillar-badge" style="background:#FAF2D2; color:#B38C26;">支柱三｜空間安全與衛生</span>
+            <h3 class="about-pillar-title">合法合規班舍、嚴格容留人數與每日消毒紀錄</h3>
+            <p class="about-pillar-desc">
+              給孩子一個安全健康的課後學習殿堂！尚學班舍座落於楠梓軍校路靜巷學區，避開大馬路車流喧囂；全面通過高雄市政府公安與消防檢驗合格，落實容留人數安全控管，絕不超收擁擠。每日落實環境清消紀錄表，維護學童健康防線。
+            </p>
+            
+            <div class="facility-stat-grid">
+              <div class="facility-stat-card">
+                <span class="stat-icon">🛡️</span>
+                <div class="stat-num">合規認證</div>
+                <div class="stat-text">消防、公安定期合格申報，逃生動線清晰透明。</div>
+              </div>
+              <div class="facility-stat-card">
+                <span class="stat-icon">🧼</span>
+                <div class="stat-num">每日清消</div>
+                <div class="stat-text">課桌椅、扶手、洗手台每日定時消毒，記錄留存。</div>
+              </div>
+              <div class="facility-stat-card">
+                <span class="stat-icon">👥</span>
+                <div class="stat-num">容留控管</div>
+                <div class="stat-text">精緻小班空間，座位寬敞，保障每人健康活動距離。</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; left:30px; width:70px;"></div>
+              <img src="./photos/curated_mook/hero_focus_writing_noface.jpg" alt="明亮寬敞、桌椅舒適的班舍環境" style="width:100%; height:260px; object-fit:cover; border-radius:4px;"/>
+              <div class="polaroid-caption">靜巷班舍・明亮採光與人體工學課桌椅</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 支柱 4: 學區接送與雙薪家庭堅實後盾 -->
+        <article class="about-pillar-card" id="escort">
+          <div>
+            <span class="about-pillar-badge" style="background:#E4EFF1; color:#3B7684;">支柱四｜安心接送與生活照護</span>
+            <h3 class="about-pillar-title">學區步行導護、專車定點接送，晚間延托至 19:30</h3>
+            <p class="about-pillar-desc">
+              我們深知雙薪家庭下班通勤的辛勞！放學時段，右昌與莒光國小由專職老師親自步行導護牽回，加昌、屏山、援中、油廠國小配合合格車輛定點安全接送。常態接回至 18:30，晚間延托彈性至 19:30，並貼心提供代訂營養熱食晚餐服務，讓家長安心下班。
+            </p>
+            <ul class="about-checklist">
+              <li><strong>✓ 導護牽引安全第一：</strong>老師穿戴警示背心步行導護，交通安全嚴格守護。</li>
+              <li><strong>✓ 晚間彈性延托至 19:30：</strong>若遇偶發塞車或加班，致電告知由老師全程溫馨照護陪伴。</li>
+              <li><strong>✓ 代訂健康熱食晚餐：</strong>合作衛生合格店家，營養均衡，孩子回家無須飢腸轆轆。</li>
+            </ul>
+          </div>
+          <div>
+            <div class="polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-10px; right:30px; width:70px;"></div>
+              <img src="./photos/curated_mook/pain_happy_parenting.jpg" alt="下班溫馨親子時光" style="width:100%; height:260px; object-fit:cover; border-radius:4px;"/>
+              <div class="polaroid-caption">功課在班搞懂・回家享受零負擔溫馨親子夜</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         機構常見問答 FAQ
+         ======================================================== -->
+    <section class="faq-mook-section" id="faq" style="background: var(--paper);">
+      <div class="mook-section-header" style="text-align: center;">
+        <div class="mook-badge" style="background: #24312E;">
+          <span>Q & A</span>
+          <span class="year">• 常見問題與營運規範</span>
+        </div>
+        <h2 class="mook-section-title">家長常問的營運規範與真實制度</h2>
+        <p class="mook-section-subtitle" style="margin: 0 auto;">
+          資訊透明、不虛假承諾，是建立三十年長久信任的基石：
+        </p>
+      </div>
+
+      <div class="faq-mook-grid" style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+        
+        <details class="faq-card" style="background:#FFF; padding:20px 24px; border-radius:12px; border:1px solid var(--border-ink);">
+          <summary style="font-weight:800; font-size:16.5px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+            <span>Q1. 請問尚學文教各學程的請假與補課制度如何運作？</span>
+            <span style="color:var(--orange);">▼</span>
+          </summary>
+          <div style="margin-top:14px; font-size:14.5px; line-height:1.75; color:#4F5B57;">
+            <strong>依照班內真實營運規範：</strong><br/>
+            1. <strong>國小安親課後照顧</strong>：因屬日常課後照護與當日學校作業輔導，<strong>請假無另外補課服務</strong>（可由專任導師於聯絡簿交代當日學校作業重點與叮嚀）。<br/>
+            2. <strong>安親以外學程（珠心算、生活美語、進階英語、文法閱讀、全民英檢、多益等）</strong>：若因事或病請假，採<strong>「補進度非補時數」</strong>原則！由專任老師提供當堂教材進度、關鍵觀念解說與講義作業，確保孩子扎實跟上進度，而非流於形式的隨機塞堂折抵。
+          </div>
+        </details>
+
+        <details class="faq-card" style="background:#FFF; padding:20px 24px; border-radius:12px; border:1px solid var(--border-ink);">
+          <summary style="font-weight:800; font-size:16.5px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+            <span>Q2. 請問學費如何收取？為何網頁上未標示固定金額？</span>
+            <span style="color:var(--orange);">▼</span>
+          </summary>
+          <div style="margin-top:14px; font-size:14.5px; line-height:1.75; color:#4F5B57;">
+            每位孩子的年級、每週到班天數（半天/整天）、是否加選單項專業才藝學程（如珠心算或兒童美語）皆有不同組合。尚學堅持收費公開透明、收費標準平實親民，絕無任何隱形巧立名目。我們非常歡迎家長預約到班或來電諮詢，由專人依據孩子的需求提供最清楚客觀的收費明細。
+          </div>
+        </details>
+
+        <details class="faq-card" style="background:#FFF; padding:20px 24px; border-radius:12px; border:1px solid var(--border-ink);">
+          <summary style="font-weight:800; font-size:16.5px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+            <span>Q3. 新生如何報名？可以先預約參觀班舍環境嗎？</span>
+            <span style="color:var(--orange);">▼</span>
+          </summary>
+          <div style="margin-top:14px; font-size:14.5px; line-height:1.75; color:#4F5B57;">
+            我們採<strong>預約參觀制</strong>，流程為：「線上填單或來電預約 → 安排專屬時段到班參觀班舍環境與教學特色 → 依孩子年級特質進行學力或常規諮詢健檢 → 專人詳細說明課程與透明收費 → 安心確認報名」。為維護在班學生的專注與安全，參觀請務必提前預約，以便安排導師為您專屬解說。
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         預約到班諮詢 CTA
+         ======================================================== -->
+    <section style="padding: 70px 6vw; background: var(--paper-warm); text-align: center; border-top: 1px dashed var(--border-dashed);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="mook-badge" style="background: var(--orange); margin-bottom: 16px;">
+          <span>VISIT US</span>
+          <span class="year">• 預約到班了解</span>
+        </div>
+        <h2 style="font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 3.2vw, 36px); font-weight: 900; margin: 0 0 16px;">
+          誠摯歡迎您與孩子，走進尚學體驗溫暖日常
+        </h2>
+        <p style="font-size: 16px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 32px;">
+          我們不在大馬路邊大張旗鼓，而是隱身於右昌莒光加昌生活圈靜巷內，用乾淨安心的環境、細心負責的專任老師，陪伴每個家庭穩健向前。
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer" style="font-size: 16px; padding: 12px 28px;">
+            📝 線上填寫預約表單
+          </a>
+          <a class="btn-mook-secondary" href="tel:073646570" style="font-size: 16px; padding: 12px 28px;">
+            📞 來電預約 (07) 364-6570
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 手機版常駐吸底快速列 -->
+  <aside class="mobile-mook-sticky" aria-label="行動版快速聯絡">
+    <div class="mobile-sticky-inner">
+      <a class="btn-sticky-phone" href="tel:073646570" aria-label="撥打諮詢專線">
+        <span>📞</span> 電話諮詢
+      </a>
+      <a class="btn-sticky-reserve" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+        📝 預約參觀諮詢
+      </a>
+    </div>
+  </aside>
+
+  <!-- 全站共用頁尾容器 -->
+  <div id="site-footer-container"></div>
+
+  <!-- 全站共用模組 JS -->
+  <script>
+    window.sangSuehNavbarOptions = {
+      topNotice: {
+        show: true,
+        text: '🌿 尚學文教・三十載深耕楠梓｜專注常規勝過考卷刷題・精緻小班專職專任導師',
+        linkText: '← 返回招生首頁',
+        linkHref: './index.html'
+      },
+      includeHome: true,
+      includeAbout: true,
+      includeCoursesDropdown: true,
+      extraNavLinks: [
+        { text: '教育哲學', href: '#philosophy' },
+        { text: '師資承諾', href: '#teachers' },
+        { text: '環境安全', href: '#facility' },
+        { text: '營運問答', href: '#faq' }
+      ],
+      summerBtn: { show: true, text: '🍉 2026 成果誌', href: './summer-2026.html' },
+      bookingBtn: {
+        show: true,
+        text: '📝 預約參觀了解',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform'
+      }
+    };
+  </script>
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
+  <script src="./shared-footer.js?v=20260911_v11"></script>
+</body>
+</html>

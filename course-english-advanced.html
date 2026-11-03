@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>進階英語素養專頁｜國中先修英文（小六升國一銜接首選）・1200核心字彙與五大句型破題｜尚學文教</title>
+  <meta name="description" content="高雄楠梓國中先修英文推薦！尚學文教「進階英語素養」專為小五、小六升國一學童打造。跨越小學到國中英文難度斷崖，掌握教育部 1200 核心單字、五大基本句型與題型書寫規範。精緻小班扎實引導，國中第一次段考胸有成竹！"/>
+  <meta name="keywords" content="國中先修英文, 楠梓國中英文先修, 小六升國一英文, 國中英語銜接, 國中1200單字, 五大句型, 楠梓英文補習, 尚學文教"/>
+  <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/course-english-advanced.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="進階英語素養｜國中先修英文（小六升國一銜接首選）｜尚學文教"/>
+  <meta property="og:description" content="跨越國小到國中難度斷崖！掌握 1200 核心單字與五大句型骨幹，國一第一次段考胸有成竹。高雄楠梓國中先修英文首選！"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/course_specialties/jh_trans_focus_girl.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+
+  <!-- Core Styles (Inherits 100% MOOK Design System) -->
+  <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v14"/>
+
+  <style>
+    :root {
+      --mineral-accent: #3B7684; /* 青碧藍 */
+      --mineral-accent-light: #E4EFF1;
+    }
+
+    /* 基礎安全邊界：防止任何水平溢出 (Horizontal Overflow Prevention) */
+    html, body {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      position: relative;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Course Unique Highlight Accent */
+    .hero-mook-title span.highlight {
+      background: linear-gradient(180deg, transparent 65%, rgba(59, 118, 132, 0.28) 65%);
+      color: var(--mineral-accent);
+    }
+
+    /* Cliff 3 Cards Grid (難度斷崖 3 大手帳對比卡) */
+    .cliff-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1100px;
+      margin: 36px auto;
+    }
+    @media (max-width: 900px) {
+      .cliff-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    .cliff-mook-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      padding: 24px 22px 22px;
+      box-shadow: 4px 5px 0 rgba(36, 49, 46, 0.05);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cliff-mook-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 8px 0 rgba(36, 49, 46, 0.08);
+    }
+    .cliff-card-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border-dashed);
+      margin-bottom: 16px;
+    }
+    .cliff-card-num {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--mineral-accent);
+      letter-spacing: 0.05em;
+    }
+    .cliff-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--ink);
+      margin: 0;
+    }
+    .cliff-compare-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .cliff-compare-elem {
+      background: #F8F6F0;
+      border: 1px solid rgba(36, 49, 46, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .cliff-compare-elem p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #6C7A76;
+      margin: 6px 0 0;
+    }
+    .cliff-compare-arrow {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 850;
+      color: var(--orange);
+      background: #FFF5EE;
+      border: 1px dashed rgba(201, 109, 69, 0.35);
+      border-radius: 20px;
+      padding: 4px 10px;
+      align-self: center;
+    }
+    .cliff-compare-jh {
+      background: #FAF8F5;
+      border: 1.5px solid var(--mineral-accent);
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 2px 2px 0 rgba(59, 118, 132, 0.12);
+    }
+    .cliff-compare-jh p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 6px 0 0;
+      font-weight: 550;
+    }
+    .cliff-compare-jh strong {
+      color: var(--mineral-accent);
+      font-weight: 850;
+    }
+    .compare-tag {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .tag-elem {
+      background: #EAE5D9;
+      color: #5C6864;
+    }
+    .tag-jh {
+      background: var(--mineral-accent);
+      color: #FFFFFF;
+    }
+
+    /* 3 Pillars Grid (三大銜接護城河) */
+    .pillar-mook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .pillar-mook-card {
+      background: #FAF8F5;
+      border: 1px solid rgba(36, 49, 46, 0.14);
+      border-radius: 14px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 18px rgba(36, 49, 46, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .pillar-mook-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 26px rgba(27, 73, 88, 0.12);
+      border-color: rgba(36, 49, 46, 0.22);
+    }
+
+    /* Dual Photo Grid (先修課堂相片雙聯展) */
+    .photo-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      max-width: 1080px;
+      margin: 40px auto 10px;
+    }
+    .photo-dual-grid .polaroid-card {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      padding: 12px 12px 24px !important;
+      background: #FFFFFF !important;
+      border: 1px solid #DFD7CA !important;
+      border-radius: 6px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07) !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+    }
+    .photo-dual-grid .polaroid-photo-box {
+      position: relative;
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .photo-dual-grid .polaroid-photo-box img {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 3 / 2 !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+    .photo-dual-grid .photo-disclaimer-pill {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.88);
+      background: rgba(36, 49, 46, 0.52);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      line-height: 1.4;
+    }
+    .photo-dual-grid .polaroid-caption {
+      margin-top: 12px !important;
+      padding: 0 6px !important;
+      font-family: 'Noto Serif TC', serif !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      line-height: 1.6 !important;
+      color: var(--ink) !important;
+      text-align: center !important;
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: unset !important;
+    }
+
+    /* ========================================================
+       Hero 拍立得前後堆疊與互動切換 (Hero Polaroid Interactive Lift)
+       ======================================================== */
+    .hero-collage-wrap {
+      position: relative;
+      min-height: 420px;
+    }
+    .hero-polaroid-main {
+      width: 78%;
+      height: 350px !important;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: rotate(-3deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 10px 10px 18px 10px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 1;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-sub {
+      width: 58%;
+      height: 280px !important;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      transform: rotate(4deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 10px 10px 18px 10px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-main img,
+    .hero-polaroid-sub img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      border-radius: 2px !important;
+    }
+    /* Hover & Active 狀態：觸控或點擊時升至最頂層顯示完整照片 */
+    .hero-polaroid-main:hover,
+    .hero-polaroid-main.is-active {
+      transform: scale(1.05) rotate(-1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 16px 36px rgba(36, 49, 46, 0.28) !important;
+    }
+    .hero-polaroid-sub:hover,
+    .hero-polaroid-sub.is-active {
+      transform: scale(1.06) rotate(1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 16px 36px rgba(36, 49, 46, 0.28) !important;
+    }
+
+    /* ========================================================
+       手機版完整響應式適配 (RWD Optimization for Mobile <= 680px)
+       ======================================================== */
+    @media (max-width: 680px) {
+      /* 全局主區域與各 Section 內距安全限制 */
+      main, main > section {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+      main > section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      /* Stage 1. Hero 雜誌卷頭 */
+      .hero-mook {
+        padding: 36px 16px 48px !important;
+        overflow-x: hidden !important;
+      }
+      .hero-mook-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .hero-stamps-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        padding-top: 16px !important;
+      }
+      .stamp-item-card {
+        padding: 10px 8px !important;
+        border-radius: 10px !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .stamp-item-card strong {
+        font-size: 12.5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .stamp-item-card small {
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
+        word-break: break-all !important;
+        display: block !important;
+      }
+      .hero-collage-wrap {
+        min-height: 290px !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        margin-top: 6px !important;
+        position: relative !important;
+      }
+      .hero-polaroid-main {
+        width: 84% !important;
+        height: 240px !important;
+        top: 4px !important;
+        left: 4px !important;
+        transform: rotate(-1.5deg) !important;
+        cursor: pointer !important;
+        z-index: 1 !important;
+        padding: 8px 8px 14px 8px !important;
+      }
+      .hero-polaroid-sub {
+        width: 66% !important;
+        height: 195px !important;
+        bottom: 4px !important;
+        right: 4px !important;
+        transform: rotate(1.5deg) !important;
+        cursor: pointer !important;
+        z-index: 2 !important;
+        padding: 8px 8px 14px 8px !important;
+      }
+      .hero-polaroid-main:hover,
+      .hero-polaroid-main.is-active {
+        transform: scale(1.04) rotate(-0.5deg) !important;
+        z-index: 10 !important;
+        box-shadow: 0 14px 32px rgba(36, 49, 46, 0.28) !important;
+      }
+      .hero-polaroid-sub:hover,
+      .hero-polaroid-sub.is-active {
+        transform: scale(1.05) rotate(0.5deg) !important;
+        z-index: 10 !important;
+        box-shadow: 0 14px 32px rgba(36, 49, 46, 0.28) !important;
+      }
+
+      /* Stage 2. 活頁紙痛點診斷手帳 */
+      .pain-section-mook {
+        padding: 45px 16px !important;
+      }
+      .qa-diagnostic-sheet {
+        padding: 22px 14px 18px 32px !important;
+        box-sizing: border-box !important;
+      }
+      .sheet-q-title {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+      }
+      .sheet-a-title {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+      }
+
+      /* Stage 3. 難度斷崖 3 大手帳對比卡與 3 大銜接護城河 */
+      .cliff-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        margin: 22px auto !important;
+      }
+      .cliff-mook-card {
+        padding: 20px 16px 18px !important;
+      }
+      .pillar-mook-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        margin-top: 20px !important;
+      }
+      .pillar-mook-card {
+        padding: 18px 14px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Stage 4. 紀實照片相框 */
+      .photo-dual-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+        margin: 20px auto !important;
+      }
+      .photo-dual-grid .polaroid-card {
+        padding: 10px 10px 22px !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+      }
+      .photo-dual-grid .polaroid-caption {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        margin-top: 10px !important;
+        padding: 0 4px !important;
+        white-space: normal !important;
+        overflow: visible !important;
+      }
+
+      /* Stage 5. 車票預約卡片與常見問題 */
+      .booking-mook-section {
+        padding: 45px 16px !important;
+      }
+      .booking-ticket-card {
+        padding: 26px 14px !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+      .booking-ticket-card h3 {
+        font-size: 19px !important;
+        line-height: 1.35 !important;
+      }
+      .booking-gift-pill {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 12px 14px !important;
+        gap: 6px !important;
+        margin: 16px auto 20px !important;
+      }
+      .btn-mook-ticket {
+        font-size: 14.5px !important;
+        padding: 13px 14px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .booking-ticket-card .btn-mook-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .faq-mook-item {
+        padding: 16px 14px !important;
+      }
+      .faq-mook-item h4 {
+        font-size: 15px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全站旗艦導覽列 (由 shared-navbar.js 自動渲染) -->
+  <div id="site-navbar-container"></div>
+
+  <main>
+    <!-- ========================================================
+         STAGE 1. HERO 雜誌卷頭 (Hero Mook)
+         ======================================================== -->
+    <section class="hero-mook">
+      <div class="hero-mook-grid">
+        <div class="hero-mook-text">
+          <div class="mook-badge">
+            <span>SPECIAL FOCUS</span>
+            <span class="year">• VOL. 04 國中先修英文</span>
+          </div>
+          <h1 class="hero-mook-title">
+            跨越國小到國中的難度斷崖，<br/>
+            掌握&nbsp;<span class="highlight"><span style="letter-spacing:0.04em;">1200</span>&nbsp;核心單字與五大句型</span>。
+          </h1>
+          <p class="hero-mook-desc">
+            「國小英文每次都考 90 幾分，上了國一第一次段考感到挫折？」這不是孩子不認真，而是國中英文在語法嚴謹度、手寫題型與單字量上有了顯著提升。尚學「國中先修英文」在小六升國一的關鍵銜接期，為孩子系統化架設<strong>「1200單字字根法」</strong>、<strong>「五大句型骨幹拆解」</strong>與<strong>「情境題組理解與規範書寫力」</strong>，開學第一次段考胸有成竹！
+          </p>
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <span>📝</span> 預約先修學力評估與試聽
+            </a>
+            <a class="btn-mook-secondary" href="tel:073646570">
+              <span>📞</span> 諮詢專線 (07) 364-6570
+            </a>
+          </div>
+
+          <!-- 4 印章信任列 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">先修首選</div>
+              <strong>小六升國一銜接</strong>
+              <small>平穩跨越難度斷崖</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">1200 字</div>
+              <strong>核心字根字首法</strong>
+              <small>融會貫通詞性轉換</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">五大句型</div>
+              <strong>骨幹透視邏輯剖析</strong>
+              <small>S+V/S+V+O文法融會</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">題型適應</div>
+              <strong>手寫規範與情境題組</strong>
+              <small>改寫翻譯與防粗心習慣</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mook-visual">
+          <div class="hero-collage-wrap">
+            <div class="hero-polaroid-main polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-11px; left:25px; width:75px; transform:rotate(-3deg);"></div>
+              <img src="./photos/course_specialties/jh_trans_focus_girl.jpg" alt="尚學高年級學員專注鑽研筆記與單字拆解" loading="eager"/>
+              <div class="polaroid-caption">銜接扎根・建立嚴謹文法思維</div>
+              <div class="vintage-stamp">SANG SUEH<br/>SINCE 1986</div>
+            </div>
+            <div class="hero-polaroid-sub polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; right:20px; width:65px; transform:rotate(2deg);"></div>
+              <img src="./photos/curated_mook/course_advancement.jpg" alt="尚學進階英語正規國中教材特寫" loading="lazy"/>
+              <div class="polaroid-caption">正規國中教材授課・1200單字題庫</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 2. 手帳風痛點手記 (Pain Section with Binder Holes)
+         ======================================================== -->
+    <section class="pain-section-mook">
+      <div style="max-width:1240px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#1B4958; box-shadow:0 2px 8px rgba(27,73,88,0.25);">
+            <span>DIAGNOSIS</span>
+            <span class="year">• 銜接斷崖痛點診斷</span>
+          </div>
+          <h2 class="mook-section-title">為什麼上了國一，國小英文的優勢瞬間歸零？</h2>
+          <p class="mook-section-subtitle">
+            國小與國中的英文學習邏輯存在巨大的難度斷層，若沒有提早鋪設橋樑，孩子常面臨嚴重的挫折感：
+          </p>
+        </div>
+
+        <div class="qa-diagnostic-grid">
+          <!-- 痛點 1 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-2deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 01</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">國小考 90 幾分，國一第一次段考直接不及格？</h3>
+              <p class="sheet-q-desc">
+                國小偏向日常口語與情境體驗，國中則著重嚴謹文法、動詞三態與倍數擴充的單字量，需要提早適應。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">1200 單字字根法，提前倍數擴充</h4>
+              <p class="sheet-a-desc">
+                掌握字首（un-, re-）、字根與字尾轉換，小六暑假迅速建立千字單字庫，閱讀課文游刃有餘。
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 2 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(1.5deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 02</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">時態與句型混在一起，造句與克漏字全錯？</h3>
+              <p class="sheet-q-desc">
+                只背零散規則卻看不清句子骨幹，主詞動詞稍有變化就陷入干擾陷阱。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">五大句型透視拆解，看穿結構</h4>
+              <p class="sheet-a-desc">
+                像 X 光透視一樣圈出主詞、動詞時態與受詞關係，句型結構清晰通透，段考翻譯題輕鬆拿分。
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 3 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-1deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 03</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">選擇題都會，一遇到手寫改寫與翻譯就頻頻失分？</h3>
+              <p class="sheet-q-desc">
+                國小多以看圖圈選為主，國中段考開始要求手寫單字拼寫、依提示改寫句子與整句翻譯，漏了大小寫、單複數 s 或標點符號就扣分。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">落實手寫規範，情境題組精準理解</h4>
+              <p class="sheet-a-desc">
+                引導孩子親自動手書寫，扎實鍛鍊大小寫、單複數與標點習慣，並學會看懂情境對話與圖表脈絡，考卷細節分全拿！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 3A. 難度斷崖深度解析 (Cliff Contrast Module)
+         ======================================================== -->
+    <section class="cliff-section-mook" style="background:#FAF8F4; padding:75px 20px 80px; border-bottom:1px dashed var(--border-dashed);">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:var(--mineral-accent); box-shadow:0 2px 8px rgba(27,73,88,0.25);">
+            <span>CLIFF CONTRAST</span>
+            <span class="year">• 難度斷崖手記</span>
+          </div>
+          <h2 class="mook-section-title">國小英語 vs 國中英語：難度斷崖深度解析</h2>
+          <p class="mook-section-subtitle">
+            把國小到國中的難度斷層鋪平為踏實的階梯，讓孩子走得穩健、滿懷自信：
+          </p>
+        </div>
+
+        <div class="cliff-cards-grid">
+          <!-- 卡片 1：單字需求量 -->
+          <div class="cliff-mook-card">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; left:30px; width:70px; transform:rotate(-2deg);"></div>
+            <div class="cliff-card-badge">
+              <span class="cliff-card-num">DIFFERENCE 01</span>
+              <h3 class="cliff-card-title">單字需求量斷崖</h3>
+            </div>
+            <div class="cliff-compare-body">
+              <div class="cliff-compare-elem">
+                <span class="compare-tag tag-elem">國小階段日常</span>
+                <p>約 300 個生活字彙，偏重圖片配對與具象生活名詞，多附提示字。</p>
+              </div>
+              <div class="cliff-compare-arrow">⬇ 核心單字擴增 4 倍</div>
+              <div class="cliff-compare-jh">
+                <span class="compare-tag tag-jh">國中先修挑戰</span>
+                <p>教育部 <strong>1200 核心必背單字</strong>，涵蓋抽象與學科概念，要求<strong>詞性精準轉換與字根衍生</strong>。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 卡片 2：文法結構深度 -->
+          <div class="cliff-mook-card">
+            <div class="washi-tape washi-tape-yellow" style="top:-10px; right:30px; width:70px; transform:rotate(2deg);"></div>
+            <div class="cliff-card-badge">
+              <span class="cliff-card-num">DIFFERENCE 02</span>
+              <h3 class="cliff-card-title">文法結構深度斷崖</h3>
+            </div>
+            <div class="cliff-compare-body">
+              <div class="cliff-compare-elem">
+                <span class="compare-tag tag-elem">國小階段日常</span>
+                <p>簡單現在式、日常打招呼對話，不深究句型骨幹與時態變化。</p>
+              </div>
+              <div class="cliff-compare-arrow">⬇ 時態與句型交織</div>
+              <div class="cliff-compare-jh">
+                <span class="compare-tag tag-jh">國中先修挑戰</span>
+                <p>切入<strong>五大基本句型</strong>、動詞三態變化、過去進行式與未來式。單複數加 s 與時態呼應極其精細！</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 卡片 3：題型轉變與書寫嚴謹度 -->
+          <div class="cliff-mook-card">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; left:40px; width:75px; transform:rotate(-1deg);"></div>
+            <div class="cliff-card-badge">
+              <span class="cliff-card-num">DIFFERENCE 03</span>
+              <h3 class="cliff-card-title">題型轉變與書寫嚴謹度斷崖</h3>
+            </div>
+            <div class="cliff-compare-body">
+              <div class="cliff-compare-elem">
+                <span class="compare-tag tag-elem">國小階段日常</span>
+                <p>以聽力、看圖選擇為主，鮮少考手寫拼寫，大小寫與標點多不苛扣。</p>
+              </div>
+              <div class="cliff-compare-arrow">⬇ 題型轉變與書寫規範</div>
+              <div class="cliff-compare-jh">
+                <span class="compare-tag tag-jh">國中先修挑戰</span>
+                <p>段考納入<strong>手寫單字拼寫、依提示改寫句子與整句翻譯</strong>。字首大小寫、名詞單複數加 s 與標點符號缺一不可，極度考驗書寫細節！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 3B. 四大銜接護城河 (Moat Strategy Module)
+         ======================================================== -->
+    <section class="moat-section-mook" style="background:#FFFFFF; padding:80px 20px 85px; border-bottom:1px dashed var(--border-dashed);">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#1B4958; box-shadow:0 2px 8px rgba(27,73,88,0.25);">
+            <span>MOAT STRATEGY</span>
+            <span class="year">• 銜接策略護城河</span>
+          </div>
+          <h2 class="mook-section-title">四大銜接護城河：第一次段考胸有成竹</h2>
+          <p class="mook-section-subtitle">
+            跳脫零碎的片面記憶，尚學引導孩子回歸英語結構本質：建立字根脈絡力、句型剖析力、情境題組理解力與正規教材的扎實演練：
+          </p>
+        </div>
+
+        <div class="pillar-mook-grid">
+          <div class="pillar-mook-card">
+            <div>
+              <span style="font-size:11.5px; font-weight:850; background:var(--mineral-accent-light); color:var(--mineral-accent); padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                護城河 01
+              </span>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">1200 核心字根字首記憶法</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                掌握字首（un-, re-）、字根（port, spect）與詞性轉換，背一個字等於記下四個衍生字！
+              </p>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(27,73,88,0.12); border-left:4px solid var(--mineral-accent); padding:10px 14px; border-radius:0 8px 8px 0; font-size:13px; color:var(--mineral-accent); font-weight:750; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+              🎯 效益：單字量在小六暑假迅速突破千字，閱讀國中課文毫不費力。
+            </div>
+          </div>
+
+          <div class="pillar-mook-card">
+            <div>
+              <span style="font-size:11.5px; font-weight:850; background:var(--mineral-accent-light); color:var(--mineral-accent); padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                護城河 02
+              </span>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">五大句型骨幹透視拆解</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                圈出「主詞在哪？」「動詞是什麼時態？」「受詞是名詞還是動名詞？」，再長句子也能一眼看穿。
+              </p>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(27,73,88,0.12); border-left:4px solid var(--mineral-accent); padding:10px 14px; border-radius:0 8px 8px 0; font-size:13px; color:var(--mineral-accent); font-weight:750; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+              🎯 效益：掌握 S+V / S+V+O / S+V+C 等五大原型，輕鬆化解段考克漏字與文法盲點。
+            </div>
+          </div>
+
+          <div class="pillar-mook-card">
+            <div>
+              <span style="font-size:11.5px; font-weight:850; background:var(--mineral-accent-light); color:var(--mineral-accent); padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                護城河 03
+              </span>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">情境題組理解與規範書寫訓練</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                對接國中真實段考題型，涵蓋生活對話、簡易圖表與句子改寫。引導孩子從前後文理解文意脈絡，並落實手寫標點與大小寫嚴謹度。
+              </p>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(27,73,88,0.12); border-left:4px solid var(--mineral-accent); padding:10px 14px; border-radius:0 8px 8px 0; font-size:13px; color:var(--mineral-accent); font-weight:750; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+              🎯 效益：提早熟悉國中段考手寫規範與情境題型，作答細緻不粗心，穩健奪下高分！
+            </div>
+          </div>
+
+          <div class="pillar-mook-card">
+            <div>
+              <span style="font-size:11.5px; font-weight:850; background:var(--mineral-accent-light); color:var(--mineral-accent); padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                護城河 04
+              </span>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">堅持採用正規國中教材扎根</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                不同於簡化難度的過渡講義，尚學直接採用教育部審定之正規國中教材與真實段考題型骨幹。引導孩子提早熟悉真實的課文篇幅、單字密度與語法深度，穩健累積實力。
+              </p>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(27,73,88,0.12); border-left:4px solid var(--mineral-accent); padding:10px 14px; border-radius:0 8px 8px 0; font-size:13px; color:var(--mineral-accent); font-weight:750; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+              🎯 效益：提早熟悉真實國中課本規格與考試節奏，開學平穩適應、從容展現自信實力！
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 4. 真實課堂相片雙聯展 (Dual Polaroid Gallery)
+         ======================================================== -->
+    <section style="background:var(--paper); padding:60px 20px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>PHOTO JOURNAL</span>
+            <span class="year">• 先修課堂紀實</span>
+          </div>
+          <h2 class="mook-section-title">先修課堂實況：小班制扎實探究與討論</h2>
+          <p class="mook-section-subtitle">每位孩子在老師引導下，親自動手拆解句子、建立扎實筆記：</p>
+        </div>
+
+        <div class="photo-dual-grid">
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; left:30px; width:70px; transform:rotate(-2deg);"></div>
+            <div class="polaroid-photo-box">
+              <img src="./photos/course_specialties/jh_english_classroom_discussion_4k.jpg" alt="尚學專業師資引導國中先修學員梳理文法與字彙結構" loading="lazy"/>
+              <span class="photo-disclaimer-pill">情境示意</span>
+            </div>
+            <div class="polaroid-caption">
+              【精緻小班】專業老師引導小六升國一孩子拆解核心文法與句型骨幹，隨堂即問即答
+            </div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-yellow" style="top:-10px; right:30px; width:70px; transform:rotate(2deg);"></div>
+            <div class="polaroid-photo-box">
+              <img src="./photos/course_specialties/jh_english_focus_writing_4k.jpg" alt="國中先修學員專注手寫筆記與扎實掌握書寫細節" loading="lazy"/>
+              <span class="photo-disclaimer-pill">情境示意</span>
+            </div>
+            <div class="polaroid-caption">
+              【沉浸筆記】建立專屬的 1200 單字脈絡與五大句型手帳，養成國中自律讀書習慣
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 5. 日系車票預約區 + MOOK FAQ
+         ======================================================== -->
+    <section class="booking-mook-section" id="booking">
+      <div class="booking-ticket-card">
+        <div class="mook-badge">
+          <span>ADMISSION TICKET</span>
+          <span class="year">• 2026 INVITATION</span>
+        </div>
+        <h3 style="font-family:'Noto Serif TC',serif; font-size:clamp(22px, 3vw, 34px); font-weight:900; margin:10px 0 14px; color:var(--ink);">
+          預約國中先修學力評估・免費單字與句型診斷
+        </h3>
+        <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin:0 auto 20px; line-height:1.75;">
+          陪伴孩子平穩跨越國中難度斷崖，守護學習信心。歡迎預約尚學國中先修學力評估，讓專業老師為孩子診斷單字量與語法概念，打造最妥善的銜接計畫。
+        </p>
+
+        <div class="booking-gift-pill">
+          <div class="booking-gift-icon">🎁</div>
+          <div class="booking-gift-text">
+            <strong>預約參訪專屬禮遇</strong>
+            <p>當日到班參觀，免費提供「教育部 1200 單字落點檢測」與「國中五大句型理解力評估乙次」，名額有限敬請提前預約。</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:24px;">
+          <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+            <span>📝</span> 線上預約先修學力評估與試聽
+          </a>
+          <a class="btn-mook-secondary" href="tel:073646570" style="background:#FFF;">
+            <span>📞</span> 電話預約 (07) 364-6570
+          </a>
+        </div>
+
+        <!-- 專業機構原則卡 -->
+        <div style="margin-top:28px; background:#F8F6F0; border:1px dashed var(--border-dashed); border-radius:10px; padding:12px 18px; text-align:left; font-size:13px; color:var(--ink-soft);">
+          📌 <strong>精緻小班席位預約</strong>：為維護最高教學品質與每位孩子的即時批改互動時間，國中先修學程採嚴格名額限制，額滿即止。建議提早填表預約到班診斷與試聽，保留專屬名額。
+        </div>
+      </div>
+
+      <!-- FAQ Mook Grid -->
+      <div style="max-width:960px; margin:50px auto 0;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>Q & A</span>
+            <span class="year">• 常見問題釋疑</span>
+          </div>
+          <h3 class="mook-section-title">關於國中先修英文的常見問題</h3>
+        </div>
+
+        <div class="faq-mook-grid">
+          <div class="faq-mook-item">
+            <h4>Q1. 小六升國一的暑假才開始先修，會不會太晚？</h4>
+            <p>小六升國一的暑假是密集銜接期！若從小五、小六平時就進入「進階英語素養」提早打底，單字量與句型習慣會更穩健。若等到暑假才開始，尚學設有密集的先導梯次，依然能在開學前掌握核心！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q2. 孩子在國小英文成績不錯，真的需要上先修班嗎？</h4>
+            <p>國小考卷往往認得單字、選對圖片就能拿 95 分，但國中段考是考語法邏輯（單複數、第三人稱動詞加 s、過去式三態、時態呼應）。很多孩子國小時沒建立語法意識，國一第一次段考直接掉到 60 分，先修就是為了避免這種挫折！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q3. 國一開學後，這個課程會如何銜接？</h4>
+            <p>開學後學員將直接銜接至尚學<strong>「文法閱讀精進（國中英文）」</strong>常態專項班，緊密配合右昌國中、國昌國中、立德國中、後勁國中等學區之段考進度、週考模考與會考素養長文深度培訓，持續保持領先！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q4. 如果孩子在國小只學過簡單生活會話，升國中先修會不會很吃力？</h4>
+            <p>完全不會！國小偏向口語與生活體驗，國中則著重語法邏輯與書寫規範。尚學國中先修專班正是專為這樣的孩子量身設計，以「1200 核心單字字根拆解」與「五大句型骨幹透視」，手把手帶領孩子建立扎實的文法架構與規範書寫習慣，無痛跨越難度斷崖，開學面對正規課本自然胸有成竹！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q5. 坊間常見的「升國中銜接教材」和尚學採用的「正規國中教材」有何不同？</h4>
+            <p>一般過渡講義常為了好上手而精簡了語法深度與閱讀篇幅，孩子容易在開學接觸到正式課本時感到落差。尚學堅持在先修階段就採用教育部審定的正規國中教材與真實題型架構，讓孩子循序漸進適應真實的國中深度，開學時自然能平穩融入、信心滿滿！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 全站共用頁尾 -->
+  <div id="site-footer-container"></div>
+
+  <!-- Shared Scripts -->
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
+  <script src="./shared-footer.js?v=20260911_v14"></script>
+  <script>
+    // Hero 拍立得點擊與觸控前後圖層切換 (Click / Tap to lift back photo to front)
+    document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        var isCurrentlyActive = card.classList.contains('is-active');
+        document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(c) {
+          c.classList.remove('is-active');
+        });
+        if (!isCurrentlyActive) {
+          card.classList.add('is-active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

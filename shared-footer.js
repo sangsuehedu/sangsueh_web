@@ -295,11 +295,11 @@
 
   /**
    * 全域通用函數：將官方頁尾注入至指定節點
-   * @param {string} [targetSelector] - 選填，預設尋找 #site-footer-container 或 footer.site-footer
+   * @param {string} [targetSelector] - 選填，預設尋找 #site-footer-container、#shared-footer-container 或 footer.site-footer
    */
   function renderFooter(targetSelector) {
     injectStyles();
-    const selector = targetSelector || '#site-footer-container, footer.site-footer';
+    const selector = targetSelector || '#site-footer-container, #shared-footer-container, footer.site-footer';
     const target = document.querySelector(selector);
     if (target) {
       target.outerHTML = FOOTER_HTML;

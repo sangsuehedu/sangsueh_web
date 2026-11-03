@@ -25,7 +25,7 @@
 
   <!-- Core Styles -->
   <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
-  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v11"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v12"/>
 
   <!-- Page-specific fine-tuning -->
   <style>
@@ -2383,79 +2383,7 @@
     </div>
   </div>
 
-  <!-- 手機版抽屜選單 (Drawer Sheet) -->
-  <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true" onclick="if(event.target===this)window.closeMookDrawer(event)">
-    <div class="mobile-drawer" id="mobile-drawer">
-      <div class="drawer-drag-pill" id="drawer-drag-pill" onclick="window.toggleSangSuehDrawerExpanded ? window.toggleSangSuehDrawerExpanded(event) : (function(){var d=document.getElementById('mobile-drawer');if(d)d.classList.toggle('expanded');})()" title="上下滑動或點擊切換視窗高度 (40% / 70%)"></div>
-      <div class="drawer-header">
-        <div class="drawer-title">
-          <img src="./shangxue-logo-transparent.png?v=20260906_v2" alt="尚學文教" style="height:28px; width:auto;"/>
-          <span>專題導覽目錄</span>
-        </div>
-        <button class="drawer-close" type="button" id="drawer-close-btn" onclick="window.closeMookDrawer(event)" aria-label="關閉目錄">✕</button>
-      </div>
-      <div class="drawer-content">
-        <div class="drawer-group">
-          <div class="drawer-group-title">🎒 課後安親專頁重點</div>
-          <a class="drawer-link drawer-highlight" href="#inquiry" onclick="window.closeMookDrawer(event)"><span class="d-num">01</span>探究式概念理解與PBL</a>
-          <a class="drawer-link" href="#pillars" onclick="window.closeMookDrawer(event)"><span class="d-num">02</span>生活常規與思維四大堅持</a>
-          <a class="drawer-link" href="#grades" onclick="window.closeMookDrawer(event)"><span class="d-num">03</span>低中高年級因齡分流</a>
-          <a class="drawer-link" href="#routine" onclick="window.closeMookDrawer(event)"><span class="d-num">04</span>一日精緻作息流程走讀</a>
-          <a class="drawer-link" href="#escort" onclick="window.closeMookDrawer(event)"><span class="d-num">05</span>楠梓六校放學安心接送</a>
-          <a class="drawer-link" href="#testimonials" onclick="window.closeMookDrawer(event)"><span class="d-num">06</span>在讀家長真實口碑見證</a>
-          <a class="drawer-link" href="#faq" onclick="window.closeMookDrawer(event)"><span class="d-num">07</span>常見問題解答 FAQ</a>
-        </div>
-        <div class="drawer-group">
-          <div class="drawer-group-title">🏫 官方全站導覽</div>
-          <a class="drawer-link" href="./courses.html" onclick="window.closeMookDrawer(event)"><span class="d-num">📚</span>全方位課程總覽</a>
-          <a class="drawer-link" href="./index.html" onclick="window.closeMookDrawer(event)"><span class="d-num">🏠</span>尚學文教招生首頁</a>
-          <a class="drawer-link" href="./summer-2026.html" onclick="window.closeMookDrawer(event)"><span class="d-num">🍉</span>2026 暑期學習成果誌</a>
-        </div>
-        <div class="drawer-group">
-          <div class="drawer-group-title">📝 線上預約</div>
-          <a class="drawer-link drawer-reserve-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
-            <span class="d-num">📝</span>線上預約參觀與學力健檢
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // 全域抽屜保證開啟/關閉函數（委派給全站核心 shared-navbar.js）
-    window.openMookDrawer = function(e) {
-      if (window.openSangSuehDrawer) return window.openSangSuehDrawer(e);
-      if (e && e.preventDefault) e.preventDefault();
-      var overlay = document.getElementById('drawer-overlay');
-      var drawer = document.getElementById('mobile-drawer');
-      if (overlay) {
-        overlay.classList.add('active');
-        overlay.setAttribute('aria-hidden', 'false');
-      }
-      if (drawer) {
-        drawer.classList.remove('expanded', 'snap-70');
-        drawer.classList.add('snap-40');
-      }
-      document.body.style.overflow = 'hidden';
-    };
-    window.closeMookDrawer = function(e) {
-      if (window.closeSangSuehDrawer) return window.closeSangSuehDrawer(e);
-      if (e && e.preventDefault) e.preventDefault();
-      var overlay = document.getElementById('drawer-overlay');
-      var drawer = document.getElementById('mobile-drawer');
-      if (overlay) {
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden', 'true');
-      }
-      if (drawer) {
-        drawer.classList.remove('expanded', 'snap-70');
-        drawer.classList.add('snap-40');
-      }
-      document.body.style.overflow = '';
-    };
-    window.openSangSuehDrawer = window.openMookDrawer;
-    window.closeSangSuehDrawer = window.closeMookDrawer;
-
     // 一日作息雙軌切換器 (Routine Track Switcher)
     (function() {
       document.querySelectorAll('.routine-track-btn').forEach(function(btn) {
@@ -2474,7 +2402,7 @@
   </script>
 
   <!-- 引入模組化組件與全站共用導覽/頁尾 -->
-  <script src="./shared-navbar.js?v=20260911_v10"></script>
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
   <script src="./mook-ui.js?v=20260911_v10"></script>
   <script src="./shared-footer.js?v=20260911_v10"></script>
 </body>

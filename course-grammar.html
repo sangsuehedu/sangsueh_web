@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>文法閱讀精進專頁｜國中英文（校內段考 × 會考實戰衝刺）・心智圖語法邏輯與長篇素養破題｜尚學文教</title>
+  <meta name="description" content="高雄楠梓國中英文補習推薦！尚學文教「文法閱讀精進」專攻國中七～九年級（國一至國三）校內段考與國中教育會考。獨家語法邏輯心智圖、個人化錯題診斷本與長篇素養閱讀破題。精緻小班扎實引導，精準對標右昌、國昌、立德、後勁等楠梓學區段考，奪取會考 A++ 實力！"/>
+  <meta name="keywords" content="國中英文補習, 楠梓國中英文, 右昌國中英文, 國昌國中段考, 立德國中英文, 後勁國中英文, 國中會考英文, 英文文法心智圖, 英文錯題診斷, 尚學文教"/>
+  <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/course-grammar.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="文法閱讀精進｜國中英文（校內段考 × 會考實戰衝刺）｜尚學文教"/>
+  <meta property="og:description" content="時態子句不再混淆！語法邏輯心智圖拆解，個人錯題診斷，奪下國中段考高分與會考 A++。高雄楠梓國中英文推薦！"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/course_specialties/jh_grammar_classroom_teacher_natural_4k.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+
+  <!-- Core Styles (Inherits 100% MOOK Design System) -->
+  <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v12"/>
+
+  <style>
+    :root {
+      --mineral-accent: #5A477B; /* 藤紫青 */
+      --mineral-accent-light: #F0EBF7;
+    }
+
+    /* 基礎安全邊界：防止任何水平溢出 (Horizontal Overflow Prevention) */
+    html, body {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      position: relative;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Course Unique Highlight Accent */
+    .hero-mook-title span.highlight {
+      background: linear-gradient(180deg, transparent 65%, rgba(90, 71, 123, 0.22) 65%);
+      color: var(--mineral-accent);
+      display: inline;
+      padding: 0 4px;
+    }
+
+    /* Mindmap Grammar Tree Box */
+    .mindmap-ledger-box {
+      background: var(--paper-warm);
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 40px auto;
+      max-width: 1080px;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .tree-diagram-box {
+      background: #F9F7FC;
+      border: 1px solid rgba(90, 71, 123, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+      box-sizing: border-box;
+    }
+    .tree-root-tag {
+      background: var(--mineral-accent);
+      color: #FFFFFF;
+      font-weight: 850;
+      font-size: 14.5px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .tree-branch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .tree-branch-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(90, 71, 123, 0.18);
+      border-radius: 10px;
+      padding: 16px 14px;
+      box-sizing: border-box;
+    }
+
+    /* Error Notebook 3-Step Grid */
+    .error-step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .error-step-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 22px;
+      box-sizing: border-box;
+    }
+
+    /* Dual Photo Grid (紀實照片雙聯展) */
+    .photo-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      max-width: 1080px;
+      margin: 40px auto 10px;
+    }
+    .photo-dual-grid .polaroid-card {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      padding: 12px 12px 24px !important;
+      background: #FFFFFF !important;
+      border: 1px solid #DFD7CA !important;
+      border-radius: 6px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07) !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+    }
+    .photo-dual-grid .polaroid-photo-box {
+      position: relative;
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .photo-dual-grid .polaroid-photo-box img {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 3 / 2 !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+    .photo-dual-grid .photo-disclaimer-pill {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      font-size: 10px;
+      line-height: 1.4;
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(36, 49, 46, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      z-index: 2;
+      box-sizing: border-box;
+    }
+    .photo-dual-grid .polaroid-caption {
+      margin-top: 12px !important;
+      padding: 0 6px !important;
+      font-family: 'Noto Serif TC', serif !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      line-height: 1.6 !important;
+      color: var(--ink) !important;
+      text-align: center !important;
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: unset !important;
+    }
+
+    /* ========================================================
+       Hero 拍立得前後堆疊與互動切換 (Hero Polaroid Interactive Lift)
+       ======================================================== */
+    .hero-collage-wrap {
+      position: relative;
+      min-height: 420px;
+    }
+    .hero-polaroid-main {
+      width: 78%;
+      height: 350px !important;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: rotate(-3deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 10px 10px 16px 10px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 1;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-sub {
+      width: 58%;
+      height: 280px !important;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      transform: rotate(4deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 10px 10px 16px 10px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-main img,
+    .hero-polaroid-sub img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      border-radius: 2px !important;
+    }
+    /* Hover & Active 狀態：觸控或點擊時升至最頂層顯示完整照片 */
+    .hero-polaroid-main:hover,
+    .hero-polaroid-main.is-active {
+      transform: scale(1.05) rotate(-1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 16px 36px rgba(36, 49, 46, 0.28) !important;
+    }
+    .hero-polaroid-sub:hover,
+    .hero-polaroid-sub.is-active {
+      transform: scale(1.06) rotate(1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 16px 36px rgba(36, 49, 46, 0.28) !important;
+    }
+
+    /* ========================================================
+       手機版完整響應式適配 (RWD Optimization for Mobile <= 680px)
+       ======================================================== */
+    @media (max-width: 680px) {
+      /* 全局主區域與各 Section 內距安全限制 */
+      main, main > section {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+      main > section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      /* Stage 1. Hero 雜誌卷頭 */
+      .hero-mook {
+        padding: 36px 16px 48px !important;
+        overflow-x: hidden !important;
+      }
+      .hero-mook-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .hero-stamps-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        padding-top: 16px !important;
+      }
+      .stamp-item-card {
+        padding: 10px 8px !important;
+        border-radius: 10px !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .stamp-item-card strong {
+        font-size: 12.5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .stamp-item-card small {
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
+        word-break: break-all !important;
+        display: block !important;
+      }
+      .hero-collage-wrap {
+        min-height: 290px !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        margin-top: 6px !important;
+        position: relative !important;
+      }
+      .hero-polaroid-main {
+        width: 84% !important;
+        height: 240px !important;
+        top: 4px !important;
+        left: 4px !important;
+        transform: rotate(-1.5deg) !important;
+        cursor: pointer !important;
+        z-index: 1 !important;
+        padding: 8px 8px 14px 8px !important;
+      }
+      .hero-polaroid-sub {
+        width: 66% !important;
+        height: 195px !important;
+        bottom: 4px !important;
+        right: 4px !important;
+        transform: rotate(1.5deg) !important;
+        cursor: pointer !important;
+        z-index: 2 !important;
+        padding: 8px 8px 14px 8px !important;
+      }
+      .hero-polaroid-main:hover,
+      .hero-polaroid-main.is-active {
+        transform: scale(1.04) rotate(-0.5deg) !important;
+        z-index: 10 !important;
+        box-shadow: 0 14px 32px rgba(36, 49, 46, 0.28) !important;
+      }
+      .hero-polaroid-sub:hover,
+      .hero-polaroid-sub.is-active {
+        transform: scale(1.05) rotate(0.5deg) !important;
+        z-index: 10 !important;
+        box-shadow: 0 14px 32px rgba(36, 49, 46, 0.28) !important;
+      }
+
+      /* Stage 2. 活頁紙痛點診斷手帳 */
+      .pain-section-mook {
+        padding: 45px 16px !important;
+      }
+      .qa-diagnostic-sheet {
+        padding: 22px 14px 18px 32px !important;
+        box-sizing: border-box !important;
+      }
+      .sheet-q-title {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+      }
+      .sheet-a-title {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+      }
+
+      /* Stage 3. 心智圖結構與錯題診斷 */
+      .mindmap-ledger-box {
+        padding: 24px 16px !important;
+        margin: 24px auto !important;
+      }
+      .tree-diagram-box {
+        padding: 16px 12px !important;
+      }
+      .tree-branch-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .error-step-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .error-step-item {
+        padding: 16px 14px !important;
+      }
+
+      /* Stage 4. 紀實照片相框 */
+      .photo-dual-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+        margin: 20px auto !important;
+      }
+      .photo-dual-grid .polaroid-card {
+        padding: 10px 10px 22px !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+      }
+      .photo-dual-grid .polaroid-caption {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        margin-top: 10px !important;
+        padding: 0 4px !important;
+        white-space: normal !important;
+        overflow: visible !important;
+      }
+
+      /* Stage 5. 車票預約卡片與常見問題 */
+      .booking-mook-section {
+        padding: 45px 16px !important;
+      }
+      .booking-ticket-card {
+        padding: 26px 14px !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+      .booking-ticket-card h3 {
+        font-size: 19px !important;
+        line-height: 1.35 !important;
+      }
+      .booking-gift-pill {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 12px 14px !important;
+        gap: 6px !important;
+        margin: 16px auto 20px !important;
+      }
+      .btn-mook-ticket {
+        font-size: 14.5px !important;
+        padding: 13px 14px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .booking-ticket-card .btn-mook-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .faq-mook-item {
+        padding: 16px 14px !important;
+      }
+      .faq-mook-item h4 {
+        font-size: 15px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全站旗艦導覽列 (由 shared-navbar.js 自動渲染) -->
+  <div id="site-navbar-container"></div>
+
+  <main>
+    <!-- ========================================================
+         STAGE 1. HERO 雜誌卷頭 (Hero Mook)
+         ======================================================== -->
+    <section class="hero-mook">
+      <div class="hero-mook-grid">
+        <div class="hero-mook-text">
+          <div class="mook-badge">
+            <span>SPECIAL FOCUS</span>
+            <span class="year">• VOL. 05 國中英文</span>
+          </div>
+          <h1 class="hero-mook-title">
+            用語法邏輯心智圖，<br/>
+            看穿&nbsp;<span class="highlight">文法結構與會考長文脈絡</span>。
+          </h1>
+          <p class="hero-mook-desc">
+            「時態老是混淆？被動態、名詞子句、關係代名詞一考就慌？段考題目總是寫不完？」尚學「國中英文」跳脫零碎的題海硬背，而是用<strong>「邏輯樹狀心智圖」</strong>將繁雜文法條理化，搭配<strong>「個人化錯題深入診斷本」</strong>與<strong>「會考長篇素養閱讀破題策略」</strong>。精準配合右昌、國昌、立德、後勁等楠梓學區段考進度，助孩子穩坐校內前茅、直取會考 A++！
+          </p>
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <span>📝</span> 預約國中學力診斷與試聽
+            </a>
+            <a class="btn-mook-secondary" href="tel:073646570">
+              <span>📞</span> 諮詢專線 (07) 364-6570
+            </a>
+          </div>
+
+          <!-- 4 印章信任列 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">國中七~九</div>
+              <strong>校內段考前茅</strong>
+              <small>分校分版命中考點</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">心智圖</div>
+              <strong>語法邏輯樹狀圖</strong>
+              <small>時間軸與判定樹推導</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">錯題本</div>
+              <strong>個人化深入診斷</strong>
+              <small>標註陷阱・回溯母法</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">素養破題</div>
+              <strong>會考長篇閱讀策略</strong>
+              <small>圖表判讀與速讀定位</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mook-visual">
+          <div class="hero-collage-wrap">
+            <div class="hero-polaroid-main polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-11px; left:25px; width:75px; transform:rotate(-3deg);"></div>
+              <img src="./photos/course_specialties/jh_grammar_classroom_teacher_natural_4k.jpg" alt="尚學專業國中英文師資引導小班學員剖析核心文法與文章脈絡" loading="eager"/>
+            </div>
+            <div class="hero-polaroid-sub polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; right:20px; width:65px; transform:rotate(2deg);"></div>
+              <img src="./photos/course_specialties/jh_grammar_desk_notebook_authentic_4k.jpg" alt="國中學員真實英文活頁筆記與講義書寫桌景" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 2. 手帳風痛點手記 (Pain Section with Binder Holes)
+         ======================================================== -->
+    <section class="pain-section-mook">
+      <div style="max-width:1240px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#3C2B54; box-shadow:0 2px 8px rgba(60,43,84,0.25);">
+            <span>DIAGNOSIS</span>
+            <span class="year">• 國中英文痛點診斷</span>
+          </div>
+          <h2 class="mook-section-title">刷了幾十張考卷，為什麼段考稍微一換題型又錯同一題？</h2>
+          <p class="mook-section-subtitle">
+            若只把英文當成零碎記憶的學科，考前抱著講義硬背規則，往往在段考克漏字與素養長文頻頻受挫：
+          </p>
+        </div>
+
+        <div class="qa-diagnostic-grid">
+          <!-- 痛點 1 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-2deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 01</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">時態子句亂成一團，一遇到陷阱就選錯？</h3>
+              <p class="sheet-q-desc">
+                完成式、被動態、關代 which/who 混在一起，憑語感猜答案，遇到誘答選項必定中招。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">心智圖邏輯樹狀圖，看穿結構</h4>
+              <p class="sheet-a-desc">
+                以時間軸與判定樹邏輯推導句子，做克漏字時像工程師排查線路圖，邏輯清晰、從容篤定鎖定正解！
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 2 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(1.5deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 02</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">考卷訂正只是「抄正確解答」，重考依然錯？</h3>
+              <p class="sheet-q-desc">
+                訂正若只抄寫 ABCD，根本沒觸及盲點核心，換個題型重複在同一個陷阱摔跤。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">個人化錯題深入診斷本，徹底根治</h4>
+              <p class="sheet-a-desc">
+                引導孩子用紅筆圈出題幹破題線索與文法依據，釐清誘答盲點，真正看懂題目考點！
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 3 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-1deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 03</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">會考素養長文篇幅繁重，作答時間緊迫讀不完？</h3>
+              <p class="sheet-q-desc">
+                108 課綱會考英文涵蓋密集長文、圖表與生活公告，逐字默翻往往耗費過多作答時間。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">跳讀掃讀與定位法，60分鐘從容作答</h4>
+              <p class="sheet-a-desc">
+                訓練孩子掌握 Scan & Skim 技巧，快速定位主旨與事實細節，從容寫完並保留 10 分鐘檢查！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 3. 國中英文專屬靈魂看板 (Soul Module)
+         ======================================================== -->
+    <section style="background:#FAF8F4; padding:70px 20px; border-bottom:1px dashed var(--border-dashed);">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:var(--mineral-accent);">
+            <span>MINDMAP LOGIC</span>
+            <span class="year">• 獨家教研系統</span>
+          </div>
+          <h2 class="mook-section-title">語法邏輯心智圖：把零碎條則化為一張導航地圖</h2>
+          <p class="mook-section-subtitle">
+            文法不是死板規則，而是邏輯嚴密的語言架構。尚學帶孩子親手畫出屬於自己的文法導航心智圖：
+          </p>
+        </div>
+
+        <div class="mindmap-ledger-box">
+          <div class="washi-tape washi-tape-orange" style="top:-12px; left:40px; width:90px; transform:rotate(-1deg);"></div>
+          
+          <div class="tree-diagram-box">
+            <div class="tree-root-tag">國中英語核心語法樹狀圖</div>
+            <div class="tree-branch-grid">
+              <div class="tree-branch-card">
+                <div style="font-size:12px; font-weight:850; color:var(--mineral-accent); margin-bottom:4px;">🌿 時態時間軸</div>
+                <div style="font-size:13px; line-height:1.55; color:var(--ink-soft);">
+                  現在式／過去式／進行式／現在完成式（have + p.p.）。幾何時間軸清楚標定動作發生點，杜絕時態混淆。
+                </div>
+              </div>
+              <div class="tree-branch-card">
+                <div style="font-size:12px; font-weight:850; color:var(--mineral-accent); margin-bottom:4px;">🌿 關係子句判定樹</div>
+                <div style="font-size:13px; line-height:1.55; color:var(--ink-soft);">
+                  先行詞是人（who）還是物（which）？格位是主格還是所有格？有逗點不可用 that！決策路徑一目了然。
+                </div>
+              </div>
+              <div class="tree-branch-card">
+                <div style="font-size:12px; font-weight:850; color:var(--mineral-accent); margin-bottom:4px;">🌿 動詞三態與被動態</div>
+                <div style="font-size:13px; line-height:1.55; color:var(--ink-soft);">
+                  be + p.p. 的邏輯起源。使役動詞、感官動詞的原形與分詞區隔，破除考題經典陷阱。
+                </div>
+              </div>
+              <div class="tree-branch-card">
+                <div style="font-size:12px; font-weight:850; color:var(--mineral-accent); margin-bottom:4px;">🌿 名詞與副詞子句</div>
+                <div style="font-size:13px; line-height:1.55; color:var(--ink-soft);">
+                  that 子句、whether/if 間接問句、連接詞引導條件句。長篇素養閱讀拆解句子的利刃。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error Notebook 3-Step Section -->
+          <div style="margin-top:36px; border-top:1px dashed var(--border-dashed); padding-top:28px;">
+            <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 16px; color:var(--ink);">
+              📖 個人化錯題深入診斷本：告別「重複犯錯」的扎實工具
+            </h4>
+            <div class="error-step-grid">
+              <div class="error-step-item">
+                <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">診斷 Step 1</span>
+                <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">標註誘答陷阱</h5>
+                <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  寫下自己當初為什麼選了錯誤選項？是題目沒看清、還是被表面詞性給誤導了？
+                </p>
+              </div>
+              <div class="error-step-item">
+                <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">診斷 Step 2</span>
+                <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">回溯心智圖母法</h5>
+                <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  將這題對應的文法規則重新在錯題本上畫出分支，確認自己是否真正通透邏輯。
+                </p>
+              </div>
+              <div class="error-step-item">
+                <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">診斷 Step 3</span>
+                <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">圈出題幹關鍵線索</h5>
+                <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  用紅筆在題目中圈出時間副詞、主詞單複數或先行詞等破題線索，並寫下判定依據，把直覺猜題轉為嚴謹的審題實力。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 4. 真實課堂相片雙聯展 (Dual Polaroid Gallery)
+         ======================================================== -->
+    <section style="background:var(--paper); padding:60px 20px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>PHOTO JOURNAL</span>
+            <span class="year">• 筆記與訂正特寫</span>
+          </div>
+          <h2 class="mook-section-title">真實課堂紀實：從心智圖到深度錯題訂正</h2>
+          <p class="mook-section-subtitle">每一張考卷的錯誤，在尚學都轉化為看得見的學力護城河：</p>
+        </div>
+
+        <div class="photo-dual-grid">
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; left:30px; width:70px; transform:rotate(-2deg);"></div>
+            <div class="polaroid-photo-box">
+              <img src="./photos/course_specialties/jh_grammar_error_correction_authentic_4k.jpg" alt="國中英文試卷訂正與文法關鍵字圈選歷程特寫" loading="lazy"/>
+              <span class="photo-disclaimer-pill">情境示意</span>
+            </div>
+            <div class="polaroid-caption">【精準錯題訂正】圈出題幹關鍵線索並註記時態母法，將盲點轉化為實力</div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-yellow" style="top:-10px; right:30px; width:70px; transform:rotate(2deg);"></div>
+            <div class="polaroid-photo-box">
+              <img src="./photos/course_specialties/jh_grammar_student_studying_authentic_4k.jpg" alt="國中學員專注鑽研長篇英文閱讀文章與思索解題脈絡" loading="lazy"/>
+              <span class="photo-disclaimer-pill">情境示意</span>
+            </div>
+            <div class="polaroid-caption">【素養長文研讀】沉浸閱讀長篇測驗與掌握篇章結構，養成從容應試力</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 5. 日系車票預約區 + MOOK FAQ
+         ======================================================== -->
+    <section class="booking-mook-section" id="booking">
+      <div class="booking-ticket-card">
+        <div class="mook-badge">
+          <span>ADMISSION TICKET</span>
+          <span class="year">• 2026 INVITATION</span>
+        </div>
+        <h3 style="font-family:'Noto Serif TC',serif; font-size:clamp(22px, 3vw, 34px); font-weight:900; margin:10px 0 14px; color:var(--ink);">
+          預約國中英語學力診斷・免費段考與會考弱點分析
+        </h3>
+        <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin:0 auto 20px; line-height:1.75;">
+          掌握文法邏輯，國中英文不再是繁重的片段記憶。歡迎預約尚學國中英語學力診斷，由專業名師為孩子檢視文法盲點與閱讀速度，制定最清晰的段考與會考進階計畫。
+        </p>
+
+        <div class="booking-gift-pill">
+          <div class="booking-gift-icon">🎁</div>
+          <div class="booking-gift-text">
+            <strong>預約參訪專屬禮遇</strong>
+            <p>當日到班參觀，免費提供「國中核心文法盲點快篩」與「會考素養長文閱讀速度檢測乙次」，名額有限敬請提前預約。</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:24px;">
+          <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+            <span>📝</span> 線上預約國中學力診斷與試聽
+          </a>
+          <a class="btn-mook-secondary" href="tel:073646570" style="background:#FFF;">
+            <span>📞</span> 電話預約 (07) 364-6570
+          </a>
+        </div>
+
+        <!-- 精緻小班席位預約說明卡 -->
+        <div style="margin-top:28px; background:#F8F6F0; border:1px dashed var(--border-dashed); border-radius:10px; padding:16px 20px; text-align:left; font-size:13.5px; color:var(--ink-soft); line-height:1.7;">
+          ✨ <strong>精緻小班席位預約</strong>：尚學國中英文專項班採嚴格小班制，確保每位孩子在每堂課皆能親自口頭推導文法脈絡並完成錯題複盤。每期名額有限，歡迎提早預約學力診斷與試聽。
+        </div>
+      </div>
+
+      <!-- FAQ Mook Grid -->
+      <div style="max-width:960px; margin:50px auto 0;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>Q & A</span>
+            <span class="year">• 常見問題釋疑</span>
+          </div>
+          <h3 class="mook-section-title">關於國中英文的常見問題</h3>
+        </div>
+
+        <div class="faq-mook-grid">
+          <div class="faq-mook-item">
+            <h4>Q1. 尚學的國中英文，如何配合右昌、國昌、立德、後勁等不同學校的段考範圍？</h4>
+            <p>楠梓學區各國中版本（康軒、翰林、南一，涵蓋右昌、國昌、立德、後勁等校）尚學皆完整收錄！平時依據大考必備的核心文法打底；段考前三週全面啟動「分校分版複習模式」，針對各校歷屆題庫密集模擬，精準命中考點。</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q2. 到了國三，如何準備 108 課綱國中教育會考的英文科？</h4>
+            <p>國三全面切入「會考真題全真模擬與題型剖析」。除了持續強化聽力抗焦慮耐力，更重點演練跨領域圖表閱讀、雙篇對照與文意推論，訓練在 60 分鐘內從容寫完並保留 10 分鐘檢查，穩固鎖定 A++！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q3. 如果孩子國小英文基礎普通或文法概念薄弱，進入國中英文專班會不會跟不上？</h4>
+            <p>不用擔心！尚學堅持精緻小班與漸進式引導，不以題海戰術打擊孩子的學習信心。入班後老師會先協助孩子梳理最核心的五大句型與時態骨幹，優先鎖定右昌、國昌、立德、後勁等校段考必考的基本盤分數；等底子扎穩後，再循序漸進攻克克漏字與閱讀題組，讓孩子在每一次段考中看見具體進步、穩健建立自信！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q4. 如果孩子英文程度較好，除了學校課業還能往哪裡挑戰？</h4>
+            <p>校內英文已穩定達 90 分以上的學員，尚學建議可平行加選<strong>「全民英檢 GEPT 專班」</strong>（挑戰初級／中級證書）或挑戰<strong>「多益 TOEIC 專班」</strong>（正規 200 題極速配速），為高中學習歷程建立強大優勢！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 全站共用頁尾 -->
+  <div id="site-footer-container"></div>
+
+  <!-- Shared Scripts -->
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
+  <script src="./shared-footer.js?v=20260911_v14"></script>
+  <script>
+    // Hero 拍立得點擊與觸控前後圖層切換 (Click / Tap to lift back photo to front)
+    document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        var isCurrentlyActive = card.classList.contains('is-active');
+        document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(c) {
+          c.classList.remove('is-active');
+        });
+        if (!isCurrentlyActive) {
+          card.classList.add('is-active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

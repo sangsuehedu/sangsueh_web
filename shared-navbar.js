@@ -69,22 +69,200 @@
     .mook-nav {
       display: flex !important;
       align-items: center !important;
-      gap: 20px !important;
+      gap: 14px !important;
       font-size: 14px !important;
-      font-weight: 800 !important;
+      font-weight: 850 !important;
     }
-    .mook-nav a {
+    .mook-nav > a {
       color: #24312E !important;
       position: relative !important;
       transition: color 0.2s ease !important;
       text-decoration: none !important;
+      padding: 6px 4px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
     }
-    .mook-nav a:hover {
+    .mook-nav > a:hover {
       color: #C96D45 !important;
     }
     .nav-courses-link {
       color: #C96D45 !important;
       font-weight: 900 !important;
+    }
+
+    /* 桌面版「課程學程 ▾」懸停下拉選單 */
+    .mook-dropdown-container {
+      position: relative !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      height: 100% !important;
+    }
+    .mook-dropdown-trigger {
+      color: #24312E !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px !important;
+      font-size: 14px !important;
+      font-weight: 850 !important;
+      transition: all 0.2s ease !important;
+      white-space: nowrap !important;
+      border: 1px solid transparent !important;
+    }
+    .mook-dropdown-container:hover .mook-dropdown-trigger,
+    .mook-dropdown-trigger:hover,
+    .mook-dropdown-container.is-active .mook-dropdown-trigger {
+      color: #C96D45 !important;
+      background: rgba(201, 109, 69, 0.08) !important;
+      border-color: rgba(201, 109, 69, 0.25) !important;
+    }
+    .dropdown-caret {
+      font-size: 10px !important;
+      transition: transform 0.25s ease !important;
+      display: inline-block !important;
+    }
+    .mook-dropdown-container:hover .dropdown-caret,
+    .mook-dropdown-container.is-active .dropdown-caret {
+      transform: rotate(180deg) !important;
+    }
+
+    /* 下拉面板 */
+    .mook-dropdown-menu {
+      position: absolute !important;
+      top: calc(100% + 12px) !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(8px) !important;
+      background: #FFFDF8 !important;
+      border: 1.5px solid #24312E !important;
+      border-radius: 16px !important;
+      box-shadow: 0 18px 45px rgba(36, 49, 46, 0.18) !important;
+      width: 760px !important;
+      max-width: 90vw !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
+      z-index: 1000 !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+    .mook-dropdown-container:hover .mook-dropdown-menu,
+    .mook-dropdown-container:focus-within .mook-dropdown-menu,
+    .mook-dropdown-container.is-active .mook-dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    /* 懸停安全區 (橋接空隙) */
+    .mook-dropdown-menu::before {
+      content: '' !important;
+      position: absolute !important;
+      top: -16px !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 16px !important;
+      background: transparent !important;
+    }
+
+    /* 下拉選單內部 3 欄式排版 */
+    .dropdown-menu-inner {
+      display: grid !important;
+      grid-template-columns: 210px 210px 1fr !important;
+      gap: 16px !important;
+      padding: 18px 20px 14px 20px !important;
+      background: #FFFDF8 !important;
+      box-sizing: border-box !important;
+    }
+    .dropdown-col {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+    .dropdown-col-header {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1.5px solid rgba(36, 49, 46, 0.12) !important;
+      font-size: 13.5px !important;
+      font-weight: 900 !important;
+      color: #477B65 !important;
+      letter-spacing: 0.02em !important;
+    }
+    .dropdown-col-header .dropdown-icon {
+      font-size: 15px !important;
+    }
+    .dropdown-item {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      padding: 8px 10px !important;
+      border-radius: 9px !important;
+      text-decoration: none !important;
+      transition: all 0.18s ease !important;
+      background: #FFF !important;
+      border: 1px solid rgba(36, 49, 46, 0.09) !important;
+      box-sizing: border-box !important;
+    }
+    .dropdown-item:hover {
+      background: #F7F2E8 !important;
+      border-color: #C96D45 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 3px 8px rgba(36, 49, 46, 0.06) !important;
+    }
+    .dropdown-item-title {
+      font-size: 13px !important;
+      font-weight: 850 !important;
+      color: #24312E !important;
+      line-height: 1.3 !important;
+    }
+    .dropdown-item:hover .dropdown-item-title {
+      color: #C96D45 !important;
+    }
+    .dropdown-item-desc {
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      color: #63716D !important;
+      line-height: 1.3 !important;
+    }
+    .dropdown-english-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+
+    /* 下拉面板底部快捷列 */
+    .dropdown-menu-footer {
+      background: #F7F2E8 !important;
+      border-top: 1px solid rgba(36, 49, 46, 0.12) !important;
+      padding: 10px 20px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+    }
+    .dropdown-footer-link {
+      font-size: 12.5px !important;
+      font-weight: 850 !important;
+      color: #477B65 !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      transition: color 0.2s ease !important;
+    }
+    .dropdown-footer-link:hover {
+      color: #C96D45 !important;
+    }
+    .dropdown-footer-tag {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      color: #71817D !important;
     }
     .btn-mook-summer {
       background: #EBF2EC !important;
@@ -278,6 +456,163 @@
     .mobile-drawer.snap-70 .drawer-drag-pill {
       background: #C96D45 !important;
     }
+
+    /* 抽屜內部排版與元件樣式 */
+    .drawer-header {
+      padding: 12px 18px !important;
+      border-bottom: 1.5px solid rgba(36, 49, 46, 0.1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-shrink: 0 !important;
+      background: #FFFDF8 !important;
+    }
+    .drawer-title {
+      font-size: 15px !important;
+      font-weight: 900 !important;
+      color: #24312E !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+    .drawer-close {
+      background: rgba(36, 49, 46, 0.08) !important;
+      border: 0 !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      font-size: 16px !important;
+      font-weight: 850 !important;
+      color: #24312E !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: background 0.2s ease, transform 0.2s ease !important;
+      touch-action: manipulation !important;
+      -webkit-tap-highlight-color: transparent !important;
+      z-index: 10 !important;
+    }
+    .drawer-close:hover {
+      background: rgba(201, 109, 69, 0.2) !important;
+      color: #C96D45 !important;
+      transform: scale(1.05) !important;
+    }
+    .drawer-content {
+      padding: 14px 18px 36px !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      background: #FFFDF8 !important;
+    }
+    .drawer-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    .drawer-group-title {
+      font-size: 12px !important;
+      font-weight: 900 !important;
+      color: #477B65 !important;
+      letter-spacing: 0.04em !important;
+      padding-bottom: 5px !important;
+      border-bottom: 1.5px dashed rgba(71, 123, 101, 0.3) !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      margin-bottom: 4px !important;
+    }
+    .drawer-link {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+      padding: 10px 12px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      color: #24312E !important;
+      background: #FFF !important;
+      border: 1px solid rgba(36, 49, 46, 0.08) !important;
+      transition: all 0.18s ease !important;
+      box-sizing: border-box !important;
+    }
+    .drawer-link:hover, .drawer-link:active {
+      background: #F7F2E8 !important;
+      border-color: #C96D45 !important;
+      transform: translateX(2px) !important;
+      box-shadow: 0 2px 8px rgba(36, 49, 46, 0.06) !important;
+    }
+    .drawer-link-icon {
+      flex-shrink: 0 !important;
+      width: 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding-top: 1px !important;
+    }
+    .drawer-link-icon .d-emoji {
+      font-size: 16px !important;
+      line-height: 1 !important;
+      display: inline-block !important;
+    }
+    .drawer-link-icon .d-badge {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 850 !important;
+      background: rgba(201, 109, 69, 0.1) !important;
+      color: #C96D45 !important;
+      border: 1px solid rgba(201, 109, 69, 0.28) !important;
+      padding: 2px 6px !important;
+      border-radius: 6px !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.02em !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.18s ease !important;
+    }
+    .drawer-link:hover .d-badge {
+      background: #C96D45 !important;
+      color: #FFF !important;
+      border-color: #C96D45 !important;
+    }
+    .drawer-link-body {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3px !important;
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+    .drawer-link-body .d-name {
+      font-size: 13.5px !important;
+      font-weight: 850 !important;
+      color: #24312E !important;
+      line-height: 1.3 !important;
+    }
+    .drawer-link:hover .drawer-link-body .d-name {
+      color: #C96D45 !important;
+    }
+    .drawer-link-body .d-sub {
+      font-size: 11px !important;
+      color: #63716D !important;
+      font-weight: 500 !important;
+      line-height: 1.3 !important;
+    }
+    .drawer-link.drawer-cta-link {
+      border: 1.5px solid #C96D45 !important;
+      background: rgba(201, 109, 69, 0.05) !important;
+    }
+    .drawer-link.drawer-cta-link .d-badge-cta {
+      background: rgba(201, 109, 69, 0.15) !important;
+      border-color: #C96D45 !important;
+      font-size: 14px !important;
+      padding: 1px 4px !important;
+    }
+    .drawer-link.drawer-cta-link .d-name {
+      color: #C96D45 !important;
+    }
   `;
 
   function injectStyles() {
@@ -287,6 +622,84 @@
       styleEl.textContent = NAVBAR_CSS;
       document.head.appendChild(styleEl);
     }
+  }
+
+  /**
+   * 產生桌面版「課程學程 ▾」懸停下拉選單 HTML
+   */
+  function generateCoursesDropdownHTML() {
+    return `
+    <div class="mook-dropdown-container" id="mook-courses-dropdown">
+      <a href="./courses.html" class="mook-dropdown-trigger" aria-haspopup="true" aria-expanded="false" title="瀏覽 7 大專項課程與總覽">
+        <span>課程學程</span>
+        <span class="dropdown-caret">▾</span>
+      </a>
+      <div class="mook-dropdown-menu" role="menu">
+        <div class="dropdown-menu-inner">
+          <!-- 1. 安親課輔 -->
+          <div class="dropdown-col">
+            <div class="dropdown-col-header">
+              <span class="dropdown-icon">🎒</span>
+              <span class="dropdown-col-title">安親課輔</span>
+            </div>
+            <a href="./course-after-school.html" class="dropdown-item">
+              <div class="dropdown-item-title">國小課後安親專頁</div>
+              <div class="dropdown-item-desc">PBL 探索實作 × 四大常規扎根（小一～小六）</div>
+            </a>
+          </div>
+
+          <!-- 2. 珠心算 -->
+          <div class="dropdown-col">
+            <div class="dropdown-col-header">
+              <span class="dropdown-icon">🧮</span>
+              <span class="dropdown-col-title">珠心算</span>
+            </div>
+            <a href="./course-abacus.html" class="dropdown-item">
+              <div class="dropdown-item-title">珠心算思維專頁</div>
+              <div class="dropdown-item-desc">專注靜心 × 腦內投影計算（大班～國小）</div>
+            </a>
+          </div>
+
+          <!-- 3. 英語全系列 -->
+          <div class="dropdown-col dropdown-col-wide">
+            <div class="dropdown-col-header">
+              <span class="dropdown-icon">🔤</span>
+              <span class="dropdown-col-title">英語全系列</span>
+            </div>
+            <div class="dropdown-english-list">
+              <a href="./course-english-kids.html" class="dropdown-item">
+                <div class="dropdown-item-title">兒童生活美語</div>
+                <div class="dropdown-item-desc">社區實境任務 × 自然拼讀（國小中低年級）</div>
+              </a>
+              <a href="./course-english-advanced.html" class="dropdown-item">
+                <div class="dropdown-item-title">進階英語素養（國中先修）</div>
+                <div class="dropdown-item-desc">閱讀素養 × 銜接斷崖突破（小五～國一）</div>
+              </a>
+              <a href="./course-grammar.html" class="dropdown-item">
+                <div class="dropdown-item-title">國中文法閱讀精進</div>
+                <div class="dropdown-item-desc">心智圖文法 × 會考錯題剖析（七～九年級）</div>
+              </a>
+              <a href="./courses.html#c6" class="dropdown-item">
+                <div class="dropdown-item-title">全民英檢 GEPT</div>
+                <div class="dropdown-item-desc">初級 / 中級全真模考實戰（國高中）</div>
+              </a>
+              <a href="./courses.html#c7" class="dropdown-item">
+                <div class="dropdown-item-title">正規多益 TOEIC</div>
+                <div class="dropdown-item-desc">高階 200 題極限配速衝刺（高中/升學證照）</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-menu-footer">
+          <a href="./courses.html" class="dropdown-footer-link">
+            <span>📚 查看完整 7 大課程總覽與詳細課表</span>
+            <span class="arrow">→</span>
+          </a>
+          <span class="dropdown-footer-tag">專任專職師資・堅持精緻小班</span>
+        </div>
+      </div>
+    </div>`;
   }
 
   /**
@@ -320,20 +733,37 @@
     };
 
     // 導覽項目列表
-    const navLinks = opts.navLinks || [
-      { text: '← 返回課程總覽', href: './courses.html', className: 'nav-courses-link' },
-      { text: '探究式理解', href: '#inquiry' },
-      { text: '常規堅持', href: '#pillars' },
-      { text: '年級分流', href: '#grades' },
-      { text: '一日作息', href: '#routine' },
-      { text: '接送學區', href: '#escort' }
-    ];
-
     let navItemsHtml = '';
-    navLinks.forEach(function (l) {
-      const cls = l.className ? ` class="${l.className}"` : '';
-      navItemsHtml += `<a href="${l.href}"${cls}>${l.text}</a>\n`;
-    });
+
+    // 首頁連結
+    if (opts.includeHome !== false) {
+      navItemsHtml += `<a href="./index.html">尚學首頁</a>\n`;
+    }
+
+    // 關於尚學連結
+    if (opts.includeAbout !== false) {
+      navItemsHtml += `<a href="./about.html">關於尚學</a>\n`;
+    }
+
+    // 「課程學程 ▾」核心下拉選單
+    if (opts.includeCoursesDropdown !== false) {
+      navItemsHtml += generateCoursesDropdownHTML() + '\n';
+    }
+
+    // 額外特定頁面自訂連結 (如首頁錨點)
+    if (opts.extraNavLinks && Array.isArray(opts.extraNavLinks)) {
+      opts.extraNavLinks.forEach(function (l) {
+        const cls = l.className ? ` class="${l.className}"` : '';
+        navItemsHtml += `<a href="${l.href}"${cls}>${l.text}</a>\n`;
+      });
+    } else if (opts.navLinks && Array.isArray(opts.navLinks)) {
+      // 舊版配置相容：若有自訂連結，過濾已重複的基礎項目
+      opts.navLinks.forEach(function (l) {
+        if (l.text.includes('課程總覽') || l.text.includes('7大學程') || (l.href && l.href.includes('courses.html')) || l.text.includes('首頁') || l.text.includes('關於尚學')) return;
+        const cls = l.className ? ` class="${l.className}"` : '';
+        navItemsHtml += `<a href="${l.href}"${cls}>${l.text}</a>\n`;
+      });
+    }
 
     // 右側特殊按鈕
     const summerBtn = opts.summerBtn || {
@@ -385,8 +815,172 @@
   // ========================================================
   // 全域抽屜控制與手勢引擎 (支援自由手勢拖曳與 40% / 70% 雙視窗停靠)
   // ========================================================
+
+  /**
+   * 自動確保頁面存在抽屜式導覽 DOM 結構，若無則動態注入
+   */
+  function ensureDrawerExists(options) {
+    if (typeof document === 'undefined') return;
+
+    // 清除舊有或靜態硬編碼的 drawer-overlay，確保全站統一套用最新分類與修復後的點擊行為
+    const oldOverlay = document.getElementById('drawer-overlay');
+    if (oldOverlay) {
+      oldOverlay.remove();
+    }
+
+    const brand = (options && options.brand) || {
+      logo: './shangxue-logo-transparent.png?v=20260906_v2',
+      alt: '尚學文教 Logo'
+    };
+
+    const drawerWrap = document.createElement('div');
+    drawerWrap.innerHTML = `
+    <div class="mobile-drawer-overlay" id="drawer-overlay" aria-hidden="true">
+      <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-drag-pill" id="drawer-drag-pill" title="向上滑動或點擊展開完整目錄" onclick="window.toggleSangSuehDrawerExpanded && window.toggleSangSuehDrawerExpanded(event)"></div>
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <img src="${brand.logo}" alt="${brand.alt}" style="height: 28px; width: auto;"/>
+            <span>導覽目錄</span>
+          </div>
+          <button class="drawer-close" type="button" id="drawer-close-btn" aria-label="關閉目錄" onclick="window.closeSangSuehDrawer && window.closeSangSuehDrawer(event)">✕</button>
+        </div>
+        <div class="drawer-content">
+          <!-- 認識尚學 -->
+          <div class="drawer-group">
+            <div class="drawer-group-title">🌟 認識尚學</div>
+            <a class="drawer-link" href="./index.html">
+              <div class="drawer-link-icon"><span class="d-emoji">🏠</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">尚學官方首頁</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./about.html">
+              <div class="drawer-link-icon"><span class="d-emoji">🌿</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">關於尚學・辦學理念</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./courses.html">
+              <div class="drawer-link-icon"><span class="d-emoji">📚</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">7 大核心學程總覽</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./summer-2026.html">
+              <div class="drawer-link-icon"><span class="d-emoji">🍉</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">2026 暑期雙月成果誌</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- 安親課輔 -->
+          <div class="drawer-group">
+            <div class="drawer-group-title">🎒 安親課輔</div>
+            <a class="drawer-link" href="./course-after-school.html">
+              <div class="drawer-link-icon"><span class="d-badge">01</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">國小課後安親專頁</div>
+                <div class="d-sub">PBL 探索實作 × 四大常規扎根（小一～小六）</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- 珠心算 -->
+          <div class="drawer-group">
+            <div class="drawer-group-title">🧮 珠心算</div>
+            <a class="drawer-link" href="./course-abacus.html">
+              <div class="drawer-link-icon"><span class="d-badge">02</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">珠心算思維專頁</div>
+                <div class="d-sub">專注靜心 × 腦內投影計算（大班～國小）</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- 英語全系列 -->
+          <div class="drawer-group">
+            <div class="drawer-group-title">🔤 英語全系列</div>
+            <a class="drawer-link" href="./course-english-kids.html">
+              <div class="drawer-link-icon"><span class="d-badge">03</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">兒童生活美語</div>
+                <div class="d-sub">社區實境任務 × 自然拼讀（國小中低年級）</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./course-english-advanced.html">
+              <div class="drawer-link-icon"><span class="d-badge">04</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">進階英語素養（國中先修）</div>
+                <div class="d-sub">閱讀素養 × 銜接斷崖突破（小五～國一）</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./course-grammar.html">
+              <div class="drawer-link-icon"><span class="d-badge">05</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">國中文法閱讀精進</div>
+                <div class="d-sub">心智圖文法 × 會考錯題剖析（七～九年級）</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./courses.html#c6">
+              <div class="drawer-link-icon"><span class="d-badge">06</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">全民英檢 GEPT</div>
+                <div class="d-sub">初級 / 中級全真模考實戰（國高中）</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="./courses.html#c7">
+              <div class="drawer-link-icon"><span class="d-badge">07</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">正規多益 TOEIC</div>
+                <div class="d-sub">高階 200 題極限配速衝刺（高中/升學證照）</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- 預約與諮詢 -->
+          <div class="drawer-group">
+            <div class="drawer-group-title">📞 預約與諮詢</div>
+            <a class="drawer-link drawer-cta-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <div class="drawer-link-icon"><span class="d-badge d-badge-cta">📝</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name">預約到班學力診斷與試聽</div>
+                <div class="d-sub">精緻專屬小班制・即早預約保留席位</div>
+              </div>
+            </a>
+            <a class="drawer-link" href="tel:073646570" style="color:#2D5846; font-weight:800;">
+              <div class="drawer-link-icon"><span class="d-emoji">📞</span></div>
+              <div class="drawer-link-body">
+                <div class="d-name" style="color:#2D5846;">諮詢專線：(07) 364-6570</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+    if (document.body) {
+      document.body.appendChild(drawerWrap.firstElementChild);
+      const closeBtn = document.getElementById('drawer-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          if (e && e.preventDefault) e.preventDefault();
+          if (e && e.stopPropagation) e.stopPropagation();
+          global.closeSangSuehDrawer(e);
+        });
+        closeBtn.addEventListener('touchend', function (e) {
+          if (e && e.preventDefault) e.preventDefault();
+          if (e && e.stopPropagation) e.stopPropagation();
+          global.closeSangSuehDrawer(e);
+        });
+      }
+    }
+  }
+
   global.openSangSuehDrawer = function (e) {
     if (e && e.preventDefault) e.preventDefault();
+    ensureDrawerExists();
     const overlay = document.getElementById('drawer-overlay');
     const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
     if (overlay) {
@@ -404,7 +998,9 @@
   };
 
   global.closeSangSuehDrawer = function (e) {
-    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.preventDefault && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
     const overlay = document.getElementById('drawer-overlay');
     const drawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer');
     if (overlay) {
@@ -469,6 +1065,11 @@
       const touch = e.touches[0];
       const target = e.target;
 
+      // 若使用者點擊右上角關閉按鈕，不要觸發拖曳手勢，直接放行給點擊/關閉邏輯
+      if (target.closest && target.closest('#drawer-close-btn, .drawer-close')) {
+        return;
+      }
+
       const isHandle = target.closest('.drawer-drag-pill') || target.closest('.drawer-header');
       if (isHandle) {
         dragMode = 'handle';
@@ -495,17 +1096,17 @@
 
       if (!isDragging) {
         if (dragMode === 'handle') {
-          if (Math.abs(deltaY) > 4) {
+          if (Math.abs(deltaY) > 10) {
             isDragging = true;
           }
         } else if (dragMode === 'content') {
-          // 內容在頂部且向下拉，啟動抽屜滑動
-          if (deltaY > 6 && contentScrollTop <= 0) {
+          // 內容在頂部且向下拉，啟動抽屜滑動 (避免微小點擊抖動誤判為手勢拖曳)
+          if (deltaY > 14 && contentScrollTop <= 0) {
             isDragging = true;
           }
           // 在 40% 視窗向上拉，啟動展開抽屜
           const currentPct = drawer.getBoundingClientRect().height / window.innerHeight;
-          if (deltaY < -6 && currentPct < 0.60) {
+          if (deltaY < -14 && currentPct < 0.60) {
             isDragging = true;
           }
         }
@@ -585,29 +1186,65 @@
 
   // 全域委派監聽：支援所有按鈕與點擊交互
   document.addEventListener('click', function (e) {
+    // 1. 桌面版 / 平板點選「課程學程」下拉選單觸發鈕支援
+    const dropdownTrigger = e.target.closest('.mook-dropdown-trigger');
+    if (dropdownTrigger) {
+      const container = dropdownTrigger.closest('.mook-dropdown-container');
+      if (container && window.innerWidth > 900) {
+        if (!container.classList.contains('is-active')) {
+          e.preventDefault();
+          container.classList.add('is-active');
+        } else {
+          // 若已展開再次點擊，允許直接進入 courses.html
+        }
+      }
+    } else {
+      document.querySelectorAll('.mook-dropdown-container.is-active').forEach(function(el) {
+        el.classList.remove('is-active');
+      });
+    }
+
     const trigger = e.target.closest('#mobile-menu-trigger, .mobile-menu-btn');
     if (trigger) {
+      if (e && e.preventDefault) e.preventDefault();
       global.openSangSuehDrawer(e);
       return;
     }
     const closeBtn = e.target.closest('#drawer-close-btn, .drawer-close');
     if (closeBtn) {
+      if (e && e.preventDefault) e.preventDefault();
       global.closeSangSuehDrawer(e);
       return;
     }
     const overlay = document.getElementById('drawer-overlay');
     if (e.target === overlay) {
+      if (e && e.preventDefault) e.preventDefault();
       global.closeSangSuehDrawer(e);
       return;
     }
     const dragPill = e.target.closest('#drawer-drag-pill, .drawer-drag-pill');
     if (dragPill) {
+      if (e && e.preventDefault) e.preventDefault();
       global.toggleSangSuehDrawerExpanded(e);
       return;
     }
     const link = e.target.closest('.drawer-link');
     if (link) {
-      global.closeSangSuehDrawer(e);
+      const href = link.getAttribute('href');
+      // Case 1: 本頁內錨點平滑滾動
+      if (href && href.startsWith('#')) {
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          if (e && e.preventDefault) e.preventDefault();
+          global.closeSangSuehDrawer();
+          const headerOffset = 80;
+          const pos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+          return;
+        }
+      }
+      // Case 2: 跨頁連結、電話或表單連結：順暢關閉抽屜，絕不阻擋瀏覽器預設跳轉！
+      global.closeSangSuehDrawer();
       return;
     }
   });
@@ -647,6 +1284,7 @@
     if (target) {
       target.outerHTML = html;
     }
+    ensureDrawerExists(options);
     return html;
   }
 

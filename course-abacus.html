@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>珠心算思維專頁｜專注靜心 × 腦內投影計算・國小數理基石 × 段考自信領先｜尚學文教</title>
+  <meta name="description" content="高雄楠梓珠心算首選！尚學文教結合「5分鐘聽算看算收心儀式」與「腦內投影珠算」，解決孩子坐不住、粗心大意、扳手指數數的痛點。奠定國小數理四則運算基石，段考秒驗算。請假採補進度非補時數，精緻小班細緻指導。"/>
+  <meta name="keywords" content="楠梓珠心算, 莒光心算, 右昌珠心算, 加昌國小心算, 專注力訓練, 腦內心算, 國小數學銜接, 珠算檢定, 尚學文教"/>
+  <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/course-abacus.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="珠心算思維專頁｜專注靜心 × 腦內投影計算｜尚學文教"/>
+  <meta property="og:description" content="告別粗心扳手指！5分鐘聽算看算收心，建立腦內投影數感，國小段考算完秒驗算。高雄楠梓精緻小班珠心算。"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/course_specialties/abacus_focus_kid.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+
+  <!-- Core Styles (Inherits 100% MOOK Design System) -->
+  <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v12"/>
+
+  <style>
+    :root {
+      --mineral-accent: #C96D45; /* 赤土橘 */
+      --mineral-accent-light: #FCEFE9;
+    }
+
+    /* Course Unique Highlight Accent */
+    .hero-mook-title span.highlight {
+      background: linear-gradient(180deg, transparent 65%, rgba(201, 109, 69, 0.32) 65%);
+    }
+
+    /* Q&A Sheet Clean Layout (Fix Solution stretching) */
+    .qa-diagnostic-sheet .sheet-a-section {
+      display: block !important;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(36, 49, 46, 0.12);
+    }
+    .sheet-a-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .sheet-a-seal {
+      display: inline-block;
+      border: 1.5px solid var(--mineral-accent);
+      color: var(--mineral-accent);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 1px 7px;
+      border-radius: 4px;
+      transform: rotate(-1deg);
+      line-height: 1.3;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Bead Projection Ledger (Signature Soul Component) */
+    .bead-ledger-box {
+      background: var(--paper-warm);
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 20px rgba(36, 49, 46, 0.04);
+      margin: 40px auto;
+      max-width: 1080px;
+      position: relative;
+    }
+    /* Modern 1-4 Soroban Simulator (上珠1顆=5，下珠4顆各=1) */
+    .soroban-frame {
+      background: #FFFFFF;
+      border: 2px solid #2B2118;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    .soroban-legend {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #5C4B3E;
+      background: #F9F6F0;
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: 1px solid #EAE2D5;
+      flex-wrap: wrap;
+    }
+    .soroban-legend .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-bead {
+      width: 12px;
+      height: 8px;
+      background: #C96D45;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .legend-beam-dot {
+      width: 5px;
+      height: 5px;
+      background: #D9A74A;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .soroban-board {
+      position: relative;
+      background: #F5EFE6;
+      border: 5px solid #3D2D20;
+      border-radius: 8px;
+      padding: 10px 14px 16px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .soroban-beam {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      height: 9px;
+      background: #2D1E14;
+      z-index: 5;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .soroban-unit-dot {
+      position: absolute;
+      top: 2px;
+      width: 5px;
+      height: 5px;
+      background: #FFF;
+      border-radius: 50%;
+      box-shadow: 0 0 2px rgba(0,0,0,0.6);
+    }
+    .soroban-rods-wrap {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      z-index: 2;
+    }
+    .soroban-rod {
+      position: relative;
+      width: 68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .soroban-axis {
+      position: absolute;
+      top: -6px;
+      bottom: -10px;
+      width: 3px;
+      background: #C4B29E;
+      border-left: 1px solid #A89580;
+      z-index: 1;
+    }
+    .soroban-deck {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .upper-deck {
+      height: 42px;
+      justify-content: flex-start;
+      margin-bottom: 13px; /* 橫梁空隙 */
+    }
+    .lower-deck {
+      height: 102px;
+      justify-content: flex-end;
+    }
+    .soroban-bead {
+      width: 48px;
+      height: 17px;
+      background: linear-gradient(180deg, #E0855D 0%, #C96D45 50%, #9E4B28 100%);
+      border-radius: 8px / 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.4);
+      margin: 1px 0;
+      transition: transform 0.2s ease;
+    }
+    /* 上珠：靠梁為 5，離梁為 0 */
+    .bead-upper.inactive {
+      margin-bottom: auto; /* 推至頂端離梁 */
+      opacity: 0.85;
+    }
+    .bead-upper.active {
+      margin-top: auto; /* 拉下靠梁計數 5 */
+      background: linear-gradient(180deg, #D46032 0%, #B84D20 50%, #8A3410 100%);
+      box-shadow: 0 2px 6px rgba(184,77,32,0.4), inset 0 1px 1px rgba(255,255,255,0.5);
+    }
+    /* 下珠：靠梁每顆為 1，離梁為 0 */
+    .bead-lower.inactive {
+      margin-top: auto; /* 推至底端離梁 */
+      opacity: 0.85;
+    }
+    .bead-lower.active {
+      margin-bottom: auto; /* 撥上靠梁計數 1 */
+      background: linear-gradient(180deg, #D46032 0%, #B84D20 50%, #8A3410 100%);
+      box-shadow: 0 2px 6px rgba(184,77,32,0.4), inset 0 1px 1px rgba(255,255,255,0.5);
+    }
+    .soroban-pos-label {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .rod-digit {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 19px;
+      font-weight: 900;
+      color: #8C2D19;
+      line-height: 1;
+    }
+    .rod-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: #6E5B4B;
+    }
+    .soroban-result-strip {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px dashed #DFD6C9;
+      text-align: center;
+      font-size: 12px;
+      color: #5C4B3E;
+    }
+
+    /* 課堂流程網格 (自適應4步驟) */
+    .ritual-mook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .ritual-mook-step {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+    }
+    .ritual-step-tag {
+      font-size: 11px;
+      font-weight: 850;
+      color: var(--mineral-accent);
+      background: var(--mineral-accent-light);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* Grade Ladder Cards */
+    .grade-ladder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+    .grade-ladder-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Dual Photo Grid */
+    .photo-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全站旗艦導覽列 (由 shared-navbar.js 自動渲染) -->
+  <div id="site-navbar-container"></div>
+
+  <main>
+    <!-- ========================================================
+         STAGE 1. HERO 雜誌卷頭 (Hero Mook)
+         ======================================================== -->
+    <section class="hero-mook">
+      <div class="hero-mook-grid">
+        <div class="hero-mook-text">
+          <div class="mook-badge">
+            <span>SPECIAL FOCUS</span>
+            <span class="year">• VOL. 02 珠心算思維</span>
+          </div>
+          <h1 class="hero-mook-title">
+            指尖上的空間數感，<br/>
+            鍛造孩子<span class="highlight">沉浸專注力與腦內投影速算</span>。
+          </h1>
+          <p class="hero-mook-desc">
+            「寫作業坐不住、算兩位數還在扳手指、段考粗心進退位寫不完？」尚學珠心算不走死背口訣，而是結合<strong>「目標責任制專注課堂」</strong>與<strong>「算盤空間大腦投影」</strong>。專任老師 1 對 1 隨堂解惑，達標即自信下課，讓計算速度提升3倍、考試能秒驗算，為國小數理打下無可撼動的自信基石。
+          </p>
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <span>📝</span> 預約學力診斷與試聽
+            </a>
+            <a class="btn-mook-secondary" href="tel:073646570">
+              <span>📞</span> 諮詢專線 (07) 364-6570
+            </a>
+          </div>
+
+          <!-- 4 印章信任列 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">1 對 1</div>
+              <strong>隨堂個別指導</strong>
+              <small>卡關當場解惑・不留挫折</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">責任制</div>
+              <strong>達標即自信下課</strong>
+              <small>進度清楚・不無效拖磨時間</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">3 倍速</div>
+              <strong>空間大腦投影</strong>
+              <small>算珠直覺成像・告別扳手指</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">補進度</div>
+              <strong>非補無效時數</strong>
+              <small>點對點核驗・確保進度不脫節</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mook-visual">
+          <div class="hero-collage-wrap">
+            <div class="hero-polaroid-main polaroid-card">
+              <div class="washi-tape washi-tape-orange" style="top:-11px; left:25px; width:75px; transform:rotate(-3deg);"></div>
+              <img src="./photos/course_specialties/abacus_focus_kid.jpg" alt="尚學珠心算課堂學員專注練習計算特寫" loading="eager"/>
+              <div class="polaroid-caption">沉浸心流・眼神定焦指尖撥珠</div>
+              <div class="vintage-stamp">SANG SUEH<br/>SINCE 1986</div>
+            </div>
+            <div class="hero-polaroid-sub polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; right:20px; width:65px; transform:rotate(2deg);"></div>
+              <img src="./photos/course_specialties/abacus_math_review_3.jpg" alt="尚學學員數學計算與草稿核算特寫" loading="lazy"/>
+              <div class="polaroid-caption">步驟核算・扎實鍛造空間數感</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 2. 手帳風痛點手記 (Pain Section with Binder Holes)
+         ======================================================== -->
+    <section class="pain-section-mook">
+      <div style="max-width:1240px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#8C2D19; box-shadow:0 2px 8px rgba(140,45,25,0.25);">
+            <span>DIAGNOSIS</span>
+            <span class="year">• 數感盲點診斷</span>
+          </div>
+          <h2 class="mook-section-title">孩子不是不聰明，而是「數感沒建立、心定不下來」</h2>
+          <p class="mook-section-subtitle">
+            在短影音盛行的時代，孩子的注意力容易被切碎。面對數理計算，常出現以下三大卡關現象：
+          </p>
+        </div>
+
+        <div class="qa-diagnostic-grid">
+          <!-- 痛點 1 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-2deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 01</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">寫功課坐不住，10分鐘就要喝水上廁所？</h3>
+              <p class="sheet-q-desc">
+                孩子並非故意調皮，而是大腦抗干擾能力未經鍛鍊，稍微遇到計算題就浮躁分心。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="sheet-a-header">
+                <span class="sheet-a-seal">✦ 尚學解方</span>
+                <h4 class="sheet-a-title" style="margin:0; font-family:'Noto Serif TC',serif; font-size:15px; font-weight:800; color:var(--ink);">聽算看算毫秒級專注，鍛造定力</h4>
+              </div>
+              <p class="sheet-a-desc" style="margin:0; font-size:13px; line-height:1.65; color:var(--ink-soft);">
+                珠心算以毫秒級報數節奏要求專注，讓孩子在撥珠過程中學會屏蔽外界雜音，自然養成 40 分鐘坐得住的沉浸定力。
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 2 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(1.5deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 02</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">兩位數加減還在扳手指、數格子？</h3>
+              <p class="sheet-q-desc">
+                十根手指的物理限制，讓孩子在面對多位數或進退位時心慌意亂、速度緩慢。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="sheet-a-header">
+                <span class="sheet-a-seal">✦ 尚學解方</span>
+                <h4 class="sheet-a-title" style="margin:0; font-family:'Noto Serif TC',serif; font-size:15px; font-weight:800; color:var(--ink);">大腦算珠虛擬投影，圖像化運算</h4>
+              </div>
+              <p class="sheet-a-desc" style="margin:0; font-size:13px; line-height:1.65; color:var(--ink-soft);">
+                將實體算盤轉化為大腦右腦的虛擬投影。看見數字瞬間在腦中反射算珠位置，計算速度提升 3~5 倍，跳脫數數的低效循環。
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 3 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-orange sheet-tape" style="transform:rotate(-1deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 03</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">粗心大意！進退位老是算錯、段考寫不完？</h3>
+              <p class="sheet-q-desc">
+                學校考試 40 分鐘，大部分時間耗在列直式苦算，往往算錯抄錯卻沒時間檢查。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="sheet-a-header">
+                <span class="sheet-a-seal">✦ 尚學解方</span>
+                <h4 class="sheet-a-title" style="margin:0; font-family:'Noto Serif TC',serif; font-size:15px; font-weight:800; color:var(--ink);">段考秒速驗算，搶下關鍵分數</h4>
+              </div>
+              <p class="sheet-a-desc" style="margin:0; font-size:13px; line-height:1.65; color:var(--ink-soft);">
+                運算底子穩固的孩子，能提早 15 分鐘寫完考卷，並用「逆向心算秒速驗算」，徹底杜絕算對寫錯、漏看進位的粗心遺憾！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 3. 珠心算專屬靈魂看板 (Soul Module)
+         ======================================================== -->
+    <section style="background:#FAF8F4; padding:70px 20px; border-bottom:1px dashed var(--border-dashed);">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#C96D45;">
+            <span>CORE METHOD</span>
+            <span class="year">• 右腦影像思維</span>
+          </div>
+          <h2 class="mook-section-title">尚學獨家：腦內投影心算 × 5分鐘收心儀式</h2>
+          <p class="mook-section-subtitle">
+            珠心算不是死背口訣，而是將「撥珠觸覺」轉化為「空間照相機記憶」的認知神經重構過程。
+          </p>
+        </div>
+
+        <div class="bead-ledger-box">
+          <div class="washi-tape washi-tape-orange" style="top:-12px; left:40px; width:90px; transform:rotate(-1deg);"></div>
+          
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:32px; align-items:center;">
+            <div>
+              <span style="font-size:12px; font-weight:850; color:var(--mineral-accent); letter-spacing:1px; text-transform:uppercase;">
+                【 腦內算盤構造直覺化 】
+              </span>
+              <h3 style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:900; margin:8px 0 14px; color:var(--ink);">
+                上珠為五、下珠為一・五進位與十進位的空間幾何
+              </h3>
+              <p style="font-size:14.5px; line-height:1.75; color:var(--ink-soft); margin:0 0 14px;">
+                傳統計算孩子要在腦中默念「7 加 8 等於 15，寫 5 進 1...」，大量佔用工作記憶。而在尚學系統中，算珠在右腦如照相機般聚散，完全不耗費語言頻寬，留出 100% 腦力思考應用題！
+              </p>
+              <div style="background:var(--paper-cream); border-left:3px solid var(--mineral-accent); padding:10px 14px; border-radius:0 8px 8px 0; font-size:13px; color:#8A4722; font-weight:700;">
+                💡 臨床證實：幼兒時期訓練手腦撥珠，能有效刺激指尖小肌肉微神經，促進左右腦半球協同發展。
+              </div>
+            </div>
+
+            <!-- Visual Abacus Display (標準一上四下現代算盤) -->
+            <div class="soroban-frame">
+              <div class="soroban-legend">
+                <div class="legend-item"><span class="legend-bead"></span> 上珠（1 顆代表 5）</div>
+                <div class="legend-item"><span class="legend-beam-dot"></span> 橫梁（定位點）</div>
+                <div class="legend-item"><span class="legend-bead"></span> 下珠（4 顆各代表 1）</div>
+              </div>
+
+              <div class="soroban-board">
+                <!-- 橫梁 (含個位定位點) -->
+                <div class="soroban-beam">
+                  <span class="soroban-unit-dot" style="right: calc(16.6% - 3px);"></span>
+                </div>
+
+                <div class="soroban-rods-wrap">
+                  <!-- 百位檔：讀數 2 (上珠0 + 下珠2) -->
+                  <div class="soroban-rod">
+                    <div class="soroban-axis"></div>
+                    <div class="soroban-deck upper-deck">
+                      <div class="soroban-bead bead-upper inactive" title="上珠=5 (離梁為0)"></div>
+                    </div>
+                    <div class="soroban-deck lower-deck">
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                    </div>
+                    <div class="soroban-pos-label">
+                      <span class="rod-digit">2</span>
+                      <span class="rod-name">百位</span>
+                    </div>
+                  </div>
+
+                  <!-- 十位檔：讀數 6 (上珠5 + 下珠1) -->
+                  <div class="soroban-rod">
+                    <div class="soroban-axis"></div>
+                    <div class="soroban-deck upper-deck">
+                      <div class="soroban-bead bead-upper active" title="上珠=5 (靠梁+5)"></div>
+                    </div>
+                    <div class="soroban-deck lower-deck">
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                    </div>
+                    <div class="soroban-pos-label">
+                      <span class="rod-digit">6</span>
+                      <span class="rod-name">十位</span>
+                    </div>
+                  </div>
+
+                  <!-- 個位檔：讀數 8 (上珠5 + 下珠3) -->
+                  <div class="soroban-rod">
+                    <div class="soroban-axis"></div>
+                    <div class="soroban-deck upper-deck">
+                      <div class="soroban-bead bead-upper active" title="上珠=5 (靠梁+5)"></div>
+                    </div>
+                    <div class="soroban-deck lower-deck">
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower active" title="下珠=1 (靠梁+1)"></div>
+                      <div class="soroban-bead bead-lower inactive" title="下珠=1 (離梁0)"></div>
+                    </div>
+                    <div class="soroban-pos-label">
+                      <span class="rod-digit">8</span>
+                      <span class="rod-name">個位 • 定位</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="soroban-result-strip">
+                <span>💡 大腦投影示範數值：<strong>268</strong></span>
+                <span style="color:#8A7A6E;">（百位 2 + 十位 6 + 個位 8）</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 課堂實境節奏：目標責任制教學流 -->
+          <div style="margin-top:36px; border-top:1px dashed var(--border-dashed); padding-top:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px; margin-bottom:18px;">
+              <div>
+                <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); letter-spacing:1.5px; text-transform:uppercase;">
+                  【 CLASSROOM WORKFLOW 】
+                </span>
+                <h4 style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:900; margin:4px 0 0; color:var(--ink);">
+                  從端正就位到個別破關：不磨耗耐性的「目標責任制」課堂
+                </h4>
+              </div>
+              <span style="font-size:12.5px; font-weight:750; color:#8C2D19; background:rgba(201,109,69,0.12); padding:4px 12px; border-radius:999px;">
+                💡 達標即下課・不強迫無效耗時
+              </span>
+            </div>
+
+            <div class="ritual-mook-grid">
+              <!-- Step 1 -->
+              <div class="ritual-mook-step">
+                <span class="ritual-step-tag">Step 1・常規就位</span>
+                <h5 style="font-size:15.5px; font-weight:800; margin:0 0 6px; color:var(--ink);">端正儀態・握筆清盤</h5>
+                <p style="font-size:13px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  就座後「左手扶盤、右手持筆」，標準手勢沿梁清盤。清脆的算珠歸零聲，是孩子主動切換至專注模式的靜心常規。
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="ritual-mook-step">
+                <span class="ritual-step-tag">Step 2・深度運算</span>
+                <h5 style="font-size:15.5px; font-weight:800; margin:0 0 6px; color:var(--ink);">自主開卷・沉浸演算</h5>
+                <p style="font-size:13px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  依個人段位進度開卷演算。看算快速落筆、聽算專注投影，手、眼、腦同步聯動，在安靜小班中建立高度抗干擾能力。
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="ritual-mook-step">
+                <span class="ritual-step-tag">Step 3・隨堂指導</span>
+                <h5 style="font-size:15.5px; font-weight:800; margin:0 0 6px; color:var(--ink);">隨堂解惑・1 對 1 精確指引</h5>
+                <p style="font-size:13px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  遇到進退位卡關或新題型，專任導師隨堂 1 對 1 指導，當場拆解撥珠盲點並即時導正，絕不讓困惑和挫折帶回家。
+                </p>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="ritual-mook-step" style="border:1.5px solid rgba(201,109,69,0.35); background:#FFFBF8;">
+                <span class="ritual-step-tag" style="background:var(--mineral-accent); color:#FFF;">Step 4・達標下課</span>
+                <h5 style="font-size:15.5px; font-weight:800; margin:0 0 6px; color:#8C2D19;">目標責任制・達標自信結業</h5>
+                <p style="font-size:13px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                  拒絕無效拖時間！每堂課設定清楚目標（如精確寫完指定本數），扎實完成並核驗無誤立刻從容下課，培養時間主導權。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 108 課綱接軌與未來終身受用度 -->
+        <div style="margin-top:50px;">
+          <div style="text-align:center; max-width:760px; margin:0 auto 26px;">
+            <div class="mook-badge" style="background:#5A477B; margin-bottom:8px;">
+              <span>CURRICULUM & LIFELONG VALUE</span>
+              <span class="year">• 108 課綱接軌</span>
+            </div>
+            <h3 style="font-family:'Noto Serif TC',serif; font-size:clamp(20px, 2.5vw, 26px); font-weight:900; color:var(--ink); margin:0 0 10px;">
+              為什麼要在「大班～小二三」黃金期打底？接軌 108 課綱與未來終身受用度
+            </h3>
+            <p style="font-size:14.5px; line-height:1.75; color:var(--ink-soft); margin:0;">
+              到了小學三四年級，孩子的課表越來越滿，很難再撥時間專門上珠心算。因此尚學的教學目標是：<strong>在低年級黃金吸收期，將空間數感徹底內化至大腦！</strong> 即使之後結業不再上課，這套底層能力將在未來的每一次大考與升學中持續發酵：
+            </p>
+          </div>
+
+          <div class="grade-ladder-grid">
+            <!-- 階段一 -->
+            <div class="grade-ladder-card">
+              <div>
+                <span style="font-size:11.5px; font-weight:850; background:rgba(201,109,69,0.12); color:#8C2D19; padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                  階段一・在班奠基（大班～小二三）
+                </span>
+                <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">十進位具象通透・打穩低年級基礎</h4>
+                <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                  算盤的上五珠與下四珠，讓 108 課綱抽象的「湊十法、拆十法、進退位」化為指尖直覺反應。徹底擺脫扳手指、數格子、算題慢的拖延習慣，建立孩子對數理的第一個強大自信！
+                </p>
+              </div>
+              <div style="background:var(--green-light); border-left:3px solid var(--green); padding:8px 12px; border-radius:0 6px 6px 0; font-size:12.5px; color:#2D5444; font-weight:750;">
+                🎯 當期成效：低年級數學段考秒速作答，計算題 100% 正確率！
+              </div>
+            </div>
+
+            <!-- 階段二 -->
+            <div class="grade-ladder-card">
+              <div>
+                <span style="font-size:11.5px; font-weight:850; background:var(--yellow-light); color:#7A5B0B; padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                  階段二・接軌中年級（小三～小四）
+                </span>
+                <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">四則運算秒解・釋放大腦攻克素養題</h4>
+                <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                  <strong>即使此時已結業不再上課</strong>，三四年級面臨長篇情境題與多步驟四則運算時，腦內投影讓多位數乘除秒速得出，把 100% 大腦工作記憶留給理解題眼與邏輯推理，同儕苦算時孩子已從容破題！
+                </p>
+              </div>
+              <div style="background:var(--green-light); border-left:3px solid var(--green); padding:8px 12px; border-radius:0 6px 6px 0; font-size:12.5px; color:#2D5444; font-weight:750;">
+                🎯 未來反饋：不佔用課餘時間補算術，長篇素養題思考更深更透！
+              </div>
+            </div>
+
+            <!-- 階段三 -->
+            <div class="grade-ladder-card">
+              <div>
+                <span style="font-size:11.5px; font-weight:850; background:#EBF2EC; color:#356852; padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:10px;">
+                  階段三・終身武器（高年級～國中會考）
+                </span>
+                <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 10px; color:var(--ink);">大考高壓「秒速逆向驗算」搶滿分</h4>
+                <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 14px;">
+                  面對國小高年級與國中代數方程式的大量運算，曾受過珠心算訓練的孩子擁有極度敏銳的「數感直覺」。鐘響前能提早 15 分鐘完成兩輪逆向秒驗算，徹底消滅「我明明會寫只是粗心算錯」的遺憾！
+                </p>
+              </div>
+              <div style="background:var(--green-light); border-left:3px solid var(--green); padding:8px 12px; border-radius:0 6px 6px 0; font-size:12.5px; color:#2D5444; font-weight:750;">
+                🎯 終身底氣：幼時鍛造的空間專注與數感，成為一輩子帶著走的思維資產！
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 4. 日常專注風景 (Dual Polaroid Gallery)
+         ======================================================== -->
+    <section style="background:var(--paper); padding:60px 20px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>LEARNING ROUTINE</span>
+            <span class="year">• 日常學習風景</span>
+          </div>
+          <h2 class="mook-section-title">日常專注風景：在課桌前雕琢沉浸耐力</h2>
+          <p class="mook-section-subtitle">珠心算不只是追求快速的計算技術，更是一場關於「定心與專注」的刻意練習。在尚學的課堂裡，每一次指尖撥珠與落筆，都是孩子大腦思維的具象化：</p>
+        </div>
+
+        <div class="photo-dual-grid">
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-orange" style="top:-10px; left:30px; width:70px; transform:rotate(-2deg);"></div>
+            <img src="./photos/course_specialties/abacus_hands_soroban_4k.jpg" alt="學員雙手執筆撥珠操作現代 1・4 算盤與方格計算特寫" loading="lazy"/>
+            <div class="polaroid-caption">【指尖觸覺】握筆清盤・精準撥珠，以實體手感建立大腦空間數感</div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-yellow" style="top:-10px; right:30px; width:70px; transform:rotate(2deg);"></div>
+            <img src="./photos/course_specialties/abacus_classroom_focus_4k.jpg" alt="學員課堂沉浸開卷演算與心算投影實況" loading="lazy"/>
+            <div class="polaroid-caption">【專注演算】沉浸開卷・腦內投影，在靜心練習中雕琢抗干擾耐力</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 5. 日系車票預約區 + MOOK FAQ
+         ======================================================== -->
+    <section class="booking-mook-section" id="booking">
+      <div class="booking-ticket-card">
+        <div class="mook-badge">
+          <span>ADMISSION TICKET</span>
+          <span class="year">• 2026 INVITATION</span>
+        </div>
+        <h3 style="font-family:'Noto Serif TC',serif; font-size:clamp(22px, 3vw, 34px); font-weight:900; margin:10px 0 14px; color:var(--ink);">
+          預約珠心算學力診斷・免費體驗收心專注力
+        </h3>
+        <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin:0 auto 20px; line-height:1.75;">
+          別讓計算卡關磨滅了孩子對數理的熱情。歡迎預約尚學珠心算學力診斷，由專業老師為孩子評估目前數感與專注狀態，安排最適合的啟蒙起點。
+        </p>
+
+        <div class="booking-gift-pill">
+          <div class="booking-gift-icon">🎁</div>
+          <div class="booking-gift-text">
+            <strong>預約參訪專屬禮遇</strong>
+            <p>當日到班參觀，免費提供「右腦數感直覺評估」與「握筆坐姿抗壓專注力測試乙次」，名額有限敬請提前預約。</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:24px;">
+          <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+            <span>📝</span> 線上預約學力診斷與試聽
+          </a>
+          <a class="btn-mook-secondary" href="tel:073646570" style="background:#FFF;">
+            <span>📞</span> 電話預約 (07) 364-6570
+          </a>
+        </div>
+
+        <!-- 專業機構原則卡 -->
+        <div style="margin-top:28px; background:#F8F6F0; border:1px dashed var(--border-dashed); border-radius:10px; padding:12px 18px; text-align:left; font-size:13px; color:var(--ink-soft);">
+          📌 <strong>才藝請假制度說明</strong>：尚學全系列專項課程（安親除外）請假均實施<strong>「補進度非補時數」</strong>原則。專業老師會針對落後進度與口訣點對點重點指導，確保級位扎實通透，杜絕無意義的時數填充。
+        </div>
+      </div>
+
+      <!-- FAQ Mook Grid -->
+      <div style="max-width:960px; margin:50px auto 0;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>Q & A</span>
+            <span class="year">• 常見問題釋疑</span>
+          </div>
+          <h3 class="mook-section-title">關於珠心算學習的常見問題</h3>
+        </div>
+
+        <div class="faq-mook-grid">
+          <div class="faq-mook-item">
+            <h4>Q1. 孩子幾歲開始學珠心算最適合？大班還是國小？</h4>
+            <p>建議在「幼兒大班～國小二年級」是黃金啟蒙期。此時大腦對圖像思維吸收力最強，且手指小肌肉剛好具備撥珠力量。提早建立數感，能無縫銜接小學十進位課堂。</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q2. 珠心算會不會跟國小學校的「建構式數學」算法衝突？</h4>
+            <p>完全不會！建構式數學重在「理解題意邏輯」，而珠心算鍛造的是底層的「強大算力引擎」。算力快、速度穩的孩子，反而能更從容、更深刻地理解學校數學的多步驟推理！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q3. 學了珠心算，真的能改善寫功課「粗心大意」嗎？</h4>
+            <p>是的！粗心往往源於大腦工作記憶超載。珠心算每週持續「限時聽算看算」，強迫大腦在雜訊中維持抗壓專注，並訓練用逆向心算秒驗算，徹底告別粗心丟分。</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q4. 如果遇到段考週或生病請假，課程該怎麼補？</h4>
+            <p>專項課程請假均落實「補進度非補時數」。老師會詳實記錄進度落點，於返校時進行個別點對點指導與題型檢核，確保每一級位扎實通透，不因請假出現斷層。</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q5. 小學三四年級之後課表排滿沒時間繼續上，前面學的會白費嗎？</h4>
+            <p>完全不會！這正是我們強調「大班～小二三黃金期打底」的原因。珠心算不是要孩子學一輩子，而是把空間數感烙印在大腦中。二三年級完成奠基後，即使結業不再上課，這套「大腦投影速算與秒速驗算」能力將終身攜帶，在中高年級長篇素養題與國中會考持續發揮巨大優勢！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 全站共用頁尾 -->
+  <div id="site-footer-container"></div>
+
+  <!-- Shared Scripts -->
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
+  <script src="./shared-footer.js?v=20260911_v14"></script>
+</body>
+</html>

@@ -216,16 +216,23 @@
 
 .stamp-solution-seal {
   display: inline-block;
+  width: fit-content;
+  max-width: max-content;
   border: 1.5px solid #C0392B;
   color: #C0392B;
   font-family: 'Noto Serif TC', serif;
   font-size: 11px;
   font-weight: 900;
-  padding: 1px 6px;
+  padding: 1px 7px;
   border-radius: 4px;
-  transform: rotate(-3deg);
-  margin-bottom: 5px;
+  transform: rotate(-2deg);
+  margin-bottom: 6px;
   letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.sheet-a-section:not(:has(.qa-polaroid)) {
+  display: block;
 }
 
 .handwritten-arrow {
@@ -282,6 +289,7 @@
 
 /* 拍立得照片卡 */
 .polaroid-card {
+  position: relative;
   background: #FFF;
   padding: 8px 8px 18px 8px;
   border: 1px solid #DFD7CA;
@@ -1531,5 +1539,24 @@
   }
   .qa-polaroid img {
     height: 150px;
+  }
+  /* 全站通用的 MOOK 手機響應式防爆版保護 */
+  .hero-collage-wrap {
+    overflow: hidden;
+  }
+  .booking-mook-section {
+    padding: 48px 16px;
+  }
+  .booking-ticket-card {
+    padding: 28px 16px;
+    box-sizing: border-box;
+  }
+  .btn-mook-ticket {
+    font-size: 15px;
+    padding: 13px 18px;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
   }
 }

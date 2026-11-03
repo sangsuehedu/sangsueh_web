@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>兒童生活美語專頁｜告別死背填鴨 × 生活情境敢開口・Phonics 自然拼讀與生活實境參訪｜尚學文教</title>
+  <meta name="description" content="高雄楠梓兒童美語首選！尚學文教打破「單字抄十遍、上課不開口」的傳統死背，結合 Phonics 自然拼讀、生活繪本與「7-11超商/消防局/園藝店」真實生活情境參訪。校內段考高分兼顧生活流暢開口。精緻小班，請假採補進度非補時數。"/>
+  <meta name="keywords" content="楠梓兒童美語, 右昌兒童美語, 莒光兒童英文, 加昌國小美語, 自然發音, 生活美語, 繪本英文, 外師情境教學, 尚學文教"/>
+  <link rel="canonical" href="https://sangsuehedu.github.io/sangsueh_web/course-english-kids.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="兒童生活美語專頁｜告別死背填鴨 × 生活情境敢開口｜尚學文教"/>
+  <meta property="og:description" content="告別單字抄十遍！Phonics自然拼讀見字能讀，走進超商、消防局真實情境開口說。高雄楠梓兒童美語推薦！"/>
+  <meta property="og:image" content="https://sangsuehedu.github.io/sangsueh_web/photos/course_specialties/kids_english_reading_boy.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="icon" href="./favicon.png?v=20260906_v2" type="image/png"/>
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260906_v2"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+
+  <!-- Core Styles (Inherits 100% MOOK Design System) -->
+  <link rel="stylesheet" href="./index.css?v=20260911_v10"/>
+  <link rel="stylesheet" href="./mook-ui.css?v=20260911_v12"/>
+
+  <style>
+    :root {
+      --mineral-accent: #477B65; /* 常磐綠 */
+      --mineral-accent-light: #EBF2EC;
+    }
+
+    /* Course Unique Highlight Accent */
+    .hero-mook-title span.highlight {
+      background: linear-gradient(180deg, transparent 65%, rgba(71, 123, 101, 0.32) 65%);
+    }
+
+    /* Scenario Station Cards */
+    .scenario-mook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .scenario-mook-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(36, 49, 46, 0.04);
+      position: relative;
+    }
+    .scenario-img-frame {
+      height: 190px;
+      position: relative;
+      background: #E8ECE9;
+      overflow: hidden;
+    }
+    .scenario-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .scenario-pill-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(36, 49, 46, 0.85);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 850;
+      padding: 3px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+    .scenario-body-mook {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    /* Phonics 3-Step Ledger */
+    .phonics-ledger-box {
+      background: var(--paper-warm);
+      border: 1px solid var(--border-ink);
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 40px auto;
+      max-width: 1080px;
+      position: relative;
+    }
+    .phonics-step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .phonics-step-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    /* Dual Photo Grid */
+    .photo-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+      margin: 40px auto;
+    }
+
+        /* Interactive Hero Polaroid Collage & Guaranteed White Frame */
+    .hero-collage-wrap {
+      position: relative;
+      min-height: 420px;
+    }
+    .hero-polaroid-main {
+      width: 78%;
+      height: 345px !important;
+      max-height: 345px !important;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: rotate(-3deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 9px 9px 24px 9px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 1;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-sub {
+      width: 58%;
+      height: 275px !important;
+      max-height: 275px !important;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      transform: rotate(4deg);
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 9px 9px 24px 9px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s, box-shadow 0.3s ease;
+    }
+    .hero-polaroid-main img, .hero-polaroid-sub img {
+      flex: 1 1 0% !important;
+      min-height: 0 !important;
+      width: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+    .hero-polaroid-main .polaroid-caption,
+    .hero-polaroid-sub .polaroid-caption {
+      flex: 0 0 auto !important;
+      margin-top: 8px !important;
+      padding: 0 !important;
+      font-size: 11.5px !important;
+      font-weight: 750 !important;
+      color: var(--ink-soft) !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      text-align: center !important;
+      line-height: 1.2 !important;
+    }
+    /* Hover & Active Lift Interaction: bring to front when touched or clicked */
+    .hero-polaroid-main:hover,
+    .hero-polaroid-main.is-active {
+      transform: scale(1.04) rotate(-1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 12px 30px rgba(36, 49, 46, 0.22) !important;
+    }
+    .hero-polaroid-sub:hover,
+    .hero-polaroid-sub.is-active {
+      transform: scale(1.05) rotate(1deg) !important;
+      z-index: 10 !important;
+      box-shadow: 0 12px 30px rgba(36, 49, 46, 0.22) !important;
+    }
+
+    /* Override Polaroid Caption to allow natural multi-line wrapping */
+    .polaroid-caption {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: unset !important;
+      line-height: 1.5 !important;
+      padding: 6px 4px 0 4px !important;
+      font-size: 12px !important;
+    }
+
+    /* Balanced Ticket CTA Button */
+    .btn-mook-ticket {
+      border: 1.5px solid var(--ink) !important;
+      background: var(--orange) !important;
+      box-shadow: 3px 3px 0 var(--ink) !important;
+      padding: 13px 28px !important;
+      font-size: 15px !important;
+      font-weight: 800 !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+    }
+    .btn-mook-ticket:hover {
+      box-shadow: 4px 4px 0 var(--ink) !important;
+      transform: translate(-1px, -1px) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全站旗艦導覽列 (由 shared-navbar.js 自動渲染) -->
+  <div id="site-navbar-container"></div>
+
+  <main>
+    <!-- ========================================================
+         STAGE 1. HERO 雜誌卷頭 (Hero Mook)
+         ======================================================== -->
+    <section class="hero-mook">
+      <div class="hero-mook-grid">
+        <div class="hero-mook-text">
+          <div class="mook-badge">
+            <span>SPECIAL FOCUS</span>
+            <span class="year">• VOL. 03 兒童生活美語</span>
+          </div>
+          <h1 class="hero-mook-title">
+            告別死背填鴨，<br/>
+            讓美語成為<span class="highlight">敢開口探索世界的日常語言</span>。
+          </h1>
+          <p class="hero-mook-desc">
+            「單字抄了十遍考完就忘？看到外國人一句話都說不出來？」尚學兒童生活美語拒絕填鴨死記！結合<strong>「Phonics 自然拼讀」</strong>、<strong>「歐美生活繪本」</strong>與<strong>「走進 7-11 超商、消防局、園藝店的真實生活參訪」</strong>。既能輕鬆掌握學校段考高分，更能讓孩子自信流暢開口說！
+          </p>
+          <div class="hero-mook-actions">
+            <a class="btn-mook-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+              <span>📝</span> 預約學力測評與試聽
+            </a>
+            <a class="btn-mook-secondary" href="tel:073646570">
+              <span>📞</span> 諮詢專線 (07) 364-6570
+            </a>
+          </div>
+
+          <!-- 4 印章信任列 -->
+          <div class="hero-stamps-bar">
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">小班制</div>
+              <strong>外師雙向互動</strong>
+              <small>營造敢講不怕錯包容氛圍</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">4 大站</div>
+              <strong>真實生活參訪</strong>
+              <small>超商・消防・花園・繪本</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">Phonics</div>
+              <strong>見字能讀聽音能寫</strong>
+              <small>掌握44音素告別單字死背</small>
+            </div>
+            <div class="stamp-item-card">
+              <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--mineral-accent); line-height:1.2;">雙軌扎根</div>
+              <strong>聽說讀寫同步</strong>
+              <small>兼顧日常口語與校內考綱</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mook-visual">
+          <div class="hero-collage-wrap">
+            <div class="hero-polaroid-main polaroid-card">
+              <div class="washi-tape washi-tape-green" style="top:-11px; left:25px; width:75px; transform:rotate(-3deg);"></div>
+              <img src="./photos/course_specialties/kids_english_reading_boy.jpg" alt="尚學兒童美語課堂孩子認真閱讀與書寫特寫" loading="eager"/>
+              <div class="polaroid-caption">沉浸繪本・圖文脈絡自然內化</div>
+              
+            </div>
+            <div class="hero-polaroid-sub polaroid-card">
+              <div class="washi-tape washi-tape-yellow" style="top:-10px; right:20px; width:65px; transform:rotate(2deg);"></div>
+              <img src="./photos/course_specialties/kids_english_fire_2.jpg" alt="美語消防分隊參訪體驗" loading="lazy"/>
+              <div class="polaroid-caption">生活實境・右昌消防分隊探訪</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 2. 手帳風痛點手記 (Pain Section with Binder Holes)
+         ======================================================== -->
+    <section class="pain-section-mook">
+      <div style="max-width:1240px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#2D5444; box-shadow:0 2px 8px rgba(45,84,68,0.25);">
+            <span>DIAGNOSIS</span>
+            <span class="year">• 英語學習盲點診斷</span>
+          </div>
+          <h2 class="mook-section-title">為什麼學了三年英文，孩子依然「不敢開口、單字狂忘」？</h2>
+          <p class="mook-section-subtitle">
+            把英文當成密碼死記、被逼著抄寫十遍單字，只會抹滅學習熱情。離開教室，英文就徹底變成考卷死符號：
+          </p>
+        </div>
+
+        <div class="qa-diagnostic-grid">
+          <!-- 痛點 1 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-green sheet-tape" style="transform:rotate(-2deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 01</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">死背字母拼寫，單字隔週就忘光？</h3>
+              <p class="sheet-q-desc">
+                不知道每個字母對應的聲音，只能硬記「a-p-p-l-e」，單字一旦變長記憶就崩潰。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">Phonics 音素直覺解碼，見字能讀</h4>
+              <p class="sheet-a-desc">
+                掌握 44 個音素韻律，看到陌生字能順暢拼讀，聽到發音能自然拼寫出 80% 單字，徹底告別死背抄寫！
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 2 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-green sheet-tape" style="transform:rotate(1.5deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 02</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">看到外國人害羞閉嘴，深怕講錯被笑？</h3>
+              <p class="sheet-q-desc">
+                大班制補習班每堂輪到孩子說話不到一分鐘，缺乏安全的雙向互動語境。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">外師小班包容互動，大方開口</h4>
+              <p class="sheet-a-desc">
+                營造「說錯也很棒、敢講最勇敢」的氛圍，每堂課高頻率對話，把敢於開口變成肌肉反射。
+              </p>
+            </div>
+          </div>
+
+          <!-- 痛點 3 -->
+          <div class="qa-diagnostic-sheet">
+            <div class="binder-holes">
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+              <div class="binder-hole"></div>
+            </div>
+            <div class="washi-tape washi-tape-green sheet-tape" style="transform:rotate(-1deg);"></div>
+            <div class="sheet-q-section">
+              <div class="sheet-meta">
+                <span class="badge-q-subtle">DIAGNOSIS 03</span>
+                <span class="d-num">卡關現象</span>
+              </div>
+              <h3 class="sheet-q-title">校內段考只會寫選擇題，聽力一快就慌？</h3>
+              <p class="sheet-q-desc">
+                大腦習慣先翻譯成中文才能理解，反應時間慢半拍，考卷一長就應付不來。
+              </p>
+            </div>
+            <div class="sheet-a-section">
+              <div class="stamp-solution-seal" style="border-color:var(--mineral-accent); color:var(--mineral-accent);">尚學解方</div>
+              <h4 class="sheet-a-title">生活繪本情境沉浸，聽力段考滿分</h4>
+              <p class="sheet-a-desc">
+                透過繪本與生活任務培養「以英語理解英語」的直接語感，學校段考與聽力測驗從容拿滿分！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 3. 兒童美語專屬靈魂看板 (Soul Module)
+         ======================================================== -->
+    <section style="background:#FAF8F4; padding:70px 20px; border-bottom:1px dashed var(--border-dashed);">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:var(--mineral-accent);">
+            <span>REAL FIELD TRIPS</span>
+            <span class="year">• 真實教學現場</span>
+          </div>
+          <h2 class="mook-section-title">走出教室！尚學四大真實生活情境任務</h2>
+          <p class="mook-section-subtitle">
+            語言不是考卷上的死符號，而是探索生活的工具。我們把教室搬到楠梓社區，讓孩子在真實場景中開口！
+          </p>
+        </div>
+
+        <div class="scenario-mook-grid">
+          <!-- Station 1: Fire Station -->
+          <div class="scenario-mook-card">
+            <div class="scenario-img-frame">
+              <img src="./photos/course_specialties/kids_english_fire_equipment.jpg" alt="尚學美語右昌消防分隊實地裝備探索"/>
+              <span class="scenario-pill-tag">任務 01・走進社區</span>
+            </div>
+            <div class="scenario-body-mook">
+              <div style="font-size:13px; color:var(--mineral-accent); font-weight:800; margin-bottom:6px;">“Look, it is a fire truck!”</div>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 8px;">右昌消防分隊實地參訪與探索</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0;">
+                實地參訪右昌消防分隊，親眼看到超大台紅色消防車與裝備！孩子在興奮好奇的探索中，開心地指著說 Fire truck、Hose、Water，把美語自然融入生活快樂記憶。
+              </p>
+            </div>
+          </div>
+
+          <!-- Station 2: Garden -->
+          <div class="scenario-mook-card">
+            <div class="scenario-img-frame">
+              <img src="./photos/course_specialties/kids_english_garden_1.jpg" alt="尚學美語園藝店綠意探索"/>
+              <span class="scenario-pill-tag">任務 02・大自然觀察</span>
+            </div>
+            <div class="scenario-body-mook">
+              <div style="font-size:13px; color:var(--mineral-accent); font-weight:800; margin-bottom:6px;">“In the Garden, I see plants!”</div>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 8px;">園藝店植物五感探索</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0;">
+                走進園藝花坊，觸摸各種泥土與植物。結合五感體驗學習 Root, Stem, Leaf, Blossom 等自然科學英文，讓美語與自然跨學科融合。
+              </p>
+            </div>
+          </div>
+
+          <!-- Station 3: 7-11 Outing -->
+          <div class="scenario-mook-card">
+            <div class="scenario-img-frame">
+              <img src="./photos/course_specialties/kids_english_711_field.jpg" alt="尚學外師美語7-11超商實地參訪採買"/>
+              <span class="scenario-pill-tag">任務 03・超商生活買物</span>
+            </div>
+            <div class="scenario-body-mook">
+              <div style="font-size:13px; color:var(--mineral-accent); font-weight:800; margin-bottom:6px;">“May I take your order?”</div>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 8px;">7-11 超商點餐與購物任務</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0;">
+                由外師陪伴走進便利商店，每位孩子拿著任務清單，親自用英語詢問價格、確認品項與收銀結帳，在真實商業場景中驗證口語應對能力！
+              </p>
+            </div>
+          </div>
+
+          <!-- Station 4: Picture Books -->
+          <div class="scenario-mook-card">
+            <div class="scenario-img-frame">
+              <img src="./photos/course_specialties/kids_english_library_outing.jpg" alt="尚學美語走進圖書館沉浸式英文繪本閱讀"/>
+              <span class="scenario-pill-tag">任務 04・經典繪本導讀</span>
+            </div>
+            <div class="scenario-body-mook">
+              <div style="font-size:13px; color:var(--mineral-accent); font-weight:800; margin-bottom:6px;">“Storytelling & Role-play”</div>
+              <h4 style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:850; margin:0 0 8px;">圖書館繪本沉浸對話</h4>
+              <p style="font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin:0;">
+                精選歐美經典繪本，外師以豐富肢體語言引導孩子猜測情節、分段角色扮演。不逐字翻譯，以情境圖像直接理解文意，培養地道語感。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phonics 3-Step Methodology Box -->
+        <div class="phonics-ledger-box">
+          <div class="washi-tape washi-tape-green" style="top:-12px; left:40px; width:90px; transform:rotate(-1deg);"></div>
+          <div style="text-align:center; max-width:680px; margin:0 auto 16px;">
+            <span style="font-size:11.5px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:3px 10px; border-radius:999px; text-transform:uppercase;">
+              高效拼讀系統
+            </span>
+            <h3 style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:900; margin:8px 0; color:var(--ink);">
+              Phonics 自然拼讀三步曲：見字能讀、聽音能寫
+            </h3>
+            <p style="font-size:14px; line-height:1.65; color:var(--ink-soft); margin:0;">
+              打破「a-p-p-l-e 抄十遍」的痛苦循環，讓孩子的大腦建立「字母形狀與語音」的直接神經回路。
+            </p>
+          </div>
+
+          <div class="phonics-step-grid">
+            <div class="phonics-step-item">
+              <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">Step 1・聽音辨音</span>
+              <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">辨識 44 個音素韻律</h5>
+              <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                聽得出 cat 是由 /k/、/æ/、/t/ 三個聲音組成。透過童謠與口型示範，精準校正發音死角。
+              </p>
+            </div>
+            <div class="phonics-step-item">
+              <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">Step 2・拼讀解碼</span>
+              <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">見字能讀・陌生字不慌</h5>
+              <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                掌握短母音、長母音、雙子音（bl, ch, sh）規則。即使沒看過的新單字也能順暢拼讀出來。
+              </p>
+            </div>
+            <div class="phonics-step-item">
+              <span style="font-size:11px; font-weight:850; color:var(--mineral-accent); background:var(--mineral-accent-light); padding:2px 8px; border-radius:999px;">Step 3・音素編碼</span>
+              <h5 style="font-size:16px; font-weight:800; margin:8px 0 6px;">聽音能寫・告別死背</h5>
+              <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0;">
+                聽到單字發音，大腦自動拆解音節並寫下正確字母。聽寫測驗滿分，再也不需要家長盯抄寫！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 4. 真實課堂相片雙聯展 (Dual Polaroid Gallery)
+         ======================================================== -->
+    <section style="background:var(--paper); padding:60px 20px;">
+      <div style="max-width:1100px; margin:0 auto;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>PHOTO JOURNAL</span>
+            <span class="year">• 參訪與課堂紀實</span>
+          </div>
+          <h2 class="mook-section-title">走入真實情境：把生活變成孩子的美語遊樂場</h2>
+          <p class="mook-section-subtitle">尚學實境教學點滴，讓每一次開口都充滿探索與自信：</p>
+        </div>
+
+        <div class="photo-dual-grid">
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-green" style="top:-10px; left:30px; width:70px; transform:rotate(-2deg);"></div>
+            <img src="./photos/course_specialties/kids_interactive_group.jpg" alt="尚學美語小組討論與師生雙向互動教學" loading="lazy"/>
+            <div class="polaroid-caption">【雙師個別指導】課堂細緻拆解・即時對照教材，引導孩子扎實扎穩美語底氣</div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="washi-tape washi-tape-yellow" style="top:-10px; right:30px; width:70px; transform:rotate(2deg);"></div>
+            <img src="./photos/course_specialties/kids_english_reading_girl.jpg" alt="尚學美語自然沉浸閱讀與生活寫作角落" loading="lazy"/>
+            <div class="polaroid-caption">【美語開卷練習】白板句型引導・對照題本專注作答，在扎實節奏中自然建構英文語感</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         STAGE 5. 日系車票預約區 + MOOK FAQ
+         ======================================================== -->
+    <section class="booking-mook-section" id="booking">
+      <div class="booking-ticket-card">
+        <div class="mook-badge">
+          <span>ADMISSION TICKET</span>
+          <span class="year">• 2026 INVITATION</span>
+        </div>
+        <h3 style="font-family:'Noto Serif TC',serif; font-size:clamp(22px, 3vw, 34px); font-weight:900; margin:10px 0 14px; color:var(--ink);">
+          預約兒童美語互動試聽・免費語感程度診斷
+        </h3>
+        <p style="font-size:15px; color:var(--ink-soft); max-width:680px; margin:0 auto 20px; line-height:1.75;">
+          歡迎帶孩子來尚學體驗一堂生動有趣的美語互動課。由專業老師親自為孩子做語感診斷，找出最自在開口的學習起點。
+        </p>
+
+        <div class="booking-gift-pill">
+          <div class="booking-gift-icon">🎁</div>
+          <div class="booking-gift-text">
+            <strong>預約參訪專屬禮遇</strong>
+            <p>當日到班參觀，免費提供「Phonics 自然拼讀程度評估」與「課堂沉浸美語互動體驗乙次」，名額有限敬請提前預約。</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:24px;">
+          <a class="btn-mook-ticket" href="https://docs.google.com/forms/d/e/1FAIpQLSc1BAJFgODdtTjtbdpeRYENubrBgTyIlZJ-Ar8qF0plnQbIKA/viewform" target="_blank" rel="noopener noreferrer">
+            <span>📝</span> 線上預約美語試聽與鑑定
+          </a>
+          <a class="btn-mook-secondary" href="tel:073646570" style="background:#FFF;">
+            <span>📞</span> 電話預約 (07) 364-6570
+          </a>
+        </div>
+
+
+      </div>
+
+      <!-- FAQ Mook Grid -->
+      <div style="max-width:960px; margin:50px auto 0;">
+        <div class="mook-section-header">
+          <div class="mook-badge" style="background:#24312E;">
+            <span>Q & A</span>
+            <span class="year">• 常見問題釋疑</span>
+          </div>
+          <h3 class="mook-section-title">關於兒童生活美語的常見問題</h3>
+        </div>
+
+        <div class="faq-mook-grid">
+          <div class="faq-mook-item">
+            <h4>Q1. 孩子完全零基礎、字母都不認得，跟得上生活美語課嗎？</h4>
+            <p>完全跟得上！初學孩子會從最基礎的字母發音律動與生活實體教具開始，搭配老師溫暖鼓勵的肢體引導，孩子在第一堂課就能開心跟著外師開口！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q2. 生活美語會不會偏向「只會玩」，導致學校英文段考成績不理想？</h4>
+            <p>絕對不會！尚學堅持「生活情境開口」與「校內考綱扎根」雙軌並行。孩子在情境中掌握的單字文意更深刻，回到考卷上的單字填寫與聽力題，反應速度遠勝死背的孩子！</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q3. 外師教學時，孩子如果聽不懂會不會感到害怕挫折？</h4>
+            <p>課堂均有輔導助教在旁協助。外師具備多年兒童教學經驗，善於運用生動表情、繪本圖卡與情境手勢引導，孩子很快就會忘記緊張、融入對話。</p>
+          </div>
+          <div class="faq-mook-item">
+            <h4>Q4. 到了國小高年級（小五小六），美語課會如何銜接？</h4>
+            <p>完成兒童美語基礎後，小五小六學員將平穩銜接至尚學<strong>「國中先修英文（進階英語素養）」</strong>，進一步擴充 1200 核心字彙、掌握國中五大句型結構，無痛跨越難度斷崖！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 全站共用頁尾 -->
+  <div id="site-footer-container"></div>
+
+  <!-- Shared Scripts -->
+  <script src="./shared-navbar.js?v=20261029_drawer_close_fixed"></script>
+  <script src="./shared-footer.js?v=20260911_v14"></script>
+  <script>
+    // Hero Polaroid Click-to-Focus Interaction
+    document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        document.querySelectorAll('.hero-collage-wrap .polaroid-card').forEach(function(c) {
+          if (c !== card) c.classList.remove('is-active');
+        });
+        card.classList.toggle('is-active');
+      });
+    });
+  </script>
+</body>
+</html>
